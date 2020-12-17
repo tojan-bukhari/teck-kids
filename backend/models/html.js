@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const HTML_Schema = new mongoose.Schema ({
     Titles:
     {
