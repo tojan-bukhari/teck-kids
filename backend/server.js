@@ -2,6 +2,8 @@ var express = require('express');
 var morgan = require('morgan')
 var cors = require('cors')
 var app = express();
+const authRoutes = require('./routes/auth')
+
 
 require('dotenv').config();
 
@@ -17,6 +19,10 @@ const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 });
+
+
+app.use('/api',authRoutes);
+
 
 //port with what ever the port will be given by heruko
 const port = process.env.PORT || 8000;
