@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema ({
       },
      role:{
          type:String,
-         enum :[ student , teacher]
+         enum :[ "student" , "teacher"]
       },
     HTML_Schema:[
           {type:mongoose.schema.types.ObjectId,ref:"Html"}

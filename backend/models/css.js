@@ -12,4 +12,4 @@ const CSS_Schema = new mongoose.Schema ({
     },
 });
 
-export default mongoose.model('css',CSS_Schema );
+module.exports = mongoose.model('css',CSS_Schema );
