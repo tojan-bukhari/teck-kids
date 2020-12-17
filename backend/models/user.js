@@ -24,8 +24,7 @@ const userSchema = new mongoose.Schema ({
     age:{
         type: Number,
       required: true,
-       trim: true
-        
+       trim: true    
     }, 
     image:{
         typt:String,
@@ -41,24 +40,26 @@ const userSchema = new mongoose.Schema ({
       },
     HTML_Schema:[
           {
-              type: mongoose.schema.Types.ObjectId,
+              type: mongoose.Schema.Types.ObjectId,
             ref:"Html"
         }
       ],
   
      CSS_Schema:[
           {
-              type:mongoose.schema.Types.ObjectId,
+              type:mongoose.Schema.Types.ObjectId,
               ref:"css"
             }
       ],
   
      JS_Schema:[
           {
-              type:mongoose.schema.Types.ObjectId,
+              type:mongoose.Schema.Types.ObjectId,
               ref:"js"}
       ] 
    
 });
 
-export default mongoose.model('User',userSchema );
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
