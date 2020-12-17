@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema ({
         min: 6
     },
     age:{
-        type: number,
+        type: Number,
       required: true,
        trim: true
         
@@ -41,17 +41,25 @@ const userSchema = new mongoose.Schema ({
          enum :[ "student" , "teacher"]
       },
     HTML_Schema:[
-          {type:mongoose.schema.types.ObjectId,ref:"Html"}
+          {
+              type: mongoose.schema.Types.ObjectId,
+            ref:"Html"
+        }
       ],
   
      CSS_Schema:[
-          {type:mongoose.schema.types.ObjectId,ref:"css"}
+          {
+              type:mongoose.schema.Types.ObjectId,
+              ref:"css"
+            }
       ],
   
      JS_Schema:[
-          {type:mongoose.schema.types.ObjectId,ref:"js"}
+          {
+              type:mongoose.schema.Types.ObjectId,
+              ref:"js"}
       ] 
    
 });
 
-module.exports = mongoose.model('User',userSchema );
+export default mongoose.model('User',userSchema );
