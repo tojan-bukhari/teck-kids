@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const CSS_Schema = new mongoose.Schema ({
    
     Titles:
@@ -12,4 +14,4 @@ const CSS_Schema = new mongoose.Schema ({
     },
 });
 
-module.exports = mongoose.model('css',CSS_Schema );
+export default mongoose.model('css',CSS_Schema );
