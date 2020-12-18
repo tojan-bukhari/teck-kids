@@ -18,11 +18,9 @@ connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 });
 
-//port with what ever the port will be given by heruko
+//port with whatever the port will be given by heruko
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
 
-//test222
-// hello its tojan

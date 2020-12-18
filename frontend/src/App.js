@@ -15,7 +15,8 @@ function App() {
      {islogged ? <h3> you should not see this </h3> : " "} 
     </div>
   );
-}
-// modify islogged
 
-export default App;
+
+};
+
+export default App; 

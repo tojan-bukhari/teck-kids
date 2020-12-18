@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-//////////////////////userSchema///////////////////////////////////
 const userSchema = new mongoose.Schema ({
     userName:{
         type: String,
@@ -23,10 +22,9 @@ const userSchema = new mongoose.Schema ({
         min: 6
     },
     age:{
-        type: number,
+        type: Number,
       required: true,
-       trim: true
-        
+       trim: true    
     }, 
     image:{
         typt:String,
@@ -41,18 +39,27 @@ const userSchema = new mongoose.Schema ({
          enum :[ "student" , "teacher"]
       },
     HTML_Schema:[
-          {type:mongoose.schema.types.ObjectId,ref:"Html"}
+          {
+              type: mongoose.Schema.Types.ObjectId,
+            ref:"Html"
+        }
       ],
   
      CSS_Schema:[
-          {type:mongoose.schema.types.ObjectId,ref:"css"}
+          {
+              type:mongoose.Schema.Types.ObjectId,
+              ref:"css"
+            }
       ],
   
      JS_Schema:[
-          {type:mongoose.schema.types.ObjectId,ref:"js"}
+          {
+              type:mongoose.Schema.Types.ObjectId,
+              ref:"js"}
       ] 
    
 });
 
-module.exports = mongoose.model('User',userSchema );
-/////////////////////////////////////////////////////////////////////////////
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;
