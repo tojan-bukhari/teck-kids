@@ -1,25 +1,21 @@
-
-
+import React from "react";
+import { useSelector , useDispatch} from "react-redux";
+import { increment , decrement } from "./actions";
 
 function App() {
+  const counter = useSelector(state => state.counter);
+  const islogged = useSelector(state => state.islogged);
+  const dispatch = useDispatch();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className = "App">
+      <h1> Counter { counter }</h1>
+      <button onClick = { () => dispatch( increment(5) ) }>+</button>
+      <button onClick = { () => dispatch( decrement() )}>-</button>
+     {islogged ? <h3> you should not see this </h3> : " "} 
     </div>
   );
 }
+// modify islogged
 
 export default App;
