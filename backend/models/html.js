@@ -14,4 +14,4 @@ const HTML_Schema = new mongoose.Schema ({
     },
 });
 
-export default mongoose.model('Html',HTML_Schema );
+module.exports = mongoose.model('Html',HTML_Schema );
