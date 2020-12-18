@@ -41,15 +41,15 @@ const userSchema = new mongoose.Schema ({
          enum :[ "student" , "teacher"]
       },
     HTML_Schema:[
-          {type:mongoose.schema.Types.ObjectId,ref:"Html"}
+          {type:mongoose.Schema.Types.ObjectId,ref:"Html"}
       ],
   
      CSS_Schema:[
-          {type:mongoose.schema.Types.ObjectId,ref:"css"}
+          {type:mongoose.Schema.Types.ObjectId,ref:"css"}
       ],
   
      JS_Schema:[
-          {type:mongoose.schema.Types.ObjectId,ref:"js"}
+          {type:mongoose.Schema.Types.ObjectId,ref:"js"}
       ] 
    
 });
