@@ -58,7 +58,7 @@ router.post("/register", async (req, res) => {
    router.post('/signin',async(req, res)=> {
     try {
         let {email, password } = req.body;
-        
+
         if(!email || !password)
         return res.status(401).json({msg :"password and email are required"})
 
@@ -87,6 +87,7 @@ router.post("/register", async (req, res) => {
  
     }
 })
+//////////////////
 
 });
 module.exports = router;
