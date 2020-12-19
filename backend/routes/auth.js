@@ -8,28 +8,42 @@ const bcrypt = require('bcrypt');
 const Joi = require('@hapi/joi');
 //for the token
 const JWT = require('jsonwebtoken');
+const auth = require("./middleware");
 
-const validator = require('express-joi-validation').createValidator({})
+//the validation schema using joi :)
+const querySchema = Joi.object({
 
-const { schema } = require('../models/User');
+ userName         : Joi.string().required(),
+age    : Joi.string().required(),
+  email        : Joi.string().required().lowercase().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
+  password     : Joi.string().min(8).required(),
+  passwordAgain: Joi.ref('password'),//to equal password
+
+})
 
 
-
-
-
-
-
+//we add async here cause we need sometime to submit the data here
 
 router.post("/register", async (req, res) => {
+
+  //what I need to cheeck for the user registration:
+
     try {
       let { userName, age,email, password } = req.body;
   
       // validate
+      //0- check if the user enter the filed 
+      const{error}         = querySchema.validate(req.body);
+      console.log(req.body)
+      if(error){
+         
+          return res.status(403).json({msg :error.details[0].message})}
   
       if ( !userName || !age||!email || !password )
         return res.status(400).json({ msg: "Not all fields have been entered." });
      
-     
+     //1- The email is  alredy used
+
   
       const existingUser = await User.findOne({ email: email });
       if (existingUser)
@@ -37,7 +51,7 @@ router.post("/register", async (req, res) => {
           .status(400)
           .json({ msg: "An account with this email already exists." });
   
-    
+    //hashing
       const salt = await bcrypt.genSalt();
       const passwordHash = await bcrypt.hash(password, salt);
   
@@ -53,41 +67,64 @@ router.post("/register", async (req, res) => {
       res.status(500).json({ error: err.message });
     }
 
-
-
-   router.post('/signin',async(req, res)=> {
-    try {
-        let {email, password } = req.body;
-
-        if(!email || !password)
-        return res.status(401).json({msg :"password and email are required"})
-
-        //3-find the user email at the db by email since it is uonic and it will return boolean so..
-        const retrevdUser = await User.findOne({ email:email }) ;
-        if( !retrevdUser ){
-        return res.status(402).json({msg:"Sorry you don't have acount on the webpage please login... 3eeeb 3aleek"})
-        
-        }
-        //4-You need to compare the encripted pass with the pass entered from the user by using bcrypt.compare
-        //it will return boolean so 
-        const comparePass = await bcrypt.compare( password, retrevdUser.password )
-        if( !comparePass )
-        return res.status(403).json({msg:"Invalid Credentials, 3eeeeb 3aleeek U_U "})
-
-        //5- create the token for the user
-        //-make the SECRET_TOKEN by  require('crypto').randomBytes(64).toString('hex') at the terminal but before that you 
-        //should write node so you can use it 
-        //sign take (what we wont to serialized)
-        const token = JWT.sign({ retrevdUser : retrevdUser._id }, process.env.SECRET_TOKEN)
-        res.header('theToken',token);// put the token in the header so we send it 
-        res.status(200).json({ token, retrevdUser :{id:retrevdUser._id , name: retrevdUser.name} }) //send the token to the local storge
-    } catch (error) {
-        return res.status(500).json({err : error.message})
-
- 
-    }
-})
-//////////////////
-
 });
+/*WhAT i NEED TO DO ?
+1- take the value (email and password) and store them at const
+2- check if the values are not empty
+3-look for the email at the db using(findone method)
+3- the pass is encripted sooo , I will use the tokens method and gooooogle for it
+*/
+    router.post("/login", async (req, res) => {
+      try {
+        const {email, password } = req.body;
+        console.log(req.body)
+
+    
+        // validate email && user
+        if (!email || !password)
+          return res.status(400).json({ msg: "Not all fields have been entered." });
+    
+        const user = await User.findOne({ email: email });
+        if (!user)
+          return res
+            .status(400)
+            .json({ msg: "No account with this email has been registered." });
+// compare between the new passord with the password in db
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) return res.status(400).json({ msg: "Invalid credentials." });
+    //create token 
+        const token = JWT.sign({ id: user._id }, process.env.JWT_SECRET);
+        res.json({
+          token,
+          user: {
+            id: user._id,
+          
+          },
+        });
+      } catch (err) {
+        res.status(500).json({ error: err.message });
+      }
+    });
+    router.post("/tokenIsValid", async (req, res) => {
+      try {
+        const token = req.header("x-auth-token");
+        if (!token) return res.json(false);
+    
+        const verified = JWT.verify(token, process.env.JWT_SECRET);
+        if (!verified) return res.json(false);
+    
+        const user = await User.findById(verified.id);
+        if (!user) return res.json(false);
+    
+        return res.json(true);
+      } catch (err) {
+        res.status(500).json({ error: err.message });
+      }
+     
+    });
+
+    // router.get("/",auth,  async (req, res) => {
+    //   const user = await User.findById(req.user);
+    //   res.json(user);
+    // });
 module.exports = router;
