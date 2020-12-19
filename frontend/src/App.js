@@ -1,18 +1,31 @@
-import React from "react";
-import { useSelector , useDispatch} from "react-redux";
-import { increment , decrement } from "./actions";
+
+// import { increment , decrement } from "./actions";
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Header from './component/Header';
+import Home from './component/Home';
+import login from './component/login';
+import registrate from './component/registrate';
 
 function App() {
-  const counter = useSelector(state => state.counter);
-  const islogged = useSelector(state => state.islogged);
-  const dispatch = useDispatch();
 
   return (
-    <div className = "App">
-      <h1> Counter { counter }</h1>
-      <button onClick = { () => dispatch( increment(5) ) }>+</button>
-      <button onClick = { () => dispatch( decrement() )}>-</button>
-     {islogged ? <h3> you should not see this </h3> : " "} 
+    <div className="App">
+     <>
+      <BrowserRouter>
+      <Header />
+          <div className="container">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={login} />
+              <Route exact path="/registrate" component={registrate} />
+              
+            </Switch>
+          </div>
+        
+      </BrowserRouter>
+    </>
+          
     </div>
   );
 
