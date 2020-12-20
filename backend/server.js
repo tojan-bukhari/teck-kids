@@ -2,12 +2,16 @@ var express = require('express');
 var morgan = require('morgan')
 var cors = require('cors')
 var app = express();
+const authRoutes = require('./routes/auth')
+
 
 const courseRoute = require('./routers/courseRoute');
 require('dotenv').config();
 
 app.use(cors())
 app.use(express.json()); 
+///
+
 app.use(morgan('dev'));
 
 const mongoose = require('mongoose');
@@ -19,6 +23,10 @@ const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 });
+//
+
+app.use('/api',authRoutes);
+
 
 //the routes 
 app.use('/course',courseRoute)
