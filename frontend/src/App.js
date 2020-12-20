@@ -6,6 +6,7 @@ import Header from './component/Header';
 import Home from './component/Home';
 import login from './component/login';
 import registrate from './component/registrate';
+import profile from './component/profile'
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={login} />
               <Route exact path="/registrate" component={registrate} />
-              
+              <Route exact path="/account/:id" component={profile} />
             </Switch>
           </div>
         

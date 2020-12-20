@@ -7,22 +7,43 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-
+//  import validate from "./component/validateLogin"
 
 
 
 // eslint-disable-next-line 
 /****************************************************************/
-const Signin = ()=>{
+const Signin = (validate)=>{
   const history = useHistory();
   //the values wich inserted by the user is stored at email and password using setEmail,setPasswword 
   const [ email        , setEmail    ]     = useState();
   const [ password     , setPassword ]     = useState();
+  const [ errors     , setErrors ]     = useState({email:"",password:""});
+
+
    
+ function validate(email,password) {
+  let errors = {};
+  if (!email) {
+    errors.email = "Email address is required";
+
+  } else if (!/\S+@\S+\.\S+/.test(email)) {
+    errors.email = "Email address is invalid";
+  }
+  if (!password) {
+    errors.password = "Password is required";
+  } else if (password.length < 10) {
+    errors.password = "Password needs to be more than 10 characters";
+  }
+  return errors;
+}
   
   //we need to send the data from frontend to backend , I will use axios for that ..
   const submit =async (e)=>{
     e.preventDefault();
+    setErrors(validate(email,password))
+  
+
     try {
       const newUser = { email ,password } ;
       const loginRes = await axios.post("http://localhost:8000/api/login" , newUser)
@@ -30,8 +51,8 @@ const Signin = ()=>{
       localStorage.setItem("theToken", loginRes.data.token);
       history.push('/')
        } catch (error) {
-      alert(error.response.data.msg)
-     
+      // alert(error.response.data.msg)
+
   
       }
 
@@ -51,6 +72,7 @@ const Signin = ()=>{
         <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
         </InputGroup.Append>
         <FormControl
+        name
           placeholder="Recipient's username"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
@@ -59,6 +81,7 @@ const Signin = ()=>{
           required
         />
         </InputGroup> 
+       <p>{errors.email &&<p>{errors.email}</p>}</p> 
   
     <div className="form-group">
         <InputGroup className="mb-3">
@@ -72,7 +95,7 @@ const Signin = ()=>{
             required
          />
         </InputGroup> 
-   
+        <p>{errors.password &&<p>{errors.password}</p>}</p> 
     </div>
         <div>
            

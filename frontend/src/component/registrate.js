@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useHistory } from "react-router-dom";
 
 /****************************************************/
-
+///////////////tojaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaan
 //use the arrow function to bind values 
 const Create = ()=>{
     const history = useHistory();
@@ -14,18 +14,36 @@ const [ userName         , setName ]         = useState();
 const [ age       , setage ]        = useState();
 const [ email        , setEmail ]        = useState();
 const [ password     , setPassword ]     = useState();
+const [ errors     , setErrors ]     = useState({email:"",password:""});
 
 
+
+function validate(email,password) {
+    let errors = {};
+    if (!email) {
+      errors.email = "Email address is required";
+  
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      errors.email = "Email address is invalid";
+    }
+    if (!password) {
+      errors.password = "Password is required";
+    } else if (password.length < 10) {
+      errors.password = "Password needs to be more than 10 characters";
+    }
+    return errors;
+  }
 //we need to send the data from frontend to backend , I will use axios for that ..
 const submit =async (e)=>{
     
     e.preventDefault();
+    setErrors(validate(email,password));
+
  try {
       const newUser = { userName,age,email  ,password  } ;
    await axios.post("http://localhost:8000/api/register" , newUser);
    history.push('/register')
  } catch (error) {
-     alert(error.response.data.msg)
      
  }  
 
@@ -38,6 +56,7 @@ const submit =async (e)=>{
         <div className="form-group">
             <label className="text-muted">userName: </label>
             <input id="reg-name" type="text" className="form-control" placeholder="Enter Your name" required onChange={(e)=>{setName(e.target.value)}} />
+          
         </div>
       
         <div className="form-group">
@@ -47,10 +66,14 @@ const submit =async (e)=>{
         <div className="form-group">
             <label className="text-muted"> Email </label>
             <input id="reg-email" type="email" className="form-control" placeholder="Enter Your email" required onChange={(e)=>{setEmail(e.target.value)}}/>
+            <p>{errors.email &&<p>{errors.email}</p>}</p> 
+
         </div>
         <div className="form-group">
             <label className="text-muted"> Password </label>
             <input id="reg-pass" type="text" className="form-control" placeholder="Enter Your Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
+            <p>{errors.password &&<p>{errors.password}</p>}</p> 
+
         </div>
         
         <div>
