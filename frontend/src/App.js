@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from './components/sidebar/Navbar';
-import './App.css';
+// import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import lessons from './pages/Lessons';
@@ -14,7 +14,9 @@ function App() {
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/lessons' component={lessons} />
-          <Route path='/exercises' component={Exercises} />
+          {/* <Route path='/exercises' component={Exercises} /> */}
+          <Exercises />
+         
         </Switch>
       </BrowserRouter>
     </> 
