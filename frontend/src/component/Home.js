@@ -4,9 +4,16 @@ import Cards from "./cards/Cards"
 import ControlledCarousel from './carusal';
 
 export default function Home() {
-   return <div>
+
+   // var lesson='';
+ 
+   return (
+     <div>
 
 <ControlledCarousel />
      <Cards/>
+   </div>
+   )
 
 }
+
