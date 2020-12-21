@@ -1,4 +1,3 @@
-// import { increment , decrement } from "./actions";
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './component/Home';
@@ -18,7 +17,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        
+
         <Switch>
           <Route path='/lessons' component={lessons} />
           <Route path='/exercises' component={Exercises} />
@@ -27,6 +26,7 @@ function App() {
           <Route exact path="/login" component={login} />
           <Route exact path="/registrate" component={registrate} />
           <Route exact path="/account/:id" component={profile} />
+          <Exercises />
         </Switch>
       </BrowserRouter>
     </> 
