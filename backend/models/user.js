@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema ({
       required: true,
        trim: true    
     }, 
-    image:{
+    img:{
         typt:String,
       },
   
