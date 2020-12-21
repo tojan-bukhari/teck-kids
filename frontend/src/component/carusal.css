@@ -1,0 +1,18 @@
+.pargraph{
+    margin-bottom: 220px;
+    margin-left: 110px;
+    border-style: inset;
+    width: 700px;
+    background-color:gray;
+    opacity: 0.7;
+    padding: 60px;
+}
+.size{
+    height:595px;
+    width:1300px;
+}
+
+.button1{
+    margin-left:30px;
+    color:black;
+}

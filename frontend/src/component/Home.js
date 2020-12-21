@@ -1,8 +1,10 @@
 import React from 'react';
+import ControlledCarousel from './carusal';
 
 export default function Home() {
    return <div>
-Home
+
+<ControlledCarousel />
 
     </div>
 }

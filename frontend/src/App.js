@@ -8,7 +8,7 @@ import Home from './component/Home';
 import login from './component/login';
 import registrate from './component/registrate';
 import profile from './component/profile'
-import Navbar from './components/sidebar/Navbar';
+import Navbar from './component/sidebar/Navbar';
 import './App.css';
 
 import lessons from './pages/Lessons';
@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+       
         <Switch>
           <Route path='/lessons' component={lessons} />
           <Route path='/exercises' component={Exercises} />
