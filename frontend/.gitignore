@@ -2,4 +2,5 @@
 
 # dependencies
 node_modules
-eslintcache
+# Optional eslint cache
+.eslintcache

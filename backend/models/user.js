@@ -23,11 +23,7 @@ const userSchema = new mongoose.Schema ({
         min: 6
     },
     age:{
-<<<<<<< HEAD
-        type: Number,
-=======
         type:Number,
->>>>>>> 10d342ba5aa6ccc71a5eddbacebbc0c1d5baf7b4
       required: true,
        trim: true    
     }, 
@@ -44,7 +40,6 @@ const userSchema = new mongoose.Schema ({
          enum :[ "student" , "teacher"]
       },
     HTML_Schema:[
-<<<<<<< HEAD
           {
               type: mongoose.Schema.Types.ObjectId,
             ref:"Html"
@@ -62,17 +57,6 @@ const userSchema = new mongoose.Schema ({
           {
               type:mongoose.Schema.Types.ObjectId,
               ref:"js"}
-=======
-          {type:mongoose.Schema.Types.ObjectId,ref:"Html"}
-      ],
-  
-     CSS_Schema:[
-          {type:mongoose.Schema.Types.ObjectId,ref:"css"}
-      ],
-  
-     JS_Schema:[
-          {type:mongoose.Schema.Types.ObjectId,ref:"js"}
->>>>>>> 10d342ba5aa6ccc71a5eddbacebbc0c1d5baf7b4
       ] 
    
 });
