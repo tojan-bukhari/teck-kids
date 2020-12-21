@@ -5,13 +5,15 @@
 }
 .Answers li{
     padding: 10px;
-    border-left: 4px solid #1a69e0;
-    background-color: rgb(49, 94, 219);
+    border-left: 4px solid #080600;
+    background-color:orange;
     margin: 0 0 5px;
 }
 .Answers li:hover{
     cursor: pointer;
-    background-color: #641fd3;
+    background-color: #e6c533;
+    padding: 10px;
+    border-left: 4px solid #080600;
 }
 .Answers .correct,
 .Answers .correct:hover {
@@ -21,11 +23,23 @@
 }
 .Answers .incorrect,
 .Answers .incorrect:hover {
-    background-color: #ec0000;
+    background-color: #ee1111;
     border-left: 4px solid #FF3B3B;
-    color: #fff;
+    color: rgb(0, 0, 0);
 }
 .Answers[disabled] { 
     pointer-events: none;
     opacity: 0.7;
+}
+.Content h1{
+    margin: 15px 0;
+    font-size: 25px;
+    font-family: Arial,sans-serif;
+    font-weight: normal;
+    color: #0a0a0a;
+    text-transform: none;
+    text-shadow: none;
+    text-align: left;
+    border-style: solid;
+    
 }

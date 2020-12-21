@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Question from '../answers and questions/Questions';
 import Answer from '../answers and questions/Answer';
 import '../../component/answers and questions/QuizMain.css';
-import '../../component/answers and questions/Questions.css';
 import '../../component/answers and questions/Answers.css';
 export default class Quiz extends Component {
 
