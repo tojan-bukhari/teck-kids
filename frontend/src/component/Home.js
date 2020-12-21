@@ -1,8 +1,14 @@
 import React from 'react';
+import Cards from "./cards/Cards"
 
-export default function Home() {
-   return <div>
-Home
+
+function Home() {
+  return (
+    <div className='home'>
+<Cards/>
 
     </div>
+  );
 }
+
+export default Home;
