@@ -1,39 +1,41 @@
 import React, {Component} from 'react';
 import Question from '../answers and questions/Questions';
 import Answer from '../answers and questions/Answer';
-import '../answers and questions/QuizMain.css';
-import '../answers and questions/Questions.css';
-import '../answers and questions/Answers.css';
+import '../../component/answers and questions/QuizMain.css';
+import '../../component/answers and questions/Questions.css';
+import '../../component/answers and questions/Answers.css';
+
+
 export default class Quiz extends Component {
 
     // initiating the local state
     state = {
         quiestions: {
-            1: 'What does CSS stand for?',
-            2: 'Where in an HTML document is the correct place to refer to an external style sheet?',
-            3: ' Which HTML tag is used to define an internal style sheet?'
+            1: 'what is the difference in an opening tag and a closing tag?',
+            2: 'What does HTML stand for?',
+            3: ' How many tags are in a regular element?'
         },
         answers: {
             1: {
-                1: 'Computer Style Sheets',
-                2: 'Cascading Style Sheets',
-                3: 'Control Style Sheets'
+                1: 'Opening tag has a / in front',
+                2: 'Closing tag has a / in front',
+                3: 'There is no difference'
             },
             2: {
-                1: 'At the top of the document',
-                2: 'In the section',
-                3: 'At the end of the document'
+                1: 'Hyper Text Mile Language 😉',
+                2: 'Header Text Markup Language',
+                3: 'Hyper Text Markup Language'
             },
             3: {
-                1: 'Style',
-                2: 'Css',
-                3: 'Script'
+                1: '1',
+                2: '2',
+                3: '3'
             }
         },
         correctAnswers: {
             1: '1',
             2: '2',
-            3: '1'
+            3: '2'
         },
         correctAnswer: 0,
         clickedAnswer: 0,
