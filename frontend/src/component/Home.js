@@ -5,8 +5,10 @@ import ControlledCarousel from './carusal';
 
 export default function Home() {
    return <div>
-
+      
 <ControlledCarousel />
      <Cards/>
+ 
+   </div>
 
 }
