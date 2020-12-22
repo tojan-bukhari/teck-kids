@@ -15,5 +15,12 @@ export const SidebarData = [
     path: '/ex2',
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: 'nav-text'
+  },
+  {
+    title: 'ex9',
+    path: '/ex9',
+    icon: <FaIcons.FaEnvelopeOpenText />,
+    cName: 'nav-text'
   }
+  
 ];
