@@ -2,26 +2,26 @@ import React, { useState } from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { SidebarData } from './htmlData';
-import './htmlList.css';
+import { SidebarData } from './CSSData';
+import './CSSList.css';
 
 import axios from 'axios';
 
 /********************************************************/
-function HtmlList() {
+function CSSList() {
   // false means it's not showing
   const [ sidebar, setSidebar   ] = useState(false);
-  const [ id ,     setId        ] = useState("5fddb8239c7c521c4d2474e1");
+  const [ id ,     setId        ] = useState("5fddbe68c6a65c1cdab9b1da");
   const [lesson , setLesson     ] = useState([]);
   const showSidebar = () => setSidebar(!sidebar);
   
   
-  const getLesson = async() => {
+  const getLesson = async(event) => {
     try {
-    const retrevd = await axios.get("http://localhost:8000/course/html/"+id)  
+    const retrevd = await axios.get("http://localhost:8000/course/css/"+id)  
     setLesson(retrevd.data)
     console.log("lesson id ="+id)
-     console.log(lesson)
+    console.log(lesson)
      
     } catch (error) {
       alert(error)
@@ -47,7 +47,7 @@ function HtmlList() {
             </li>
             {SidebarData.map((item, index) => {
               return (
-                <li key={index} className={item.cName} onClick={(event)=>{setId(event.currentTarget.dataset.id)}} data-id={item.id} >
+                <li key={index} className={item.cName} onClick={(event)=>{setId(event.currentTarget.dataset.id)}} data-id={item.id} data-id={item.id} >
                   <Link to={item.path} >
                     
                     <span onClick={getLesson}>{item.title}</span>
@@ -68,4 +68,4 @@ function HtmlList() {
   );
 }
 
-export default HtmlList;
+export default CSSList;
