@@ -100,7 +100,7 @@ router.post("/register", async (req, res) => {
             id: user._id,
           
           },
-        });
+        });console.log("i found it",user._id)
       } catch (err) {
         res.status(500).json({ error: err.message });
       }

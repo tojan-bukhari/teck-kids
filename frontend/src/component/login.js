@@ -21,7 +21,7 @@ const Signin = (validate)=>{
   const [ errors     , setErrors ]     = useState({email:"",password:""});
 
 
-   
+
  function validate(email,password) {
   let errors = {};
   if (!email) {
@@ -37,29 +37,30 @@ const Signin = (validate)=>{
   }
   return errors;
 }
-  
   //we need to send the data from frontend to backend , I will use axios for that ..
   const submit =async (e)=>{
+    
     e.preventDefault();
     setErrors(validate(email,password))
+   
   
 
     try {
       const newUser = { email ,password } ;
       const loginRes = await axios.post("http://localhost:8000/api/login" , newUser)
+      console.log(loginRes);
       console.log(loginRes.data.token)
       localStorage.setItem("theToken", loginRes.data.token);
+      localStorage.setItem("userId", loginRes.data.user.id);
       history.push('/')
+      
        } catch (error) {
       // alert(error.response.data.msg)
 
-  
-      }
-
-   
-    }
-
-   
+     
+      } 
+      
+    } 
 
   return(
   <div className="container p-5 py-3 px-md-5" size="6" style={{marginTop: 10 + 'em'}}>
