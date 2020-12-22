@@ -62,10 +62,10 @@ const Signin = (validate)=>{
    
 
   return(
-  <div className="container p-5" size="6" className="py-3 px-md-5" style={{marginTop: 10 + 'em'}}>
+  <div className="container p-5 py-3 px-md-5" size="6" style={{marginTop: 10 + 'em'}}>
   <form>    
        
- <div className="form-group" class="text-center">
+ <div className="form-group text-center" >
  <label htmlFor="formGroupExampleInput">
         <InputGroup className="mb-3">
         <InputGroup.Append>
@@ -73,7 +73,7 @@ const Signin = (validate)=>{
         </InputGroup.Append>
         <FormControl
         name
-          placeholder="Recipient's username"
+         
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
           type="text" className="form-control" placeholder="Enter Your email"
@@ -86,7 +86,7 @@ const Signin = (validate)=>{
     <div className="form-group">
         <InputGroup className="mb-3">
         <FormControl
-          placeholder="Recipient's password"
+         
           aria-label="Recipient's password"
           aria-describedby="basic-addon2"
           type="password" className="form-control"

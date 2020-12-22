@@ -1,19 +1,14 @@
 import React from 'react';
+import Cards from "./cards/Cards"
+
+import ControlledCarousel from './carusal';
 
 export default function Home() {
-   // var lesson='';
-     
-        
-       
+   return <div>
       
-   return (
-       <>
-       <div>
-        <h1>
-           hioooooooooooooo
-        </h1>
-       </div>
-       </>
-   )
+<ControlledCarousel />
+     <Cards/>
  
+   </div>
+
 }
