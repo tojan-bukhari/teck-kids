@@ -1,6 +1,8 @@
 import React from 'react'
 import './vv.css';
 
+import DragNDrop from './DragNDrop'
+
 
 const data = [
     {title: 'group 1',
@@ -17,71 +19,9 @@ const data = [
 
 function Data() {
   return (
-    <div className="defaultData">
-      
+    <div className="defaultData"> 
       <header className="defaultData-header"> 
-      <div className="drag-n-drop">
-      {data.map((grp, grpI) =>( 
-         <div key={grp.title} className="dnd-group">
-            {grp.items.map((item, itemI) => (
-              <div draggable key = {item}  className="dnd-item">
-            {item}
-                </div>
-            ))}
-          
-         </div>
-      ))}
-       
-
-</div>
-      
-      {/* <div className="drag-n-drop">
-      <div className="dnd-group">
-      <div className="group-title">Group 1</div>
-      <div  className="dnd-item">
-        <div>
-        <p>&#60;!DOCTYPE html&#62;</p>
-        </div>
-
-      </div>
-      <div  className="dnd-item">
-        <div>
-        <p>ITEM </p>
-        </div>
-
-      </div>
-      <div  className="dnd-item">
-        <div>
-        <p>ITEM </p>
-        </div>
-
-      </div>
-
-
-      </div>
-
-      <div className="dnd-group">
-      <div className="group-title">Group 2</div>
-      <div  className="dnd-item">
-        <div>
-        <p>ITEM </p>
-        </div>
-
-      </div>
-      <div  className="dnd-item">
-        <div>
-        <p>ITEM </p>
-        </div>
-
-      </div>
-
-      
-
-      </div>
-
-
-
-      </div> */}
+      <DragNDrop data = {data}/>
       </header>
     </div>
   )
