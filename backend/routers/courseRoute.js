@@ -7,7 +7,7 @@ const jsCourse = require('../models/js');
 /**************************************************/
 
 router.get('/html/:_id' , function (req , res) {
-    console.log(req.params._id)
+   // console.log(req.params._id)
     var course = htmlCourse.findById(req.params._id)
     .then(lessonFound=>{
         if(!lessonFound){return res.status(404).json("Can't find the lesson")}
