@@ -6,10 +6,11 @@ import Home from './component/Home';
 import login from './component/login';
 import registrate from './component/registrate';
 import profile from './component/profile'
-import Navbar from './component/sidebar/Navbar';
+// import Navbar from './component/sidebar/Navbar';
 import './App.css';
 import lessons from './pages/Lessons';
 import Exercises from './pages/Exercises';
+
 
 
 function App() {
