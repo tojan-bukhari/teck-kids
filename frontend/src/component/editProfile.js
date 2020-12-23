@@ -1,63 +1,129 @@
-
 import React, { Component } from 'react';
 import axios from "axios";
+// import { storage } from "./firebase.js";
+// import Footer from './Footer';
+// import Navbar_login from "./Navbar_Login"
+
 
 export default class EditProfile extends Component {
+    constructor(props) {
+      super(props);
   
-   onSubmit=this.onSubmit.bind(this)   
-
-  state = {
+      //Defining the "this" in the functions using .bind method
+      this.onChangeUsername = this.onChangeUsername.bind(this);
+      this.onChangePassword = this.onChangePassword.bind(this);
+      this.onChangeAge= this.onChangeAge.bind(this);
+      this.onSubmit = this.onSubmit.bind(this);
+     
+  
+      this.state = {
         id:localStorage.getItem("userId"),
-       name:localStorage.getItem("username"),
-       age:localStorage.getItem("userage"),
-       password:localStorage.getItem("userpass"),
-   }
-   handleChange = e => {
-    this.setState({ name: e.target.value });
- };
- handleChange = e => {
-  this.setState({ age: e.target.value });
- };
- handleChange = e => {
-  this.setState({ password: e.target.value });
- };
+        username: "",
+        password: "",
+        age: "",
+      
+      }
+    }
+       componentDidMount() {
+        axios.get("http://localhost:8000/user/account/"+this.state.id)
+          .then(response => {
+            console.log(response)      
+            this.setState({
+              username: response.data.userName,
+              password: response.data.password,
+              age: response.data.age,
+            })  
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+        }
 
-onSubmit(e) {
-  e.preventDefault();   
-  const user = {
-    username: this.state.username,
-    password: this.state.password,
-    age: this.state.phone,
+
+
+//Event Handlers:
+  onChangeUsername(e) {
+    this.setState({
+      username: e.target.value
+    });
   }
 
-  console.log(user);
-axios.post("http://localhost:3000/addUser/update/:id"+this.state.id, user)
-    .then(res => console.log(res.data));
+  onChangePassword(e) {
+    this.setState({
+      password : e.target.value
+    });
+  }
+  
+  onChangeAge(e) {
+    this.setState({
+      age: e.target.value
+    });
+  }
 
-  window.location = '/account/'+this.state.id
-}
-   render() {
+  onSubmit(e) {
+    e.preventDefault();   
+    const user= {
+      username: this.state.username,
+      password: this.state.password,
+      age: this.state.age
+    }
+
+    console.log(user);
+
+
+
+axios.post("http://localhost:8000/user/update/"+this.state.id, user)
+      .then(res => console.log(res.data));
+
+    window.location = '/account/'+this.state.id 
+  }
+
+
+  render(){
     return (
-        <div>
-          <h3>EDIT PROFILE</h3>
-         
-         <form className="text-center border border-light p-9" onSubmit={this.onSubmit}>
-           <div>
-               <lable>Change User Name</lable>
-               <input value={this.state.name} onChange={this.handleChange}></input>
-             </div>
-               <div>
-               <lable>Change User Age</lable>
-               <input value={this.state.age} onChange={this.handleChange}></input>
-             </div>
-             <div>
-               <lable>Change User Password</lable>
-               <input value={this.state.password} onChange={this.handleChange}></input>
-             </div>
-                <input type='submit' value='Edit Account' className="btn btn-deep-orange darken-4"/>
-          </form>
+
+      <div>
+        <br />
+        <div className = "container text-center">
+        <form className="text-center border border-light p-9" onSubmit={this.onSubmit}>
+            <h3 className = "mb-3">
+            Edit user Profile 
+            </h3>
+            <br />
+            <div className = "col">
+            <label >  New User Name </label>
+            <br></br>
+            <input required='true' type='text'className="form-control col" value= {this.state.username} onChange={this.onChangeUsername} placeholder='User Name'/>                   
+            <br></br>                
+            </div>
+
+
+
+
+            <div className = "col">
+            <label > New Password </label>
+            <br></br>
+            <input required='true'  type="password" name="password" className="form-control col"value= {this.state.password} onChange={this.onChangePassword} placeholder='Creat Password' />
+            <br></br>
+            </div>
+
+            <div className = "col">
+            <label >  New Phone Number </label>
+
+            <input required='true'  className="form-control col"  value= {this.state.age} onChange={this.onChangeAge} placeholder='Age' />
+            <br></br>
+            </div>
+            
+
+            <input type='submit' value='Edit Account' className="btn btn-deep-orange darken-4"/>
+            <br></br>
+            <br></br>
+        </form>
+   
         </div>
-        
+        </div>
+      
+     
     )
 }
 }

@@ -13,8 +13,6 @@ export default function Home() {
     <div className='home'>
      
       <ControlledCarousel />
-
-<ControlledCarousel />
      <Cards/>
     
 <Cards/>
