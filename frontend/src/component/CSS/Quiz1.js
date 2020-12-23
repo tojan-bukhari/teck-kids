@@ -65,6 +65,9 @@ export default class Quiz extends Component {
             clickedAnswer: 0
         });
     }
+    handleClick() {
+        window.location = "/ex2CSS";
+      }
 
     render(){
         let { quiestions, answers, correctAnswer, clickedAnswer, step, score } = this.state;
@@ -94,6 +97,8 @@ export default class Quiz extends Component {
                             <h1>You have completed the quiz!</h1>
                             <p>Your score is: {score} of {Object.keys(quiestions).length}</p>
                             <p>Thank you!</p>
+                            <button  className="Ne" onClick={this.handleClick} >next ex</button>
+
                         </div>
                     )
                 }
