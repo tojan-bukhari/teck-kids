@@ -3,7 +3,7 @@ import {createStore} from 'redux';
 function loadState (){
     const state = localStorage.getItem('score');
    
-    if(state == null){
+    if(state !== null){
         return JSON.parse(state);
     }
     

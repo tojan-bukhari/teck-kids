@@ -14,10 +14,10 @@ export default function Home() {
      
       <ControlledCarousel />
 
-<ControlledCarousel />
+
      <Cards/>
     
-<Cards/>
+
 
 <FooterPage/>
  <Score />

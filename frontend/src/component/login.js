@@ -13,7 +13,7 @@ import Button from 'react-bootstrap/Button';
 
 // eslint-disable-next-line 
 /****************************************************************/
-const Signin = (validate)=>{
+const Signin = (validatation)=>{
   const history = useHistory();
   //the values wich inserted by the user is stored at email and password using setEmail,setPasswword 
   const [ email        , setEmail    ]     = useState();
