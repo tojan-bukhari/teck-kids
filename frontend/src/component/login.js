@@ -48,10 +48,11 @@ const Signin = (validate)=>{
     try {
       const newUser = { email ,password } ;
       const loginRes = await axios.post("http://localhost:8000/api/login" , newUser)
-      console.log(loginRes);
-      console.log(loginRes.data.token)
       localStorage.setItem("theToken", loginRes.data.token);
       localStorage.setItem("userId", loginRes.data.user.id);
+      localStorage.setItem("username", loginRes.data.user.name);
+      localStorage.setItem("userage", loginRes.data.user.age);
+      localStorage.setItem("userpass", loginRes.data.user.password);
       history.push('/')
       
        } catch (error) {
