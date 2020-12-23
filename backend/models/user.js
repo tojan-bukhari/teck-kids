@@ -41,6 +41,10 @@ const userSchema = new mongoose.Schema ({
          type:String,
          enum :[ "student" , "teacher"]
       },
+      Courses:[{
+          type:String,
+      }],
+
     HTML_Schema:[
           {
               type: mongoose.Schema.Types.ObjectId,

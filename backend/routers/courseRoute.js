@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 //import the htmlmodel to use the schema to get the lisson 
 const htmlCourse = require('../models/html');
-const cssCourse = require('../models/css');
-const jsCourse = require('../models/js');
+const cssCourse  = require('../models/css');
+const jsCourse   = require('../models/js');
+//import the usermodel  use the schema to insert the data 
+const User = require('../models/User');
 /**************************************************/
 
 router.get('/html/:_id' , function (req , res) {
@@ -67,4 +69,14 @@ router.get('/js/:_id' , function (req , res) {
     .catch(err =>  res.status(500).json("not working"))      
     
 } );
+router.put('/addCourse/:id',(req,res)=>{
+    console.log(req.params.id)
+    const promise = User.findByIdAndUpdate(req.params.id,req.body);
+    promise.then((data)=>{
+     res.json(data);
+    }).catch((err)=>{
+     res.json(err);
+    })
+   })
+
 module.exports = router;
