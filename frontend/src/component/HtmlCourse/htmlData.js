@@ -9,13 +9,13 @@ export const SidebarData = [
   },
   {
     id : '5fddbb4f94d29e57c970919a',
-    title: 'Image, Listing and Text Formatting',
+    title: 'Image, Text Formatting',
     path: '/HTMLcourse',
     cName: 'nav-text'
   },
   {
     id : '5fddbf28c6a65c1cdab9b1db',
-    title: 'Anchor links:',
+    title: 'Anchor links',
     path: '/HTMLcourse',
     cName: 'nav-text'
   },

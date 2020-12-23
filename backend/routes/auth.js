@@ -98,9 +98,11 @@ router.post("/register", async (req, res) => {
           token,
           user: {
             id: user._id,
-          
+            name:user.userName,
+            age:user.age,
+            password:user.password
           },
-        });
+        });console.log("i found it",user._id,"guss what im faken it")
       } catch (err) {
         res.status(500).json({ error: err.message });
       }

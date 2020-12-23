@@ -2,6 +2,8 @@ import  Button  from 'react-bootstrap/Button';
 import React , {useState}from 'react';
 
 import Carousel from 'react-bootstrap/Carousel';
+ import Home from './carusal.css';
+
 
 
 
@@ -15,10 +17,11 @@ import Carousel from 'react-bootstrap/Carousel';
    
   
     return (
-      <Carousel activeIndex={index} onSelect={handleSelect}>
+      <Carousel activeIndex={index} onSelect={handleSelect} className="carousel slide" data-ride="carousel">
           
         <Carousel.Item>
           <img
+
             className="d-block w-100 size"
             src="https://cdn.diabetesdaily.com/wp-content/blogs.dir/21/files/2017/08/iStock-538864120.jpg"
             alt="First slide"
@@ -104,9 +107,9 @@ import Carousel from 'react-bootstrap/Carousel';
 
              Nothing is off limits. Everything is within reach. Anything can be.
             </p>
+
             <Button href="./registrate" className="button1 landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
                    <Button href="./login" className="landing-button button" variant="outline-light" data-slide="prev">LogIn</Button>
-
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
