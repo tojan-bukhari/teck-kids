@@ -22,7 +22,7 @@ const Signin = (validate)=>{
 
 
    
- function validate(email,password) {
+ function validatation(email,password) {
   let errors = {};
   if (!email) {
     errors.email = "Email address is required";
@@ -37,29 +37,30 @@ const Signin = (validate)=>{
   }
   return errors;
 }
-  
   //we need to send the data from frontend to backend , I will use axios for that ..
   const submit =async (e)=>{
+    
     e.preventDefault();
-    setErrors(validate(email,password))
+    setErrors(validatation(email,password))
   
 
     try {
       const newUser = { email ,password } ;
       const loginRes = await axios.post("http://localhost:8000/api/login" , newUser)
-      console.log(loginRes.data.token)
       localStorage.setItem("theToken", loginRes.data.token);
+      localStorage.setItem("userId", loginRes.data.user.id);
+      localStorage.setItem("username", loginRes.data.user.name);
+      localStorage.setItem("userage", loginRes.data.user.age);
+      localStorage.setItem("userpass", loginRes.data.user.password);
       history.push('/')
+      
        } catch (error) {
       // alert(error.response.data.msg)
 
-  
-      }
-
-   
-    }
-
-   
+     
+      } 
+      
+    } 
 
   return(
   <div className="container p-5 py-3 px-md-5" size="6" style={{marginTop: 10 + 'em'}}>
