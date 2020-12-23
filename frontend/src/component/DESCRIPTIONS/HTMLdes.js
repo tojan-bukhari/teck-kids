@@ -22,7 +22,7 @@ export default function HTMLdes() {
 
 Expressive markup describes how documents structure happens while presentational markup specifies the manner in which document presentation applies.
     </Card.Text>
-    <Button path='/ex1'>Go somewhere</Button>
+    <Button path='/html-des'>Go somewhere</Button>
   </Card.Body>
 </Card>
 

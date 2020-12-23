@@ -22,10 +22,11 @@ export const SidebarData = [
     icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
   },
-  // {
-  //   title: 'Messages',
-  //   path: '/messages',
-  //   icon: <FaIcons.FaEnvelopeOpenText />,
-  //   cName: 'nav-text'
-  // }
+  { 
+    title: 'ex9',
+    path: '/ex9',
+    icon: <FaIcons.FaEnvelopeOpenText />,
+    cName: 'nav-text'
+  }
+  
 ];
