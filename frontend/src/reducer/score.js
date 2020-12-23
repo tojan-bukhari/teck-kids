@@ -3,7 +3,7 @@ import {createStore} from 'redux';
 function loadState (){
     const state = localStorage.getItem('score');
    
-    if(state == null){
+    if(state !== null){
         return JSON.parse(state);
     }
     
@@ -23,7 +23,7 @@ function saveState (state){
 // const initState ={
 //     score:0
 // }
-const rootReducer = (state , action  ) =>{
+const rootReducer = (state , action ) =>{
    
    var x =  parseInt((state.score)+1);  
 
