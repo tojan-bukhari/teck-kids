@@ -10,11 +10,11 @@ const Create = ()=>{
     const history = useHistory();
     
 //useState() better than useing the set method , it's easer, read about the react hooks(useState) https://youtu.be/InKlyPPSpXA
-const [ userName         , setName ]         = useState();
+const [ userName  , setName ]       = useState();
 const [ age       , setage ]        = useState();
-const [ email        , setEmail ]        = useState();
-const [ password     , setPassword ]     = useState();
-const [ errors     , setErrors ]     = useState({email:"",password:""});
+const [ email     , setEmail ]      = useState();
+const [ password  , setPassword ]   = useState();
+const [ errors    , setErrors ]     = useState({email:"",password:""});
 
 
 
