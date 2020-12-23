@@ -18,6 +18,12 @@ export default function HTMLdes() {
    }else {
      
     try {
+      const retrevd = await axios.get("http://localhost:8000/course/user/"+userId)  
+      if( retrevd.data.htmlCourse === "Registerd" )
+      {
+        console.log("you are already regestered")
+        history.push('/HTMLcourse')
+      }
       var newCourse = {"htmlCourse":"Registerd"}
       await axios.put("http://localhost:8000/course/addCourse/"+userId, newCourse);
      } catch (error) {
