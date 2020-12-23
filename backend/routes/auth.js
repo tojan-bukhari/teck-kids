@@ -33,7 +33,7 @@ router.post("/register", async (req, res) => {
   
       // validate
       //0- check if the user enter the filed 
-      const{error}         = querySchema.validate(req.body);
+      const{error}         = querySchema.validation(req.body);
       console.log(req.body)
       if(error){
          

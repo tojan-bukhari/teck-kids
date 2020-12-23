@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useHistory } from "react-router-dom";
 
 /****************************************************/
-///////////////tojaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaan
+
 //use the arrow function to bind values 
 const Create = ()=>{
     const history = useHistory();
@@ -18,7 +18,7 @@ const [ errors     , setErrors ]     = useState({email:"",password:""});
 
 
 
-function validate(email,password) {
+function validation(email,password) {
     let errors = {};
     if (!email) {
       errors.email = "Email address is required";
@@ -37,7 +37,7 @@ function validate(email,password) {
 const submit =async (e)=>{
     
     e.preventDefault();
-    setErrors(validate(email,password));
+    setErrors(validation(email,password));
 
  try {
       const newUser = { userName,age,email  ,password  } ;

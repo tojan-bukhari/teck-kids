@@ -23,7 +23,7 @@ function saveState (state){
 // const initState ={
 //     score:0
 // }
-const rootReducer = (state , action  ) =>{
+const rootReducer = (state , action ) =>{
    
    var x =  parseInt((state.score)+1);  
 
