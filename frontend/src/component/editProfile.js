@@ -5,6 +5,9 @@ import axios from "axios";
 // import Navbar_login from "./Navbar_Login"
 
 
+
+
+
 export default class EditProfile extends Component {
     constructor(props) {
       super(props);
@@ -121,6 +124,7 @@ axios.post("http://localhost:8000/user/update/"+this.state.id, user)
         </form>
    
         </div>
+         
         </div>
       
      

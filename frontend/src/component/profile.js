@@ -10,7 +10,7 @@ import { Link, withRouter } from "react-router-dom";
 class Personalprofile extends React.Component {
     constructor(props) {
         super(props);
-
+        
         this.state = {
              id:localStorage.getItem("userId"),
             name:"",
@@ -20,6 +20,7 @@ class Personalprofile extends React.Component {
 
 
         }
+
     }
     componentDidMount() {
         axios.get("http://localhost:8000/user/account/" + this.state.id)
@@ -47,8 +48,8 @@ class Personalprofile extends React.Component {
                 <Link to ={"/edit/" + this.state.id}  class="btn btn-success" >Edit User</Link>
              </div>
              <div>
-               {/* {this.state.users.split.map((user,i) => <li key={i}>{user.username}</li>)} */}
              </div>
+           
             </div>
         )
     }
