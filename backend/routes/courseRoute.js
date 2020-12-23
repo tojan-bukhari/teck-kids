@@ -83,5 +83,15 @@ router.put('/addCourse/:id',(req,res)=>{
     })
    })
 
-//this request to get the user and check if he is regester at the course or no
+//this request to get the user and check if he is regester at the course or not 
+router.get('/user/:_id' , function (req , res) {
+    console.log(req.params._id)
+    User.findById(req.params._id)
+    .then(userFound=>{
+        if(!userFound){return res.status(404).json("Can't find the user man :(")}
+        return res.status(200).json(userFound)
+    })
+    .catch(err =>  res.status(500).json("not working"))      
+    
+} );
 module.exports = router;
