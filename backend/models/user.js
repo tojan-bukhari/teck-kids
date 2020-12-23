@@ -41,9 +41,15 @@ const userSchema = new mongoose.Schema ({
          type:String,
          enum :[ "student" , "teacher"]
       },
-      Courses:[{
+      htmlCourse:{
           type:String,
-      }],
+      },
+      cssCourse:{
+        type:String,
+    },
+    jsCourse:{
+        type:String,
+    },
 
     HTML_Schema:[
           {

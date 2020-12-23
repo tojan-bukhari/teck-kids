@@ -69,14 +69,18 @@ router.get('/js/:_id' , function (req , res) {
     .catch(err =>  res.status(500).json("not working"))      
     
 } );
+//this request is to update the course state to register if the user add the course
 router.put('/addCourse/:id',(req,res)=>{
     console.log(req.params.id)
     const promise = User.findByIdAndUpdate(req.params.id,req.body);
+    console.log(req.body)
     promise.then((data)=>{
+        
      res.json(data);
     }).catch((err)=>{
      res.json(err);
     })
    })
 
+//this request to get the user and check if he is regester at the course or no
 module.exports = router;
