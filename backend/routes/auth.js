@@ -13,8 +13,8 @@ const auth = require("./middleware");
 //the validation schema using joi :)
 const querySchema = Joi.object({
 
- userName         : Joi.string().required(),
-age    : Joi.string().required(),
+  userName     : Joi.string().required(),
+  age          : Joi.string().required(),
   email        : Joi.string().required().lowercase().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
   password     : Joi.string().min(8).required(),
   passwordAgain: Joi.ref('password'),//to equal password
@@ -99,8 +99,8 @@ router.post("/register", async (req, res) => {
           user: {
             id: user._id,
             name:user.userName,
-            age:user.age,
-            password:user.password
+           
+            
           },
         });console.log("i found it",user._id,"guss what im faken it")
       } catch (err) {
