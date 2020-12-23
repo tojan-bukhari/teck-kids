@@ -21,8 +21,8 @@ const Signin = (validate)=>{
   const [ errors     , setErrors ]     = useState({email:"",password:""});
 
 
-
- function validate(email,password) {
+   
+ function validatation(email,password) {
   let errors = {};
   if (!email) {
     errors.email = "Email address is required";
@@ -41,17 +41,17 @@ const Signin = (validate)=>{
   const submit =async (e)=>{
     
     e.preventDefault();
-    setErrors(validate(email,password))
-   
+    setErrors(validatation(email,password))
   
 
     try {
       const newUser = { email ,password } ;
       const loginRes = await axios.post("http://localhost:8000/api/login" , newUser)
-      console.log(loginRes);
-      console.log(loginRes.data.token)
       localStorage.setItem("theToken", loginRes.data.token);
       localStorage.setItem("userId", loginRes.data.user.id);
+      localStorage.setItem("username", loginRes.data.user.name);
+      localStorage.setItem("userage", loginRes.data.user.age);
+      localStorage.setItem("userpass", loginRes.data.user.password);
       history.push('/')
       
        } catch (error) {
