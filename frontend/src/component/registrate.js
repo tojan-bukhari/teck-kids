@@ -71,7 +71,7 @@ const submit =async (e)=>{
         </div>
         <div className="form-group">
             <label className="text-muted"> Password </label>
-            <input id="reg-pass" type="text" className="form-control" placeholder="Enter Your Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
+            <input id="reg-pass" type="password" className="form-control" placeholder="Enter Your Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
             <p>{errors.password &&<p>{errors.password}</p>}</p> 
 
         </div>

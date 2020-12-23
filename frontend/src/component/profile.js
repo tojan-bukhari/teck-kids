@@ -7,8 +7,6 @@ import "antd/dist/antd.css";
 import { Link, withRouter } from "react-router-dom";
 
 
-
-
 class Personalprofile extends React.Component {
     constructor(props) {
         super(props);

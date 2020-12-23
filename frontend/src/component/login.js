@@ -21,8 +21,8 @@ const Signin = (validate)=>{
   const [ errors     , setErrors ]     = useState({email:"",password:""});
 
 
-
- function validate(email,password) {
+   
+ function validatation(email,password) {
   let errors = {};
   if (!email) {
     errors.email = "Email address is required";
@@ -41,8 +41,7 @@ const Signin = (validate)=>{
   const submit =async (e)=>{
     
     e.preventDefault();
-    setErrors(validate(email,password))
-   
+    setErrors(validatation(email,password))
   
 
     try {

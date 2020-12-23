@@ -14,13 +14,13 @@ export default class EditProfile extends Component {
    }
    handleChange = e => {
     this.setState({ name: e.target.value });
-};
-handleChange = e => {
+ };
+ handleChange = e => {
   this.setState({ age: e.target.value });
-};
-handleChange = e => {
+ };
+ handleChange = e => {
   this.setState({ password: e.target.value });
-};
+ };
 
 onSubmit(e) {
   e.preventDefault();   

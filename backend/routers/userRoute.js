@@ -26,12 +26,25 @@ const User = require('../models/User');
  
 
 
-//GET users by ID  becouse i want to delete and update this user / we will use find by id method and how ? by get the id by (req.params.id)
+//GET users by ID and the id is saved in local storage 
 router.get("/account/:id", function(req, res) {
     User.findById(req.params.id)
     .then(users => res.json(users))
     .catch(err => res.status(400).json("Error: " + err));
   });
 
+  //UPDATE USER PROFILE BY ID 
+  router.route("/update/:id" ).post((req, res) => {
+    User.findById(req.params.id)
+    .then(user => {
+      user.userName = req.body.username;
+      user.password= req.body.password;
+      user.age = req.body.age;
+      user.save()
+      .then(() => res.json("User is updated!"))
+      .catch(err => res.status(400).json('Error: ' + err));
+    })
+      .catch(err => res.status(400).json('Error: ' + err));
+  })
 
 module.exports = router;

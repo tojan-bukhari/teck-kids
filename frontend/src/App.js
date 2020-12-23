@@ -11,6 +11,9 @@ import Exercises from './pages/Exercises';
 import HTMLcourse from './component/HtmlCourse/HTMLcourse';
 
 /****************************************************************** */
+import profile from './component/profile';
+import Score from './component/score';
+
 
 
 function App() {
@@ -28,6 +31,8 @@ function App() {
           <Route exact path="/registrate" component={registrate} />
           <Route exact path="/account/:id" component={Personalprofile} />
           <Route exact path="/edit/:id" component={editProfile} />
+          <Route exact path="/account/:id" component={profile} />
+          <Route exact path="/score" component={Score} />
           <Exercises />
         </Switch>
       </BrowserRouter>
