@@ -1,18 +1,18 @@
-
-
 // import { increment , decrement } from "./actions";
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import Header from './component/Header';
+// import Header from './component/Header';
 import Home from './component/Home';
 import login from './component/login';
 import registrate from './component/registrate';
-import profile from './component/profile'
-import Navbar from './component/sidebar/Navbar';
+import profile from './component/profile';
+
 import './App.css';
 
 import lessons from './pages/Lessons';
 import Exercises from './pages/Exercises';
+import Score from './component/score';
+
 
 
 function App() {
@@ -28,6 +28,8 @@ function App() {
           <Route exact path="/login" component={login} />
           <Route exact path="/registrate" component={registrate} />
           <Route exact path="/account/:id" component={profile} />
+          <Route exact path="/score" component={Score} />
+          <Exercises />
         </Switch>
       </BrowserRouter>
     </> 

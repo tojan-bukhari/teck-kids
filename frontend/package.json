@@ -17,6 +17,7 @@
     "firebase": "^8.2.0",
     "jquery": "^3.5.1",
     "jsonwebtoken": "^8.5.1",
+    "mdbreact": "^5.0.1",
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.8",
     "morgan": "^1.10.0",
@@ -30,7 +31,9 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "reactstrap": "^8.7.1",
     "redux": "^4.0.5",
+    "video-react": "^0.14.1",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

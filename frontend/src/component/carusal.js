@@ -2,7 +2,7 @@ import  Button  from 'react-bootstrap/Button';
 import React , {useState}from 'react';
 
 import Carousel from 'react-bootstrap/Carousel';
-import Home from './carusal.css';
+ import Home from './carusal.css';
 
 
 
@@ -16,10 +16,11 @@ import Home from './carusal.css';
    
   
     return (
-      <Carousel activeIndex={index} onSelect={handleSelect}>
+      <Carousel activeIndex={index} onSelect={handleSelect} className="carousel slide" data-ride="carousel">
           
         <Carousel.Item>
           <img
+          
             className="d-block w-100"
             className="size"
             src="https://cdn.diabetesdaily.com/wp-content/blogs.dir/21/files/2017/08/iStock-538864120.jpg"
@@ -111,7 +112,6 @@ import Home from './carusal.css';
             </p>
             <Button href="./registrate" className="button1" className="landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
                    <Button href="./login" className="landing-button" className="button" variant="outline-light" data-slide="prev">LogIn</Button>
-
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

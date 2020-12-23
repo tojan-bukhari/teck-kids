@@ -1,12 +1,6 @@
 .navbar {
-    background-color: #e3e5ee;
-    height: 80px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
+    background-color: #e3e5ee; 
   }
-  
-
   .nav-menu {
     background-color: #e5e5f1;
     width: 250px;
@@ -23,10 +17,6 @@
     left: 0;
     transition: 350ms;
   }
-  
-
-  
- 
   
   .nav-menu-items {
     width: 100%;
