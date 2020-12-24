@@ -4,7 +4,7 @@
   display: flex-start;
   justify-content: flex-start;
   align-items: center;
-  background-image: url('main.jpg');
+  background-image: url('https://i.pinimg.com/564x/17/23/e3/1723e3561b5518f441da89c72d16d2e2.jpg');
 }
 
 .menu-bars {
@@ -14,10 +14,10 @@
 }
 
 .nav-menu {
-  background-image: url('main.jpg');
+  background-image: url('https://i.pinimg.com/564x/17/23/e3/1723e3561b5518f441da89c72d16d2e2.jpg');
   background-repeat: no-repeat;
   background-origin: content-box;
-  background-color: #ffffff;
+  background-color: #141c66;
   background-position: center bottom;
   background-size: 500px 600px;
   width: 250px;
@@ -40,14 +40,14 @@
   display: flex-start;
   justify-content: flex-start;
   align-items: center;
-  padding: 8px 0px 8px 16px;
+  padding: 8px 8px 8px 16px;
   list-style: none;
   height: 60px;
 }
 
 .nav-text a {
   text-decoration: none;
-  color: #070101;
+  color: #f0f0f0;
   font-size: 18px;
   width: 95%;
   height: 100%;
@@ -59,9 +59,9 @@
 
 .nav-text a:hover {
   padding: 0.5rem;
-  border-left: 15px solid rgba(236, 40, 194, 0.45) ;
+  border-left: 15px solid rgba(188, 191, 214, 0.96) ;
   transition: 0.8s;
-  background: rgba(186, 65, 155, 0.45) ;
+  background: rgba(5, 5, 7, 0.45) ;
   
 }
 
@@ -88,6 +88,6 @@ span {
   margin-left: 500px;
 }
 .courseBox > h1 {
-color:  rgba(236, 40, 194, 0.45) ;
+color:  rgb(0, 0, 0) ;
 }
 

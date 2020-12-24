@@ -1,19 +1,14 @@
 //useState is a Hook that allows you to have state variables in functional components.=> very intersting and easy to use <3 love it
 import React , {useState }from 'react';
 import axios from 'axios';
-//import {link} from 'react-router-dom'
 import { useHistory } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-//  import validate from "./component/validateLogin"
 
-
-
-// eslint-disable-next-line 
 /****************************************************************/
-const Signin = (validate)=>{
+const Signin = (validatation)=>{
   const history = useHistory();
   //the values wich inserted by the user is stored at email and password using setEmail,setPasswword 
   const [ email        , setEmail    ]     = useState();
@@ -50,8 +45,6 @@ const Signin = (validate)=>{
       localStorage.setItem("theToken", loginRes.data.token);
       localStorage.setItem("userId", loginRes.data.user.id);
       localStorage.setItem("username", loginRes.data.user.name);
-      localStorage.setItem("userage", loginRes.data.user.age);
-      localStorage.setItem("userpass", loginRes.data.user.password);
       history.push('/')
       
        } catch (error) {

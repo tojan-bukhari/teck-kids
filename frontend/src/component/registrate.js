@@ -4,21 +4,21 @@ import axios from 'axios';
 import { useHistory } from "react-router-dom";
 
 /****************************************************/
-///////////////tojaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaan
+
 //use the arrow function to bind values 
 const Create = ()=>{
     const history = useHistory();
     
 //useState() better than useing the set method , it's easer, read about the react hooks(useState) https://youtu.be/InKlyPPSpXA
-const [ userName         , setName ]         = useState();
+const [ userName  , setName ]       = useState();
 const [ age       , setage ]        = useState();
-const [ email        , setEmail ]        = useState();
-const [ password     , setPassword ]     = useState();
-const [ errors     , setErrors ]     = useState({email:"",password:""});
+const [ email     , setEmail ]      = useState();
+const [ password  , setPassword ]   = useState();
+const [ errors    , setErrors ]     = useState({email:"",password:""});
 
 
 
-function validate(email,password) {
+function validation(email,password) {
     let errors = {};
     if (!email) {
       errors.email = "Email address is required";
@@ -37,7 +37,7 @@ function validate(email,password) {
 const submit =async (e)=>{
     
     e.preventDefault();
-    setErrors(validate(email,password));
+    setErrors(validation(email,password));
 
  try {
       const newUser = { userName,age,email  ,password  } ;

@@ -42,11 +42,13 @@ function CSSList() {
           <ul className='nav-menu-items' >
             <li className='navbar-toggle'>
               <Link to='#' className='menu-bars' onClick={showSidebar}>
-                <AiIcons.AiOutlineClose /><span >HTML Course</span>
+                <AiIcons.AiOutlineClose />
               </Link>
             </li>
             {SidebarData.map((item, index) => {
               return (
+
+
                 <li key={index} className={item.cName} onClick={(event)=>{setId(event.currentTarget.dataset.id)}} data-id={item.id}  >
                   <Link to={item.path} >
                     
@@ -57,10 +59,10 @@ function CSSList() {
             })}
           </ul>
         </nav>
-        <div className="courseBox col-lg-8 col-md-6">
+        <div className="courseBox">
           <h1>{lesson.Titles}</h1>
           <p>{lesson.Desceriptions}</p>
-          <iframe width="600" height="400" src={lesson.Videos}frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <iframe title={lesson.Titles} width="600" height="400" src={lesson.Videos}frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>  
                  
       
