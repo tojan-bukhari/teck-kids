@@ -21,7 +21,7 @@ export default function HTMLdes() {
 <Card style={{ width: '600px' }}>
   <Card.Body>
     
-    <Card.Title><h1 className="hh">javaScript</h1></Card.Title>  <img src="https://darkroom.clock.co.uk/600/14d1479eb61da2d834deff0e1e3dbb45:dd67ded05327f13fc0ff1339415016bb"  alt="js"></img>
+    <Card.Title><h1 className="hh">javaScript</h1></Card.Title>  <img  src="https://darkroom.clock.co.uk/600/14d1479eb61da2d834deff0e1e3dbb45:dd67ded05327f13fc0ff1339415016bb"  alt="js" className = "jsimg"></img>
     <Card.Text> <p className="par">  
     computers can’t understand English or any spoken language 🙄. Computer programs are written in a
 programming language like JavaScript. You might not have
