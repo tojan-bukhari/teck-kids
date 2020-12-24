@@ -6,6 +6,10 @@ import ex2HTML from "../component/HTML/draganddropex/data"
 import CSSdes from "../component/DESCRIPTIONS/CSSdes"
 import JSdes from "../component/DESCRIPTIONS/JSdes"
 import ex2CSS from "../component/CSS/draganddropex/data"
+import ex1JS from "../component/JS/Quiz1"
+import ex2JS from "../component/JS/draganddropex/data"
+
+
 
 
 
@@ -21,6 +25,10 @@ function Exercises() {
 
 <Route path='/ex1HTML' component={ex1HTML} />
 <Route path='/ex1CSS' component={ex1CSS} />
+<Route path='/ex1js' component={ex1JS} />
+<Route path='/ex2js' component={ex2JS} />
+
+
 <Route path='/html-des' component={HTMLdes} />
 <Route path='/css-des' component={CSSdes} />
 <Route path='/ex9' component={ex2HTML} />
