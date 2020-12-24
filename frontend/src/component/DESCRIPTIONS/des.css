@@ -28,8 +28,8 @@ h1 {
 .cards__item {
   display: flex;
   flex: 1;
-  margin: 0 1rem;
-  border-radius: 10px;
+  margin: 0 1px;
+  border-radius: 100px;
 }
 
 .cards__item__link {
@@ -90,7 +90,7 @@ h1 {
 }
 
 .cards__item__info {
-  padding: 20px 30px 30px;
+  padding: 2px 3px 3px;
 }
 
 .cards__item__text {
@@ -118,7 +118,7 @@ h1 {
 }
   .par {
     color: #000000;
-    font-size: 40px;
+    font-size: 30px;
     
   }
 
@@ -136,4 +136,12 @@ h1 {
 
   .hh7:hover {
     background-color: #051c0c
+  }
+
+  .jsimg{
+    
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+    
   }
