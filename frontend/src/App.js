@@ -10,19 +10,18 @@ import lessons from './pages/Lessons';
 import Exercises from './pages/Exercises';
 import HTMLcourse from './component/HtmlCourse/HTMLcourse';
 import CSScourse from './component/CSSCourse/CSScourse';
-/****************************************************************** */
 import profile from './component/profile';
 import Score from './component/score';
+import Navbar from './component/Navbar/Navbar'
 
-
-
+/****************************************************************** */
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
-
+      <Navbar />
         <Switch>
           <Route path='/lessons' component={lessons} />
           <Route path='/exercises' component={Exercises} />
@@ -35,6 +34,7 @@ function App() {
           <Route exact path="/edit/:id" component={editProfile} />
           <Route exact path="/account/:id" component={profile} />
           <Route exact path="/score" component={Score} />
+         
           <Exercises />
         </Switch>
       </BrowserRouter>

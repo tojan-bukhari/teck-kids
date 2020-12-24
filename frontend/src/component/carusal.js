@@ -4,7 +4,7 @@ import React , {useState}from 'react';
 import Carousel from 'react-bootstrap/Carousel';
  import Home from './carusal.css';
 
-
+import {MDBContainer} from 'mdbreact'
 
 
 
@@ -16,7 +16,7 @@ import Carousel from 'react-bootstrap/Carousel';
     };
    
   
-    return (
+    return (<MDBContainer>
       <Carousel activeIndex={index} onSelect={handleSelect} className="carousel slide" data-ride="carousel">
           
         <Carousel.Item>
@@ -67,6 +67,8 @@ import Carousel from 'react-bootstrap/Carousel';
         </Carousel.Item>
         <Carousel.Item>
           <img
+          style={{"width": "1000px",
+          "height": "auto"}}
             className="d-block w-100 size"
             src="https://static.adweek.com/adweek.com-prod/wp-content/uploads/2019/04/children-learn-CONTENT-2019-600x315.jpg"
             alt="Third slide"
@@ -89,7 +91,8 @@ import Carousel from 'react-bootstrap/Carousel';
         <Carousel.Item>
           <img
             className="d-block w-100 size"
-
+            style={{"width": "100%",
+            "height": "auto"}}
             src="https://www.hhsi.us/wp-content/uploads/2019/02/shutterstock_735971851.jpg"
             alt="Third slide"
           />
@@ -113,6 +116,7 @@ import Carousel from 'react-bootstrap/Carousel';
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      </MDBContainer>
     );
   }
   
