@@ -10,9 +10,8 @@ export default function Home() {
 
   return (
     <div className='home'>
-     
-      <ControlledCarousel />    
-<Cards/>
+      <ControlledCarousel />
+     <Cards/>
 
 <FooterPage/>
  {/* <Score /> */}

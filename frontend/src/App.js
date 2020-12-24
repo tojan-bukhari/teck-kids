@@ -13,6 +13,8 @@ import CSScourse from './component/CSSCourse/CSScourse';
 /****************************************************************** */
 // import profile from './component/profile';
 // import Score from './component/score';
+import ProtectedRoute from './protectedroutes/ProtectedRoute';
+import errorimg from "./protectedroutes/404img"
 
 
 
@@ -24,11 +26,14 @@ function App() {
       <BrowserRouter>
 
         <Switch>
-          <Route path='/lessons' component={lessons} />
-          <Route path='/exercises' component={Exercises} />
+        <ProtectedRoute path='/lessons' component={lessons} isAuth={localStorage.length>0}/>
+          <ProtectedRoute path='/exercises' component={Exercises} isAuth={localStorage.length>0}/>
           <Route exact path="/" component={Home} />
           <Route exact path="/htmlCourse" component={HTMLcourse} />
-          <Route exact path="/cssCourse" component={CSScourse} />
+
+ <ProtectedRoute exact path="/cssCourse" component={CSScourse} isAuth={localStorage.length>0}/>
+ <Route  path="/errorimg" component={errorimg} />
+
           <Route exact path="/login" component={login} />
           <Route exact path="/registrate" component={registrate} />
           <Route exact path="/account/:id" component={Personalprofile} />

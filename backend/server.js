@@ -5,8 +5,8 @@ var app = express();
 
 //the Routes
 const authRoutes = require('./routes/auth');
-const courseRoute = require('./routers/courseRoute');
-const userRoute=require('./routers/userRoute')
+const courseRoute = require('./routes/courseRoute');
+const userRoute=require('./routes/userRoute')
 require('dotenv').config();
 
 app.use(cors())
