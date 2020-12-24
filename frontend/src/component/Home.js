@@ -11,9 +11,7 @@ export default function Home() {
   return (
     <div className='home'>
      
-      <ControlledCarousel />
-
-    
+      <ControlledCarousel />    
 <Cards/>
 
 <FooterPage/>
