@@ -7,6 +7,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 
 
+
  export default function ControlledCarousel() {
     const [index, setIndex] = useState(0);
   
@@ -20,9 +21,8 @@ import Carousel from 'react-bootstrap/Carousel';
           
         <Carousel.Item>
           <img
-          
-            className="d-block w-100"
-            className="size"
+
+            className="d-block w-100 size"
             src="https://cdn.diabetesdaily.com/wp-content/blogs.dir/21/files/2017/08/iStock-538864120.jpg"
             alt="First slide"
           />
@@ -36,8 +36,8 @@ import Carousel from 'react-bootstrap/Carousel';
                    You are not here to be perfect, you are here to be you.<br/>
 
                    Be who you are and you will attract the right people around you.</p>
-                   <Button href="./registrate" className="button1" className="landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
-                   <Button href="./login" className="landing-button" className="button" variant="outline-light" data-slide="prev">LogIn</Button>
+                   <Button href="./registrate" className="button1 landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
+                   <Button href="./login" className="landing-button button" variant="outline-light" data-slide="prev">LogIn</Button>
 
           </Carousel.Caption>
         
@@ -47,8 +47,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
       
           <img
-            className="d-block w-100"
-            className="size"
+            className="d-block w-100 size"
             src="https://raisingchildren.net.au/__data/assets/image/0032/47975/praise-and-encouragement.jpg"
             alt="Second slide"
           />
@@ -61,15 +60,14 @@ import Carousel from 'react-bootstrap/Carousel';
             I was concerned and caught up with what other <br/>people thought of me.
 
             </p>
-            <Button href="./registrate" className="button1" className="landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
-                   <Button href="./login" className="landing-button" className="button" variant="outline-light" data-slide="prev">LogIn</Button>
+            <Button href="./registrate" className="button1 landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
+                   <Button href="./login" className="landing-button button" variant="outline-light" data-slide="prev">LogIn</Button>
 
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100"
-            className="size"
+            className="d-block w-100 size"
             src="https://static.adweek.com/adweek.com-prod/wp-content/uploads/2019/04/children-learn-CONTENT-2019-600x315.jpg"
             alt="Third slide"
           />
@@ -83,15 +81,14 @@ import Carousel from 'react-bootstrap/Carousel';
 
                  As we spoke about before,<br/> we can’t control everything that happens to us,<br/>
                  but the way we respond is ALWAYS up to us.</p>
-                 <Button href="./registrate" className="button1" className="landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
-                   <Button href="./login" className="landing-button" className="button" variant="outline-light" data-slide="prev">LogIn</Button>
+                 <Button href="./registrate" className="button1 landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
+                   <Button href="./login" className="landing-button button" variant="outline-light" data-slide="prev">LogIn</Button>
 
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100"
-            className="size"
+            className="d-block w-100 size"
 
             src="https://www.hhsi.us/wp-content/uploads/2019/02/shutterstock_735971851.jpg"
             alt="Third slide"
@@ -110,8 +107,9 @@ import Carousel from 'react-bootstrap/Carousel';
 
              Nothing is off limits. Everything is within reach. Anything can be.
             </p>
-            <Button href="./registrate" className="button1" className="landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
-                   <Button href="./login" className="landing-button" className="button" variant="outline-light" data-slide="prev">LogIn</Button>
+
+            <Button href="./registrate" className="button1 landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
+                   <Button href="./login" className="landing-button button" variant="outline-light" data-slide="prev">LogIn</Button>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

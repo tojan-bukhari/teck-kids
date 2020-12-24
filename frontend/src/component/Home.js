@@ -4,23 +4,18 @@ import Cards from "./cards/Cards"
 import FooterPage from './footer';
 
 import ControlledCarousel from './carusal';
-import Score from "./score";
-
+// import Score from "./score";
 
 export default function Home() {
 
   return (
     <div className='home'>
      
-      <ControlledCarousel />
-
-<ControlledCarousel />
-     <Cards/>
-    
+      <ControlledCarousel />    
 <Cards/>
 
 <FooterPage/>
- <Score />
+ {/* <Score /> */}
 </div>
 
   )}
