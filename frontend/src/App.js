@@ -31,14 +31,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/htmlCourse" component={HTMLcourse} />
 
- <ProtectedRoute exact  path="/cssCourse" component={CSScourse} isAuth={localStorage.length>0}/>
+ <ProtectedRoute exact path="/cssCourse" component={CSScourse} isAuth={localStorage.length>0}/>
  <Route  path="/errorimg" component={errorimg} />
-
-
- 
-        
-
-
 
           <Route exact path="/login" component={login} />
           <Route exact path="/registrate" component={registrate} />
