@@ -4,8 +4,7 @@ import Cards from "./cards/Cards"
 import FooterPage from './footer';
 
 import ControlledCarousel from './carusal';
-import Score from "./score";
-
+// import Score from "./score";
 
 export default function Home() {
 
@@ -14,13 +13,11 @@ export default function Home() {
      
       <ControlledCarousel />
 
-<ControlledCarousel />
-     <Cards/>
     
 <Cards/>
 
 <FooterPage/>
- <Score />
+ {/* <Score /> */}
 </div>
 
   )}

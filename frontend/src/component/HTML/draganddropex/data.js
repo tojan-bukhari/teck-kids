@@ -10,10 +10,10 @@ const data = [
      [ '<head>',
       '<title>Page Title</title>', '</head>','<body>',
        '<h1>This is a Heading</h1>', '<p>This is a paragraph.</p>',
-        '</body>', 
+        '</body>', '<!DOCTYPE html>', '<html>', '</html>' 
       ]
     },
-    {title: 'Drop here', items:  ['<!DOCTYPE html>', '<html>', '</html>' ]}
+    {title: 'Drop here', items:  []}
   ]
   
 
