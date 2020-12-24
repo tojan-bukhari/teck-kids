@@ -8,14 +8,6 @@ import '../../component/answers and questions/Answers.css';
 
 export default class Quiz extends Component {
 
-    
-     
-          
-     
- 
-
-   
-
     // initiating the local state
     state = {
         quiestions: {
