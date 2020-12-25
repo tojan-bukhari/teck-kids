@@ -12,7 +12,7 @@ import HTMLcourse from './component/HtmlCourse/HTMLcourse';
 import CSScourse from './component/CSSCourse/CSScourse';
 import profile from './component/profile';
 import Score from './component/score';
-import Navbar from './component/Navbar/Navbar'
+
 
 /****************************************************************** */
 
@@ -21,7 +21,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <Navbar />
+    
         <Switch>
           <Route path='/lessons' component={lessons} />
           <Route path='/exercises' component={Exercises} />
