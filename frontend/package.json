@@ -30,9 +30,11 @@
     "react-redux": "^7.2.2",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
+    "react-router-redux": "^4.0.8",
     "react-scripts": "4.0.1",
     "reactstrap": "^8.7.1",
     "redux": "^4.0.5",
+    "redux-form": "^8.3.7",
     "video-react": "^0.14.1",
     "web-vitals": "^0.2.4"
   },

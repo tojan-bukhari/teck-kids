@@ -5,10 +5,11 @@ import ReactDOM from 'react-dom';
 // take care of service worker
 // import * from serviceWorker From "./serviceworker";
 import App from './App';
-// we install redux to call createStore an
+// we install redux to call createStore an]
 // import {createStore} from "redux";
 //to combine the application with redux
 import { Provider } from "react-redux";
+import Quiz from "./component/CSS/Quiz1"
 import store from "./reducer/score";
 // shold
 // const store = createStore(reducers);

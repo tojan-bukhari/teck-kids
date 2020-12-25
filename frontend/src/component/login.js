@@ -7,6 +7,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
+import Home from './carusal.css';
+
+
+
+
 //  import validate from "./component/validateLogin"
 
 
@@ -62,13 +67,42 @@ const Signin = (validate)=>{
    
 
   return(
-  <div className="container p-5 py-3 px-md-5" size="6" style={{marginTop: 10 + 'em'}}>
-  <form>    
-       
- <div className="form-group text-center" >
- <label htmlFor="formGroupExampleInput">
-        <InputGroup className="mb-3">
+ <div  style={{backgroundColor:"	rgb(0, 77, 102) " ,width:"100%",height:"100vh"}} className="menu" >
+
+  <div className="container p-5 py-3 px-md-5">
+
+      <div  className="cssauth">  
+
+
+      <form>        
+
+  <div class="col-xs-9 hidden-sm col-md-9">
+  
+
+   <img className="imgauth"
+   
+    
+           style={{width:35+"em",height:30+"em",marginLeft:-36.2+"em",marginTop: -3.2 + 'em',  float: "left"}}
+           class="responsive"
+            className="d-block w-100"
+            className="size"
+            src="https://cdn.dribbble.com/users/623359/screenshots/3061757/rocket_launch.gif"
+            alt="First slide"
+          />
+          </div>
+          
+ <div className="form-group text-center"  >
+
+   
+   <span>
+
+ <label htmlFor="formGroupExampleInput" style={{marginTop: -3 +"em",borderStyle:'solid',borderWidth:"1px" ,width:"500px" ,height:"470px",backgroundColor:" #ffffff"}}>
+ <h1 style={{color:"red", marginLeft:"40rem" }}>login</h1>
+
+      <div style={{marginTop:"10rem" ,width:"400px",marginLeft: 4 +"em",}}>  <InputGroup className="mb-3" >
+     
         <InputGroup.Append>
+       
         <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
         </InputGroup.Append>
         <FormControl
@@ -85,6 +119,7 @@ const Signin = (validate)=>{
   
     <div className="form-group">
         <InputGroup className="mb-3">
+        <InputGroup.Text id="basic-addon2">Password</InputGroup.Text>
         <FormControl
          
           aria-label="Recipient's password"
@@ -95,22 +130,29 @@ const Signin = (validate)=>{
             required
          />
         </InputGroup> 
+
         <p>{errors.password &&<p>{errors.password}</p>}</p> 
+
     </div>
         <div>
            
             <Button as="input" className="btn btn-primary" type="submit" value="Submit"  onClick={submit}    />{' '}
         </div>
-</label>   
+        </div>
+</label>  
+</span> 
 </div>
    
        
     </form> 
+
+      </div>
+       
  
  
   </div>
-  
-  
+
+  </div>
 )};
 
 export default Signin;

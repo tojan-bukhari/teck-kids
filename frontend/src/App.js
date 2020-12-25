@@ -5,15 +5,13 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './component/Home';
 import login from './component/login';
 import registrate from './component/registrate';
-import profile from './component/profile';
-
+import profile from './component/profile'
+import Navbar from './component/sidebar/Navbar';
 import './App.css';
-
 import lessons from './pages/Lessons';
 import Exercises from './pages/Exercises';
-import Score from './component/score';
 
-
+// import store  from './component/score';
 
 function App() {
 
@@ -28,7 +26,7 @@ function App() {
           <Route exact path="/login" component={login} />
           <Route exact path="/registrate" component={registrate} />
           <Route exact path="/account/:id" component={profile} />
-          <Route exact path="/score" component={Score} />
+          {/* <Route exact path="/score" component={Score} /> */}
           <Exercises />
         </Switch>
       </BrowserRouter>

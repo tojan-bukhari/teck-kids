@@ -3,6 +3,7 @@ import React , {useState}from 'react';
 
 import Carousel from 'react-bootstrap/Carousel';
  import Home from './carusal.css';
+ import { MDBContainer } from 'mdbreact'
 
 
 
@@ -15,27 +16,30 @@ import Carousel from 'react-bootstrap/Carousel';
     };
    
   
-    return (
+    return (<div class="col-xs-9  hidden-xs">
+      <MDBContainer>
+
       <Carousel activeIndex={index} onSelect={handleSelect} className="carousel slide" data-ride="carousel">
           
         <Carousel.Item>
           <img
-          
+           style={{"width": "100%",
+           "height": "auto"}}
             className="d-block w-100"
             className="size"
             src="https://cdn.diabetesdaily.com/wp-content/blogs.dir/21/files/2017/08/iStock-538864120.jpg"
             alt="First slide"
           />
           
-          <Carousel.Caption className='pargraph'>
-        
-            <h3>“No one is perfect – that’s why pencils have erasers.” </h3>
+          <Carousel.Caption   className='pargraph' >
+        <div >
+            <h3 >“No one is perfect – that’s why pencils have erasers.” </h3>
             <p>
                    Love yourself, your whole self.<br/>
 
                    You are not here to be perfect, you are here to be you.<br/>
 
-                   Be who you are and you will attract the right people around you.</p>
+                   Be who you are and you will attract the right people around you.</p></div>
                    <Button href="./registrate" className="button1" className="landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
                    <Button href="./login" className="landing-button" className="button" variant="outline-light" data-slide="prev">LogIn</Button>
 
@@ -47,6 +51,8 @@ import Carousel from 'react-bootstrap/Carousel';
 
       
           <img
+          style={{"width": "100%",
+          "height": "auto"}}
             className="d-block w-100"
             className="size"
             src="https://raisingchildren.net.au/__data/assets/image/0032/47975/praise-and-encouragement.jpg"
@@ -68,21 +74,25 @@ import Carousel from 'react-bootstrap/Carousel';
         </Carousel.Item>
         <Carousel.Item>
           <img
+           style={{"width": "100%",
+           "height": "auto"}}
             className="d-block w-100"
             className="size"
             src="https://static.adweek.com/adweek.com-prod/wp-content/uploads/2019/04/children-learn-CONTENT-2019-600x315.jpg"
             alt="Third slide"
           />
-  
-      <Carousel.Caption  className='pargraph'>
-            <h3>“You can steer yourself any direction you choose.”</h3>
+      
+      <Carousel.Caption  class="row text-center" className='pargraph'><MDBContainer>
+
+            <h3 >“You can steer yourself any direction you choose.”</h3>
             <p>Your life is completely up to you.<br/>
 
                  Many times when we are going through hard times, <br/>
                  it doesn’t feel like that, but it is.
 
                  As we spoke about before,<br/> we can’t control everything that happens to us,<br/>
-                 but the way we respond is ALWAYS up to us.</p>
+                 but the way we respond is ALWAYS up to us.</p></MDBContainer>
+
                  <Button href="./registrate" className="button1" className="landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
                    <Button href="./login" className="landing-button" className="button" variant="outline-light" data-slide="prev">LogIn</Button>
 
@@ -90,6 +100,8 @@ import Carousel from 'react-bootstrap/Carousel';
         </Carousel.Item>
         <Carousel.Item>
           <img
+           style={{"width": "100%",
+           "height": "auto"}}
             className="d-block w-100"
             className="size"
 
@@ -113,8 +125,11 @@ import Carousel from 'react-bootstrap/Carousel';
             <Button href="./registrate" className="button1" className="landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
                    <Button href="./login" className="landing-button" className="button" variant="outline-light" data-slide="prev">LogIn</Button>
           </Carousel.Caption>
+
+
         </Carousel.Item>
       </Carousel>
+      </MDBContainer></div> 
     );
   }
   
