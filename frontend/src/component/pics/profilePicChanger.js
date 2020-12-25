@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import "antd/dist/antd.css";
 import { Modal, Button } from 'antd';
 import { ImagesArray } from './images';
+import axios from 'axios';
 
 /************************************************ */
 export default class ProfilePicChanger extends Component {
@@ -9,9 +10,12 @@ export default class ProfilePicChanger extends Component {
         super(props)
         this.state = {
             visible: false,
-            images:[props.pic1, props.pic2, props.pic4, props.pic5, props.pic6]
+            ImagesArray,
+            image:""
+            // images:[props.pic1, props.pic2, props.pic4, props.pic5, props.pic6]
         }
     }
+
 
     showModal = () => {
         this.setState({
@@ -19,11 +23,12 @@ export default class ProfilePicChanger extends Component {
         });
     };
 
-    handleOk = e => {
+    handleOk = async (e) => {
         console.log(e);
         this.setState({
             visible: false,
         });
+     
     }
     hideModal = (e) => {
         console.log(e)
@@ -31,24 +36,27 @@ export default class ProfilePicChanger extends Component {
             visible: false,
         });
     };
+   
 
     render() {
-        console.log(ImagesArray);
-        const imageMapper = ImagesArray.map((image, index)=>{
+        const imageMapper = ImagesArray.map((image, index) => {
             return (
                 <img src={image.url}
-                  onClick={()=>this.props.handelImageChange(image.url)}
-                  height="48px"
+                key={index}
+                 onClick={() => this.props.handelImageChange(image.url)}
+                  style={{}}
+                  size={30}
                 />
-           )
+            )
         })
         return (
             <div>
                 <Button type="primary" onClick={this.showModal}>
-                    Open Modal
+                    Change Picture
              </Button>
                 <Modal title="Profile Pic Changer Modal" visible={this.state.visible} onOk={this.handleOk} onCancel={this.hideModal}>
                     {imageMapper}
+                    {/* <button onClik={this.handelClick()}>save</button> */}
                 </Modal>
             </div>
         )
