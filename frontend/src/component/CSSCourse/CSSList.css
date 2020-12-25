@@ -59,9 +59,9 @@
 
 .nav-text a:hover {
   padding: 0.5rem;
-  border-left: 15px solid rgba(188, 191, 214, 0.96) ;
+  border-left: 15px solid rgba(188, 191, 214) ;
   transition: 0.8s;
-  background: rgba(5, 5, 7, 0.45) ;
+  background: rgba(143, 143, 216, 0.45) ;
   
 }
 

@@ -5,27 +5,22 @@ import login from './component/login';
 import registrate from './component/registrate';
 import Personalprofile from './component/pics/profile';
 import editProfile from './component/pics/editProfile';
-import './App.css';
 import lessons from './pages/Lessons';
 import Exercises from './pages/Exercises';
 import HTMLcourse from './component/HtmlCourse/HTMLcourse';
 import CSScourse from './component/CSSCourse/CSScourse';
-/****************************************************************** */
-// import profile from './component/profile';
-// import Score from './component/score';
 import ProtectedRoute from './protectedroutes/ProtectedRoute';
-import errorimg from "./protectedroutes/404img";
+import errorimg from "./protectedroutes/404img"
 import pic from './component/pics/profilePicChanger';
 
-
-
+/****************************************************************** */
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
-
+      <Navbar />
         <Switch>
           <ProtectedRoute path='/lessons' component={lessons} isAuth={localStorage.length > 0} />
           <ProtectedRoute path='/exercises' component={Exercises} isAuth={localStorage.length > 0} />
