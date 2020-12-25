@@ -4,7 +4,7 @@ import Home from './component/Home';
 import login from './component/login';
 import registrate from './component/registrate';
 import Personalprofile from './component/pics/profile';
-import editProfile from './component/editProfile';
+import editProfile from './component/pics/editProfile';
 import './App.css';
 import lessons from './pages/Lessons';
 import Exercises from './pages/Exercises';

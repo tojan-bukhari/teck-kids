@@ -9,7 +9,7 @@ export default class ProfilePicChanger extends Component {
         super(props)
         this.state = {
             visible: false,
-            images:[props.pic1, props.pic2, props.pic4, props.pic5, props.pic6]
+            // images:[props.pic1, props.pic2, props.pic4, props.pic5, props.pic6]
         }
     }
 

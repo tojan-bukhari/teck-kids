@@ -31,9 +31,10 @@ class Personalprofile extends React.Component {
     handelImageChange=(profilepic)=>{
         console.log("hey",profilepic)
         this.setState({
-            profilepic
-        })
+            profilepic }) 
     }
+
+
     componentDidMount() {
         axios.get("http://localhost:8000/user/account/" + this.state.id)
             .then(res => {
@@ -45,12 +46,9 @@ class Personalprofile extends React.Component {
             .catch((error) => {
                 console.log(error);
             });
-
-        var image= this.state.profilepic
-        axios.post("http://localhost:8000/user/account/" + this.state.id, this.state.profilepic )
-        .then(res=>console.log(res.data,"profile pic changed"))
-        .catch((error)=> console.log(error))
-    }
+        
+    } 
+   
 
     render() {
         return (
