@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import "antd/dist/antd.css";
 // import { storage } from "./firebase.js";
 // import Footer from './Footer';
 // import Navbar_login from "./Navbar_Login"
@@ -85,7 +86,12 @@ axios.post("http://localhost:8000/user/update/"+this.state.id, user)
   render(){
     return (
 
-      <div>
+      <div 
+            style={{
+                position: 'absolute', left: '50%', top: '50%',
+                transform: 'translate(-50%, -50%)'
+            }}>
+
         <br />
         <div className = "container text-center">
         <form className="text-center border border-light p-9" onSubmit={this.onSubmit}>
@@ -124,7 +130,7 @@ axios.post("http://localhost:8000/user/update/"+this.state.id, user)
         </form>
    
         </div>
-         
+       
         </div>
       
      

@@ -22,6 +22,7 @@ class Personalprofile extends React.Component {
              id:localStorage.getItem("userId"),
             name:"",
             age:"",
+            img:"",
             profilepic:[],
         }
 
@@ -31,26 +32,26 @@ class Personalprofile extends React.Component {
     handelImageChange=(profilepic)=>{
         console.log("hey",profilepic)
         this.setState({
-            profilepic
-        })
+            profilepic }) 
     }
+
+
     componentDidMount() {
         axios.get("http://localhost:8000/user/account/" + this.state.id)
             .then(res => {
                 console.log(res.data)
                 this.setState({ 
                     name: res.data.userName,
-                    age: res.data.age, })
+                    age: res.data.age,
+                    img:res.data.img
+                 })
             })
             .catch((error) => {
                 console.log(error);
             });
-
-        var image= this.state.profilepic
-        axios.post("http://localhost:8000/user/account/" + this.state.id, this.state.profilepic )
-        .then(res=>console.log(res.data,"profile pic changed"))
-        .catch((error)=> console.log(error))
-    }
+        
+    } 
+   
 
     render() {
         return (
@@ -59,16 +60,15 @@ class Personalprofile extends React.Component {
                 position: 'absolute', left: '50%', top: '50%',
                 transform: 'translate(-50%, -50%)'
             }}>
-    
                 <Avatar size={200} icon={<UserOutlined />} src={this.state.profilepic} />
                 <h2>Profile</h2>
                 <lable>Name</lable>
                 <h3>{this.state.name}</h3>
                 <lable>Age</lable>
                 <h3>{this.state.age}</h3>
-                {/* pic1={Pic1} pic2={Pic2} pic4={Pic4} pic5={Pic5} pic6={Pic6} */}
+                {/* pic1={Pic1} pic2={Pic2} pic4={Pic4} pic5={Pic5} pic6={Pic6} */} 
                  <ProfilePicChanger handelImageChange={this.handelImageChange} />
-                <Link to ={"/edit/" + this.state.id}  class="btn btn-success" >Edit User</Link>
+                 <Link to ={"/edit/" + this.state.id}  class="btn btn-success" >Edit User</Link>
              </div>
             
         )
