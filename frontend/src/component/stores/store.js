@@ -1,13 +1,9 @@
-import { createStore, combineReducers } from 'redux'
-import { reducer as formReducer } from 'redux-form'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import reducers  from '../reducer/reducers'
+import thunk from 'redux-thunk';
 
-const rootReducer = combineReducers({
-     
+  const Middleware = applyMiddleware(thunk)
+  const store = createStore(reducers,Middleware)
 
 
-
-
-    
-  })
-  
-  const store = createStore(rootReducer)
+  export default store;

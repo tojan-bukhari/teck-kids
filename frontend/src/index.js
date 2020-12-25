@@ -2,21 +2,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// take care of service worker
-// import * from serviceWorker From "./serviceworker";
+
 import App from './App';
 // we install redux to call createStore an]
 // import {createStore} from "redux";
 //to combine the application with redux
 import { Provider } from "react-redux";
 import Quiz from "./component/CSS/Quiz1"
-import store from "./reducer/score";
-// shold
-// const store = createStore(reducers);
-// const store = createStore(allReducer , 
-//    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+// import store from "./component/reducer/score";
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
+import reducers from "./component/reducer/reducers"
 
+const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
+///
 ReactDOM.render(
   <Provider store={store} >
     <App />

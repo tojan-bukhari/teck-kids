@@ -40,9 +40,7 @@ import Carousel from 'react-bootstrap/Carousel';
                    You are not here to be perfect, you are here to be you.<br/>
 
                    Be who you are and you will attract the right people around you.</p></div>
-                   <Button href="./registrate" className="button1" className="landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
-                   <Button href="./login" className="landing-button" className="button" variant="outline-light" data-slide="prev">LogIn</Button>
-
+                   
           </Carousel.Caption>
         
         </Carousel.Item>
@@ -67,9 +65,7 @@ import Carousel from 'react-bootstrap/Carousel';
             I was concerned and caught up with what other <br/>people thought of me.
 
             </p>
-            <Button href="./registrate" className="button1" className="landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
-                   <Button href="./login" className="landing-button" className="button" variant="outline-light" data-slide="prev">LogIn</Button>
-
+           
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -93,8 +89,7 @@ import Carousel from 'react-bootstrap/Carousel';
                  As we spoke about before,<br/> we can’t control everything that happens to us,<br/>
                  but the way we respond is ALWAYS up to us.</p></MDBContainer>
 
-                 <Button href="./registrate" className="button1" className="landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
-                   <Button href="./login" className="landing-button" className="button" variant="outline-light" data-slide="prev">LogIn</Button>
+                
 
           </Carousel.Caption>
         </Carousel.Item>
@@ -122,8 +117,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
              Nothing is off limits. Everything is within reach. Anything can be.
             </p>
-            <Button href="./registrate" className="button1" className="landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
-                   <Button href="./login" className="landing-button" className="button" variant="outline-light" data-slide="prev">LogIn</Button>
+           
           </Carousel.Caption>
 
 
