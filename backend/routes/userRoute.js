@@ -64,7 +64,7 @@ router.get("/account/:id", function(req, res) {
 //  })
 
  //this request is to update the course state to register if the user add the course
-router.put("/pic/:id",(req,res)=>{
+router.put("/account/:id",(req,res)=>{
   console.log("the id",req.params.id)
   const promise = User.findByIdAndUpdate(req.params.id,req.body);
   console.log(req.body)
