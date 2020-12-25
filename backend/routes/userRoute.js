@@ -47,4 +47,18 @@ router.get("/account/:id", function(req, res) {
       .catch(err => res.status(400).json('Error: ' + err));
   })
 
+ router.post("/pic/:id", function(req,res){
+  
+    User.findById(req.params.id)
+    
+    .then(user => {
+      user.image=req.body.image
+      user.save()
+      .then(()=> res.json("profile image update!!"))
+      .catch(err=> res.status(400).json('Error:'+err));
+      console.log("backend"+user.userName,req.body.image)
+    }) 
+    .catch(err=> res.status(400).json('Error:'+ err))
+ })
+
 module.exports = router;

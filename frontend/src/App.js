@@ -3,16 +3,19 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './component/Home';
 import login from './component/login';
 import registrate from './component/registrate';
-import Personalprofile from './component/profile';
-import editProfile from './component/editProfile'
-import './App.css';
+import Personalprofile from './component/pics/profile';
+import editProfile from './component/editProfile';
+//import './App.css';
 import lessons from './pages/Lessons';
 import Exercises from './pages/Exercises';
 import HTMLcourse from './component/HtmlCourse/HTMLcourse';
 import CSScourse from './component/CSSCourse/CSScourse';
-import profile from './component/profile';
-import Score from './component/score';
-
+/****************************************************************** */
+// import profile from './component/profile';
+// import Score from './component/score';
+import ProtectedRoute from './protectedroutes/ProtectedRoute';
+import errorimg from "./protectedroutes/404img"
+import Navbar from './component/Navbar/Navbar'
 
 /****************************************************************** */
 
@@ -21,20 +24,22 @@ function App() {
   return (
     <>
       <BrowserRouter>
-    
+      <Navbar />
         <Switch>
-          <Route path='/lessons' component={lessons} />
-          <Route path='/exercises' component={Exercises} />
+        <ProtectedRoute path='/lessons' component={lessons} isAuth={localStorage.length>0}/>
+          <ProtectedRoute path='/exercises' component={Exercises} isAuth={localStorage.length>0}/>
           <Route exact path="/" component={Home} />
           <Route exact path="/htmlCourse" component={HTMLcourse} />
-          <Route exact path="/cssCourse" component={CSScourse} />
+
+ <ProtectedRoute exact path="/cssCourse" component={CSScourse} isAuth={localStorage.length>0}/>
+ <Route  path="/errorimg" component={errorimg} />
+
           <Route exact path="/login" component={login} />
           <Route exact path="/registrate" component={registrate} />
           <Route exact path="/account/:id" component={Personalprofile} />
           <Route exact path="/edit/:id" component={editProfile} />
-          <Route exact path="/account/:id" component={profile} />
-          <Route exact path="/score" component={Score} />
-         
+          
+          {/* <Route exact path="/score" component={Score} /> */}
           <Exercises />
         </Switch>
       </BrowserRouter>

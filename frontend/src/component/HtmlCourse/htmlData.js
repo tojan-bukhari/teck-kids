@@ -21,7 +21,7 @@ export const SidebarData = [
   },
   { id :'5fddbf28c6a65c1cdab9b1db',
     title: 'exercises',
-    path: '/HTMLcourse',
+    path: '/ex1HTML',
     cName: 'nav-text'
   },
  

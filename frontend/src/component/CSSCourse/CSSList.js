@@ -47,7 +47,9 @@ function CSSList() {
             </li>
             {SidebarData.map((item, index) => {
               return (
-                <li key={index} className={item.cName} onClick={(event)=>{setId(event.currentTarget.dataset.id)}} data-id={item.id} >
+
+
+                <li key={index} className={item.cName} onClick={(event)=>{setId(event.currentTarget.dataset.id)}} data-id={item.id}  >
                   <Link to={item.path} >
                     
                     <span onClick={getLesson}>{item.title}</span>
