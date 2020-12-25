@@ -9,7 +9,6 @@ export default class ProfilePicChanger extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id:localStorage.getItem("userId"),
             visible: false,
             ImagesArray,
             image:""
@@ -36,10 +35,10 @@ export default class ProfilePicChanger extends Component {
             visible: false,
         });
     };
-    handelClick=()=>{
-        axios.put("http://localhost:8000/user/pic/" + this.state.id, this.image)
-        .then()
-           console.log("image changed") 
+    // handelClick=()=>{
+    //     axios.put("http://localhost:8000/user/pic/" + this.state.id, this.image)
+    //     .then()
+    //        console.log("image changed") 
         // axios.get("http://localhost:8000/user/account/" + this.state.id)
         //    .then(res => {
         //        console.log(res.data)
@@ -52,16 +51,13 @@ export default class ProfilePicChanger extends Component {
         //    .catch((error) => {
         //        console.log(error);
         //    });
-    }
+
 
     render() {
         console.log(ImagesArray);
         const imageMapper = ImagesArray.map((image, index) => {
-            
             return (
                 <img src={image.url}
-                 key={index}
-                 onChange={this.setState({image:image.url})}
                  onClick={() => this.props.handelImageChange(image.url)}
                  height="48px"
                 />
@@ -74,7 +70,7 @@ export default class ProfilePicChanger extends Component {
              </Button>
                 <Modal title="Profile Pic Changer Modal" visible={this.state.visible} onOk={this.handleOk} onCancel={this.hideModal}>
                     {imageMapper}
-                    <button onClik={this.handelClick()}>save</button>
+                    {/* <button onClik={this.handelClick()}>save</button> */}
                 </Modal>
             </div>
         )

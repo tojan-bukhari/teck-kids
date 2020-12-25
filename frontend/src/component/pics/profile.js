@@ -42,7 +42,9 @@ class Personalprofile extends React.Component {
                 console.log(res.data)
                 this.setState({ 
                     name: res.data.userName,
-                    age: res.data.age, })
+                    age: res.data.age,
+                    img:res.data.img
+                 })
             })
             .catch((error) => {
                 console.log(error);
@@ -58,8 +60,7 @@ class Personalprofile extends React.Component {
                 position: 'absolute', left: '50%', top: '50%',
                 transform: 'translate(-50%, -50%)'
             }}>
-    
-                <Avatar size={200} icon={<UserOutlined />} src={this.img} />
+                <Avatar size={200} icon={<UserOutlined />} src={this.state.profilepic} />
                 <h2>Profile</h2>
                 <lable>Name</lable>
                 <h3>{this.state.name}</h3>
