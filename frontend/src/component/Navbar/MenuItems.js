@@ -22,7 +22,7 @@ export const MenuItems = [
   cName:'nav-links1'
 },
 {
-  title : 'Our Story',
+  title : 'log out',
   url:'/registrate',
   cName:'nav-links1'
 },
