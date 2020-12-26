@@ -6,16 +6,20 @@ import { UserOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
 import { Link, withRouter } from "react-router-dom";
 import ProfilePicChanger from "./profilePicChanger";
+
 import HtmlCard from '../CourseCards/HtmlCard'
 import CssCard from '../CourseCards/CssCard'
 
 
 /************************************************** */
 
+
 class Personalprofile extends React.Component {
+    // this component is a pairent component of profilepicChanger and the props are inharitence
     constructor(props) {
         super(props);
-        
+        // ID forme the local storage 
+        // and the user info we need 
         this.state = {
              id:localStorage.getItem("userId"),
             name:"",
@@ -29,7 +33,7 @@ class Personalprofile extends React.Component {
 
     }
 
-
+// THIS FUNCTION WILL HANDELL THE IMAGES ARE COMNMING FROM PIC CHANGER COMPONENT AND WLL SEND A PUT REQ TO DATABASE 
     handelImageChange= async (profilepic)=>{
         console.log("hey",profilepic)
         

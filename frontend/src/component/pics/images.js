@@ -1,4 +1,4 @@
-
+// ARRAY OF PROFILE IMAGES
 export const ImagesArray = [
  
   {
