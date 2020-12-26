@@ -27,6 +27,8 @@ export default function CSSdes() {
     //if the is not register  change the null value of the course to be regesterd
     var newCourse = {"cssCourse":"Registerd"}
     await axios.put("http://localhost:8000/course/addCourse/"+userId, newCourse);
+    alert('Thanks for regestr at CSS course')
+    
     } catch (error) {
     alert(error.response.data.msg)
     }   

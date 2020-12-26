@@ -5,7 +5,7 @@ export const loginRes = (user) => async (dispatch) => {
     try {
       const { data } = await api.loginRes(user);
          localStorage.setItem("theToken", data);
-         console.log(data)
+         console.log(data.theToken)
          window.location.assign("/");
 
 

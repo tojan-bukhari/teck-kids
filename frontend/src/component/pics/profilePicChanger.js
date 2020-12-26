@@ -42,6 +42,7 @@ export default class ProfilePicChanger extends Component {
         const imageMapper = ImagesArray.map((image, index) => {
             return (
                 <img src={image.url}
+                style={{width:"100px",height:"100px "}}
                 key={index}
                  onClick={() => this.props.handelImageChange(image.url)}
                  

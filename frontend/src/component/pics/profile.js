@@ -6,13 +6,7 @@ import { UserOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
 import { Link, withRouter } from "react-router-dom";
 import ProfilePicChanger from "./profilePicChanger";
-// import Pic1 from "./pics/1.png";
-// import Pic2 from "./pics/2.png";
-// // import Pic3 from "./pics/3.png";
-// import Pic4 from "./pics/4.png";
-// import Pic5 from "./pics/5.png";
-// import Pic6 from "./pics/6.png";
-// import Image from 'react-bootstrap/Image'
+
 
 class Personalprofile extends React.Component {
     constructor(props) {
@@ -63,7 +57,7 @@ class Personalprofile extends React.Component {
         return (
             <div 
             style={{
-                position: 'absolute', right: '0%', top: '40%',
+                position: 'absolute', right: '0%', top: '55%',
                 transform: 'translate(-50%, -50%)',
                 border:'2px solid pink',
                 height:'500px',

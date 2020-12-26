@@ -5,9 +5,7 @@ import "antd/dist/antd.css";
 // import Footer from './Footer';
 // import Navbar_login from "./Navbar_Login"
 
-
-
-
+//
 
 export default class EditProfile extends Component {
     constructor(props) {

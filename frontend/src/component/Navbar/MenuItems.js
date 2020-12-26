@@ -11,19 +11,20 @@ export const MenuItems = [
   url:'/account/:id',
   cName:'nav-links1'
 },
-{
-  title : 'Sign Up',
-  url:'/registrate',
-  cName:'nav-links1'
-},
+
 {
   title : 'Our Story',
   url:'/registrate',
   cName:'nav-links1'
 },
 {
-  title : 'log out',
+  title : 'Sign Up',
   url:'/registrate',
+  cName:'nav-links1'
+},
+{
+  title : 'Sign In',
+  url:'/login',
   cName:'nav-links1'
 },
 
