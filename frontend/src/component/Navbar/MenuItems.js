@@ -17,14 +17,15 @@ export const MenuItems = [
   cName:'nav-links1'
 },
 {
+  title : 'Sign in',
+  url:'/login',
+  cName:'nav-links1'
+},
+{
   title : 'Our Story',
   url:'/registrate',
   cName:'nav-links1'
 },
-{
-  title : 'log out',
-  url:'/registrate',
-  cName:'nav-links1'
-},
+
 
 ]
