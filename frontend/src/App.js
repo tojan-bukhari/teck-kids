@@ -39,7 +39,7 @@ function App() {
           <Route exact path="/account/:id" component={Personalprofile} />
           <Route exact path="/edit/:id" component={editProfile} />
           <Route exact path="/account/:id" component={profile} />
-          {/* <Route exact path="/score" component={Score} /> */}
+          {/* <Route exact path="/score" component={Score} /> */} 
           <Exercises />
         </Switch>
       </BrowserRouter>
