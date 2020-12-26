@@ -5,14 +5,15 @@ import login from './component/login';
 import registrate from './component/registrate';
 import Personalprofile from './component/pics/profile';
 import editProfile from './component/pics/editProfile';
+//import './App.css';
 import lessons from './pages/Lessons';
 import Exercises from './pages/Exercises';
 import HTMLcourse from './component/HtmlCourse/HTMLcourse';
 import CSScourse from './component/CSSCourse/CSScourse';
 import ProtectedRoute from './protectedroutes/ProtectedRoute';
-import errorimg from "./protectedroutes/404img"
+import errorimg from "./protectedroutes/404img";
 import pic from './component/pics/profilePicChanger';
-
+import Navbar from './component/Navbar/Navbar'
 /****************************************************************** */
 
 function App() {

@@ -29,17 +29,23 @@ class Personalprofile extends React.Component {
     }
 
 
-    handelImageChange=(profilepic)=>{
+    handelImageChange= async (profilepic)=>{
         console.log("hey",profilepic)
         this.setState({
-            profilepic }) 
+            img :profilepic }) 
+            var newImg = {"img":profilepic}
+            try {     
+                await axios.put("http://localhost:8000/user/account/" + this.state.id,newImg);
+               } catch (error) {
+                  alert(error.response.data.msg)
+                  }  
     }
 
 
     componentDidMount() {
         axios.get("http://localhost:8000/user/account/" + this.state.id)
             .then(res => {
-                console.log(res.data)
+                console.log(res.data.img+"yees")
                 this.setState({ 
                     name: res.data.userName,
                     age: res.data.age,
@@ -57,18 +63,22 @@ class Personalprofile extends React.Component {
         return (
             <div 
             style={{
-                position: 'absolute', left: '50%', top: '50%',
-                transform: 'translate(-50%, -50%)'
+                position: 'absolute', right: '0%', top: '40%',
+                transform: 'translate(-50%, -50%)',
+                border:'2px solid pink',
+                height:'500px',
+                padding:'20px'
             }}>
-                <Avatar size={200} icon={<UserOutlined />} src={this.state.profilepic} />
-                <h2>Profile</h2>
-                <lable>Name</lable>
+                <Avatar size={200} icon={<UserOutlined />} src={this.state.img} />
+                <h2>My Profile</h2>
+               
+                <span>Name</span>
                 <h3>{this.state.name}</h3>
-                <lable>Age</lable>
+                <span>Age</span>
                 <h3>{this.state.age}</h3>
-                {/* pic1={Pic1} pic2={Pic2} pic4={Pic4} pic5={Pic5} pic6={Pic6} */} 
-                 <ProfilePicChanger handelImageChange={this.handelImageChange} />
-                 <Link to ={"/edit/" + this.state.id}  class="btn btn-success" >Edit User</Link>
+                
+                  <ProfilePicChanger handelImageChange={this.handelImageChange} />
+                 <Link to ={"/edit/" + this.state.id}  className="btn btn-success" >Edit User</Link>
              </div>
             
         )
