@@ -8,7 +8,8 @@ import {MDBContainer} from 'mdbreact'
     const handleSelect = (selectedIndex, e) => {
       setIndex(selectedIndex);
     };
-    return (<MDBContainer>
+    return (
+    // <MDBContainer>
       <Carousel activeIndex={index} onSelect={handleSelect} className="carousel slide" data-ride="carousel">
         <Carousel.Item>
           <img
@@ -22,8 +23,7 @@ import {MDBContainer} from 'mdbreact'
                    Love yourself, your whole self.<br/>
                    You are not here to be perfect, you are here to be you.<br/>
                    Be who you are and you will attract the right people around you.</p>
-                   <Button href="./registrate" className="button1 landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
-                   <Button href="./login" className="landing-button button" variant="outline-light" data-slide="prev">LogIn</Button>
+                  
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -38,14 +38,12 @@ import {MDBContainer} from 'mdbreact'
             As a kid, I was scared to stand out and<br/> be who I really was.
             I was concerned and caught up with what other <br/>people thought of me.
             </p>
-            <Button href="./registrate" className="button1 landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
-                   <Button href="./login" className="landing-button button" variant="outline-light" data-slide="prev">LogIn</Button>
+           
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
-          style={{"width": "1000px",
-          "height": "auto"}}
+        
             className="d-block w-100 size"
             src="https://static.adweek.com/adweek.com-prod/wp-content/uploads/2019/04/children-learn-CONTENT-2019-600x315.jpg"
             alt="Third slide"
@@ -57,15 +55,13 @@ import {MDBContainer} from 'mdbreact'
                  it doesn’t feel like that, but it is.
                  As we spoke about before,<br/> we can’t control everything that happens to us,<br/>
                  but the way we respond is ALWAYS up to us.</p>
-                 <Button href="./registrate" className="button1 landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
-                   <Button href="./login" className="landing-button button" variant="outline-light" data-slide="prev">LogIn</Button>
+                
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100 size"
-            style={{"width": "100%",
-            "height": "auto"}}
+            
             src="https://www.hhsi.us/wp-content/uploads/2019/02/shutterstock_735971851.jpg"
             alt="Third slide"
           />
@@ -79,11 +75,10 @@ import {MDBContainer} from 'mdbreact'
             the reputation you want, friends you want, that it’s possible.<br/>
              Nothing is off limits. Everything is within reach. Anything can be.
             </p>
-            <Button href="./registrate" className="button1 landing-button" variant="outline-light" data-slide="prev">Sign Up</Button>
-                   <Button href="./login" className="landing-button button" variant="outline-light" data-slide="prev">LogIn</Button>
+           
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      </MDBContainer>
+      // </MDBContainer>
     );
   }

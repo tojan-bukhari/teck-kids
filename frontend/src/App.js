@@ -32,7 +32,7 @@ function App() {
           <Route exact path="/htmlCourse" component={HTMLcourse} />
           <ProtectedRoute exact path="/cssCourse" component={CSScourse} isAuth={localStorage.length > 0} />
           <Route path="/errorimg" component={errorimg} />
-          <Route exact path="/account/:id" component={Personalprofile} />
+          <ProtectedRoute exact path="/account/:id" component={Personalprofile} isAuth={localStorage.length > 0} />
           <Route exact path="/edit/:id" component={editProfile} />
           <Route exact path="/pic/:id" component={pic} />
           <Route exact path="/Singin" component={Singin} />
