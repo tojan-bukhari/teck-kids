@@ -69,7 +69,7 @@ class Personalprofile extends React.Component {
                 height:'500px',
                 padding:'20px'
             }}>
-                <Avatar size={100} icon={<UserOutlined />} src={this.state.img} />
+                <Avatar size={200} icon={<UserOutlined />} src={this.state.img} />
                 <h2>My Profile</h2>
                
                 <span>Name</span>
