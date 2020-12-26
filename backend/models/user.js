@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema ({
       required: true,
        trim: true    
     }, 
-    image:{
+    img:{
         typt:String,
       },
   
@@ -39,6 +39,16 @@ const userSchema = new mongoose.Schema ({
          type:String,
          enum :[ "student" , "teacher"]
       },
+      htmlCourse:{
+          type:String,
+      },
+      cssCourse:{
+        type:String,
+    },
+    jsCourse:{
+        type:String,
+    },
+
     HTML_Schema:[
           {
               type: mongoose.Schema.Types.ObjectId,

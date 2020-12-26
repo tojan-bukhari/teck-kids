@@ -1,12 +1,19 @@
 import React from 'react';
-import Cards from "./cards/Cards"
+import FooterPage from './footer';
 
 import ControlledCarousel from './carusal';
+import Cards from "./cards/Cards";
+
 
 export default function Home() {
-   return <div>
 
-<ControlledCarousel />
+  return (
+    <div className='home'>
+     <ControlledCarousel />
      <Cards/>
+     <FooterPage/>
+   </div>
 
-}
+  )}
+  
+

@@ -2,10 +2,11 @@ var express = require('express');
 var morgan = require('morgan')
 var cors = require('cors')
 var app = express();
-const authRoutes = require('./routes/auth')
 
-
-const courseRoute = require('./routers/courseRoute');
+//the Routes
+const authRoutes = require('./routes/auth');
+const courseRoute = require('./routes/courseRoute');
+const userRoute=require('./routes/userRoute')
 require('dotenv').config();
 
 app.use(cors())
@@ -16,7 +17,7 @@ app.use(morgan('dev'));
 
 const mongoose = require('mongoose');
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true ,useFindAndModify:false}
 );
 
 const connection = mongoose.connection;
@@ -25,11 +26,10 @@ connection.once('open', () => {
 });
 //
 
+// MIDDILWARES
 app.use('/api',authRoutes);
-
-
-//the routes 
-app.use('/course',courseRoute)
+app.use('/course',courseRoute);
+app.use('/user',userRoute);
 
 //port with whatever the port will be given by heruko
 const port = process.env.PORT || 8000;

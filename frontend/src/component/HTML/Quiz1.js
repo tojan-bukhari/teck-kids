@@ -5,13 +5,14 @@ import '../../component/answers and questions/QuizMain.css';
 import '../../component/answers and questions/Answers.css';
 
 
+
 export default class Quiz extends Component {
 
     // initiating the local state
     state = {
         quiestions: {
-            1: 'what is the difference in an opening tag and a closing tag?',
-            2: 'What does HTML stand for?',
+            1: 'what is the difference between opening tag and a closing tag?',
+            2: 'What does HTML stands for?',
             3: ' How many tags are in a regular element?'
         },
         answers: {
@@ -21,7 +22,7 @@ export default class Quiz extends Component {
                 3: 'There is no difference'
             },
             2: {
-                1: 'Hyper Text Mile Language 😉',
+                1: 'Hyper Text Mile Language ',
                 2: 'Header Text Markup Language',
                 3: 'Hyper Text Markup Language'
             },
@@ -59,6 +60,8 @@ export default class Quiz extends Component {
         }
     }
 
+ 
+
     // method to move to the next question
     nextStep = (step) => {
         this.setState({
@@ -67,6 +70,9 @@ export default class Quiz extends Component {
             clickedAnswer: 0
         });
     }
+   handleClick() {
+        window.location = "/ex9";
+      }
 
     render(){
         let { quiestions, answers, correctAnswer, clickedAnswer, step, score } = this.state;
@@ -96,6 +102,7 @@ export default class Quiz extends Component {
                             <h1>You have completed the quiz!</h1>
                             <p>Your score is: {score} of {Object.keys(quiestions).length}</p>
                             <p>Thank you!</p>
+                            <button  className="Ne" onClick={this.handleClick} >next ex</button>
                         </div>
                     )
                 }

@@ -1,0 +1,94 @@
+.navbar {
+  background-position: center left;
+  height: 80px;
+  display: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: url('https://i.pinimg.com/564x/17/23/e3/1723e3561b5518f441da89c72d16d2e2.jpg');
+}
+
+.menu-bars {
+  margin-left: 2rem;
+  font-size: 2rem;
+  background: none;
+}
+
+.nav-menu {
+  background-image: url('https://i.pinimg.com/564x/17/23/e3/1723e3561b5518f441da89c72d16d2e2.jpg');
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  
+  background-position: center bottom;
+  
+  width: 250px;
+  height: 100vh;
+  display: flex-start;
+  justify-content:  flex-start;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+  
+}
+
+.nav-menu.active {
+  left: 0;
+  transition: 350ms;
+}
+
+.nav-text {
+  display: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8px 8px 8px 16px;
+  list-style: none;
+  height: 60px;
+}
+
+.nav-text a {
+  text-decoration: none;
+  color: #f0f0f0;
+  font-size: 18px;
+  width: 95%;
+  height: 100%;
+  display: flex-start;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+
+.nav-text a:hover {
+  padding: 0.5rem;
+  border-left: 15px solid rgba(17, 36, 207, 0.96) ;
+  transition: 0.8s;
+  background: rgba(5, 5, 7, 0.45) ;
+  
+}
+
+.nav-menu-items {
+  width: 100%;
+}
+
+.navbar-toggle {
+  background-color:rgba(234, 234, 244, 0.2) ;
+  width: 100%;
+  height: 80px;
+  display: flex-start;;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+span {
+    margin-left: 16px;
+    font-size: 18px;
+}
+
+.courseBox {
+  margin-top: 2rem;
+  margin-left: 500px;
+}
+.courseBox > h1 {
+ 
+color:  rgb(0, 0, 0) ;
+}
+
