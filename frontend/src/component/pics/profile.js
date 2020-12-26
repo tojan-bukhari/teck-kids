@@ -6,18 +6,13 @@ import { UserOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
 import { Link, withRouter } from "react-router-dom";
 import ProfilePicChanger from "./profilePicChanger";
-// import Pic1 from "./pics/1.png";
-// import Pic2 from "./pics/2.png";
-// // import Pic3 from "./pics/3.png";
-// import Pic4 from "./pics/4.png";
-// import Pic5 from "./pics/5.png";
-// import Pic6 from "./pics/6.png";
-// import Image from 'react-bootstrap/Image'
 
 class Personalprofile extends React.Component {
+    // this component is a pairent component of profilepicChanger and the props are inharitence
     constructor(props) {
         super(props);
-        
+        // ID forme the local storage 
+        // and the user info we need 
         this.state = {
              id:localStorage.getItem("userId"),
             name:"",
@@ -28,7 +23,7 @@ class Personalprofile extends React.Component {
 
     }
 
-
+// THIS FUNCTION WILL HANDELL THE IMAGES ARE COMNMING FROM PIC CHANGER COMPONENT AND WLL SEND A PUT REQ TO DATABASE 
     handelImageChange= async (profilepic)=>{
         console.log("hey",profilepic)
         this.setState({
