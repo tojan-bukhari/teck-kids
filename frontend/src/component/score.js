@@ -38,4 +38,4 @@
 
 
 }
- export default connect(mapStateToProps,mapDispatchToProps)(Score)
+//  export default connect(mapStateToProps,mapDispatchToProps)(Score)
