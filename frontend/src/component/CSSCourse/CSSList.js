@@ -31,7 +31,7 @@ function CSSList() {
   return (
     <div className='"row"'>
       
-        <div className='navbar'>
+        <div>
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
             
