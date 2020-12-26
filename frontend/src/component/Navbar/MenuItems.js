@@ -17,8 +17,8 @@ export const MenuItems = [
   cName:'nav-links1'
 },
 {
-  title : 'Our Story',
-  url:'/registrate',
+  title : 'Sign in',
+  url:'/login',
   cName:'nav-links1'
 },
 {
@@ -26,5 +26,6 @@ export const MenuItems = [
   url:'/registrate',
   cName:'nav-links1'
 },
+
 
 ]

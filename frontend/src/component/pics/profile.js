@@ -6,13 +6,11 @@ import { UserOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
 import { Link, withRouter } from "react-router-dom";
 import ProfilePicChanger from "./profilePicChanger";
-// import Pic1 from "./pics/1.png";
-// import Pic2 from "./pics/2.png";
-// // import Pic3 from "./pics/3.png";
-// import Pic4 from "./pics/4.png";
-// import Pic5 from "./pics/5.png";
-// import Pic6 from "./pics/6.png";
-// import Image from 'react-bootstrap/Image'
+import HtmlCard from '../CourseCards/HtmlCard'
+import CssCard from '../CourseCards/CssCard'
+
+
+/************************************************** */
 
 class Personalprofile extends React.Component {
     constructor(props) {
@@ -24,6 +22,9 @@ class Personalprofile extends React.Component {
             age:"",
             img:"",
             profilepic:[],
+            htmlCourse:'',
+            cssCourse:'',
+            jsCourse:''
         }
 
     }
@@ -31,6 +32,7 @@ class Personalprofile extends React.Component {
 
     handelImageChange= async (profilepic)=>{
         console.log("hey",profilepic)
+        
         this.setState({
             img :profilepic }) 
             var newImg = {"img":profilepic}
@@ -43,14 +45,19 @@ class Personalprofile extends React.Component {
 
 
     componentDidMount() {
+       
         axios.get("http://localhost:8000/user/account/" + this.state.id)
             .then(res => {
                 console.log(res.data.img+"yees")
                 this.setState({ 
                     name: res.data.userName,
                     age: res.data.age,
-                    img:res.data.img
+                    img:res.data.img,
+                    htmlCourse:res.data.htmlCourse,
+                    cssCourse:res.data.cssCourse,
+                    jsCourse:res.data.jsCourse
                  })
+                 console.log(this.state)
             })
             .catch((error) => {
                 console.log(error);
@@ -60,6 +67,12 @@ class Personalprofile extends React.Component {
    
 
     render() {
+        if(this.state.htmlCourse){
+            var x = <HtmlCard />
+        }
+        if(this.state.cssCourse){
+            var y = <CssCard />
+        }
         return (
             <div 
             style={{
@@ -79,6 +92,9 @@ class Personalprofile extends React.Component {
                 
                   <ProfilePicChanger handelImageChange={this.handelImageChange} />
                  <Link to ={"/edit/" + this.state.id}  className="btn btn-success" >Edit User</Link>
+                {x}
+             {y}
+             
              </div>
             
         )
