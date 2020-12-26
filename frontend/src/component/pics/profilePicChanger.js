@@ -44,7 +44,7 @@ export default class ProfilePicChanger extends Component {
                 <img src={image.url}
                 key={index}
                  onClick={() => this.props.handelImageChange(image.url)}
-                 height={image.size}
+                 
                 />
             )
         })
