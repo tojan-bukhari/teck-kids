@@ -3,7 +3,7 @@ import "antd/dist/antd.css";
 import { Modal, Button } from 'antd';
 import { ImagesArray } from './images';
 import axios from 'axios';
-
+/// tojan ///
 /************************************************ */
 export default class ProfilePicChanger extends Component {
     constructor(props) {
@@ -42,10 +42,10 @@ export default class ProfilePicChanger extends Component {
         const imageMapper = ImagesArray.map((image, index) => {
             return (
                 <div style={{height :'100px',
-                width :' 100px'}}>
+                width :' 100px'}} key="image.id">
                 <img src={image.url}
                 style={{width:"100px",height:"100px "}}
-                key={index}
+                 key={index}
                  onClick={() => this.props.handelImageChange(image.url)}
                  height = '100px'
                  width = ' 48px'
@@ -54,7 +54,7 @@ export default class ProfilePicChanger extends Component {
             )
         })
         return (
-            <div>
+            <div >
                 <Button type="primary" onClick={this.showModal}>
                     Change Picture
              </Button>

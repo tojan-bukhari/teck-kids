@@ -14,7 +14,7 @@
 //7-mapStateto props to pass  to store state
 //8-import{connect}...... to connect between redux and dispatch
 //provider to send store ...to connect redux with app
-
+//............................
 
 import React from 'react';
 import { useState } from "react";
@@ -104,8 +104,8 @@ function Signin(validatation) {
                 <div style={{ color: "red" }}>{inputs.passwordError}</div>
                 <br></br>
                 <div className="form-group"  >
-                  <div  class="btn">
-                    <button  class="btn_login"  className="btn btn-primary" id="btn2">
+                  <div  className="btn">
+                    <button  className="btn_login"  className="btn btn-primary" id="btn2">
                         Login
                     </button></div>
                  
