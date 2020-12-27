@@ -1,8 +1,5 @@
-
-
-
 // cosider object that tell reducer how to change data ...
-export default (state = [], action)=> { 
+ const x= (state = [], action)=> { 
     //the action should contain type  .... 
     switch (action.type){
         // any name express to it job 
@@ -13,7 +10,7 @@ export default (state = [], action)=> {
            return 0;
     }
 }
-
+export default x;
 
 
     

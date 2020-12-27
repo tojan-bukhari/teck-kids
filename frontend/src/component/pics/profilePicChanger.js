@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "antd/dist/antd.css";
 import { Modal, Button } from 'antd';
 import { ImagesArray } from './images';
-import axios from 'axios';
+
 
 /************************************************ */
 export default class ProfilePicChanger extends Component {
@@ -50,6 +50,7 @@ export default class ProfilePicChanger extends Component {
                  onClick={() => this.props.handelImageChange(image.url)}
                  height = '100px'
                  width = ' 48px'
+                 alt="css"
                 />
                 </div>
             )

@@ -1,0 +1,22 @@
+{
+  "name": "teck-kids",
+  "version": "1.0.0",
+  "description": "This website is made for your kid, so he will take the first step to learn the basics of web design.. can learn through descriptions, videos, lessons and exercises.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tojan-bukhari/teck-kids.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tojan-bukhari/teck-kids/issues"
+  },
+  "homepage": "https://github.com/tojan-bukhari/teck-kids#readme"
+}
