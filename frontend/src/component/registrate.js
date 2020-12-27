@@ -40,9 +40,8 @@ const submit =async (e)=>{
     setErrors(validation(email,password));
 
  try {
-   
+  
       const newUser = { userName, age, email  ,password  } ;
-      console.log(newUser);
    await axios.post("http://localhost:8000/api/register" , newUser);
    history.push('/login')
  } catch (error) {
@@ -68,13 +67,13 @@ const submit =async (e)=>{
         <div className="form-group">
             <label className="text-muted"> Email </label>
             <input id="reg-email" type="email" className="form-control" placeholder="Enter Your email" required onChange={(e)=>{setEmail(e.target.value)}}/>
-            <p>{errors.email &&<p>{errors.email}</p>}</p> 
+            <span>{errors.email &&<span>{errors.email}</span>}</span> 
 
         </div>
         <div className="form-group">
             <label className="text-muted"> Password </label>
             <input id="reg-pass" type="password" className="form-control" placeholder="Enter Your Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
-            <p>{errors.password &&<p>{errors.password}</p>}</p> 
+            <span>{errors.password &&<span>{errors.password}</span>}</span> 
 
         </div>
         

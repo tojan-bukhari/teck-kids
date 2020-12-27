@@ -9,7 +9,7 @@ const data = [
      items: 
      [ '<head>',
       '<title>Page Title</title>', '</head>','<body>',
-       '<h1>This is a Heading</h1>', '<p>This is a paragraph.</p>',
+       '<h1>This is a Heading</h1>', '<span>This is a paragraph.</span>',
         '</body>', '<!DOCTYPE html>', '<html>', '</html>' 
       ]
     },
