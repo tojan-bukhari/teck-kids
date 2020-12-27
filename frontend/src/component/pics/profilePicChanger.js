@@ -41,12 +41,16 @@ export default class ProfilePicChanger extends Component {
     render() {
         const imageMapper = ImagesArray.map((image, index) => {
             return (
+                <div style={{height :'100px',
+                width :' 100px'}}>
                 <img src={image.url}
                 style={{width:"100px",height:"100px "}}
                 key={index}
                  onClick={() => this.props.handelImageChange(image.url)}
-                 
+                 height = '100px'
+                 width = ' 48px'
                 />
+                </div>
             )
         })
         return (
@@ -56,7 +60,7 @@ export default class ProfilePicChanger extends Component {
              </Button>
                 <Modal title="Profile Pic Changer Modal" visible={this.state.visible} onOk={this.handleOk} onCancel={this.hideModal}>
                     {imageMapper}
-                    {/* <button onClik={this.handelClick()}>save</button> */}
+                    
                 </Modal>
             </div>
         )

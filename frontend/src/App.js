@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './component/Home';
+
 import Signin from './component/login';
+
 import registrate from './component/registrate';
 import Personalprofile from './component/pics/profile';
 import editProfile from './component/pics/editProfile';
@@ -37,6 +39,7 @@ function App() {
           <Route exact path="/edit/:id" component={editProfile} />
           <Route exact path="/pic/:id" component={pic} />
           <Route exact path="/login" component={Signin} />
+
           <Route exact path="/registrate" component={registrate} />
           <Exercises />
         </Switch>

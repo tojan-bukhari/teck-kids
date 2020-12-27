@@ -18,6 +18,7 @@ export const MenuItems = [
   cName:'nav-links1'
 },
 {
+
   title : 'Sign Up',
   url:'/registrate',
   cName:'nav-links1'
@@ -25,7 +26,15 @@ export const MenuItems = [
 {
   title : 'Sign In',
   url:'/login',
+
   cName:'nav-links1'
 },
+{
+  title : 'Our Story',
+  url:'/registrate',
+
+  cName:'nav-links1'
+},
+
 
 ]
