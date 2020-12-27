@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { MenuItems } from './MenuItems'
 import { Link } from 'react-router-dom';
-
+// import logo from './logo.png';
 import './Navbar.css';
-/****************************************************/
 
 export class NavBar extends Component {
 
@@ -22,6 +21,7 @@ export class NavBar extends Component {
           </div>
           <ul className={this.state.clicked ? 'nav-menu1 active' : 'nav-menu1'}>
               {MenuItems.map((item, index) => {
+                  
                   return (
                       
                       <li key={index}>
