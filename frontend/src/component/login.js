@@ -9,9 +9,6 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
 
-
-
-
 /****************************************************************/
 const Signin = ()=>{
   const history = useHistory();
@@ -28,7 +25,7 @@ const Signin = ()=>{
       const loginRes = await axios.post("http://localhost:8000/api/login" , newUser)
       console.log(loginRes.data.token)
       localStorage.setItem("theToken", loginRes.data.token);
-      localStorage.setItem("id", loginRes.data.id);
+      localStorage.setItem("id", loginRes.data.user.id);
       history.push('/')
        } catch (error) {
       alert(error.response.data.msg)
