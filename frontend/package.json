@@ -38,9 +38,9 @@
     "react-thunk": "^1.0.0",
     "reactstrap": "^8.7.1",
     "redux": "^4.0.5",
-    "styled-components": "^5.2.1",
     "redux-form": "^8.3.7",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^5.2.1",
     "video-react": "^0.14.1",
     "web-vitals": "^0.2.4"
   },

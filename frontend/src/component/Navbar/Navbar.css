@@ -144,4 +144,12 @@
     Button {
         display: none;
     }
+
+    .img-responsive{
+        height:150px;
+        width: 150px;    
+        
+    }
 }
+/* max-height: 100px;
+        max-width: 100px; */
