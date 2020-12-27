@@ -12,7 +12,7 @@ export default function HTMLdes() {
 
     const routeChange = async () =>{ 
     //I need to check if the user logged in if not send him to the login page
-    var userId = localStorage.getItem('userId');
+    var userId = localStorage.getItem('id');
         console.log(userId)
     if( userId === null ){
       history.push('/login')
@@ -28,7 +28,7 @@ export default function HTMLdes() {
       }
       var newCourse = {"htmlCourse":"Registerd"}
       await axios.put("http://localhost:8000/course/addCourse/"+userId, newCourse);
-      history.push('/account/:id')
+      history.push('/account/'+userId)
      } catch (error) {
      alert(error.response.data.msg)
      }   
