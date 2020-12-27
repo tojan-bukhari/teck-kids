@@ -28,6 +28,7 @@ export default function HTMLdes() {
       }
       var newCourse = {"htmlCourse":"Registerd"}
       await axios.put("http://localhost:8000/course/addCourse/"+userId, newCourse);
+      history.push('/account/:id')
      } catch (error) {
      alert(error.response.data.msg)
      }   

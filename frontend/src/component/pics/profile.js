@@ -93,7 +93,7 @@ class Personalprofile extends React.Component {
                   <ProfilePicChanger handelImageChange={this.handelImageChange} />
                  <Link to ={"/edit/" + this.state.id}  className="btn btn-success" >Edit User</Link>
                 {x}
-             {y}
+                {y}
              
              </div>
             
