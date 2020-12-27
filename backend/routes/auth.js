@@ -2,7 +2,7 @@
 const router = require("express").Router();
 //import the usermodel  use the schema to insert the data 
 const User = require('../models/User');
-//for hashing the password.................
+//for hashing the password...........
 const bcrypt = require('bcrypt');
 // use joi to validate the data inputs from user 
 const Joi = require('@hapi/joi');
