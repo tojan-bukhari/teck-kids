@@ -2,6 +2,9 @@
   "name": "tech-kids",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
     "@hapi/joi": "^17.1.1",
