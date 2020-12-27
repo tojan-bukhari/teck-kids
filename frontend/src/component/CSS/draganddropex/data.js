@@ -27,12 +27,14 @@ const data = [
 function Data() {
   
   var locals =  localStorage.getItem('List')
-  // console.log({locals}, 8800) 
+  console.log(locals, 'hi') 
+  console.log(locals[3], 8800) 
+
   // var mydata = JSON.stringify(rightData[1])
   console.log(locals)
-  
+  if (!data)console.log('bass')
 // console.log(rightData[1].items, "mesh hayyy")
-          //   if(JSON.stringify(rightData[1].items) === JSON.stringify({locals})){
+     // if(JSON.stringify(rightData[1].items) === JSON.stringify({locals})){
           //    console.log(JSON.stringify(rightData[1]),"               compare                   " ,  locals.items)
           // }
 
