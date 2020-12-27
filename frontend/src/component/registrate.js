@@ -40,9 +40,11 @@ const submit =async (e)=>{
     setErrors(validation(email,password));
 
  try {
-      const newUser = { userName,age,email  ,password  } ;
+   
+      const newUser = { userName, age, email  ,password  } ;
+      console.log(newUser);
    await axios.post("http://localhost:8000/api/register" , newUser);
-   history.push('/Singin')
+   history.push('/login')
  } catch (error) {
      
  }  

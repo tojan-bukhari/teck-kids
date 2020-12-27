@@ -1,9 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './component/Home';
-
 import Signin from './component/login';
-
 import registrate from './component/registrate';
 import Personalprofile from './component/pics/profile';
 import editProfile from './component/pics/editProfile';
@@ -15,12 +13,9 @@ import ProtectedRoute from './protectedroutes/ProtectedRoute';
 import errorimg from "./protectedroutes/404img";
 import pic from './component/pics/profilePicChanger';
 import Navbar from './component/Navbar/Navbar'
-//import './App.css';
-// import store  from './component/score';
+
 /****************************************************************** */
 
-////////////////////////tojaaan/////////////////////////////
-////////////////////////////////////////////
 
 function App() {
 //
@@ -35,11 +30,10 @@ function App() {
           <Route exact path="/htmlCourse" component={HTMLcourse} />
           <ProtectedRoute exact path="/cssCourse" component={CSScourse} isAuth={localStorage.length > 0} />
           <Route path="/errorimg" component={errorimg} />
-          <ProtectedRoute exact path="/account/:id" component={Personalprofile} isAuth={localStorage.length > 0} />
+          <ProtectedRoute path="/account/" component={Personalprofile} isAuth={localStorage.length > 0} />
           <Route exact path="/edit/:id" component={editProfile} />
           <Route exact path="/pic/:id" component={pic} />
           <Route exact path="/login" component={Signin} />
-
           <Route exact path="/registrate" component={registrate} />
           <Exercises />
         </Switch>

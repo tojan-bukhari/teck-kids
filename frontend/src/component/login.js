@@ -9,9 +9,6 @@ import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 
 
-
-
-
 /****************************************************************/
 const Signin = ()=>{
   const history = useHistory();

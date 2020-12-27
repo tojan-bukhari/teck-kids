@@ -9,7 +9,6 @@ import ProfilePicChanger from "./profilePicChanger";
 import HtmlCard from '../CourseCards/HtmlCard';
 import CssCard from '../CourseCards/CssCard';
 
-
 /************************************************** */
 
 
@@ -21,7 +20,7 @@ class Personalprofile extends React.Component {
         // ID forme the local storage 
         // and the user info we need 
         this.state = {
-             id:localStorage.getItem("userId"),
+             id:localStorage.getItem("id"),
             name:"",
             age:"",
             img:"",
