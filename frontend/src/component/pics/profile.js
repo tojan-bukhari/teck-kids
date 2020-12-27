@@ -14,6 +14,7 @@ import CssCard from '../CourseCards/CssCard'
 /************************************************** */
 
 
+
 class Personalprofile extends React.Component {
     // this component is a pairent component of profilepicChanger and the props are inharitence
     constructor(props) {
@@ -80,7 +81,7 @@ class Personalprofile extends React.Component {
         return (
             <div 
             style={{
-                position: 'absolute', right: '0%', top: '40%',
+                position: 'absolute', right: '0%', top: '55%',
                 transform: 'translate(-50%, -50%)',
                 border:'2px solid pink',
                 height:'500px',
