@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import "antd/dist/antd.css";
+
 // import { storage } from "./firebase.js";
 // import Footer from './Footer';
 // import Navbar_login from "./Navbar_Login"
 
-
+//
 
 
 
@@ -20,7 +22,7 @@ export default class EditProfile extends Component {
      
   
       this.state = {
-        id:localStorage.getItem("userId"),
+        id:localStorage.getItem("id"),
         username: "",
         password: "",
         age: "",
@@ -70,22 +72,24 @@ export default class EditProfile extends Component {
       password: this.state.password,
       age: this.state.age
     }
-
+    // this event will send the new user info to database
     console.log(user);
-
-
-
-axios.post("http://localhost:8000/user/update/"+this.state.id, user)
+    axios.post("http://localhost:8000/user/update/"+this.state.id, user)
       .then(res => console.log(res.data));
 
     window.location = '/account/'+this.state.id 
   }
 
-
+// form edit user
   render(){
     return (
 
-      <div>
+      <div 
+            style={{
+                position: 'absolute', left: '50%', top: '50%',
+                transform: 'translate(-50%, -50%)'
+            }}>
+
         <br />
         <div className = "container text-center">
         <form className="text-center border border-light p-9" onSubmit={this.onSubmit}>
@@ -99,9 +103,6 @@ axios.post("http://localhost:8000/user/update/"+this.state.id, user)
             <input required='true' type='text'className="form-control col" value= {this.state.username} onChange={this.onChangeUsername} placeholder='User Name'/>                   
             <br></br>                
             </div>
-
-
-
 
             <div className = "col">
             <label > New Password </label>
@@ -124,7 +125,7 @@ axios.post("http://localhost:8000/user/update/"+this.state.id, user)
         </form>
    
         </div>
-         
+       
         </div>
       
      

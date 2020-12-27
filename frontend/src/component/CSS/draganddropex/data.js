@@ -23,19 +23,20 @@ const data = [
   ' color: red;', 'text-align: center;','}']}
 ]
   
+//
 
 function Data() {
-  
+
   var locals =  localStorage.getItem('List')
-  // console.log({locals}, 8800) 
+  console.log(locals, 'hi') 
+  console.log(locals[3], 8800) 
+
   // var mydata = JSON.stringify(rightData[1])
-console.log(rightData[1], "mesh hayyy")
-            // if(JSON.stringify(rightData[1]) === JSON.stringify(locals[1])){
-             console.log(JSON.stringify(rightData[1]),"          compare" ,      locals[1])
-
-           
-
-            
+  console.log(locals)
+  if (!data)console.log('bass')
+// console.log(rightData[1].items, "mesh hayyy")
+     // if(JSON.stringify(rightData[1].items) === JSON.stringify({locals})){
+          //    console.log(JSON.stringify(rightData[1]),"               compare                   " ,  locals.items)
           // }
 
   return (
@@ -48,6 +49,30 @@ console.log(rightData[1], "mesh hayyy")
 }
 
 export default Data
+
+
+// function Data() {
+  
+//   var locals =  localStorage.getItem('List')
+//   console.log({locals}, 8800) 
+//   var mydata = JSON.stringify(rightData[1])
+//   console.log(locals)
+  
+// console.log(rightData[1].items, "mesh hayyy")
+//             if(JSON.stringify(rightData[1].items) === JSON.stringify({locals})){
+//              console.log(JSON.stringify(rightData[1]),"               compare                   " ,  locals.items)
+//           }
+
+//   return (
+//     <div className="defaultData"> 
+//       <header className="defaultData-header"> 
+//       <DragNDrop data = {data}/>
+//       </header>
+//     </div>
+//   )
+// }
+
+// export default Data
 
 
 

@@ -31,7 +31,7 @@ function HtmlList() {
   return (
     <div className='"row"'>
       
-        <div className='navbar'>
+        <div>
           <Link to='#' className='menu-bars'>
             <FaIcons.FaBars onClick={showSidebar} />
             
@@ -59,8 +59,8 @@ function HtmlList() {
         </nav>
         <div className="courseBox col-lg-8 col-md-6">
           <h1>{lesson.Titles}</h1>
-          <p>{lesson.Desceriptions}</p>
-          <iframe width="600" height="400" src={lesson.Videos}frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+          <span>{lesson.Desceriptions}</span>
+          <iframe  title={lesson.Titles} width="600" height="400" src={lesson.Videos}frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>  
                  
       

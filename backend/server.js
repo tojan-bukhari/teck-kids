@@ -5,8 +5,8 @@ var app = express();
 
 //the Routes
 const authRoutes = require('./routes/auth');
-const courseRoute = require('./routers/courseRoute');
-const userRoute=require('./routers/userRoute')
+const courseRoute = require('./routes/courseRoute');
+const userRoute=require('./routes/userRoute')
 require('dotenv').config();
 
 app.use(cors())
@@ -17,7 +17,7 @@ app.use(morgan('dev'));
 
 const mongoose = require('mongoose');
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true ,useFindAndModify:false}
 );
 
 const connection = mongoose.connection;

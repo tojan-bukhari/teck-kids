@@ -1,6 +1,6 @@
 .pargraph{
     margin-bottom: 220px;
-    margin-left: 160px;
+    margin-left: 100px;
     border-style: inset;
     width: 700px;
     background-color:gray;
@@ -9,9 +9,18 @@
 }
 .size{
     height:700px;
-    width:1600px;
+    width:2500px;
 }
 
+.cssauth{
+    margin-top: 100px;
+    margin-left : 40em;
+     width:30+"em" ;
+     height:30+"em";
+     border-style:"solid";
+     border-width:"10rem";
+     
+}
 .button1{
     margin-left:30px;
     color:black;
