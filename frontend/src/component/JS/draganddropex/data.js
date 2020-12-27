@@ -26,17 +26,17 @@ const data = [
 
 function Data() {
   
-  var locals =  localStorage.getItem('List')
-  // console.log({locals}, 8800) 
-  // var mydata = JSON.stringify(rightData[1])
-console.log(rightData[1], "mesh hayyy")
-            // if(JSON.stringify(rightData[1]) === JSON.stringify(locals[1])){
-             console.log(JSON.stringify(rightData[1]),"          compare" ,      locals[1])
+//   var locals =  localStorage.getItem('List')
+//   // console.log({locals}, 8800) 
+//   // var mydata = JSON.stringify(rightData[1])
+// console.log(rightData[1], "mesh hayyy")
+//             if(JSON.stringify(rightData[1]) === JSON.stringify(locals[1])){
+//              console.log(JSON.stringify(rightData[1]),"          compare" ,      locals[1])
 
            
 
             
-          // }
+//           }
 
   return (
     <div className="defaultData"> 

@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import axios from "axios";
 import "antd/dist/antd.css";
 
+// import { storage } from "./firebase.js";
+// import Footer from './Footer';
+// import Navbar_login from "./Navbar_Login"
+
+//
 
 
 
@@ -17,7 +22,7 @@ export default class EditProfile extends Component {
      
   
       this.state = {
-        id:localStorage.getItem("userId"),
+        id:localStorage.getItem("id"),
         username: "",
         password: "",
         age: "",
