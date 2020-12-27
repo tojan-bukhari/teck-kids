@@ -6,9 +6,8 @@ import { UserOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
 import { Link, withRouter } from "react-router-dom";
 import ProfilePicChanger from "./profilePicChanger";
-
-import HtmlCard from '../CourseCards/HtmlCard'
-import CssCard from '../CourseCards/CssCard'
+import HtmlCard from '../CourseCards/HtmlCard';
+import CssCard from '../CourseCards/CssCard';
 
 
 /************************************************** */

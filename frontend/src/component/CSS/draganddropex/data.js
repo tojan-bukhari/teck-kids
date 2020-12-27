@@ -23,9 +23,29 @@ const data = [
   ' color: red;', 'text-align: center;','}']}
 ]
   
-
+//
 
 function Data() {
+
+  var locals =  localStorage.getItem('List')
+  console.log({locals}, 8800) 
+  // var mydata = JSON.stringify(rightData[1])
+  // console.log({locals})//
+  console.log(JSON.stringify(locals[11]), "hhhhhhhhhhhh")
+// console.log(rightData[1].items, "mesh hayyy")
+            if(JSON.stringify(rightData[1].items) === JSON.stringify(locals[0].items)){
+             console.log(true)
+            //  if( '[{"title":"Drag","items":[]},{"title":"Drop here",…"p {","text-align: center;"," color: red;","}"]}]' === {locals}){
+              // console.log(JSON.stringify(rightData[1]),"               compare                   " ,  locals.items)
+              // window.location("/")
+          //  }
+ 
+          }//
+
+
+
+
+
   return (
     <div className="defaultData"> 
       <header className="defaultData-header"> 
