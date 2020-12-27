@@ -15,7 +15,6 @@ export class NavBar extends Component {
   
     return(
       <nav className="NavbarItems1">
-          {/* <img src={logo} class="img-responsive" /> */}
           <h1 className="navbar-logo1"><Link to='/'>Teck kid</Link><span className="fab fa-react"></span></h1>
           <div className="menu-icon1" onClick={this.handleClick}>
               <span className={this.state.clicked ? 'fas fa-times' : 'fas fa-hamburger'}></span>

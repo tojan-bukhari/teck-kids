@@ -83,7 +83,7 @@ function Signin(validatation) {
       <div style={{marginTop:"10rem" ,width:"400px",marginLeft: 4 +"em",}}> 
      
             <form name="form" onSubmit={handleSubmit}>
-              <div class ="email">
+              <div className ="email">
                 <div className="form-group">
                     <label>email</label>
                     <input type="text" name="email" value={email} onChange={handleChange} className={'form-control' + (submitted && !email ? ' is-invalid' : '')} />
@@ -104,8 +104,8 @@ function Signin(validatation) {
                 <div style={{ color: "red" }}>{inputs.passwordError}</div>
                 <br></br>
                 <div className="form-group"  >
-                  <div  class="btn">
-                    <button  class="btn_login"  className="btn btn-primary" id="btn2">
+                  <div  className="btn">
+                    <button  className="btn_login"  className="btn btn-primary" id="btn2">
                         Login
                     </button></div>
                  

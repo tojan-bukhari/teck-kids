@@ -6,9 +6,8 @@ import { UserOutlined } from '@ant-design/icons';
 import "antd/dist/antd.css";
 import { Link, withRouter } from "react-router-dom";
 import ProfilePicChanger from "./profilePicChanger";
-
-import HtmlCard from '../CourseCards/HtmlCard'
-import CssCard from '../CourseCards/CssCard'
+import HtmlCard from '../CourseCards/HtmlCard';
+import CssCard from '../CourseCards/CssCard';
 
 
 /************************************************** */
@@ -54,6 +53,7 @@ class Personalprofile extends React.Component {
         axios.get("http://localhost:8000/user/account/" + this.state.id)
             .then(res => {
                 console.log(res.data.img+"yees")
+                console.log(this.state.id)
                 this.setState({ 
                     name: res.data.userName,
                     age: res.data.age,
