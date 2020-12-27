@@ -24,18 +24,8 @@ const data = [
 ]
   
 
-function Data() {
-  
-  var locals =  localStorage.getItem('List')
-  // console.log({locals}, 8800) 
-  // var mydata = JSON.stringify(rightData[1])
-  console.log(locals)
-  
-// console.log(rightData[1].items, "mesh hayyy")
-          //   if(JSON.stringify(rightData[1].items) === JSON.stringify({locals})){
-          //    console.log(JSON.stringify(rightData[1]),"               compare                   " ,  locals.items)
-          // }
 
+function Data() {
   return (
     <div className="defaultData"> 
       <header className="defaultData-header"> 
@@ -46,6 +36,30 @@ function Data() {
 }
 
 export default Data
+
+
+// function Data() {
+  
+//   var locals =  localStorage.getItem('List')
+//   console.log({locals}, 8800) 
+//   var mydata = JSON.stringify(rightData[1])
+//   console.log(locals)
+  
+// console.log(rightData[1].items, "mesh hayyy")
+//             if(JSON.stringify(rightData[1].items) === JSON.stringify({locals})){
+//              console.log(JSON.stringify(rightData[1]),"               compare                   " ,  locals.items)
+//           }
+
+//   return (
+//     <div className="defaultData"> 
+//       <header className="defaultData-header"> 
+//       <DragNDrop data = {data}/>
+//       </header>
+//     </div>
+//   )
+// }
+
+// export default Data
 
 
 

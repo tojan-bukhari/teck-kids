@@ -1,4 +1,3 @@
-
 import React, {useState, useRef} from 'react'
 import { Button, Modal} from 'react-bootstrap';
 
@@ -100,6 +99,7 @@ SUBMIT      </Button>
         <Modal.Header closeButton>
           <Modal.Title>Woohoo!!!!</Modal.Title>
         </Modal.Header>
+        
         <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg"/>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -119,7 +119,3 @@ Go to the Next exersise          </Button>
 }
 
 export default DragNDrop
-
-
-
-
