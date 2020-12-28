@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // --> Add this
-// ** MIDDLEWARE ** //
+// ** MIDDLEWARE ** //'''''
 const whitelist = ['http://localhost:3000', 'http://localhost:8080']
 const corsOptions = {
   origin: function (origin, callback) {
