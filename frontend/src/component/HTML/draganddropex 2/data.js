@@ -7,38 +7,42 @@ import DragNDrop from './DragNDrop'
 const data = [
     {title: 'Drag',
      items: 
-     [ 'p {',
-      ' color: red;', 'text-align: center;','}'
+     [ 1,2
       ]
     },
-    {title: 'Drop here', items:  [ ]}
+    {title: 'Drop here', items:  [3,4 ]},
+    {title: 'Drop here', items:  [5,6 ]},
+    {title: 'Drop here', items:  [ 7,8]},
+    {title: 'Drop here', items:  [9,10 ]},
+    {title: 'Drop here', items:  [11,12 ]}
+
   ]
 
- const rightData = [
-  {title: 'Drag',
-   items: 
-   [ ]
-  },
-  {title: 'Drop here', items:  [ 'p {',
-  ' color: red;', 'text-align: center;','}']}
-]
+//  const rightData = [
+//   {title: 'Drag',
+//    items: 
+//    [ ]
+//   },
+//   {title: 'Drop here', items:  [ 'p {',
+//   ' color: red;', 'text-align: center;','}']}
+// ]
   
 //
 
 function Data() {
 
-  var locals =  localStorage.getItem('List')
-console.log(JSON.parse(locals)[1].items, 'hpppppppppi') 
-  // console.log(locals[0], 'indexesssss') 
+//   var locals =  localStorage.getItem('List')
+// console.log(JSON.parse(locals)[1].items, 'hpppppppppi') 
+//   // console.log(locals[0], 'indexesssss') 
 
-  // var mydata = JSON.stringify(rightData[1])
-  console.log(rightData[1].items,'rightData')
-  // if (!data)console.log('bass')
-// console.log(rightData[1].items, "mesh hayyy") 
-     if(rightData[1].items === JSON.parse(locals)[1].items){
-      alert("passssssssssss");
-      // window.location('/')
-          }
+//   // var mydata = JSON.stringify(rightData[1])
+//   console.log(rightData[1].items,'rightData')
+//   // if (!data)console.log('bass')
+// // console.log(rightData[1].items, "mesh hayyy") 
+//      if(rightData[1].items === JSON.parse(locals)[1].items){
+//       alert("passssssssssss");
+//       // window.location('/')
+//           }
 
   return (
     <div className="defaultData"> 
