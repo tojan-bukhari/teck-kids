@@ -8,6 +8,8 @@ import JSdes from "../component/DESCRIPTIONS/JSdes"
 import ex2CSS from "../component/CSS/draganddropex/data"
 import ex1JS from "../component/JS/Quiz1"
 import ex2JS from "../component/JS/draganddropex/data"
+import ex3HTML from "../component/HTML/draganddropex 2/data"
+
 
 
 
@@ -34,6 +36,8 @@ function Exercises() {
 <Route path='/ex9' component={ex2HTML} />
 <Route path='/js-des' component={JSdes} />
 <Route path='/ex2CSS' component={ex2CSS} />
+<Route path='/ex3HTML' component={ex3HTML} />
+
 
 
 
