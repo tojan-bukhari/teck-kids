@@ -1,20 +1,22 @@
 import React from 'react';
-import ex1HTML from "../component/HTML/Quiz1"
-import ex1CSS from "../component/CSS/Quiz1"
+
+/* ////////HTML//////////// */
+
 import HTMLdes from "../component/DESCRIPTIONS/HTMLdes"
+import Ex3html from '../component/HTML/draganddrop2/ex3data'
+import ex1HTML from "../component/HTML/Quiz1"
 import ex2HTML from "../component/HTML/draganddropex/data"
+import ex4HTML from '../component/HTML/draganddrop3/data'
+
+    /* ///////////CSS//////////// */
 import CSSdes from "../component/DESCRIPTIONS/CSSdes"
-import JSdes from "../component/DESCRIPTIONS/JSdes"
 import ex2CSS from "../component/CSS/draganddropex/data"
+import ex1CSS from "../component/CSS/Quiz1"
+
+/* /////////JS/////////////// */
+import JSdes from "../component/DESCRIPTIONS/JSdes"
 import ex1JS from "../component/JS/Quiz1"
 import ex2JS from "../component/JS/draganddropex/data"
-import ex3HTML from "../component/HTML/draganddropex 2/data"
-
-
-
-
-
-
 
 import { Route } from 'react-router-dom';
 
@@ -25,18 +27,27 @@ function Exercises() {
   return (
     <div className='exercises'>
 
-<Route path='/ex1HTML' component={ex1HTML} />
+    {/* ///////////CSS//////////// */}
 <Route path='/ex1CSS' component={ex1CSS} />
+<Route path='/css-des' component={CSSdes} />
+<Route path='/ex2CSS' component={ex2CSS} />
+
+{/* /////////JS/////////////// */}
 <Route path='/ex1js' component={ex1JS} />
 <Route path='/ex2js' component={ex2JS} />
-
-
-<Route path='/html-des' component={HTMLdes} />
-<Route path='/css-des' component={CSSdes} />
-<Route path='/ex9' component={ex2HTML} />
 <Route path='/js-des' component={JSdes} />
-<Route path='/ex2CSS' component={ex2CSS} />
-<Route path='/ex3HTML' component={ex3HTML} />
+
+{/* ////////HTML//////////// */}
+<Route path='/Ex3html' component={Ex3html} />
+<Route path='/ex1HTML' component={ex1HTML} />
+<Route path='/ex9' component={ex2HTML} />
+<Route path='/html-des' component={HTMLdes} />
+<Route path='/ex4HTML' component={ex4HTML} />
+
+
+
+
+
 
 
 

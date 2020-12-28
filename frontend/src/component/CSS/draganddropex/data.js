@@ -4,7 +4,7 @@ import './vv.css';
 import DragNDrop from './DragNDrop'
 
 
-const data = [
+var data = [
     {title: 'Drag',
      items: 
      [ 'p {',
@@ -14,7 +14,7 @@ const data = [
     {title: 'Drop here', items:  [ ]}
   ]
 
- const rightData = [
+ var rightData = [
   {title: 'Drag',
    items: 
    [ ]
@@ -27,23 +27,23 @@ const data = [
 
 function Data() {
 
-  var locals =  localStorage.getItem('List')
-console.log(JSON.parse(locals)[1].items, 'hpppppppppi') 
-  // console.log(locals[0], 'indexesssss') 
+//   var locals =  localStorage.getItem('List')
+// console.log(JSON.parse(locals)[1].items, 'hpppppppppi') 
+//   // console.log(locals[0], 'indexesssss') 
 
-  // var mydata = JSON.stringify(rightData[1])
-  console.log(rightData[1].items,'rightData')
-  // if (!data)console.log('bass')
-// console.log(rightData[1].items, "mesh hayyy") 
-     if(rightData[1].items === JSON.parse(locals)[1].items){
-      alert("passssssssssss");
-      // window.location('/')
-          }
+//   // var mydata = JSON.stringify(rightData[1])
+//   console.log(rightData[1].items,'rightData')
+//   // if (!data)console.log('bass')
+// // console.log(rightData[1].items, "mesh hayyy") 
+//      if(rightData[1].items === JSON.parse(locals)[1].items){
+//       alert("passssssssssss");
+//       // window.location('/')
+//           }
 
   return (
     <div className="defaultData"> 
       <header className="defaultData-header"> 
-      <DragNDrop data = {data}/>
+      <DragNDrop data = {data} rightData={rightData}/>
       </header>
     </div>
   )
