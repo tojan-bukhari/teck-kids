@@ -1,7 +1,7 @@
 import React, {useState, useRef} from 'react'
 import { Button, Modal} from 'react-bootstrap';
 
-function DragNDrop({data,rightData}) {
+function Dndex3({data}) {
     const [list, setList] = useState(data); 
     const [dragging, setDragging] = useState(false);
     const [show, setShow] = useState(false);
@@ -52,28 +52,12 @@ function DragNDrop({data,rightData}) {
                         }
 
 
-                    const handleClick= ()=> {
-                      const locals =  localStorage.getItem('List')
-                      // console.log(JSON.parse(locals)[1].items, 'hpppppppppi') 
-                        // console.log(locals[0], 'indexesssss') 
-                        // var mydata = JSON.stringify(rightData[1])
-                        // console.log(rightData[1].items,'rightData')
-                        // if (!data)console.log(JSON.parse(locals)[1].items))
-                      // console.log(rightData[1].items, "mesh hayyy") 
-                      // console.log(rightData[1].items, "MY DATA") 
 
-                          //  if(rightData[1].items === JSON.parse(locals)[1].items)
-                          if ( JSON.parse(locals)[1].items !== [])
-                        console.log(rightData[1].items, "MY DATA") 
-                    console.log(JSON.parse(locals)[1].items, "LOCAL'S STORAGEDATA")
 
-                        alert("PPPAASSEEDDDDDDDD")
-                            // window.location('/')
-                            if ( JSON.parse(locals)[1].items === []) alert("fail")
-                                
-                    
-                        }
 
+                
+                
+                
                 const getStyles = (params) => {
                     const currentItem =  dragItem.current;
                 if (currentItem.grpI === params.grpI && currentItem.itemI === params.itemI) {
@@ -108,10 +92,10 @@ function DragNDrop({data,rightData}) {
            </div>
         ))}    
         <div>
-        <Button variant="primary" onClick={handleClick}>
+        <Button variant="primary" onClick={handleShow}>
 SUBMIT      </Button>
 
-      <Modal show={show} onHide={handleClick}>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Woohoo!!!!</Modal.Title>
         </Modal.Header>
@@ -134,4 +118,4 @@ Go to the Next exersise          </Button>
     )
 }
 
-export default DragNDrop
+export default Dndex3
