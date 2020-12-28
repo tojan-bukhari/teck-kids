@@ -5,36 +5,127 @@ import DragNDrop from './DragNDrop'
 
 
 const data = [
-  {title: 'Drag',
-  items: 
-  [ '<head>',
-   '<title>Page Title</title>', '</head>','<body>',
-    '<h1>This is a Heading</h1>', '<p>This is a paragraph.</p>',
-     '</body>', '<!DOCTYPE html>', '<html>', '</html>' 
-   ]
+
+    {title: 'Opening Tags',
+     items: 
+     [ '<h1>','<p>', '<h3>']
     },
-    {title: 'Drop here', items:  [ ]}
+    {title: 'End Tags', items:  ['</p>', '</h1>',  '</h3>']},
+    {title: 'Drop here', items:  []},
+    {title: 'Drop here', items:  []},
+    {title: 'Drop here', items:  []},
+    {title: 'Drop here', items:  []}
+
   ]
 
-//  const rightData = [
-//   {title: 'Drag',
-//    items: 
-//    [ ]
-//   },
-//   {title: 'Drop here', items:  [ 'p {',
-//   ' color: red;', 'text-align: center;','}']}
-// ]
-  
+// function Ex3data() {
 
-function Data() {
+//   <div className='hhhh'>
+//     <h1>{ data[1].items[1] }</h1>
+//   </div>
+ 
+
+//   return (
+//     <div className="defaultData">     
+//       <header className="defaultData-header"> 
+//       <Dndex3 data = {data}/>
+//       </header>
+//     </div>
+//   )
+// }
+
+// export default Ex3data
+
+function Ex3data() {
+
   return (
-    <div className="defaultData"> 
-      <header className="defaultData-header"> 
-      {/* <DragNDrop data = {data}/> */} hio
-      </header>
-    </div>
+    <div className="drag-n-drop">
+      <DragNDrop data={data}/>
+            {/* <div className="dnd-group">
+              <div className="group-title">Group 1</div>
+              <div className="dnd-item">
+                <div>
+                  <p>ITEM 1</p>
+                </div>
+              </div>
+              <div className="dnd-item">
+                <div>
+                  <p>ITEM 2</p>
+                </div>
+              </div>
+              <div className="dnd-item">
+                <div>
+                  <p>ITEM 3</p>
+                </div>
+              </div>
+            </div>
+            <div className="dnd-group">
+            <div className="group-title">Group 2</div>
+              <div className="dnd-item">
+                <div>
+                  <p>ITEM 1</p>
+                </div>
+              </div>
+              <div className="dnd-item">
+                <div>
+                  <p>ITEM 2</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="dnd-group">
+            <div className="group-title"></div>
+              <div className="dnd-item"></div>
+            </div> */}
+          </div> 
+
   )
 }
 
-export default Data
+export default Ex3data
 
+  {/* <div className="drag-n-drop">
+        {data.map((grp, grpI) => (
+          <div key={grp.title} className="dnd-group">
+            {grp.items.map((item, itemI) => (
+              <div draggable key={item} className="dnd-item">
+                {item}
+              </div>
+            ))}
+          </div>
+        ))}
+        </div> */}
+
+          {/* <div className="drag-n-drop">
+            <div className="dnd-group">
+              <div className="group-title">Group 1</div>
+              <div className="dnd-item">
+                <div>
+                  <p>ITEM 1</p>
+                </div>
+              </div>
+              <div className="dnd-item">
+                <div>
+                  <p>ITEM 2</p>
+                </div>
+              </div>
+              <div className="dnd-item">
+                <div>
+                  <p>ITEM 3</p>
+                </div>
+              </div>
+            </div>
+            <div className="dnd-group">
+            <div className="group-title">Group 1</div>
+              <div className="dnd-item">
+                <div>
+                  <p>ITEM 1</p>
+                </div>
+              </div>
+              <div className="dnd-item">
+                <div>
+                  <p>ITEM 2</p>
+                </div>
+              </div>
+            </div>
+          </div> */}
