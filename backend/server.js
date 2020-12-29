@@ -2,17 +2,19 @@ var express = require('express');
 var morgan = require('morgan')
 var cors = require('cors')
 var app = express();
-
+//the stripe is for the payment by card
+//var uuid = require('uuid/v4')
 //the Routes
-const authRoutes = require('./routes/auth');
+const authRoutes  = require('./routes/auth');
 const courseRoute = require('./routes/courseRoute');
-const userRoute=require('./routes/userRoute')
+const userRoute   =require('./routes/userRoute')
+const payments    = require('./routes/payments');
+
 require('dotenv').config();
 
+//middleware
 app.use(cors())
 app.use(express.json()); 
-///
-
 app.use(morgan('dev'));
 
 const mongoose = require('mongoose');
@@ -26,11 +28,11 @@ connection.once('open', () => {
 });
 //
 
-// MIDDILWARES
+// Routes
 app.use('/api',authRoutes);
 app.use('/course',courseRoute);
 app.use('/user',userRoute);
-
+app.use('/payments',payments)
 //port with whatever the port will be given by heruko
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
