@@ -17,7 +17,7 @@ export default class EditProfile extends Component {
      
   
       this.state = {
-        id:localStorage.getItem("userId"),
+        id:localStorage.getItem("id"),
         username: "",
         password: "",
         age: "",
