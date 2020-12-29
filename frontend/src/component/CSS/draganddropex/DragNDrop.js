@@ -68,16 +68,17 @@ function DragNDrop({data,rightData}) {
 
                         for (var i = 0; i < localData.length; i++) {
                           for (var j = 0; j < mydata.length; j++) {
-                              if (localData[i] === mydata[j]) {
+                              if (localData[i] === mydata[j] && localData.length> 1) {
                                 console.log(mydata, "MY DATA") 
                           console.log(localData, "LOCAL'S STORAGEDATA")
-                          alert("PPPAASSEEDDDDDDDD")
+                          
+                          return alert("greate job");
                                
-                              }else if (localData[i] !== mydata[j]){
-                                alert("fail")
-                                console.log(mydata, "MY DATA") 
-                                console.log(localData, "LOCAL'S STORAGEDATA")
-                              }
+                              // }else if (localData[i] !== mydata[j]){
+                              //   alert("fail")
+                              //   console.log(mydata, "MY DATA") 
+                              //   console.log(localData, "LOCAL'S STORAGEDATA")
+                              }else return alert('try again')
                           }
                       }
 
@@ -99,6 +100,7 @@ function DragNDrop({data,rightData}) {
                                 
                     //
                         }
+                          
 
                 const getStyles = (params) => {
                     const currentItem =  dragItem.current;
