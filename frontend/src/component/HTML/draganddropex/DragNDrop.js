@@ -2,13 +2,13 @@
 import React, {useState, useRef} from 'react'
 import { Button, Modal} from 'react-bootstrap';
 
-function DragNDrop({data}) {
+function DragNDrop({data, rightData}) {
     const [list, setList] = useState(data); 
     const [dragging, setDragging] = useState(false);
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    // const handleShow = () => setShow(true);
   
 
     const dragItem = useRef();
@@ -17,6 +17,7 @@ function DragNDrop({data}) {
     const handletDragStart = (e, params) => {
                 console.log('dragging', params)
                 dragItem.current = params;
+                // console.log(current)
                 dragItemNode.current = e.target;
                 dragItemNode.current.addEventListener('dragend', handleDragEnd)
         
@@ -52,22 +53,37 @@ function DragNDrop({data}) {
                             dragItemNode.current = null;
                         }
 
-
-
-
-
-                
-                
                 
                 const getStyles = (params) => {
                     const currentItem =  dragItem.current;
                 if (currentItem.grpI === params.grpI && currentItem.itemI === params.itemI) {
                     return ' dnd-item current'
                             }
-                            return "dnd-item" 
-                    
-                    
+                            return "dnd-item"
                         }
+
+
+                        const handleClick= ()=> {
+                          const locals =  localStorage.getItem('List')
+                          const localData =  JSON.parse(locals)[1].items 
+                         const mydata = rightData[1].items
+                     
+                            for (var i = 0; i < localData.length; i++) {
+                              for (var j = 0; j < mydata.length; j++) {
+                                  if (localData[i] === mydata[j] && localData.length> 1) {
+                                    console.log(mydata, "MY DATA") 
+                              console.log(localData, "LOCAL'S STORAGEDATA")
+                              
+                              return alert("greate job");
+                                   
+                                  console.log(localData, "LOCAL'S STORAGEDATA")
+                                  }else return alert('try again')
+                              }
+                          }
+    
+                 
+                            }
+
 
 
     return (
@@ -92,11 +108,11 @@ function DragNDrop({data}) {
               ))}
            </div>
         ))}    
-        <div>
-        <Button variant="primary" onClick={handleShow}>
+          <div>
+        <Button variant="primary" onClick={handleClick}>
 SUBMIT      </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClick}>
         <Modal.Header closeButton>
           <Modal.Title>Woohoo!!!!</Modal.Title>
         </Modal.Header>

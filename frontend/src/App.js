@@ -13,6 +13,8 @@ import ProtectedRoute from './protectedroutes/ProtectedRoute';
 import errorimg from "./protectedroutes/404img";
 import pic from './component/pics/profilePicChanger';
 import Navbar from './component/Navbar/Navbar'
+import CSSex3 from './component/CSS/inputQuestions/CSSex3'
+import CSSex4 from './component/CSS/inputQuestions/CSSex4'
 //// tojan //////
 /****************************************************************** */
 
@@ -35,6 +37,8 @@ function App() {
           <Route exact path="/pic/:id" component={pic} />
           <Route exact path="/login" component={Signin} />
           <Route exact path="/registrate" component={registrate} />
+          <Route exact path="/CSS/ex3" component={CSSex3} />
+          <Route exact path="/CSS/ex4" component={CSSex4} />
           <Exercises />
         </Switch>
       </BrowserRouter>

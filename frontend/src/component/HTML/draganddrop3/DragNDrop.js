@@ -1,14 +1,8 @@
+
 import React, {useState, useRef} from 'react'
 import { Button, Modal} from 'react-bootstrap';
-import { useHistory } from "react-router-dom";
 
-
-/*************************************************************** */
 function DragNDrop({data}) {
-
-  const history = useHistory();
-
-
     const [list, setList] = useState(data); 
     const [dragging, setDragging] = useState(false);
     const [show, setShow] = useState(false);
@@ -21,8 +15,9 @@ function DragNDrop({data}) {
         const dragItemNode = useRef();
         
     const handletDragStart = (e, params) => {
-                console.log('dragging', params)
+                // console.log('dragging', params)
                 dragItem.current = params;
+                // console.log(current)
                 dragItemNode.current = e.target;
                 dragItemNode.current.addEventListener('dragend', handleDragEnd)
         
@@ -33,13 +28,13 @@ function DragNDrop({data}) {
                 }    
 
                 const handleDragEnter = (e, params) => {
-                            console.log('Entering a drag target', params)
+                            // console.log('Entering a drag target', params)
                             if (dragItemNode.current !== e.target) {
-                                console.log('Target is NOT the same as dragged item')
+                                // console.log('Target is NOT the same as dragged item')
                                 setList(oldList => {
                                     // grab deep coby of the object
                                     let newList = JSON.parse(JSON.stringify(oldList))
-                                    console.log(newList)
+                                    // console.log(newList)
                                     newList[params.grpI].items.splice(params.itemI, 0, newList[dragItem.current.grpI].items.splice(dragItem.current.itemI,1)[0])
                                     dragItem.current = params;
                                     localStorage.setItem('List', JSON.stringify(newList));
@@ -47,11 +42,8 @@ function DragNDrop({data}) {
                                 })
                             }
                         }
-
-
-
                 const handleDragEnd = (e) => {
-                    console.log("ending drag...")
+                    // console.log("ending drag...")
                             setDragging(false);
                             dragItem.current = null;
                             dragItemNode.current.removeEventListener('dragend', handleDragEnd)
@@ -59,56 +51,12 @@ function DragNDrop({data}) {
                         }
 
 
-                    const handleClick= ()=> {
-                      const locals =  localStorage.getItem('List')
-                      const localData =  JSON.parse(locals)[1].items 
-                     const mydata = rightData[1].items
-                      // console.log(JSON.parse(locals)[1].items, 'hpppppppppi') 
-                        // console.log(locals[0], 'indexesssss') 
-                        // var mydata = JSON.stringify(rightData[1])
-                        // console.log(rightData[1].items,'rightData')
-                        // if (!data)console.log(JSON.parse(locals)[1].items))
-                      // console.log(rightData[1].items, "mesh hayyy") 
-                      // console.log(rightData[1].items, "MY DATA") 
-
-                          //  if(rightData[1].items === JSON.parse(locals)[1].items)
-
-                        for (var i = 0; i < localData.length; i++) {
-                          for (var j = 0; j < mydata.length; j++) {
-                              if (localData[i] === mydata[j] && localData.length> 1) {
-                                console.log(mydata, "MY DATA") 
-                          console.log(localData, "LOCAL'S STORAGEDATA")
-                          
-                          return alert("greate job");
-                               
-                              // }else if (localData[i] !== mydata[j]){
-                              //   alert("fail")
-                              //   console.log(mydata, "MY DATA") 
-                              //   console.log(localData, "LOCAL'S STORAGEDATA")
-                              }else return alert('try again')
-                          }
-                      }
-
-                      //       if ( localData=== mydata){
-                      //     console.log(mydata, "MY DATA") 
-                      // console.log(localData, "LOCAL'S STORAGEDATA")
-
-                      //     alert("PPPAASSEEDDDDDDDD")
-                      //   }
-                      //   else if (localData !== mydata){
-                      //     alert("fail")
-                      //     console.log(mydata, "MY DATA") 
-                      //     console.log(localData, "LOCAL'S STORAGEDATA")
 
 
-                      //   }
-                            // window.location('/')
-                          
-                                
-                    //
-                        }
-                          
 
+                
+                
+                
                 const getStyles = (params) => {
                     const currentItem =  dragItem.current;
                 if (currentItem.grpI === params.grpI && currentItem.itemI === params.itemI) {
@@ -141,21 +89,81 @@ function DragNDrop({data}) {
                   </div>
               ))}
            </div>
-        ))}    
+        ))}   
+
+{/* <div className="drag-n-drop">
+            <div className="dnd-group"    onDragEnter={dragging ?(e) => handleDragEnter(e):null} >
+              <div className="group-title"onDragStart={(e) => {handletDragStart(e)} }
+                 onDragEnter={dragging?(e) => {handleDragEnter(e)}:null} 
+                      //  className={dragging?getStyles({grpI, itemI}):"dnd-item"}
+                       
+                       >
+            Group 1</div>
+              <div className={dragging} className="dnd-item">
+                <div>
+                  <p>ITEM 1</p>
+                </div>
+              </div>
+             <div className={dragging} className="dnd-item">
+                <div>
+                  <p>ITEMmmmmmmmMMMMMM 2</p>
+                </div>
+              </div>
+             <div className={dragging} className="dnd-item">
+                <div>
+                  <p>ITEM 3</p>
+                </div>
+              </div>
+            </div>
+            <div className="dnd-group">
+            <div className="group-title">Group 2</div>
+             <div className={dragging} className="dnd-item">
+                <div>
+                  <p>ITEM 1</p>
+                </div>
+              </div>
+             <div className={dragging} className="dnd-item">
+                <div>
+                  <p>ITEM 2</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="dnd-group">
+            <div className="group-title"></div>
+             <div className={dragging} className="dnd-item"></div>
+            </div>
+          </div>  */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div>
-        <Button variant="primary" onClick={handleClick}>
+        <Button variant="primary" onClick={handleShow}>
 SUBMIT      </Button>
 
-      <Modal show={show} onHide={handleClick}>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Woohoo!!!!</Modal.Title>
         </Modal.Header>
-        <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg" alt="css"/>
+        
+        <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg"/>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={()=>{history.push('/CSS/ex3')}}> Go to the Next exersise </Button>
+          <Button variant="primary" onClick={handleClose}>
+Go to the Next exersise          </Button>
         </Modal.Footer>
       </Modal>
 
@@ -168,3 +176,7 @@ SUBMIT      </Button>
 }
 
 export default DragNDrop
+
+
+
+

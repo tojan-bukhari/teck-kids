@@ -15,7 +15,7 @@
   
   .DragNDrop-header {
     background-color:  #1e0994;
-    min-height: 4px;
+    min-height: 100vh;
     display: flex;
     /* flex-direction: column;
     align-items: center;
