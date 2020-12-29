@@ -54,6 +54,8 @@ function DragNDrop({data,rightData}) {
 
                     const handleClick= ()=> {
                       const locals =  localStorage.getItem('List')
+                      const localData =  JSON.parse(locals)[1].items 
+                     const mydata = rightData[1].items
                       // console.log(JSON.parse(locals)[1].items, 'hpppppppppi') 
                         // console.log(locals[0], 'indexesssss') 
                         // var mydata = JSON.stringify(rightData[1])
@@ -63,16 +65,42 @@ function DragNDrop({data,rightData}) {
                       // console.log(rightData[1].items, "MY DATA") 
 
                           //  if(rightData[1].items === JSON.parse(locals)[1].items)
-                          if ( JSON.parse(locals)[1].items !== [])
-                        console.log(rightData[1].items, "MY DATA") 
-                    console.log(JSON.parse(locals)[1].items, "LOCAL'S STORAGEDATA")
 
-                        alert("PPPAASSEEDDDDDDDD")
+                        for (var i = 0; i < localData.length; i++) {
+                          for (var j = 0; j < mydata.length; j++) {
+                              if (localData[i] === mydata[j] && localData.length> 1) {
+                                console.log(mydata, "MY DATA") 
+                          console.log(localData, "LOCAL'S STORAGEDATA")
+                          
+                          return alert("greate job");
+                               
+                              // }else if (localData[i] !== mydata[j]){
+                              //   alert("fail")
+                              //   console.log(mydata, "MY DATA") 
+                              //   console.log(localData, "LOCAL'S STORAGEDATA")
+                              }else return alert('try again')
+                          }
+                      }
+
+                      //       if ( localData=== mydata){
+                      //     console.log(mydata, "MY DATA") 
+                      // console.log(localData, "LOCAL'S STORAGEDATA")
+
+                      //     alert("PPPAASSEEDDDDDDDD")
+                      //   }
+                      //   else if (localData !== mydata){
+                      //     alert("fail")
+                      //     console.log(mydata, "MY DATA") 
+                      //     console.log(localData, "LOCAL'S STORAGEDATA")
+
+
+                      //   }
                             // window.location('/')
-                            if ( JSON.parse(locals)[1].items === []) alert("fail")
+                          
                                 
-                    
+                    //
                         }
+                          
 
                 const getStyles = (params) => {
                     const currentItem =  dragItem.current;
