@@ -1,8 +1,7 @@
-
 import React, {useState, useRef} from 'react'
 import { Button, Modal} from 'react-bootstrap';
 
-function DragNDrop({data}) {
+function Dndex3({data}) {
     const [list, setList] = useState(data); 
     const [dragging, setDragging] = useState(false);
     const [show, setShow] = useState(false);
@@ -17,7 +16,6 @@ function DragNDrop({data}) {
     const handletDragStart = (e, params) => {
                 console.log('dragging', params)
                 dragItem.current = params;
-                // console.log(current)
                 dragItemNode.current = e.target;
                 dragItemNode.current.addEventListener('dragend', handleDragEnd)
         
@@ -120,8 +118,4 @@ Go to the Next exersise          </Button>
     )
 }
 
-export default DragNDrop
-
-
-
-
+export default Dndex3

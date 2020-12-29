@@ -1,27 +1,31 @@
 import React from 'react'
-import './vv.css';
+import './ex3.css';
 
-import DragNDrop from './DragNDrop'
+import DragNDrop from './dndex3'
 
 
-var data = [
-    {title: 'Drag',
+const data = [
+
+    {title: 'Opening Tags',
      items: 
-     [ 'p {',
-      ' color: red;', 'text-align: center;','}'
-      ]
+     [ '<h1>','<p>', '<h3>']
     },
-    {title: 'Drop here', items:  [ ]}
+    {title: 'End Tags', items:  ['</p>', '</h1>',  '<h3>']},
+    {title: 'Drop here', items:  ['' ]},
+    {title: 'Drop here', items:  [ 7,8]},
+    {title: 'Drop here', items:  [9,10 ]},
+    {title: 'Drop here', items:  [11,12 ]}
+
   ]
 
- var rightData = [
-  {title: 'Drag',
-   items: 
-   [ ]
-  },
-  {title: 'Drop here', items:  [ 'p {',
-  ' color: red;', 'text-align: center;','}']}
-]
+//  const rightData = [
+//   {title: 'Drag',
+//    items: 
+//    [ ]
+//   },
+//   {title: 'Drop here', items:  [ 'p {',
+//   ' color: red;', 'text-align: center;','}']}
+// ]
   
 //
 
@@ -43,7 +47,7 @@ function Data() {
   return (
     <div className="defaultData"> 
       <header className="defaultData-header"> 
-      <DragNDrop data = {data} rightData={rightData}/>
+      <DragNDrop data = {data}/>
       </header>
     </div>
   )
