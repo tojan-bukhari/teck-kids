@@ -1,14 +1,18 @@
 
 import React, {useState, useRef} from 'react'
 import { Button, Modal} from 'react-bootstrap';
+import { useHistory } from "react-router-dom";
+
 
 function DragNDrop({data, rightData}) {
+  const history = useHistory();
+
     const [list, setList] = useState(data); 
     const [dragging, setDragging] = useState(false);
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
+    const handleShow = () => setShow(true);
   
 
     const dragItem = useRef();
@@ -76,7 +80,6 @@ function DragNDrop({data, rightData}) {
                               
                               return alert("greate job");
                                    
-                                  console.log(localData, "LOCAL'S STORAGEDATA")
                                   }else return alert('try again')
                               }
                           }
@@ -109,20 +112,20 @@ function DragNDrop({data, rightData}) {
            </div>
         ))}    
           <div>
-        <Button variant="primary" onClick={handleClick}>
+        <Button variant="primary" onClick={handleShow}>
 SUBMIT      </Button>
 
-      <Modal show={show} onHide={handleClick}>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Woohoo!!!!</Modal.Title>
         </Modal.Header>
         
         <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg"/>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClick}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={()=>{history.push('/ex4HTML')}}> 
 Go to the Next exersise          </Button>
         </Modal.Footer>
       </Modal>
