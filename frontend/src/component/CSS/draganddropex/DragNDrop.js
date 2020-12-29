@@ -1,7 +1,14 @@
 import React, {useState, useRef} from 'react'
 import { Button, Modal} from 'react-bootstrap';
+import { useHistory } from "react-router-dom";
 
-function DragNDrop({data,rightData}) {
+
+/*************************************************************** */
+function DragNDrop({data}) {
+
+  const history = useHistory();
+
+
     const [list, setList] = useState(data); 
     const [dragging, setDragging] = useState(false);
     const [show, setShow] = useState(false);
@@ -121,8 +128,7 @@ SUBMIT      </Button>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-Go to the Next exersise          </Button>
+          <Button variant="primary" onClick={()=>{history.push('/CSS/ex3')}}> Go to the Next exersise </Button>
         </Modal.Footer>
       </Modal>
 

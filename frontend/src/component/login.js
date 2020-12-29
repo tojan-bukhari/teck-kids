@@ -24,6 +24,7 @@ const Signin = ()=>{
       const newUser = { email ,password } ;
       const loginRes = await axios.post("http://localhost:8000/api/login" , newUser)
       console.log(loginRes.data.token)
+      console.log(loginRes.data.user.id)
       localStorage.setItem("theToken", loginRes.data.token);
       localStorage.setItem("id", loginRes.data.user.id);
       history.push('/')
