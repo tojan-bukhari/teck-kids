@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 
 
 /*************************************************************** */
-function DragNDrop({data}) {
+function DragNDrop({data, rightData}) {
 
   const history = useHistory();
 

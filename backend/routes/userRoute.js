@@ -26,21 +26,6 @@ router.get("/account/:id", function(req, res) {
     })
       .catch(err => res.status(400).json('Error: ' + err));
   })
-// THIS IS COMING FROM PROFILE IMAGE CHANGER 
-// WE SHOULD HERE USE PUT BUT ITS NOT WORKING SO INSTADE WE ARE USING POST 
-//  router.put("/pic/:id", function(req,res){
-//   console.log(req.params.id)
-//     User.findById(req.params.id)
-//     .then(user => {
-//       console.log(user)
-//       user.img=req.body.image
-//       user.save()
-//       .then(()=> res.json("profile image update!!"))
-//       .catch(err=> res.status(400).json('Error:'+err));
-//       console.log("backend"+user.userName,req.body.image)
-//     }) 
-//     .catch(err=> res.status(400).json('Error:'+ err))
-//  })
 
  //this request is to update the course state to register if the user add the course
 router.put("/account/:id",(req,res)=>{

@@ -3,19 +3,21 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './component/Home';
 import Signin from './component/login';
 import registrate from './component/registrate';
-import Personalprofile from './component/pics/profile';
-import editProfile from './component/pics/editProfile';
+import Personalprofile from './component/profile/profile';
+import editProfile from './component/profile/editProfile';
 import lessons from './pages/Lessons';
 import Exercises from './pages/Exercises';
 import HTMLcourse from './component/HtmlCourse/HTMLcourse';
 import CSScourse from './component/CSSCourse/CSScourse';
 import ProtectedRoute from './protectedroutes/ProtectedRoute';
 import errorimg from "./protectedroutes/404img";
-import pic from './component/pics/profilePicChanger';
-import Navbar from './component/Navbar/Navbar'
-import CSSex3 from './component/CSS/inputQuestions/CSSex3'
-import CSSex4 from './component/CSS/inputQuestions/CSSex4'
-//// tojan //////
+import pic from './component/profile/profilePicChanger';
+import Navbar from './component/Navbar/Navbar';
+import CSSex3 from './component/CSS/inputQuestions/CSSex3';
+import CSSex4 from './component/CSS/inputQuestions/CSSex4';
+import Addcorsecard from './component/teacher/Addcorsecard';
+import card from './component/card-display';
+
 /****************************************************************** */
 
 
@@ -39,6 +41,8 @@ function App() {
           <Route exact path="/registrate" component={registrate} />
           <Route exact path="/CSS/ex3" component={CSSex3} />
           <Route exact path="/CSS/ex4" component={CSSex4} />
+          <Route  path="/teacher/addcard" component={Addcorsecard} />
+          <Route  path="/teacher/card" component={card} />
           <Exercises />
         </Switch>
       </BrowserRouter>
