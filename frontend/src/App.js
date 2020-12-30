@@ -7,12 +7,16 @@ import Personalprofile from './component/pics/profile';
 import editProfile from './component/pics/editProfile';
 import lessons from './pages/Lessons';
 import Exercises from './pages/Exercises';
+
 import HTMLcourse from './component/HtmlCourse/HTMLcourse';
 import CSScourse from './component/CSSCourse/CSScourse';
 import ProtectedRoute from './protectedroutes/ProtectedRoute';
 import errorimg from "./protectedroutes/404img";
 import pic from './component/pics/profilePicChanger';
 import Navbar from './component/Navbar/Navbar'
+import DashboardPage from "./component/Pages/dashboard";
+
+
 //// tojan //////
 /****************************************************************** */
 
@@ -35,6 +39,10 @@ function App() {
           <Route exact path="/pic/:id" component={pic} />
           <Route exact path="/login" component={Signin} />
           <Route exact path="/registrate" component={registrate} />
+          <Route path="/dashbord" component={DashboardPage} exact />
+          <Route path="/chatroom/:id" component={DashboardPage} exact />
+
+
           <Exercises />
         </Switch>
       </BrowserRouter>
