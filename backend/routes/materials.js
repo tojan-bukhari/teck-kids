@@ -28,34 +28,36 @@ router.route('/add').post((req, res) => { //create?
 });
 
 
-// router.route('/:id').get((req, res) => {  
-//   console.log(req.params)
-//     Material.findById(req.params.id)    
-//     .then(material => res.json(material))    
-//     .catch(err => res.status(400).json('Error: ' + err));
-// });
+router.route('/:id').get((req, res) => {  
+  console.log(req.params)
+    Material.findById(req.params.id)    
+    .then(material => res.json(material))    
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 
-// router.route('/:id').delete((req, res) => {  
-//     Material.findByIdAndDelete(req.params.id)    
-//     .then(() => res.json('Material deleted.'))    
-//     .catch(err => res.status(400).json('Error: ' + err));
-// });
+router.route('/:id').delete((req, res) => {  
+    Material.findByIdAndDelete(req.params.id)    
+    .then(() => res.json('Material deleted.'))    
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 
-// router.route('/update/:id').post((req, res) => { 
-//   //console.log(req.body) 
-//     Material.findById(req.params.id)    
-//     .then(material => {      
-//         material.material = req.body.material;      
-//         material.description = req.body.description;      
-//         material.title = Number(req.body.title);      
+router.route('/update/:id').post((req, res) => { 
+  //console.log(req.body) 
+    Material.findById(req.params.id)    
+    .then(material => {      
+        material.material = req.body.material;      
+        material.description = req.body.description;      
+        material.title = req.body.title;
+        material.video = req.body.video;      
+      
     
-//         material.save()        
-//       .then(() => res.json('material updated!'))        
-//       .catch(err => res.status(400).json('Error: ' + err));    
-//     })    
-//     .catch(err => res.status(400).json('Error: ' + err));
-// });
+        material.save()        
+      .then(() => res.json('material updated!'))        
+      .catch(err => res.status(400).json('Error: ' + err));    
+    })    
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 module.exports = router;
