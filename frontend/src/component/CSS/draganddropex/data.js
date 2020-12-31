@@ -23,10 +23,11 @@ var data = [
   ' color: red;', 'text-align: center;','}']}
 ]
   
-//
-
+console.log(rightData);
 function Data() {
-
+  
+  // var locals =  localStorage.getItem('List')
+  // console.log(locals)
 
   return (
     <div className="defaultData"> 

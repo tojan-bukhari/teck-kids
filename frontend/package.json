@@ -2,6 +2,9 @@
   "name": "tech-kids",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
     "@hapi/joi": "^17.1.1",
@@ -37,6 +40,7 @@
     "react-router-dom": "^5.2.0",
     "react-router-redux": "^4.0.8",
     "react-scripts": "4.0.1",
+    "react-simple-flex-grid": "^1.3.21",
     "react-spring": "^8.0.27",
     "react-thunk": "^1.0.0",
     "react-use-gesture": "^9.0.0-beta.11",
@@ -51,7 +55,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

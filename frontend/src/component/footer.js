@@ -8,10 +8,10 @@ const FooterPage = () => {
         <MDBRow>
           <MDBCol md="6">
             <h5 className="title">Footer Content</h5>
-            <h1>
+            <span>
               Here you can use rows and columns here to organize your footer
               content.
-            </h1>
+            </span>
           </MDBCol>
           <MDBCol md="6">
             <h5 className="title">Links</h5>

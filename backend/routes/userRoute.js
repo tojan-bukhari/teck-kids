@@ -5,27 +5,6 @@ const router = express.Router();
 const User = require('../models/User');
 /**************************************************/
 
-// router.get('/account/:id' , function (req , res) {
-//      var user = User.findById(req.params._id)
-//      .then(userFound=>{
-//          if(!userFound){return res.status(404).json("Can't find user")}
-//          return res.status(200).json(userFound)
-//      })
-//      .catch(err =>  res.status(500).json("not working"))      
-//  } ); 
-// router.get('/account/:_id' , function (req , res) {
-//     // console.log(req.params._id)
-//      var user = User.findById(req.params._id)
-//      .then(userFound=>{
-//          if(!userFound){return res.status(404).json("Can't find the user")}
-//          return res.status(200).json(userFound)
-//      })
-//      .catch(err =>  res.status(500).json("not working"))      
-     
-//  } );
- 
-
-
 //THIS is coming from profile component  // GET users by ID and the id is saved in local storage
 // WHAT IS THE DEFRENCE BETWEEN [Req.PODY, Req.PARAMS, Req.DATA, Req.QUERY] 
 router.get("/account/:id", function(req, res) {
@@ -47,21 +26,6 @@ router.get("/account/:id", function(req, res) {
     })
       .catch(err => res.status(400).json('Error: ' + err));
   })
-// THIS IS COMING FROM PROFILE IMAGE CHANGER 
-// WE SHOULD HERE USE PUT BUT ITS NOT WORKING SO INSTADE WE ARE USING POST 
-//  router.put("/pic/:id", function(req,res){
-//   console.log(req.params.id)
-//     User.findById(req.params.id)
-//     .then(user => {
-//       console.log(user)
-//       user.img=req.body.image
-//       user.save()
-//       .then(()=> res.json("profile image update!!"))
-//       .catch(err=> res.status(400).json('Error:'+err));
-//       console.log("backend"+user.userName,req.body.image)
-//     }) 
-//     .catch(err=> res.status(400).json('Error:'+ err))
-//  })
 
  //this request is to update the course state to register if the user add the course
 router.put("/account/:id",(req,res)=>{
