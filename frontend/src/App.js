@@ -17,7 +17,7 @@ import CSSex3 from './component/CSS/inputQuestions/CSSex3';
 import CSSex4 from './component/CSS/inputQuestions/CSSex4';
 import Addcorsecard from './component/teacher/Addcorsecard';
 import card from './component/card-display';
-
+import teacherProfile from './component/teacher/teacher-profile';
 /****************************************************************** */
 
 
@@ -43,6 +43,7 @@ function App() {
           <Route exact path="/CSS/ex4" component={CSSex4} />
           <Route  path="/teacher/addcard" component={Addcorsecard} />
           <Route  path="/teacher/card" component={card} />
+          <Route  path="/teacher/:id" component={teacherProfile} />
           <Exercises />
         </Switch>
       </BrowserRouter>
