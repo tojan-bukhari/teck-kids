@@ -31,6 +31,12 @@ router.post('/addcard', (req , res)=>{
      .catch(err =>  res.status(500).json("not working"))      
      
  } );
-
+ 
+// GET teachers by ID 
+ router.get("/account/:id", function(req, res) {
+    User.findById(req.params.id)
+    .then(users => res.json(users))
+    .catch(err => res.status(400).json("Error: " + err));
+  });
 
 module.exports = router;
