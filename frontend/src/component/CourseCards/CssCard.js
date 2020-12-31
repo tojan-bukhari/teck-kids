@@ -13,9 +13,9 @@ export default function CssCard() {
     <Card.Body>
     
     <Card.Title><h1 className="hh">CSS</h1></Card.Title>  <img src="https://2.bp.blogspot.com/-me_vlpqkQGw/VgJwY3wm_SI/AAAAAAAAAVI/cyg9I6tfXWs/s400/What%2Bis%2BCSS.jpg"  alt="css" ></img>
-    <Card.Text> <p className="par">  
+    <Card.Text> <span className="par">  
     Let's play with colors and make our pages more colorfull 😍
-    </p>
+    </span>
     </Card.Text>
     
     <Button className="hh7"  onClick={()=>{history.push('/CSScourse')}} >Go To CSS</Button>

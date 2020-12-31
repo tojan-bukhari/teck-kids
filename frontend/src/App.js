@@ -3,23 +3,25 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './component/Home';
 import Signin from './component/login';
 import registrate from './component/registrate';
-import Personalprofile from './component/pics/profile';
-import editProfile from './component/pics/editProfile';
+import Personalprofile from './component/profile/profile';
+import editProfile from './component/profile/editProfile';
 import lessons from './pages/Lessons';
 import Exercises from './pages/Exercises';
 import HTMLcourse from './component/HtmlCourse/HTMLcourse';
 import CSScourse from './component/CSSCourse/CSScourse';
 import ProtectedRoute from './protectedroutes/ProtectedRoute';
 import errorimg from "./protectedroutes/404img";
-import pic from './component/pics/profilePicChanger';
+import pic from './component/profile/profilePicChanger';
 import Navbar from './component/Navbar/Navbar'
 import CSSex3 from './component/CSS/inputQuestions/CSSex3'
 import CSSex4 from './component/CSS/inputQuestions/CSSex4'
+import Addcorsecard from './component/teacher/Addcorsecard';
+import card from './component/teacher/card-display';
+import teacherProfile from './component/teacher/teacher-profile';
 import firrrre from './teacherSide/form'
 import teacherpage from './teacherSide/matierialsPage'
+
 import EditMatreals from './teacherSide/edit'
-//// tojan //////
-/****************************************************************** */
 
 
 function App() {
@@ -42,10 +44,12 @@ function App() {
           <Route exact path="/registrate" component={registrate} />
           <Route exact path="/CSS/ex3" component={CSSex3} />
           <Route exact path="/CSS/ex4" component={CSSex4} />
+          <Route  path="/teacher/addcard" component={Addcorsecard} />
+          <Route  path="/teacher/card" component={card} />
+          <Route  path="/teacher/:id" component={teacherProfile} />
           <Route  path="/firrrre" component={firrrre} />
-          <Route path="/teachersM" component={teacherpage} /> 
+          <Route path="/teachersM" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
-
           <Exercises />
         </Switch>
       </BrowserRouter>

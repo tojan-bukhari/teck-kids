@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import "antd/dist/antd.css";
 import { Modal, Button } from 'antd';
 import { ImagesArray } from './images';
-import axios from 'axios';
-/// tojan ///
+
+
 /************************************************ */
 export default class ProfilePicChanger extends Component {
     constructor(props) {
@@ -39,16 +39,18 @@ export default class ProfilePicChanger extends Component {
    
 
     render() {
-        const imageMapper = ImagesArray.map((image, index) => {
+        const imageMapper = ImagesArray.map((image) => {
+            
             return (
-                <div style={{height :'100px',
+                < div  key={image.id} style={{height :'100px',
                 width :' 100px'}}>
-                <img src={image.url}
+                <img key={image.id}
+                src={image.url}
                 style={{width:"100px",height:"100px "}}
-                 key={index}
                  onClick={() => this.props.handelImageChange(image.url)}
                  height = '100px'
                  width = ' 48px'
+                 alt="css"
                 />
                 </div>
             )

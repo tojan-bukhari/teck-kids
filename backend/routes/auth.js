@@ -9,11 +9,14 @@ const Joi = require('@hapi/joi');
 //for the token
 const JWT = require('jsonwebtoken');
 const auth = require("./middleware");
+
 //the validation schema using joi :)
+
 const querySchema = Joi.object({
- userName         : Joi.string().required(),
-age    : Joi.string().required(),
+  userName     : Joi.string().required(),
+  age          : Joi.string().required(),
   email        : Joi.string().required().lowercase().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),
+  role         : Joi.string().required(),
   password     : Joi.string().min(8).required(),
   passwordAgain: Joi.ref('password'),//to equal password
 })
@@ -21,14 +24,14 @@ age    : Joi.string().required(),
 router.post("/register", async (req, res) => {
   //what I need to cheeck for the user registration:
     try {
-      let { userName, age,email, password } = req.body;
+      let { userName, age,email, password,role } = req.body;
       // validate
       //0- check if the user enter the filed 
       const{error}         = querySchema.validate(req.body);
       console.log(req.body)
       if(error){
           return res.status(403).json({msg :error.details[0].message})}
-      if ( !userName || !age||!email || !password )
+      if ( !userName || !age||!email || !password || !role )
         return res.status(400).json({ msg: "Not all fields have been entered." });
      //1- The email is  alredy used
       const existingUser = await User.findOne({ email: email });
@@ -40,9 +43,11 @@ router.post("/register", async (req, res) => {
       const salt = await bcrypt.genSalt();
       const passwordHash = await bcrypt.hash(password, salt);
       const newUser = new User({
-          userName,age,
-        email,
-        password: passwordHash,
+          userName,
+          age,
+          role,
+          email,
+          password: passwordHash,
       });
       const savedUser = await newUser.save();
       res.json(savedUser);

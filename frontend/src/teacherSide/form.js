@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {storage} from './firebace'
+import {storage} from '../component/teacher/firebase'
 import axios from 'axios';
 
 class Form extends Component {
