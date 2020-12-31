@@ -8,7 +8,8 @@ const DashboardPage = (props) => {
     axios
       .get("http://localhost:8000/chatroom", {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("CC_Token"),
+          Authorization: "Bearer " + localStorage.getItem("theToken"),
+          
         },
       })
       .then((response) => {

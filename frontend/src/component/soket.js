@@ -1,5 +1,5 @@
-import SocketIO from "socket.io-client";
+// import SocketIO from "socket.io-client";
 
-const socket = SocketIO("http://localhost:8000");
+// const socket = SocketIO("http://localhost:8000");
 
-export default socket;
+// export default socket;

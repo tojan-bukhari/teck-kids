@@ -15,6 +15,12 @@ import errorimg from "./protectedroutes/404img";
 import pic from './component/pics/profilePicChanger';
 import Navbar from './component/Navbar/Navbar'
 import DashboardPage from "./component/Pages/dashboard";
+import io from "socket.io-client";
+import makeToast from "./component/Toaster";
+
+import Chat from "./component/cchatroom";
+import ChatroomPage from "./component/Pages/chatRoom";
+
 
 
 //// tojan //////
@@ -22,7 +28,36 @@ import DashboardPage from "./component/Pages/dashboard";
 
 
 function App() {
-//
+ 
+    const [socket, setSocket] = React.useState(null);
+  
+    const setupSocket = () => {
+      const token = localStorage.getItem("theToken");
+      if (token && !socket) {
+        const newSocket = io("http://localhost:8000", {
+          query: {
+            token: localStorage.getItem("theToken"),
+          },
+        });
+  
+        newSocket.on("disconnect", () => {
+          setSocket(null);
+          setTimeout(setupSocket, 3000);
+          makeToast("error", "Socket Disconnected!");
+        });
+  
+        newSocket.on("connect", () => {
+          makeToast("success", "Socket Connected!");
+        });
+  
+        setSocket(newSocket);
+      }
+    };
+  
+    React.useEffect(() => {
+      setupSocket();
+      //eslint-disable-next-line
+    }, []);
   return (
     <>
       <BrowserRouter>
@@ -39,10 +74,19 @@ function App() {
           <Route exact path="/pic/:id" component={pic} />
           <Route exact path="/login" component={Signin} />
           <Route exact path="/registrate" component={registrate} />
-          <Route path="/dashbord" component={DashboardPage} exact />
-          <Route path="/chatroom/:id" component={DashboardPage} exact />
+          <Route exact path="/cchatroom" component={Chat} />
 
-
+          {<Route
+          path="/dashboard"
+          render={() => <DashboardPage socket={socket} />}
+          exact
+         /> }
+         
+        {<Route
+          path="/chatroom/:id"
+          render={() => <ChatroomPage socket={socket} />}
+          exact
+         /> }
           <Exercises />
         </Switch>
       </BrowserRouter>

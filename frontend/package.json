@@ -47,6 +47,7 @@
     "simple-peer": "^9.9.1",
     "socket.io-client": "^3.0.4",
     "styled-components": "^5.2.1",
+    "sweetalert2": "^10.12.6",
     "twilio-video": "^2.10.0",
     "video-react": "^0.14.1",
     "web-vitals": "^0.2.4"

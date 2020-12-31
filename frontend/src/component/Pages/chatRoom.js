@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 
 const ChatroomPage = ({ match, socket }) => {
+  //the same id put it in route(apppage)
   const chatroomId = match.params.id;
   const [messages, setMessages] = React.useState([]);
   const messageRef = React.useRef();
@@ -19,7 +20,7 @@ const ChatroomPage = ({ match, socket }) => {
   };
 
   React.useEffect(() => {
-    const token = localStorage.getItem("CC_Token");
+    const token = localStorage.getItem("theToken");
     if (token) {
       const payload = JSON.parse(atob(token.split(".")[1]));
       setUserId(payload.id);
