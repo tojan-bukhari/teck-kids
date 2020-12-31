@@ -12,21 +12,15 @@ import CSScourse from './component/CSSCourse/CSScourse';
 import ProtectedRoute from './protectedroutes/ProtectedRoute';
 import errorimg from "./protectedroutes/404img";
 import pic from './component/profile/profilePicChanger';
-import Navbar from './component/Navbar/Navbar';
-import CSSex3 from './component/CSS/inputQuestions/CSSex3';
-import CSSex4 from './component/CSS/inputQuestions/CSSex4';
+import Navbar from './component/Navbar/Navbar'
+import CSSex3 from './component/CSS/inputQuestions/CSSex3'
+import CSSex4 from './component/CSS/inputQuestions/CSSex4'
 import Addcorsecard from './component/teacher/Addcorsecard';
 import card from './component/card-display';
 import teacherProfile from './component/teacher/teacher-profile';
-
-
-
-
 import firrrre from './teacherSide/form'
 import teacherpage from './teacherSide/matierialsPage'
-
 /****************************************************************** */
-/// ehm ////
 
 function App() {
 //
@@ -53,7 +47,6 @@ function App() {
           <Route  path="/teacher/:id" component={teacherProfile} />
           <Route  path="/firrrre" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} /> 
-
           <Exercises />
         </Switch>
       </BrowserRouter>
