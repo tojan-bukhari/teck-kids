@@ -8,6 +8,9 @@ const authRoutes = require('./routes/auth');
 const courseRoute = require('./routes/courseRoute');
 const userRoute=require('./routes/userRoute');
 const teacherRoute=require('./routes/teacherRoute');
+
+const materialsRouter = require('./routes/materials');
+
 require('dotenv').config();
 
 app.use(cors())
@@ -39,6 +42,8 @@ app.use('/api',authRoutes);
 app.use('/course',courseRoute);
 app.use('/user',userRoute);
 app.use('/teacher',teacherRoute);
+app.use('/materials', materialsRouter);
+
 
 //port with whatever the port will be given by heruko
 const port = process.env.PORT || 8000;
