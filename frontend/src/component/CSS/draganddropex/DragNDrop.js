@@ -7,16 +7,12 @@ import { useHistory } from "react-router-dom";
 function DragNDrop({data, rightData}) {
 
   const history = useHistory();
-
-
     const [list, setList] = useState(data); 
     const [dragging, setDragging] = useState(false);
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-  
-
     const dragItem = useRef();
         const dragItemNode = useRef();
         
@@ -63,16 +59,6 @@ function DragNDrop({data, rightData}) {
                       const locals =  localStorage.getItem('List')
                       const localData =  JSON.parse(locals)[1].items 
                      const mydata = rightData[1].items
-                      // console.log(JSON.parse(locals)[1].items, 'hpppppppppi') 
-                        // console.log(locals[0], 'indexesssss') 
-                        // var mydata = JSON.stringify(rightData[1])
-                        // console.log(rightData[1].items,'rightData')
-                        // if (!data)console.log(JSON.parse(locals)[1].items))
-                      // console.log(rightData[1].items, "mesh hayyy") 
-                      // console.log(rightData[1].items, "MY DATA") 
-
-                          //  if(rightData[1].items === JSON.parse(locals)[1].items)
-
                         for (var i = 0; i < localData.length; i++) {
                           for (var j = 0; j < mydata.length; j++) {
                               if (localData[i] === mydata[j] && localData.length> 1) {
@@ -80,32 +66,9 @@ function DragNDrop({data, rightData}) {
                           console.log(localData, "LOCAL'S STORAGEDATA")
                           
                           return alert("greate job");
-                               
-                              // }else if (localData[i] !== mydata[j]){
-                              //   alert("fail")
-                              //   console.log(mydata, "MY DATA") 
-                              //   console.log(localData, "LOCAL'S STORAGEDATA")
                               }else return alert('try again')
                           }
                       }
-
-                      //       if ( localData=== mydata){
-                      //     console.log(mydata, "MY DATA") 
-                      // console.log(localData, "LOCAL'S STORAGEDATA")
-
-                      //     alert("PPPAASSEEDDDDDDDD")
-                      //   }
-                      //   else if (localData !== mydata){
-                      //     alert("fail")
-                      //     console.log(mydata, "MY DATA") 
-                      //     console.log(localData, "LOCAL'S STORAGEDATA")
-
-
-                      //   }
-                            // window.location('/')
-                          
-                                
-                    //
                         }
                           
 
@@ -143,16 +106,16 @@ function DragNDrop({data, rightData}) {
            </div>
         ))}    
         <div>
-        <Button variant="primary" onClick={handleClick}>
+        <Button variant="primary" onClick={handleShow}>
 SUBMIT      </Button>
 
-      <Modal show={show} onHide={handleClick}>
+      <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Woohoo!!!!</Modal.Title>
         </Modal.Header>
         <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg" alt="css"/>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClick}>
             Close
           </Button>
           <Button variant="primary" onClick={()=>{history.push('/CSS/ex3')}}> Go to the Next exersise </Button>

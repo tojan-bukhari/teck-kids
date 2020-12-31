@@ -18,8 +18,15 @@ import CSSex4 from './component/CSS/inputQuestions/CSSex4';
 import Addcorsecard from './component/teacher/Addcorsecard';
 import card from './component/card-display';
 import teacherProfile from './component/teacher/teacher-profile';
-/****************************************************************** */
 
+
+
+
+import firrrre from './teacherSide/form'
+import teacherpage from './teacherSide/matierialsPage'
+
+/****************************************************************** */
+/// ehm ////
 
 function App() {
 //
@@ -44,6 +51,9 @@ function App() {
           <Route  path="/teacher/addcard" component={Addcorsecard} />
           <Route  path="/teacher/card" component={card} />
           <Route  path="/teacher/:id" component={teacherProfile} />
+          <Route  path="/firrrre" component={firrrre} />
+          <Route path="/teachersM" component={teacherpage} /> 
+
           <Exercises />
         </Switch>
       </BrowserRouter>
