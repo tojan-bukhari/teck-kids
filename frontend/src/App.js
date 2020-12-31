@@ -20,10 +20,7 @@ import card from './component/teacher/card-display';
 import teacherProfile from './component/teacher/teacher-profile';
 import firrrre from './teacherSide/form'
 import teacherpage from './teacherSide/matierialsPage'
-
-
 /****************************************************************** */
-
 
 function App() {
 //
