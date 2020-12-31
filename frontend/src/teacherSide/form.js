@@ -75,7 +75,7 @@ class Form extends Component {
       title: e.target.value
     })
   }
-video
+  video
   onChangevideo(e) {
     
     if(e.target.files[0]){
@@ -199,53 +199,6 @@ video
           </form>
         </div>
       </div>
-
-      // <div style={style}>
-    //      <h3 className="font-weight-bold deep-purple-text">Create Your Lesson</h3>
-    //     <form onSubmit={this.onSubmit}>
-    //     <progress value={this.state.progress} max="100"/>
-    //   <br/>
-    //     <input type="file" onChange={this.handleChange}/>
-    //     <button onClick={this.handleUpload}>Upload</button>
-    //     <br/>
-    //     <iframe  src={this.state.url} alt="firebase-video" width='600' height='400' ></iframe>
-    //       <div className="form-group">
-    //         <label className="deep-purple-text">Material: </label>
-    //         <input 
-    //           type="text"
-    //           required
-    //           className="form-control"
-    //           value={this.state.material}
-    //           onChange={this.onChangeMaterial}
-    //         />
-    //       </div>
-    //       <div className="form-group" width="100">
-    //       <label className="deep-purple-text">Description: </label>
-    //       <input style={{fontFamily:"Courier"}} 
-    //           type="text"
-    //           required
-    //           className="form-control"
-    //           value={this.state.description}
-    //           onChange={this.onChangeDescription}
-    //         />
-    //       </div>
-    //       <div className="form-group">
-    //       <label className="deep-purple-text" >Title </label>
-    //       <input
-    //           type="text"
-    //           required
-    //           className="form-control"
-    //           value={this.state.title}
-    //           onChange={this.onChangeTitle}
-    //         />
-    //       </div>
-    //       <div className="form-group"> <pre>
-    //       <input type="submit" value="add"  />     
-    //        <button type="submit" value = "Submit">show your matierial</button></pre>
-    //       </div>
-    //     </form>
-     
-    //   </div>
     )
   }
 }

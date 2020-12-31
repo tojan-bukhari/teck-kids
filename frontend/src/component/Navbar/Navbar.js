@@ -32,7 +32,16 @@ export class NavBar extends Component {
                        </li>
                   )
               })}
+
+
+              <br></br>
+               <li className="navbar-item" onClick={logout}>
+                <button to="/logout" className="nav-link">
+                  Log out
+                </button >
+              </li>
           </ul>
+          
          
       </nav>
   )
@@ -40,3 +49,9 @@ export class NavBar extends Component {
 }
 
 export default NavBar
+
+
+function logout() {
+    window.localStorage.clear();
+    window.location = "/";
+  }

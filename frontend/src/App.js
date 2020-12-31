@@ -20,7 +20,9 @@ import card from './component/teacher/card-display';
 import teacherProfile from './component/teacher/teacher-profile';
 import firrrre from './teacherSide/form'
 import teacherpage from './teacherSide/matierialsPage'
-/****************************************************************** */
+
+import EditMatreals from './teacherSide/edit'
+
 
 function App() {
 //
@@ -46,7 +48,8 @@ function App() {
           <Route  path="/teacher/card" component={card} />
           <Route  path="/teacher/:id" component={teacherProfile} />
           <Route  path="/firrrre" component={firrrre} />
-          <Route path="/teachersM" component={teacherpage} /> 
+          <Route path="/teachersM" component={teacherpage} />
+          <Route path="/EditMatreals/:id" component={EditMatreals} /> 
           <Exercises />
         </Switch>
       </BrowserRouter>
