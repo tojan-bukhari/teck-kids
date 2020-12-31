@@ -29,8 +29,7 @@ router.post('/charge',(req,res)=>{
             description   : `Purchase of ${product.name}`,
 
         }, { idempontencyKey })
-    })
-    .then(result => console.log(result))
+    }).then(result => res.status(200).json(result))
     .catch(err => res.status(500).json('NotWorking'))
 
 })

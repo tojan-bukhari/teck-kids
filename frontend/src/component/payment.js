@@ -13,9 +13,9 @@ function Payment() {
     const history = useHistory();
 
     var userId = localStorage.getItem('id');
-    var userToken = localStorage.getItem('theToken');
+    //var userToken = localStorage.getItem('theToken');
 
-    const [product, setProduct] = useState({
+    const [product] = useState({
         name: 'react from me',
         price : 10,
         productBy:'facebook',
@@ -27,10 +27,11 @@ function Payment() {
       console.log("haio ",product);
         try{
            const response= await axios.post("http://localhost:8000/payments/charge", {token, product});
-           console.log(response);
+           
             const { status } = response.data
             if (status === "success") {
                 toast("Success! Check email for details", { type: "success" });
+                history.push('/account/'+userId);
               } else {
                 toast("Something went wrong", { type: "error" });
               } 
@@ -46,10 +47,10 @@ function Payment() {
             stripeKey='pk_test_51I3lU8JcY9KJTdicuwdaAS2Y1sePa698fW7C5peecuSzWbgOov34REXHvoedFBVISFqGyYSCakwBhGyQYndgOBWI00SzCaAuQm'
             token ={makePayment}
             name = 'Tick Kid'
-            amount = {product.price * 100}>
-            <Button>Buy Now only with ${product.price} </Button>
+            amount = {product.price * 100} />
+           
 
-            </StripeCheckout>    
+              
            
 
         </div>
