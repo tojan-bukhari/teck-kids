@@ -20,7 +20,7 @@ router.post('/charge',(req,res)=>{
 
     })
     .then(customer => {
-        stripe.charges.create({
+      stripe.charges.create({
 
             amount        : product.price *100 ,//take the amount from the product and multiplay the price *100 to make it in dollers
             currency      : 'usd',
@@ -29,8 +29,11 @@ router.post('/charge',(req,res)=>{
             description   : `Purchase of ${product.name}`,
 
         }, { idempontencyKey })
-    }).then(result => res.status(200).json(result))
-    .catch(err => res.status(500).json('NotWorking'))
+    }).then(charge=> {
+        console.log(charge);
+        res.status(200).json(charge)
+    },function(err){res.status(500).json(err)})
+   // .catch(err => res.status(500).json('NotWorking'))
 
 })
 

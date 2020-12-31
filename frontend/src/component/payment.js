@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-require('dotenv').config();
+//require('dotenv').config();
 /************************************************/
 toast.configure();
 
@@ -23,9 +23,11 @@ function Payment() {
 
     const makePayment = async token =>{
        
-        console.log(token);
-      console.log("haio ",product);
-        try{
+    console.log(token);
+    console.log("haio ",product);
+       
+
+    try{
            const response= await axios.post("http://localhost:8000/payments/charge", {token, product});
            
             const { status } = response.data
@@ -44,10 +46,16 @@ function Payment() {
     return (
         <div>
             <StripeCheckout
-            stripeKey='pk_test_51I3lU8JcY9KJTdicuwdaAS2Y1sePa698fW7C5peecuSzWbgOov34REXHvoedFBVISFqGyYSCakwBhGyQYndgOBWI00SzCaAuQm'
+            stripeKey={process.env.REACT_APP_KEY }
             token ={makePayment}
             name = 'Tick Kid'
-            amount = {product.price * 100} />
+            amount = {product.price * 100}>
+
+                <Button>
+                    Buy this course with just ${product.price} 
+                </Button>
+        
+            </StripeCheckout>
            
 
               
