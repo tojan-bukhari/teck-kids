@@ -17,7 +17,7 @@ import CSSex3 from './component/CSS/inputQuestions/CSSex3'
 import CSSex4 from './component/CSS/inputQuestions/CSSex4'
 import firrrre from './teacherSide/form'
 import teacherpage from './teacherSide/matierialsPage'
-
+import EditMatreals from './teacherSide/edit'
 //// tojan //////
 /****************************************************************** */
 
@@ -44,6 +44,7 @@ function App() {
           <Route exact path="/CSS/ex4" component={CSSex4} />
           <Route  path="/firrrre" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} /> 
+          <Route path="/EditMatreals/:id" component={EditMatreals} /> 
 
           <Exercises />
         </Switch>
