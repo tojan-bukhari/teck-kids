@@ -16,7 +16,7 @@ import Navbar from './component/Navbar/Navbar'
 import CSSex3 from './component/CSS/inputQuestions/CSSex3'
 import CSSex4 from './component/CSS/inputQuestions/CSSex4'
 import Addcorsecard from './component/teacher/Addcorsecard';
-import card from './component/card-display';
+import card from './component/teacher/card-display';
 import teacherProfile from './component/teacher/teacher-profile';
 import firrrre from './teacherSide/form'
 import teacherpage from './teacherSide/matierialsPage'

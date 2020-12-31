@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { set } from 'mongoose';
 import React , {useState,useEffect} from 'react';
 import { Card } from 'antd';
 import { Row, Col } from 'react-simple-flex-grid';
@@ -43,12 +42,6 @@ export default function CardDisplay() {
               </button>
               </Link>
             </Card>
-            {/* <div><h3>{card.Titel}</h3>
-            <img src={card.image} alt="hey-img"/>
-            <h3>{card. Desceription}</h3>
-            <h3>{card.Name}</h3>
-            </div> */}
-         
          </Col>
         ))}
        
