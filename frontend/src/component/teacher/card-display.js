@@ -32,11 +32,11 @@ export default function CardDisplay() {
             <Col  key={i}>
             <Card
               hoverable
-              style={{ width: 240 }}
+              style={{ width: 200 }}
               cover={<img alt="example" src={card.image} />}
               >
-              <Meta title={card.Titel} description={card. Desceription} />
-               <Link to="/">
+              <Meta title={card.title} description={card. Desceription} />
+               <Link to="/teachersM">
                <button type="button">
                 Click Me!
               </button>
