@@ -1,8 +1,12 @@
 
 import React, {useState, useRef} from 'react'
 import { Button, Modal} from 'react-bootstrap';
+import { useHistory } from "react-router-dom";
 
-function DragNDrop({data}) {
+
+function DragNDrop({data, rightData}) {
+  const history = useHistory();
+
     const [list, setList] = useState(data); 
     const [dragging, setDragging] = useState(false);
     const [show, setShow] = useState(false);
@@ -17,6 +21,7 @@ function DragNDrop({data}) {
     const handletDragStart = (e, params) => {
                 console.log('dragging', params)
                 dragItem.current = params;
+                // console.log(current)
                 dragItemNode.current = e.target;
                 dragItemNode.current.addEventListener('dragend', handleDragEnd)
         
@@ -52,22 +57,36 @@ function DragNDrop({data}) {
                             dragItemNode.current = null;
                         }
 
-
-
-
-
-                
-                
                 
                 const getStyles = (params) => {
                     const currentItem =  dragItem.current;
                 if (currentItem.grpI === params.grpI && currentItem.itemI === params.itemI) {
                     return ' dnd-item current'
                             }
-                            return "dnd-item" 
-                    
-                    
+                            return "dnd-item"
                         }
+
+
+                        const handleClick= ()=> {
+                          const locals =  localStorage.getItem('List')
+                          const localData =  JSON.parse(locals)[1].items 
+                         const mydata = rightData[1].items
+                     
+                            for (var i = 0; i < localData.length; i++) {
+                              for (var j = 0; j < mydata.length; j++) {
+                                  if (localData[i] === mydata[j] && localData.length> 1) {
+                                    console.log(mydata, "MY DATA") 
+                              console.log(localData, "LOCAL'S STORAGEDATA")
+                              
+                              return alert("greate job");
+                                   
+                                  }else return alert('try again')
+                              }
+                          }
+    
+                 
+                            }
+
 
 
     return (
@@ -92,7 +111,7 @@ function DragNDrop({data}) {
               ))}
            </div>
         ))}    
-        <div>
+          <div>
         <Button variant="primary" onClick={handleShow}>
 SUBMIT      </Button>
 
@@ -103,10 +122,10 @@ SUBMIT      </Button>
         
         <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg"/>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={handleClick}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={()=>{history.push('/ex4HTML')}}> 
 Go to the Next exersise          </Button>
         </Modal.Footer>
       </Modal>

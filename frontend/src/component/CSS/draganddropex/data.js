@@ -4,7 +4,7 @@ import './vv.css';
 import DragNDrop from './DragNDrop'
 
 
-const data = [
+var data = [
     {title: 'Drag',
      items: 
      [ 'p {',
@@ -14,7 +14,7 @@ const data = [
     {title: 'Drop here', items:  [ ]}
   ]
 
- const rightData = [
+ var rightData = [
   {title: 'Drag',
    items: 
    [ ]
@@ -23,29 +23,20 @@ const data = [
   ' color: red;', 'text-align: center;','}']}
 ]
   
+//
 
 function Data() {
-  
-  var locals =  localStorage.getItem('List')
-  // console.log({locals}, 8800) 
-  // var mydata = JSON.stringify(rightData[1])
-  console.log(locals)
-  
-// console.log(rightData[1].items, "mesh hayyy")
-          //   if(JSON.stringify(rightData[1].items) === JSON.stringify({locals})){
-          //    console.log(JSON.stringify(rightData[1]),"               compare                   " ,  locals.items)
-          // }
+
 
   return (
     <div className="defaultData"> 
       <header className="defaultData-header"> 
-      <DragNDrop data = {data}/>
+      <DragNDrop data = {data} rightData={rightData}/>
       </header>
     </div>
   )
 }
 
 export default Data
-
 
 
