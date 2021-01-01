@@ -6,17 +6,18 @@ const { v4: uuidv4 } = require('uuid');
 /******************************************* */
 
 router.post('/charge',(req,res)=>{
-
+    //let status;
+    
     const {  token, product } = req.body;
-    console.log(req.body);
-    console.log("price ", product.price);
-    console.log('token ' , token);
+    //console.log(req.body);
+    //console.log("price ", product.price);
+    console.log('token ' , token.email);
     //this idempontencyKey is a To create a random UUID this keep the user intrake to not be charged twice for the same product
     const idempontencyKey = uuidv4(); 
     //create a customer 
-    return stripe.customers.create({
-        email : req.body.stripeEmail,
-        source: req.body.stripeToken
+    stripe.customers.create({
+        email : token.email,
+        source: token.id
 
     })
     .then(customer => {
@@ -28,12 +29,10 @@ router.post('/charge',(req,res)=>{
             receipt_email : token.email,
             description   : `Purchase of ${product.name}`,
 
-        }, { idempontencyKey })
+        })
     }).then(charge=> {
-        console.log(charge);
         res.status(200).json(charge)
-    },function(err){res.status(500).json(err)})
-   // .catch(err => res.status(500).json('NotWorking'))
+    }).catch(err => res.status(500).json('NotWorking'))
 
 })
 
