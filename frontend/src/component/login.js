@@ -27,6 +27,7 @@ const Signin = ()=>{
       localStorage.setItem("theToken", loginRes.data.token);
       localStorage.setItem("id", loginRes.data.user.id);
       localStorage.setItem("role", loginRes.data.user.role);
+      localStorage.setItem("Name", loginRes.data.user.name)
       history.push('/')
        } catch (error) {
       alert(error.response.data.msg)

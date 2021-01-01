@@ -16,8 +16,8 @@ export default function CardDisplay() {
     useEffect(async () => {
         try{
         const result = await axios.get('http://localhost:8000/teacher/card');
-        const [Desceription,Name,Title,image , _id ] = result.data;
-        // console.log('this is result data',result.data);
+        const [Desceription,Name,Title,image , _id, price ] = result.data;
+        console.log('this is result data',result.data);
         setData(result.data)
     }catch(error){
         console.log(error,"oh nooooo")
@@ -32,14 +32,15 @@ export default function CardDisplay() {
             <Col  key={i}>
             <Card
               hoverable
-              style={{ width: 200 }}
+              style={{ width: 200 ,hight: 200 }}
               cover={<img alt="example" src={card.image} />}
               >
-              <Meta title={card.title} description={card. Desceription} />
+              <Meta title={card.Title} description={card.Desceription} />
+              <label>Teacher name :</label><span>{card.Name}</span>
+              <label>The Price : </label><span>{card.price}</span><br/>
+              
                <Link to="/teachersM">
-               <button type="button">
-                go to lesson
-              </button>
+                buy now
               </Link>
             </Card>
          </Col>
