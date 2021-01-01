@@ -83,6 +83,7 @@ router.post("/register", async (req, res) => {
           token,
           user: {
             id: user._id,
+            role:user.role
           },
         });
       } catch (err) {

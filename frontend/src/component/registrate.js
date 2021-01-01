@@ -3,6 +3,7 @@ import React , {useState}from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { Select } from 'antd';
+import { Link } from 'react-router-dom';
 
 /****************************************************/
 
@@ -49,11 +50,7 @@ const submit =async (e)=>{
  try {
   
   const newUser = { userName, age, email  ,password ,role } ;
-  const res= await axios.post("http://localhost:8000/api/register" , newUser);
-    console.log(res.data.role)
-    var id = res.data._id
-    {res.data.role === "teacher" ? localStorage.setItem("path", "/teacher/"+id) : localStorage.setItem("path", "account/"+id)}
-    localStorage.setItem("role", res.data.role);
+  await axios.post("http://localhost:8000/api/register" , newUser);
 
  
  } catch (error) {
@@ -96,7 +93,8 @@ const submit =async (e)=>{
           </Select>
         </div>
         <div>
-            <button onClick={submit} className="btn btn-primary"> Submit </button>
+            <button onClick={submit} className="btn btn-primary"> Submit </button> <br/><br/>
+            <span>alredy have account?<Link to='/login' >Login</Link></span>
             
         </div>
     </form>

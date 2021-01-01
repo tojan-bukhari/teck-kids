@@ -17,10 +17,8 @@ import CSSex3 from './component/CSS/inputQuestions/CSSex3'
 import CSSex4 from './component/CSS/inputQuestions/CSSex4'
 import Addcorsecard from './component/teacher/Addcorsecard';
 import card from './component/teacher/card-display';
-import teacherProfile from './component/teacher/teacher-profile';
 import firrrre from './teacherSide/form'
 import teacherpage from './teacherSide/matierialsPage'
-
 import EditMatreals from './teacherSide/edit'
 
 
@@ -46,7 +44,6 @@ function App() {
           <Route exact path="/CSS/ex4" component={CSSex4} />
           <Route  path="/teacher/addcard" component={Addcorsecard} />
           <Route  path="/teacher/card" component={card} />
-          <Route  path="/teacher/:id" component={teacherProfile} />
           <ProtectedRoute path="/account/:id" component={Personalprofile} isAuth={localStorage.length > 0} />
           <Route  path="/firrrre" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} />

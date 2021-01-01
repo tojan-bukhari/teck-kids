@@ -20,15 +20,15 @@ export const MenuItems = [
   url:'/registrate',
   cName:'nav-links1'
 },
-{
-  title : 'Sign Up',
-  url:'/registrate',
-  cName:'nav-links1'
-},
-{
-  title : 'Sign In',
-  url:'/login',
-  cName:'nav-links1'
-},
+// {
+//   title : 'Sign Up',
+//   url:'/registrate',
+//   cName:'nav-links1'
+// },
+// {
+//   title : 'Sign In',
+//   url:'/login',
+//   cName:'nav-links1'
+// },
 
 ]
