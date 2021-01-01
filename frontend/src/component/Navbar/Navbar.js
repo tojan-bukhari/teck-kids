@@ -12,9 +12,11 @@ export class NavBar extends Component {
       this.setState({ clicked: !this.state.clicked })
   }
   render() {
-    if(this.state.token){
-      
-    }
+    // if(this.state.token){
+    //   <li className="nav-links1" onClick={logout}>
+    //   logout </li>
+    // }
+    // if(!this.state)
   
     return(
       <nav className="NavbarItems1">
@@ -34,10 +36,10 @@ export class NavBar extends Component {
               })}
 
 
-              <br></br>
+              {/* <br></br>
               {this.state.token?  <li className="nav-links1" onClick={logout}>
                  logout </li> 
-              : <li className="nav-links1"><Link to='/registrate'>Register</Link></li>}
+              : <li className="nav-links1"><Link to='/registrate'>Register</Link></li>} */}
           </ul>
           
          
