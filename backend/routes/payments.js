@@ -6,8 +6,8 @@ const { v4: uuidv4 } = require('uuid');
 /******************************************* */
 
 router.post('/charge',(req,res)=>{
-    //let status;
-    
+    let status;
+    let error;
     const {  token, product } = req.body;
     //console.log(req.body);
     //console.log("price ", product.price);
@@ -31,8 +31,13 @@ router.post('/charge',(req,res)=>{
 
         })
     }).then(charge=> {
-        res.status(200).json(charge)
-    }).catch(err => res.status(500).json('NotWorking'))
+        status='success';
+        res.status(200).json(status)
+
+    }).catch(err => {
+        status='failure';
+        res.status(500).json(status)
+    })
 
 })
 

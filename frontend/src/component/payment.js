@@ -31,7 +31,8 @@ function Payment() {
            const response= await axios.post("http://localhost:8000/payments/charge", {token, product});
            
             const { status } = response.data
-            if (status === "success") {
+           // console.log(response.data);
+            if (response.data === "success") {
                 toast("Success! Check email for details", { type: "success" });
                 history.push('/account/'+userId);
               } else {
