@@ -6,12 +6,15 @@ import './Navbar.css';
 
 export class NavBar extends Component {
 
-  state = { clicked: false }
+  state = { clicked: false , token:localStorage.getItem('TheToken')}
 
   handleClick = () => {
       this.setState({ clicked: !this.state.clicked })
   }
   render() {
+    if(this.state.token){
+      
+    }
   
     return(
       <nav className="NavbarItems1">
@@ -21,12 +24,9 @@ export class NavBar extends Component {
           </div>
           <ul className={this.state.clicked ? 'nav-menu1 active' : 'nav-menu1'}>
               {MenuItems.map((item, index) => {
-                  
                   return (
-                      
                       <li key={index}>
                           <Link className={item.cName} to={item.url}>
-                              
                           {item.title}
                           </Link>
                        </li>
@@ -35,11 +35,9 @@ export class NavBar extends Component {
 
 
               <br></br>
-               <li className="navbar-item" onClick={logout}>
-                <button to="/logout" className="nav-link">
-                  Log out
-                </button >
-              </li>
+              {this.state.token?  <li className="nav-links1" onClick={logout}>
+                 logout </li> 
+              : <li className="nav-links1"><Link to='/registrate'>Register</Link></li>}
           </ul>
           
          

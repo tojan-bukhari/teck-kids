@@ -38,7 +38,7 @@ export default function CardDisplay() {
               <Meta title={card.title} description={card. Desceription} />
                <Link to="/teachersM">
                <button type="button">
-                Click Me!
+                go to lesson
               </button>
               </Link>
             </Card>

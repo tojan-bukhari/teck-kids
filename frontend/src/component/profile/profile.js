@@ -27,7 +27,8 @@ class Personalprofile extends React.Component {
             profilepic:[],
             htmlCourse:'',
             cssCourse:'',
-            jsCourse:''
+            jsCourse:'',
+            role:localStorage.getItem("role")
         }
 
     }
@@ -48,6 +49,7 @@ class Personalprofile extends React.Component {
 
 
     componentDidMount() {
+        console.log(this.state.role)
        
         axios.get("http://localhost:8000/user/account/" + this.state.id)
             .then(res => {
@@ -78,6 +80,9 @@ class Personalprofile extends React.Component {
             var y = <CssCard />
         }
         return (
+            <div>
+                <span> {this.state.role==="teacher"? "hello teacher" : "helllo student" }</span>
+                
             <div 
             style={{
                 position: 'absolute', right: '0%', top: '55%',
@@ -86,6 +91,7 @@ class Personalprofile extends React.Component {
                 height:'500px',
                 padding:'20px'
             }}>
+                
                 <Avatar size={200} icon={<UserOutlined />} src={this.state.img} />
                 <h2>My Profile</h2>
                
@@ -95,10 +101,15 @@ class Personalprofile extends React.Component {
                 <h3>{this.state.age}</h3>
                 
                   <ProfilePicChanger handelImageChange={this.handelImageChange} />
-                 <Link to ={"/edit/" + this.state.id}  className="btn btn-success" >Edit User</Link>
+                 <Link to ={"/edit/" + this.state.id}  className="btn btn-success" >Edit profile</Link>
                 {x}
                 {y}
-             
+                
+             </div>
+             <br/>
+             <label>{this.state.role==="teacher"? "to add a card that will help u to show your lessons" :  "learn a new lesson"} </label>
+             <button>{this.state.role==="teacher"? <Link to="/teacher/addcard"> Add card </Link>:<Link to="/"> register to lesson </Link>}</button> <br/>
+             {this.state.role==="teacher"? <button><Link to="/teacher/firrr"> Add a new lesson </Link></button>: null }
              </div>
             
         )
