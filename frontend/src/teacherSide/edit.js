@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {storage} from '../component/teacher/firebase'
+// import {storage} from '../component/teacher/firebase'
 
 
 

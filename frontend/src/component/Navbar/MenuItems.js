@@ -17,7 +17,7 @@ export const MenuItems = [
 },
 {
   title : 'Our Story',
-  url:'/registrate',
+  url:'/ourstory',
   cName:'nav-links1'
 },
 // {
