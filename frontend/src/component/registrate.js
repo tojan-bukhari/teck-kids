@@ -19,6 +19,7 @@ const [ role      ,  setRole]       = useState();
 const [ errors    , setErrors ]     = useState({email:"",password:""});
 
 const { Option } = Select;
+
 function handleChange(value) {
   console.log(`selected ${value}`);
   setRole(value)
@@ -47,13 +48,18 @@ const submit =async (e)=>{
 
  try {
   
-      const newUser = { userName, age, email  ,password , role } ;
-   await axios.post("http://localhost:8000/api/register" , newUser);
-   history.push('/login')
+  const newUser = { userName, age, email  ,password ,role } ;
+  const res= await axios.post("http://localhost:8000/api/register" , newUser);
+    console.log(res.data.role)
+    var id = res.data._id
+    {res.data.role === "teacher" ? localStorage.setItem("path", "/teacher/"+id) : localStorage.setItem("path", "account/"+id)}
+    localStorage.setItem("role", res.data.role);
+
+ 
  } catch (error) {
      
  }  
- 
+   history.push('/login')
   }
  
    return ( 

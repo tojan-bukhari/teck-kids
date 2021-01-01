@@ -48,6 +48,7 @@ function App() {
           <Route  path="/teacher/addcard" component={Addcorsecard} />
           <Route  path="/teacher/card" component={card} />
           <Route  path="/teacher/:id" component={teacherProfile} />
+          <ProtectedRoute path="/account/:id" component={Personalprofile} isAuth={localStorage.length > 0} />
           <Route  path="/firrrre" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} /> 
           <Exercises />

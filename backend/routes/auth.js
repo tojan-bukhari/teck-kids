@@ -20,14 +20,15 @@ const querySchema = Joi.object({
   password     : Joi.string().min(8).required(),
   passwordAgain: Joi.ref('password'),//to equal password
 })
+
 //we add async here cause we need sometime to submit the data here
 router.post("/register", async (req, res) => {
   //what I need to cheeck for the user registration:
     try {
-      let { userName, age,email, password,role } = req.body;
+      let { userName, age, email, password, role } = req.body;
       // validate
       //0- check if the user enter the filed 
-      const{error}         = querySchema.validate(req.body);
+      const{error}  = querySchema.validate(req.body);
       console.log(req.body)
       if(error){
           return res.status(403).json({msg :error.details[0].message})}
