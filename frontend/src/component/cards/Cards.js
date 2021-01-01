@@ -34,6 +34,12 @@ function Cards() {
               label='CSS'
               path='/css-des'
             />
+            <CardItem
+            src='https://www.flaticon.com/svg/static/icons/svg/1165/1165730.svg'
+            text='Ride through the Sahara Desert on a guided camel tour'
+            label='CSS'
+            path='/teacher/card'
+          />
           </ul>
         </div>
       </div>

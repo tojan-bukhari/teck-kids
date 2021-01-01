@@ -71,6 +71,12 @@ export default class calender extends Component {
               <th ></th>
               <th ></th>
               <td >video</td>
+              
+              <Link to="/firrrre">
+               <button type="button">
+                Add Lessons
+              </button>
+              </Link>
             </tr>
           </thead>
           <tbody>
