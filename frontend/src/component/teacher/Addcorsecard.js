@@ -89,8 +89,8 @@ class Addcorsecard extends Component {
     }
     console.log(task);
     axios.post('http://localhost:8000/teacher/addcard', task) //create?
-      .then(res => console.log(res.data));
-      console.log(res.data)
+      // .then(res => console.log(res.data));
+      // console.log(res.data)
           window.location = '/teacher/card'
   }
 
@@ -161,6 +161,7 @@ class Addcorsecard extends Component {
                 <br />
                 
                 <div>
+                 
                 <button type="submit" value = "Submit" className="btn btn-deep-orange darken-4">Submit</button>
                 </div>
           </form>

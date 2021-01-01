@@ -17,7 +17,7 @@ export default function CardDisplay() {
         try{
         const result = await axios.get('http://localhost:8000/teacher/card');
         const [Desceription,Name,Title,image , _id ] = result.data;
-        // console.log('this is result data',result.data);
+        console.log('this is result data',result.data);
         setData(result.data)
     }catch(error){
         console.log(error,"oh nooooo")
@@ -35,12 +35,9 @@ export default function CardDisplay() {
               style={{ width: 200 }}
               cover={<img alt="example" src={card.image} />}
               >
-              <Meta title={card.title} description={card. Desceription} />
-               <Link to="/teachersM">
-               <button type="button">
-                go to lesson
-              </button>
-              </Link>
+              <Meta  description={card.Desceription} />
+              <Meta  description={card.Title} />
+              
             </Card>
          </Col>
         ))}
