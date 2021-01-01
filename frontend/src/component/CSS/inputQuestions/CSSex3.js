@@ -32,14 +32,14 @@ function CSSex3() {
                 <div style={{borderStyle: 'solid',width:'500px'}}>
             <ul style={{ marginLeft: Val ? '100px' : '10px',width:'500px'}}>
         <li>
-        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdw1XqsHo9XAMdITImwsanihWa4KJkUfRXUg&usqp=CAU' style={{width:'100px', height:'100px'}}  />
+        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdw1XqsHo9XAMdITImwsanihWa4KJkUfRXUg&usqp=CAU' alt='apple' style={{width:'100px', height:'100px'}}  />
         </li>
         <li>
-        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdw1XqsHo9XAMdITImwsanihWa4KJkUfRXUg&usqp=CAU' style={{width:'100px', height:'100px'}}  />
+        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdw1XqsHo9XAMdITImwsanihWa4KJkUfRXUg&usqp=CAU' alt='apple' style={{width:'100px', height:'100px'}}  />
 
         </li>
         <li>
-        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdw1XqsHo9XAMdITImwsanihWa4KJkUfRXUg&usqp=CAU' style={{width:'100px', height:'100px'}}  />
+        <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdw1XqsHo9XAMdITImwsanihWa4KJkUfRXUg&usqp=CAU' alt='apple' style={{width:'100px', height:'100px'}}  />
 
         </li>
     </ul>
@@ -78,7 +78,7 @@ function CSSex3() {
         <Modal.Header closeButton>
           <Modal.Title>Woohoo!!!!</Modal.Title>
         </Modal.Header>
-        <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg"/>
+        <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg" alt='apple'/>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close

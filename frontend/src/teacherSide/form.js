@@ -141,14 +141,14 @@ class Form extends Component {
                   <button onClick={this.handleUpload}>Upload</button>
                 
                   <br />
-                    <iframe  src={this.state.url} alt="firebase-video" width='600' height='400' ></iframe>
+                    <iframe title="myFrame" src={this.state.url} alt="firebase-video" width='600' height='400' ></iframe>
 
              
 
             <p className="h4 mb-4">matireal</p>
 
                 <div className="col">
-                <h1></h1>
+         
                 <input 
                 required="{true}"
                   type = "text" 
@@ -167,7 +167,7 @@ class Form extends Component {
                 <div className="col">
                 <h1>Title  </h1>
 
-                <h1></h1>
+                
                 <input 
                 required="{true}"
                   type = "text" 

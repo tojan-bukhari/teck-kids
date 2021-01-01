@@ -157,7 +157,7 @@ SUBMIT      </Button>
           <Modal.Title>Woohoo!!!!</Modal.Title>
         </Modal.Header>
         
-        <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg"/>
+        <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg" alt='nice'/>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close

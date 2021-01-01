@@ -90,8 +90,8 @@ class Addcorsecard extends Component {
     console.log(task);
     axios.post('http://localhost:8000/teacher/addcard', task) //create?
       .then(res => console.log(res.data));
-      console.log(res.data)
-          window.location = '/teacher/card'
+    console.log(task);
+    window.location = '/teacher/card'
   }
 
 
@@ -120,7 +120,7 @@ class Addcorsecard extends Component {
                   <button onClick={this.handleUpload}>Upload</button>
                 
                   <br />
-                    <iframe  src={this.state.url} alt="firebase-image" width='400' height='400' ></iframe>
+                    <iframe title="myFrame" src={this.state.url} alt="firebase-image" width='400' height='400' ></iframe>
 
              
 
@@ -132,8 +132,6 @@ class Addcorsecard extends Component {
 
                 <div className="col">
                 <h1>Title  </h1>
-
-                <h1></h1>
                 <input 
                 required="{true}"
                   type = "text" 
