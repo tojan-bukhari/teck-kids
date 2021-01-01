@@ -90,8 +90,8 @@ class Addcorsecard extends Component {
     console.log(task);
     axios.post('http://localhost:8000/teacher/addcard', task) //create?
       .then(res => console.log(res.data));
-    console.log(task);
-    window.location = '/teacher/card'
+      console.log(res.data)
+          window.location = '/teacher/card'
   }
 
 
