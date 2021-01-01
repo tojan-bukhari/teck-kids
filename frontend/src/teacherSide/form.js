@@ -20,7 +20,8 @@ class Form extends Component {
       progress: 0,
       material: '',
       description: '',
-      title: ''
+      title: '',
+      cardId: localStorage.getItem("cardId")
     }
     // this.handleChange = this
     //   .handleChange
