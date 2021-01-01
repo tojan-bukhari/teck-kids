@@ -8,7 +8,8 @@ export const ImagesArray = [
   },
   {
     url: 'https://i.pinimg.com/236x/49/05/94/4905944b167d12174aeaacf55a2536cf.jpg', 
-    id:2,size:'48px'
+    id:2,
+    size:'48px'
     
   },
   {

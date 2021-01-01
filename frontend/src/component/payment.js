@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 //require('dotenv').config();
 /************************************************/
 toast.configure();
-
+ote 
 function Payment() {
     const history = useHistory();
 

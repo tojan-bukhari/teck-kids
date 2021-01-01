@@ -1,40 +1,35 @@
 import React, {Component} from 'react';
-import {storage} from '../component/teacher/firebase'
+import { storage } from './firebase';
 import axios from 'axios';
+// import { useHistory } from 'react-router-dom';
+// import { Form, Input, Button, Radio ,Select, } from 'antd';
 
-class Form extends Component {
+
+
+
+class Addcorsecard extends Component {
   constructor(props) {
     super(props);
-    this.onChangeMaterial = this.onChangeMaterial.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.onChangevideo = this.onChangevideo.bind(this);
+    this.onChangeimage = this.onChangeimage.bind(this);
     this.handleUpload = this.handleUpload.bind(this);
 
 
 
     this.state = {
-      video: null,
+      image: null,
       url: '',
       progress: 0,
       material: '',
       description: '',
       title: ''
     }
-    // this.handleChange = this
-    //   .handleChange
-    //   .bind(this);
-    //   this.handleUpload = this.handleUpload.bind(this);
   }
-  // handleChange = e => {
-  //   if (e.target.files[0]) {
-  //     const video = e.target.files[0];
-  //     this.setState(() => ({video}));
-  //   }
-  // }
+
   handleUpload = () => {
-      const uploadTask = storage.ref(`videos/${this.state.video.name}`).put(this.state.video); 
+      const uploadTask = storage.ref(`images/${this.state.image.name}`).put(this.state.image); 
       uploadTask.on('state_changed', 
       (snapshot) => {
         // progrss function ....
@@ -49,8 +44,8 @@ class Form extends Component {
       }, 
     () => {
         // complete function ....
-        storage.ref('videos')
-        .child(this.state.video.name)
+        storage.ref('images')
+        .child(this.state.image.name)
         .getDownloadURL()
         .then(url => {
             console.log(url);
@@ -60,11 +55,6 @@ class Form extends Component {
     });
   }
 
-  onChangeMaterial(e) {
-    this.setState({
-      material: e.target.value
-    })
-  }
   onChangeDescription(e) {
     this.setState({
       description: e.target.value
@@ -75,43 +65,33 @@ class Form extends Component {
       title: e.target.value
     })
   }
-  video
-  onChangevideo(e) {
+  image
+  onChangeimage(e) {
     
     if(e.target.files[0]){
       this.setState({
-        video : e.target.files[0]
+        image : e.target.files[0]
       })
-      console.log('video',e.target.files[0])
+      console.log('image',e.target.files[0])
       
     }
    
   }
 
-  // handleClick() {
-  //   window.location = "/teachersM";
-  // }
   onSubmit(e) {
     e.preventDefault();
-    //declare an obj that holds all values after change
     const task = {
       title: this.state.title,
-      material: this.state.material,
-      description: this.state.description,
-      video: this.state.url
+      // material: this.state.material,
+      Desceription: this.state.description,
+      image: this.state.url,
+      Name: this.state.name
     }
     console.log(task);
-    axios.post('http://localhost:8000/materials/add', task) //create?
+    axios.post('http://localhost:8000/teacher/addcard', task) //create?
       .then(res => console.log(res.data));
-
-    // this.setState({
-    //   title: '',
-    //   material: '',
-    //   description: '',
-    //   video: ''
-    // });
     console.log(task);
-    window.location = '/teachersM'
+    window.location = '/teacher/card'
   }
 
 
@@ -127,12 +107,12 @@ class Form extends Component {
        
           <form className="text-center border border-light p-9" action="#!" onSubmit = {this.onSubmit} >
           <div className = "col">
-                    <h1>Add video</h1>
+                    <h1>Add image</h1>
                     <input 
                       type = "file" 
                       required="true"
                       className = "form-control" 
-                      onChange = {this.onChangevideo}
+                      onChange = {this.onChangeimage}
                       />
                   </div>  
                   
@@ -140,24 +120,11 @@ class Form extends Component {
                   <button onClick={this.handleUpload}>Upload</button>
                 
                   <br />
-                    <iframe  src={this.state.url} alt="firebase-video" width='600' height='400' ></iframe>
+                    <iframe  src={this.state.url} alt="firebase-image" width='400' height='400' ></iframe>
 
              
 
             <p className="h4 mb-4">matireal</p>
-
-                <div className="col">
-                <h1></h1>
-                <input 
-                required="{true}"
-                  type = "text" 
-                  className = "form-control" 
-                  value = {this.state.material}
-                  onChange = {this.onChangeMaterial}
-                  text-align = "center"
-                  placeholder = "Insert Item Name"/>
-                </div>
-
                 <br />
 
 
@@ -203,4 +170,5 @@ class Form extends Component {
   }
 }
 
-export default Form; 
+export default Addcorsecard; 
+ 

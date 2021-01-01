@@ -1,7 +1,6 @@
 //useState is a Hook that allows you to have state variables in functional components.=> very intersting and easy to use <3 love it
 import React , {useState }from 'react';
 import axios from 'axios';
-//import {link} from 'react-router-dom'
 import { useHistory } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -23,27 +22,26 @@ const Signin = ()=>{
     try {
       const newUser = { email ,password } ;
       const loginRes = await axios.post("http://localhost:8000/api/login" , newUser)
-      console.log(loginRes.data.token)
+      console.log(loginRes)
       console.log(loginRes.data.user.id)
       localStorage.setItem("theToken", loginRes.data.token);
       localStorage.setItem("id", loginRes.data.user.id);
+      localStorage.setItem("role", loginRes.data.user.role);
       history.push('/')
        } catch (error) {
       alert(error.response.data.msg)
 
 
       }
-
-
     }
 
 
 
   return(
-  <div className="container p-5" size="6" className="py-3 px-md-5" style={{marginTop: 10 + 'em'}}>
+  <div className="container p-5" size="6" style={{marginTop: 10 + 'em'}}>
   <form>    
 
- <div className="form-group" class="text-center">
+ <div className="form-group" >
  <label htmlFor="formGroupExampleInput">
         <InputGroup className="mb-3">
         <InputGroup.Append>
@@ -53,7 +51,8 @@ const Signin = ()=>{
           placeholder="Recipient's username"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
-          type="text" className="form-control" placeholder="Enter Your email"
+          type="text" className="form-control"
+          
           onChange={(e)=>{setEmail(e.target.value)}} 
           required
         />
@@ -66,7 +65,7 @@ const Signin = ()=>{
           aria-label="Recipient's password"
           aria-describedby="basic-addon2"
           type="password" className="form-control"
-          placeholder="Enter Your Password" 
+         
            onChange={(e)=>{setPassword(e.target.value)}}
             required
          />

@@ -100,21 +100,21 @@ export default class EditProfile extends Component {
             <div className = "col">
             <label >  New User Name </label>
             <br></br>
-            <input required='true' type='text'className="form-control col" value= {this.state.username} onChange={this.onChangeUsername} placeholder='User Name'/>                   
+            <input required={true} type='text'className="form-control col" value= {this.state.username} onChange={this.onChangeUsername} placeholder='User Name'/>                   
             <br></br>                
             </div>
 
             <div className = "col">
             <label > New Password </label>
             <br></br>
-            <input required='true'  type="password" name="password" className="form-control col"value= {this.state.password} onChange={this.onChangePassword} placeholder='Creat Password' />
+            <input required={true}  type="password" name="password" className="form-control col"value= {this.state.password} onChange={this.onChangePassword} placeholder='Creat Password' />
             <br></br>
             </div>
 
             <div className = "col">
             <label >  New Phone Number </label>
 
-            <input required='true'  className="form-control col"  value= {this.state.age} onChange={this.onChangeAge} placeholder='Age' />
+            <input required={true}  className="form-control col"  value= {this.state.age} onChange={this.onChangeAge} placeholder='Age' />
             <br></br>
             </div>
             

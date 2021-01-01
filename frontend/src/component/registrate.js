@@ -2,6 +2,8 @@
 import React , {useState}from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import { Select } from 'antd';
+import { Link } from 'react-router-dom';
 
 /****************************************************/
 
@@ -14,9 +16,15 @@ const [ userName  , setName ]       = useState();
 const [ age       , setage ]        = useState();
 const [ email     , setEmail ]      = useState();
 const [ password  , setPassword ]   = useState();
+const [ role      ,  setRole]       = useState();
 const [ errors    , setErrors ]     = useState({email:"",password:""});
 
+const { Option } = Select;
 
+function handleChange(value) {
+  console.log(`selected ${value}`);
+  setRole(value)
+}
 
 function validation(email,password) {
     let errors = {};
@@ -40,15 +48,15 @@ const submit =async (e)=>{
     setErrors(validation(email,password));
 
  try {
-   
-      const newUser = { userName, age, email  ,password  } ;
-      console.log(newUser);
-   await axios.post("http://localhost:8000/api/register" , newUser);
-   history.push('/login')
+  
+  const newUser = { userName, age, email  ,password ,role } ;
+  await axios.post("http://localhost:8000/api/register" , newUser);
+
+ 
  } catch (error) {
      
  }  
- 
+   history.push('/login')
   }
  
    return ( 
@@ -62,24 +70,31 @@ const submit =async (e)=>{
         </div>
       
         <div className="form-group">
-            <label className="text-muted"> age </label>
+            <label className="text-muted"> age : </label>
             <input id="reg-age" type="age" className="form-control" placeholder="Enter Your age" required onChange={(e)=>{setage(e.target.value)}}/>
         </div>
         <div className="form-group">
-            <label className="text-muted"> Email </label>
+            <label className="text-muted"> Email : </label>
             <input id="reg-email" type="email" className="form-control" placeholder="Enter Your email" required onChange={(e)=>{setEmail(e.target.value)}}/>
-            <p>{errors.email &&<p>{errors.email}</p>}</p> 
+            <span>{errors.email &&<span>{errors.email}</span>}</span> 
 
         </div>
         <div className="form-group">
-            <label className="text-muted"> Password </label>
+            <label className="text-muted"> Password : </label>
             <input id="reg-pass" type="password" className="form-control" placeholder="Enter Your Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
-            <p>{errors.password &&<p>{errors.password}</p>}</p> 
+            <span>{errors.password &&<span>{errors.password}</span>}</span> 
 
         </div>
-        
         <div>
-            <button onClick={submit} className="btn btn-primary"> Submit </button>
+          <label className="text-muted"> choose ur Role : </label>
+          <Select defaultValue="student"  style={{ width: 200 }} onChange={handleChange}>
+           <Option value="teacher">Teacher</Option>
+           <Option value="student">Student</Option>
+          </Select>
+        </div>
+        <div>
+            <button onClick={submit} className="btn btn-primary"> Submit </button> <br/><br/>
+            <span>alredy have account?<Link to='/login' >Login</Link></span>
             
         </div>
     </form>

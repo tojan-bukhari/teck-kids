@@ -108,8 +108,8 @@ export default class Quiz extends Component {
                     </>) : (
                         <div className="finalPage">
                             <h1>You have completed the quiz!</h1>
-                            <p>Your score is: {score} of {Object.keys(quiestions).length}</p>
-                            <p>Thank you!</p>
+                            <span>Your score is: {score} of {Object.keys(quiestions).length}</span>
+                            <span>Thank you!</span>
                             <button  className="Ne" onClick={this.handleClick} >next ex</button>
                         </div>
                     )

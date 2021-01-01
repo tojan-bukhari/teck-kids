@@ -10,10 +10,10 @@ const Task = props => (
     <td>{props.task.description}</td>
     <td>{props.task.title}</td>
     <td>
-    <iframe src= {props.task.video} width="200" height="200" className="w3-round" alt="Norway" />
+    <iframe src= {props.task.video}width='600' height='400' className="w3-round" alt="Norway" />
     </td>
     <td>
-      <Link to={"/edit/"+props.task._id}>edit</Link> <a href="/teachersM"  onClick={() => { props.deleteTask(props.task._id) }}>delete</a>
+      <Link to={"/EditMatreals/"+props.task._id}>edit</Link> <a href="/teachersM"  onClick={() => { props.deleteTask(props.task._id) }}>delete</a>
     </td>
   </tr>
 )
@@ -71,6 +71,12 @@ export default class calender extends Component {
               <th ></th>
               <th ></th>
               <td >video</td>
+              
+              <Link to="/firrrre">
+               <button type="button">
+                Add Lessons
+              </button>
+              </Link>
             </tr>
           </thead>
           <tbody>
