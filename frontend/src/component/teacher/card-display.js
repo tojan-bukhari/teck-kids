@@ -13,15 +13,14 @@ export default function CardDisplay() {
 
     const [data, setData]=useState([])
     const { Meta } = Card;
-    useEffect(async () => {
-        try{
+    useEffect(() => {
+        async function fetchMyAPI() {
         const result = await axios.get('http://localhost:8000/teacher/card');
-        const [Desceription,Name,Title,image , _id, price ] = result.data;
+        // const [Desceription,Name,Title,image , _id, price ] = result.data;
         console.log('this is result data',result.data);
         setData(result.data)
-    }catch(error){
-        console.log(error,"oh nooooo")
-    } },[]);
+    }fetchMyAPI() 
+ },[]);
     // console.log(data[0].Titel)
     return (
             <div>
