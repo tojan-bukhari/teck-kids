@@ -44,7 +44,7 @@ function App() {
           <Route exact path="/CSS/ex4" component={CSSex4} />
           <Route  path="/teacher/addcard" component={Addcorsecard} />
           <Route  path="/teacher/card" component={card} />
-          <ProtectedRoute path="/account/:id" component={Personalprofile} isAuth={localStorage.length > 0} />
+          <Route path="/account/:id" component={Personalprofile}  />
           <Route  path="/firrrre" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
