@@ -6,10 +6,10 @@ const cssCourse  = require('../models/css');
 const jsCourse   = require('../models/js');
 //import the usermodel  use the schema to insert the data 
 const User = require('../models/User');
-/**************************************************/
+//////////////////
 
 router.get('/html/:_id' , function (req , res) {
-   // console.log(req.params._id)
+    console.log(req.params._id)
     var course = htmlCourse.findById(req.params._id)
     .then(lessonFound=>{
         if(!lessonFound){return res.status(404).json("Can't find the lesson")}

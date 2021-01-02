@@ -2,9 +2,11 @@
 const router = require("express").Router();
 //import the usermodel  use the schema to insert the data 
 const User = require('../models/User');
-//for hashing the password
+//for hashing the password...........
 const bcrypt = require('bcrypt');
-// use joi to validate the data inputs from user 
+
+
+// use joi to validate the data inputs from user.............. 
 const Joi = require('@hapi/joi');
 //for the token
 const JWT = require('jsonwebtoken');
@@ -65,7 +67,7 @@ router.post("/register", async (req, res) => {
     router.post("/login", async (req, res) => {
       try {
         const {email, password } = req.body;
-        console.log(req.body)
+        console.log(req)
         // validate email && user
         if (!email || !password)
           return res.status(400).json({ msg: "Not all fields have been entered." });
@@ -110,7 +112,7 @@ router.post("/register", async (req, res) => {
     // });
 module.exports = router;
 
-
+//////////////////////
 
 
 

@@ -42,7 +42,11 @@ const Signin = ()=>{
   <div className="container p-5" size="6" style={{marginTop: 10 + 'em'}}>
   <form>    
 
+<<<<<<< HEAD
  <div className="form-group" >
+=======
+ <div className="form-group" className="text-center">
+>>>>>>> 08addaab9f4acfa94f4afec53c4f0432ca774087
  <label htmlFor="formGroupExampleInput">
         <InputGroup className="mb-3">
         <InputGroup.Append>
