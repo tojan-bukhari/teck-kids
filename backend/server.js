@@ -7,14 +7,14 @@ const path = require("path");
 const jwt = require("jsonwebtoken");
 var bodyParser = require("body-parser");
 const server = require("http").createServer(app);
-// const io = socketio(server);
-
-// const path = require('path');
-
-
 //the Routes
 const authRoutes  = require('./routes/auth');
 const courseRoute = require('./routes/courseRoute');
+const userRoute=require('./routes/userRoute');
+const teacherRoute=require('./routes/teacherRoute');
+const materialsRouter = require('./routes/materials');
+const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
+const chatroomRoute=require('./routes/chatroomRoute')
 const userRoute   =require('./routes/userRoute')
 const payments    = require('./routes/payments');
 const teacherRoute=require('./routes/teacherRoute');
@@ -22,18 +22,14 @@ const materialsRouter = require('./routes/materials');
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 const chatroomRoute=require('./routes/chatroomRoute')
 require('dotenv').config();
-
 //middleware
 app.use(cors())
 app.use(express.json()); 
 app.use(morgan('dev'));
-
-
 const mongoose = require('mongoose');
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true ,useFindAndModify:false}
 );
-
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
@@ -43,7 +39,6 @@ connection.once('open', () => {
 require("./models/User");
 require("./models/Chatroom");
 require("./models/Massages");
-
 // Routes
 app.use('/api',authRoutes);
 app.use('/course',courseRoute);
@@ -51,8 +46,8 @@ app.use('/user',userRoute);
 app.use('/payments',payments)
 app.use('/teacher',teacherRoute);
 app.use('/materials', materialsRouter);
-app.use("/Chatroom",chatroomRoute)
-
+app.use("/Chatroom",chatroomRoute);
+app.use("/Chatroom",chatroomRoute);
 const io = require("socket.io")(server, {
   cors: {
     origin: "http://localhost:3000",
@@ -99,6 +94,11 @@ io.on('connect', (socket) => {
 
 
 
+//port with whatever the port will be given by heruko
+const port = process.env.PORT || 8000;
+server.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
+});
 
 //port with whatever the port will be given by heruko
 const port = process.env.PORT || 8000;

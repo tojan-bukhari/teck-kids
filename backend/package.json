@@ -21,6 +21,9 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.6",
     "react-router-dom": "^5.2.0",
+    "socket.io": "^3.0.4",
+    "twilio": "^3.54.1",
+    "uuid": "^8.3.2"
     "stripe": "^8.129.0",
     "uuid": "^8.3.2"
     "socket.io": "^3.0.4"
@@ -28,7 +31,6 @@
   },
   "devDependencies": {},
   "scripts": {
-    "heroku-postbuild": "cd frontend npm && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "concurrently \"npm run server\" \"npm run frontend\"",
