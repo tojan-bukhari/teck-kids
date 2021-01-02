@@ -20,7 +20,7 @@ import card from './component/teacher/card-display';
 import firrrre from './teacherSide/form'
 import teacherpage from './teacherSide/matierialsPage'
 import EditMatreals from './teacherSide/edit'
-import Payment from './component/payment';
+
 
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
           <Route  path="/firrrre" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
-          <Route path='/payment' element={Payment} />
+         
           <Exercises />
         </Switch>
       </BrowserRouter>

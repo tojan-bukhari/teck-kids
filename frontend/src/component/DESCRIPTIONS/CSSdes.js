@@ -3,7 +3,7 @@ import "./des.css"
 import { Button, Card  } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
-import Payment from '../payment';
+
 
 /**************************************************** */
 

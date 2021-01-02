@@ -28,14 +28,6 @@ const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 });
-//
-// if (process.env.NODE_ENV === 'production') {           
-//   app.use(express.static('client/build'));
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-// });
-// }
-
 
 // Routes
 app.use('/api',authRoutes);
@@ -44,17 +36,6 @@ app.use('/user',userRoute);
 app.use('/payments',payments)
 app.use('/teacher',teacherRoute);
 app.use('/materials', materialsRouter);
-
-// // serve static assets if were in production 
-// if(process.env.NOD_ENV === 'production'){
-//   // set static folder
-//   app.use(express.static('frontend/build'));
-
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-
-//   });
-// }
 
 
 //port with whatever the port will be given by heruko
