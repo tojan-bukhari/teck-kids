@@ -49,7 +49,7 @@ function App() {
           <Route  path="/firrrre" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
-          <Route path='/payment' component={Payment} />
+          <Route path='/payment' element={Payment} />
           <Exercises />
         </Switch>
       </BrowserRouter>

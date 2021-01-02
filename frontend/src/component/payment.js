@@ -9,12 +9,14 @@ import 'react-toastify/dist/ReactToastify.css';
 /************************************************/
 toast.configure();
 
-function Payment(props) {
+function Payment(info) {
+
     const history = useHistory();
+    
+    console.log(info)
 
     var userId = localStorage.getItem('id');
-    //var userToken = localStorage.getItem('theToken');
-
+    
     const [product] = useState({
         name: 'react from me',
         price : 10,
@@ -31,14 +33,14 @@ function Payment(props) {
            const response= await axios.post("http://localhost:8000/payments/charge", {token, product});
            
             const { status } = response.data
-           // console.log(response.data);
+           
             if (response.data === "success") {
                 toast("Success! Check email for details", { type: "success" });
                 history.push('/account/'+userId);
               } else {
                 toast("Something went wrong", { type: "error" });
               } 
-         //  history.push('/account/'+userId);
+        
         } catch (error) {
         alert(error)
         } 

@@ -112,7 +112,7 @@ class Addcorsecard extends Component {
             <button onClick={this.handleUpload}>Upload</button>
 
             <br />
-            <iframe src={this.state.url} alt="firebase-image" width='400' height='400' ></iframe>
+            <iframe  title="myFrame" src={this.state.url} alt="firebase-image" width='400' height='400' ></iframe>
             <p className="h4 mb-4">matireal</p>
             <br />
 
@@ -122,7 +122,6 @@ class Addcorsecard extends Component {
             <div className="col">
               <h3>Title  </h3>
 
-              <h3></h3>
               <input
                 required="{true}"
                 type="text"
