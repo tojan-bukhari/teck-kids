@@ -44,8 +44,8 @@ export default function CardDisplay() {
               <Meta title={card.Title} description={card.Desceription} />
               <label>Teacher name :</label><span>{card.Name}</span>
               <label>The Price : </label><span>{card.price}</span><br/>
-              <Link to={{ pathname:'/payment', state:{price:card.price}}}>
-              <Payment/></Link>
+              
+              <Payment/>
               
             </Card>
          </Col>
