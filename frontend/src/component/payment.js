@@ -9,9 +9,9 @@ import 'react-toastify/dist/ReactToastify.css';
 /************************************************/
 toast.configure();
 
-function Payment() {
+function Payment(props) {
     const history = useHistory();
-
+console.log(props.history.location.state);
     var userId = localStorage.getItem('id');
     //var userToken = localStorage.getItem('theToken');
 
