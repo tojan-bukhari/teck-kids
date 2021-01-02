@@ -42,10 +42,16 @@ export default class ProfilePicChanger extends Component {
         const imageMapper = ImagesArray.map((image) => {
             
             return (
+<<<<<<< HEAD:frontend/src/component/profile/profilePicChanger.js
                 < div  key={image.id} style={{height :'100px',
                 width :' 100px'}}>
                 <img key={image.id}
                 src={image.url}
+=======
+                <div style={{height :'100px',
+                width :' 100px'}} key="image.id">
+                <img src={image.url}
+>>>>>>> 08addaab9f4acfa94f4afec53c4f0432ca774087:frontend/src/component/pics/profilePicChanger.js
                 style={{width:"100px",height:"100px "}}
                  onClick={() => this.props.handelImageChange(image.url)}
                  height = '100px'
@@ -56,7 +62,7 @@ export default class ProfilePicChanger extends Component {
             )
         })
         return (
-            <div>
+            <div >
                 <Button type="primary" onClick={this.showModal}>
                     Change Picture
              </Button>
