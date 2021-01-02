@@ -109,7 +109,7 @@ class Personalprofile extends React.Component {
              <br/>
              <label>{this.state.role==="teacher"? "to add a card that will help u to show your lessons" :  "learn a new lesson"} </label>
              <button>{this.state.role==="teacher"? <Link to="/teacher/addcard"> Add card </Link>:<Link to="/"> register to lesson </Link>}</button> <br/>
-             {this.state.role==="teacher"? <button><Link to="/teacher/firrr"> Add a new lesson </Link></button>: null }
+             {this.state.role==="teacher"? <button><Link to="/firrrre"> Add a new lesson </Link></button>: null }
              </div>
             
         )

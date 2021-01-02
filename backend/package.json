@@ -21,13 +21,10 @@
     "morgan": "^1.10.0",
     "nodemon": "^2.0.6",
     "react-router-dom": "^5.2.0",
-<<<<<<< HEAD
-    "socket.io": "^3.0.4"
-=======
-    "socket.io": "^3.0.4",
-    "twilio": "^3.54.1",
+    "stripe": "^8.129.0",
     "uuid": "^8.3.2"
->>>>>>> 08addaab9f4acfa94f4afec53c4f0432ca774087
+    "socket.io": "^3.0.4"
+    "twilio": "^3.54.1"
   },
   "devDependencies": {},
   "scripts": {
