@@ -21,17 +21,12 @@ import firrrre from './teacherSide/form'
 import teacherpage from './teacherSide/matierialsPage'
 import Chat from './component/chatroom/Chat';
 import Join from './component/chatroom/join'
-import EditMatreals from './teacherSide/edit';
-import DashboardPage from "./component/Pages/dashboard";
-import io from "socket.io-client";
-import makeToast from "./component/Toaster";
 import EditMatreals from './teacherSide/edit'
-import Payment from './component/payment';
 import DashboardPage from "./component/Pages/dashboard";
 import io from "socket.io-client";
 import makeToast from "./component/Toaster";
-import Chat from "./component/cchatroom";
 import ChatroomPage from "./component/Pages/chatRoom";
+import Payment from './component/payment';
 /****************************************************************** */
 
 function App() {

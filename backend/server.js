@@ -2,6 +2,8 @@ var express = require('express');
 var morgan = require('morgan')
 var cors = require('cors')
 var app = express();
+
+
 const socketio = require('socket.io');
 const path = require("path");
 const jwt = require("jsonwebtoken");
@@ -10,16 +12,11 @@ const server = require("http").createServer(app);
 //the Routes
 const authRoutes  = require('./routes/auth');
 const courseRoute = require('./routes/courseRoute');
-const userRoute=require('./routes/userRoute');
 const teacherRoute=require('./routes/teacherRoute');
-const materialsRouter = require('./routes/materials');
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
-const chatroomRoute=require('./routes/chatroomRoute')
 const userRoute   =require('./routes/userRoute')
 const payments    = require('./routes/payments');
-const teacherRoute=require('./routes/teacherRoute');
 const materialsRouter = require('./routes/materials');
-const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 const chatroomRoute=require('./routes/chatroomRoute')
 require('dotenv').config();
 //middleware
@@ -39,23 +36,22 @@ connection.once('open', () => {
 require("./models/User");
 require("./models/Chatroom");
 require("./models/Massages");
-// Routes
+
+// MIDDILWARES
 app.use('/api',authRoutes);
 app.use('/course',courseRoute);
 app.use('/user',userRoute);
-app.use('/payments',payments)
 app.use('/teacher',teacherRoute);
 app.use('/materials', materialsRouter);
+app.use("/Chatroom",chatroomRoute)
+app.use('/payments',payments);
 app.use("/Chatroom",chatroomRoute);
-app.use("/Chatroom",chatroomRoute);
-const io = require("socket.io")(server, {
+const io = require("socket.io",'../lib/socket.io')(server, {
   cors: {
     origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 }); 
-
-
 io.on('connect', (socket) => {
   socket.on('join', ({ name, room }, callback) => {
     const { error, user } = addUser({ id: socket.id, name, room });
@@ -91,26 +87,19 @@ io.on('connect', (socket) => {
     }
   })
 });
-
-
-
-//port with whatever the port will be given by heruko
-const port = process.env.PORT || 8000;
-server.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
-});
+//
 
 //port with whatever the port will be given by heruko
 const port = process.env.PORT || 8000;
 // server.listen(port, () => {
 //     console.log(`Server is running on port: ${port}`);
 // });
-
  server.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
-const io = require("socket.io")(server);
-const jwt = require("jwt-then");
+
+
+const jwtS = require("jwt-then");
 const Message = mongoose.model("Message");
 const User = mongoose.model("User");
 
@@ -119,7 +108,7 @@ io.use(async (socket, next) => {
   try {
     const token = socket.handshake.query.token;
    
-    const payload = await jwt.verify(token, process.env.SECRET);
+    const payload = await jwtS.verify(token, process.env.SECRET);
     socket.userId = payload.id;
     next();
   } catch (err) {}
@@ -139,7 +128,6 @@ io.on("connection", (socket) => {
     socket.join(chatroomId);
     console.log("A user joined chatroom: " + chatroomId);
   });
-  //
 
   socket.on("leaveRoom", ({ chatroomId }) => {
     
