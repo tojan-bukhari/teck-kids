@@ -1,10 +1,10 @@
 import React ,{ useState }from 'react'
 import { Button, Modal } from 'react-bootstrap';
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 
 function CSSex4() {
-    const history = useHistory();
+    // const history = useHistory();
 
     const [ userAnswers , setUserAnswers ] =  useState();
     var correctAnswers = ['background-color: linen;','body']
@@ -60,7 +60,7 @@ function CSSex4() {
         <Modal.Header closeButton>
           <Modal.Title>Woohoo!!!!</Modal.Title>
         </Modal.Header>
-        <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg"/>
+        <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg" alt='apple'/>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close

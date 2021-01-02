@@ -3,6 +3,7 @@ import React , {useState}from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { Select } from 'antd';
+import { Link } from 'react-router-dom';
 
 /****************************************************/
 
@@ -19,6 +20,7 @@ const [ role      ,  setRole]       = useState();
 const [ errors    , setErrors ]     = useState({email:"",password:""});
 
 const { Option } = Select;
+
 function handleChange(value) {
   console.log(`selected ${value}`);
   setRole(value)
@@ -47,13 +49,14 @@ const submit =async (e)=>{
 
  try {
   
-      const newUser = { userName, age, email  ,password , role } ;
-   await axios.post("http://localhost:8000/api/register" , newUser);
-   history.push('/login')
+  const newUser = { userName, age, email  ,password ,role } ;
+  await axios.post("http://localhost:8000/api/register" , newUser);
+
+ 
  } catch (error) {
      
  }  
- 
+   history.push('/login')
   }
  
    return ( 
@@ -90,7 +93,8 @@ const submit =async (e)=>{
           </Select>
         </div>
         <div>
-            <button onClick={submit} className="btn btn-primary"> Submit </button>
+            <button onClick={submit} className="btn btn-primary"> Submit </button> <br/><br/>
+            <span>alredy have account?<Link to='/login' >Login</Link></span>
             
         </div>
     </form>

@@ -14,14 +14,14 @@ const data = [
     {title: 'Drop here', items:  [ ]}
   ]
 
- const rightData = [
-  {title: 'Drag',
-   items: 
-   [ ]
-  },
-  {title: 'Drop here', items:  [ 'p {',
-  ' color: red;', 'text-align: center;','}']}
-]
+//  const rightData = [
+//   {title: 'Drag',
+//    items: 
+//    [ ]
+//   },
+//   {title: 'Drop here', items:  [ 'p {',
+//   ' color: red;', 'text-align: center;','}']}
+// ]
   
 
 function Data() {

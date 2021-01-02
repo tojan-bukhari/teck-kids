@@ -14,6 +14,9 @@ const card_Schema = new mongoose.Schema ({
     },
    Name:{
     type: String,
+   },
+   price:{
+    type: Number,
    }
 });
 

@@ -17,13 +17,15 @@ import CSSex3 from './component/CSS/inputQuestions/CSSex3'
 import CSSex4 from './component/CSS/inputQuestions/CSSex4'
 import Addcorsecard from './component/teacher/Addcorsecard';
 import card from './component/teacher/card-display';
-import teacherProfile from './component/teacher/teacher-profile';
 import firrrre from './teacherSide/form'
 import teacherpage from './teacherSide/matierialsPage'
+<<<<<<< HEAD
 import Chat from './component/chatroom/Chat';
 import Join from './component/chatroom/join'
 
 
+=======
+>>>>>>> 9ef3b9dbf50d75a82a11c00759fde9b5038559cc
 import EditMatreals from './teacherSide/edit'
 
 
@@ -49,7 +51,7 @@ function App() {
           <Route exact path="/CSS/ex4" component={CSSex4} />
           <Route  path="/teacher/addcard" component={Addcorsecard} />
           <Route  path="/teacher/card" component={card} />
-          <Route  path="/teacher/:id" component={teacherProfile} />
+          <Route path="/account/:id" component={Personalprofile}  />
           <Route  path="/firrrre" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 

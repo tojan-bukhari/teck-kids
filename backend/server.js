@@ -2,6 +2,7 @@ var express = require('express');
 var morgan = require('morgan')
 var cors = require('cors')
 var app = express();
+<<<<<<< HEAD
 const socketio = require('socket.io');
 const path = require("path");
 const jwt = require("jsonwebtoken");
@@ -9,13 +10,15 @@ var bodyParser = require("body-parser");
 
 const server = require("http").createServer(app);
 // const io = socketio(server);
+=======
+// const path = require('path');
+>>>>>>> 9ef3b9dbf50d75a82a11c00759fde9b5038559cc
 
 //the Routes
 const authRoutes = require('./routes/auth');
 const courseRoute = require('./routes/courseRoute');
 const userRoute=require('./routes/userRoute');
 const teacherRoute=require('./routes/teacherRoute');
-
 const materialsRouter = require('./routes/materials');
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 
@@ -40,12 +43,12 @@ connection.once('open', () => {
 });
 
 //
-if (process.env.NODE_ENV === 'production') {           
-  app.use(express.static('client/build'));
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-});
-}
+// if (process.env.NODE_ENV === 'production') {           
+//   app.use(express.static('client/build'));
+// app.get('*', (req, res) => {
+//   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+// });
+// }
 
 
 // MIDDILWARES
@@ -54,6 +57,17 @@ app.use('/course',courseRoute);
 app.use('/user',userRoute);
 app.use('/teacher',teacherRoute);
 app.use('/materials', materialsRouter);
+
+// // serve static assets if were in production 
+// if(process.env.NOD_ENV === 'production'){
+//   // set static folder
+//   app.use(express.static('frontend/build'));
+
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+
+//   });
+// }
 
 
 const io = require("socket.io")(server, {
