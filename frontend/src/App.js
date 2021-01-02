@@ -14,34 +14,27 @@ import ProtectedRoute from './protectedroutes/ProtectedRoute';
 import errorimg from "./protectedroutes/404img";
 import pic from './component/profile/profilePicChanger';
 import Navbar from './component/Navbar/Navbar'
-<<<<<<< HEAD
 import CSSex3 from './component/CSS/inputQuestions/CSSex3'
 import CSSex4 from './component/CSS/inputQuestions/CSSex4'
 import Addcorsecard from './component/teacher/Addcorsecard';
 import card from './component/teacher/card-display';
 import firrrre from './teacherSide/form'
 import teacherpage from './teacherSide/matierialsPage'
-<<<<<<< HEAD
 import Chat from './component/chatroom/Chat';
 import Join from './component/chatroom/join'
 
 
-=======
->>>>>>> 9ef3b9dbf50d75a82a11c00759fde9b5038559cc
-import EditMatreals from './teacherSide/edit'
-=======
+import EditMatreals from './teacherSide/edit';
 import DashboardPage from "./component/Pages/dashboard";
 import io from "socket.io-client";
 import makeToast from "./component/Toaster";
 
-import Chat from "./component/cchatroom";
 import ChatroomPage from "./component/Pages/chatRoom";
 
 
 
 //// tojan //////
 /****************************************************************** */
->>>>>>> 08addaab9f4acfa94f4afec53c4f0432ca774087
 
 
 function App() {
@@ -91,7 +84,6 @@ function App() {
           <Route exact path="/pic/:id" component={pic} />
           <Route exact path="/login" component={Signin} />
           <Route exact path="/registrate" component={registrate} />
-<<<<<<< HEAD
           <Route exact path="/CSS/ex3" component={CSSex3} />
           <Route exact path="/CSS/ex4" component={CSSex4} />
           <Route  path="/teacher/addcard" component={Addcorsecard} />
@@ -104,21 +96,6 @@ function App() {
           <Route path="/Join" component={Join} />
 
 
-=======
-          <Route exact path="/cchatroom" component={Chat} />
-
-          {<Route
-          path="/dashboard"
-          render={() => <DashboardPage socket={socket} />}
-          exact
-         /> }
-         
-        {<Route
-          path="/chatroom/:id"
-          render={() => <ChatroomPage socket={socket} />}
-          exact
-         /> }
->>>>>>> 08addaab9f4acfa94f4afec53c4f0432ca774087
           <Exercises />
         </Switch>
       </BrowserRouter>
@@ -128,3 +105,5 @@ function App() {
 };
 
 export default App; 
+
+//
