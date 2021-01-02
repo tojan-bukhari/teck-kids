@@ -7,7 +7,6 @@ import Personalprofile from './component/profile/profile';
 import editProfile from './component/profile/editProfile';
 import lessons from './pages/Lessons';
 import Exercises from './pages/Exercises';
-
 import HTMLcourse from './component/HtmlCourse/HTMLcourse';
 import CSScourse from './component/CSSCourse/CSScourse';
 import ProtectedRoute from './protectedroutes/ProtectedRoute';
@@ -22,20 +21,18 @@ import firrrre from './teacherSide/form'
 import teacherpage from './teacherSide/matierialsPage'
 import Chat from './component/chatroom/Chat';
 import Join from './component/chatroom/join'
-
-
 import EditMatreals from './teacherSide/edit';
 import DashboardPage from "./component/Pages/dashboard";
 import io from "socket.io-client";
 import makeToast from "./component/Toaster";
-
+import EditMatreals from './teacherSide/edit'
+import Payment from './component/payment';
+import DashboardPage from "./component/Pages/dashboard";
+import io from "socket.io-client";
+import makeToast from "./component/Toaster";
+import Chat from "./component/cchatroom";
 import ChatroomPage from "./component/Pages/chatRoom";
-
-
-
-//// tojan //////
 /****************************************************************** */
-
 
 function App() {
  
@@ -79,7 +76,6 @@ function App() {
           <Route exact path="/htmlCourse" component={HTMLcourse} />
           <ProtectedRoute exact path="/cssCourse" component={CSScourse} isAuth={localStorage.length > 0} />
           <Route path="/errorimg" component={errorimg} />
-          <ProtectedRoute path="/account/" component={Personalprofile} isAuth={localStorage.length > 0} />
           <Route exact path="/edit/:id" component={editProfile} />
           <Route exact path="/pic/:id" component={pic} />
           <Route exact path="/login" component={Signin} />
@@ -92,10 +88,20 @@ function App() {
           <Route  path="/firrrre" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
+          <Route path='/payment' element={Payment} />
           <Route path="/Chat" component={Chat} />
           <Route path="/Join" component={Join} />
-
-
+          <Route exact path="/cchatroom" component={Chat} />
+          {<Route
+          path="/dashboard"
+          render={() => <DashboardPage socket={socket} />}
+          exact
+         /> }
+        {<Route
+          path="/chatroom/:id"
+          render={() => <ChatroomPage socket={socket} />}
+          exact
+         /> }
           <Exercises />
         </Switch>
       </BrowserRouter>
@@ -103,7 +109,6 @@ function App() {
   );
 
 };
-
 export default App; 
 
 //
