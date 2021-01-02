@@ -8,31 +8,25 @@ const socketio = require('socket.io');
 const path = require("path");
 const jwt = require("jsonwebtoken");
 var bodyParser = require("body-parser");
-
 const server = require("http").createServer(app);
-// const io = socketio(server);
-// const path = require('path');
-//the Routes...
-const authRoutes = require('./routes/auth');
+//the Routes
+const authRoutes  = require('./routes/auth');
 const courseRoute = require('./routes/courseRoute');
-const userRoute=require('./routes/userRoute');
 const teacherRoute=require('./routes/teacherRoute');
-const materialsRouter = require('./routes/materials');
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
+const userRoute   =require('./routes/userRoute')
+const payments    = require('./routes/payments');
+const materialsRouter = require('./routes/materials');
 const chatroomRoute=require('./routes/chatroomRoute')
-//
 require('dotenv').config();
-
+//middleware
 app.use(cors())
 app.use(express.json()); 
 app.use(morgan('dev'));
-
-
 const mongoose = require('mongoose');
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true ,useFindAndModify:false}
 );
-
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
@@ -50,15 +44,14 @@ app.use('/user',userRoute);
 app.use('/teacher',teacherRoute);
 app.use('/materials', materialsRouter);
 app.use("/Chatroom",chatroomRoute)
-
+app.use('/payments',payments);
+app.use("/Chatroom",chatroomRoute);
 const io = require("socket.io",'../lib/socket.io')(server, {
   cors: {
     origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 }); 
-
-
 io.on('connect', (socket) => {
   socket.on('join', ({ name, room }, callback) => {
     const { error, user } = addUser({ id: socket.id, name, room });
@@ -107,7 +100,6 @@ const port = process.env.PORT || 8000;
 
 
 const jwtS = require("jwt-then");
-
 const Message = mongoose.model("Message");
 const User = mongoose.model("User");
 
