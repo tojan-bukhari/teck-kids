@@ -2,8 +2,8 @@ var express = require('express');
 var morgan = require('morgan')
 var cors = require('cors')
 var app = express();
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
 const socketio = require('socket.io');
 const path = require("path");
 const jwt = require("jsonwebtoken");
@@ -11,59 +11,22 @@ var bodyParser = require("body-parser");
 
 const server = require("http").createServer(app);
 // const io = socketio(server);
-=======
 // const path = require('path');
->>>>>>> 9ef3b9dbf50d75a82a11c00759fde9b5038559cc
-=======
-//
-
-
-
-
->>>>>>> 08addaab9f4acfa94f4afec53c4f0432ca774087
-
-
 //the Routes...
 const authRoutes = require('./routes/auth');
 const courseRoute = require('./routes/courseRoute');
-<<<<<<< HEAD
 const userRoute=require('./routes/userRoute');
 const teacherRoute=require('./routes/teacherRoute');
 const materialsRouter = require('./routes/materials');
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
-
-
-=======
-const userRoute=require('./routes/userRoute')
 const chatroomRoute=require('./routes/chatroomRoute')
 //
->>>>>>> 08addaab9f4acfa94f4afec53c4f0432ca774087
 require('dotenv').config();
 
 app.use(cors())
 app.use(express.json()); 
-///
-
 app.use(morgan('dev'));
 
-<<<<<<< HEAD
-=======
-// // --> Add this
-// // ** MIDDLEWARE ** //'''''
-// const whitelist = ['http://localhost:3000', 'http://localhost:8080']
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     console.log("** Origin of request " + origin)
-//     if (whitelist.indexOf(origin) !== -1 || !origin) {
-//       console.log("Origin acceptable")
-//       callback(null, true)
-//     } else {
-//       console.log("Origin rejected")
-//       callback(new Error('Not allowed by CORS'))
-//     }
-//   }
-// }
->>>>>>> 08addaab9f4acfa94f4afec53c4f0432ca774087
 
 const mongoose = require('mongoose');
 const uri = process.env.ATLAS_URI;
@@ -75,43 +38,20 @@ connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 });
 
-//
-<<<<<<< HEAD
-// if (process.env.NODE_ENV === 'production') {           
-//   app.use(express.static('client/build'));
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-// });
-// }
-
-=======
 //Bring in the models
 require("./models/User");
 require("./models/Chatroom");
 require("./models/Massages");
->>>>>>> 08addaab9f4acfa94f4afec53c4f0432ca774087
 
 // MIDDILWARES
 app.use('/api',authRoutes);
 app.use('/course',courseRoute);
 app.use('/user',userRoute);
-<<<<<<< HEAD
 app.use('/teacher',teacherRoute);
 app.use('/materials', materialsRouter);
+app.use("/Chatroom",chatroomRoute)
 
-// // serve static assets if were in production 
-// if(process.env.NOD_ENV === 'production'){
-//   // set static folder
-//   app.use(express.static('frontend/build'));
-
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-
-//   });
-// }
-
-
-const io = require("socket.io")(server, {
+const io = require("socket.io",'../lib/socket.io')(server, {
   cors: {
     origin: "http://localhost:3000",
     methods: ["GET", "POST"],
@@ -155,35 +95,18 @@ io.on('connect', (socket) => {
   })
 });
 //
-=======
-app.use("/Chatroom",chatroomRoute)
-// // --> Add this
-// if (process.env.NODE_ENV === 'production') {
-//   // Serve any static files
-//   app.use(express.static(path.join(__dirname, 'frontend/build')));
-// // Handle React routing, return all requests to React app
-//   app.get('*', function(req, res) {
-//     res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
-//   });
-// }
->>>>>>> 08addaab9f4acfa94f4afec53c4f0432ca774087
 
-//
 //port with whatever the port will be given by heruko
 const port = process.env.PORT || 8000;
-<<<<<<< HEAD
-server.listen(port, () => {
+// server.listen(port, () => {
+//     console.log(`Server is running on port: ${port}`);
+// });
+ server.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });
-=======
- server=app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
-});
 
 
-const io = require("socket.io")(server);
-
-const jwt = require("jwt-then");
+const jwtS = require("jwt-then");
 
 const Message = mongoose.model("Message");
 const User = mongoose.model("User");
@@ -193,7 +116,7 @@ io.use(async (socket, next) => {
   try {
     const token = socket.handshake.query.token;
    
-    const payload = await jwt.verify(token, process.env.SECRET);
+    const payload = await jwtS.verify(token, process.env.SECRET);
     socket.userId = payload.id;
     next();
   } catch (err) {}
@@ -213,7 +136,6 @@ io.on("connection", (socket) => {
     socket.join(chatroomId);
     console.log("A user joined chatroom: " + chatroomId);
   });
-  //
 
   socket.on("leaveRoom", ({ chatroomId }) => {
     
@@ -239,4 +161,3 @@ io.on("connection", (socket) => {
     }
   });
 });
->>>>>>> 08addaab9f4acfa94f4afec53c4f0432ca774087

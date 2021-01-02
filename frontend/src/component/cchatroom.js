@@ -14,7 +14,7 @@ class Chat extends Component{
 
         socket.on("sendMessage" ,(data)=>{
             console.log(socket)
-            
+
             console.log(data)
 
         })
@@ -33,4 +33,4 @@ class Chat extends Component{
     }
 }
 
-export default Chat;
+export default Chat

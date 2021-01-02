@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-<<<<<<< HEAD
-import {storage} from '../component/teacher/firebase'
-=======
 // import {storage} from '../component/teacher/firebase'
->>>>>>> 9ef3b9dbf50d75a82a11c00759fde9b5038559cc
-
-
-
 
 export default class EditMatreals extends Component {
   constructor(props) {
