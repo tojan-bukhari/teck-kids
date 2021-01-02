@@ -42,11 +42,11 @@ export default function HTMLdes() {
   <Card.Body>
     
     <Card.Title><h1 className="hh">HTML</h1></Card.Title>  <img src="https://2.bp.blogspot.com/-eO5lbx98AXU/VgJteZXqfQI/AAAAAAAAAU8/jVrj2vfkWZQ/s1600/what-is-html.jpg"  alt="html"></img>
-    <Card.Text> <section className="par">  
+    <Card.Text> <span className="par">  
     Say Hello to HTML Elements 😁
     Welcome to Teach-kids's HTML coding challenges😍. These will walk you through web development step-by-step.
     you'll beat all the challenges 💪 , let's GOOOO let's be a great bulders
-    </section>
+    </span>
     </Card.Text>
     
     <Button className="hh7"  onClick={routeChange}>Register Now Free</Button>

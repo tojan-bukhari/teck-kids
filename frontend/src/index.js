@@ -1,23 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-// we install redux to call createStore an] 
+<<<<<<< HEAD
+// import Quiz from "./component/CSS/Quiz1"
+=======
+// we install redux to call createStore an]
 // import {createStore} from "redux";
 //to combine the application with redux
-import { Provider } from "react-redux";
-// import Quiz from "./component/CSS/Quiz1"
+import Quiz from "./component/CSS/Quiz1"
 // import store from "./component/reducer/score";
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import reducers from "./component/reducer/reducers"
 
-const store = createStore(reducers, compose(applyMiddleware(thunk)));
+
+
+>>>>>>> 08addaab9f4acfa94f4afec53c4f0432ca774087
 
 ///
+///
 ReactDOM.render(
-<Provider store={store}>
+<<<<<<< HEAD
    <App />
-</Provider>,
+,
+=======
+   <App />,
+>>>>>>> 08addaab9f4acfa94f4afec53c4f0432ca774087
   document.getElementById('root')
 );
 
