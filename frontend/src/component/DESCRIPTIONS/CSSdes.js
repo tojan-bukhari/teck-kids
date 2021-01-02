@@ -53,7 +53,7 @@ export default function CSSdes() {
     </span>
     </Card.Text>
     
-    <Button className="hh7"  onClick={routeChange} >Register Now</Button>
+    <Button className="hh7"  onClick={routeChange} >Register Now Free</Button>
     <Payment />
     </Card.Body>
   </Card>

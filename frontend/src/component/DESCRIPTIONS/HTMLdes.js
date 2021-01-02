@@ -49,7 +49,7 @@ export default function HTMLdes() {
     </section>
     </Card.Text>
     
-    <Button className="hh7"  onClick={routeChange}>Register Now</Button>
+    <Button className="hh7"  onClick={routeChange}>Register Now Free</Button>
   </Card.Body>
 </Card>
 
