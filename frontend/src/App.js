@@ -20,6 +20,9 @@ import card from './component/teacher/card-display';
 import teacherProfile from './component/teacher/teacher-profile';
 import firrrre from './teacherSide/form'
 import teacherpage from './teacherSide/matierialsPage'
+import Chat from './component/chatroom/Chat';
+import Join from './component/chatroom/join'
+
 
 import EditMatreals from './teacherSide/edit'
 
@@ -50,6 +53,10 @@ function App() {
           <Route  path="/firrrre" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
+          <Route path="/Chat" component={Chat} />
+          <Route path="/Join" component={Join} />
+
+
           <Exercises />
         </Switch>
       </BrowserRouter>
