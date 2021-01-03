@@ -14,7 +14,7 @@ export default function CardDisplay() {
     const history = useHistory();
     
     var userId = localStorage.getItem('id');
-    
+    var role = localStorage.getItem('role');
     
     const [product , setProduct] = useState({})
     const [data, setData]=useState([])
@@ -30,7 +30,7 @@ export default function CardDisplay() {
     } },[]);
    
 
-
+    
     const makePayment = async token =>{
        
         console.log(token);
@@ -76,6 +76,7 @@ export default function CardDisplay() {
             name = 'Tick Kid'
             amount = {product.price * 100}>
 
+            {role==='teacher' ? <button >add lesson</button> :
                 <Button onClick={()=>setProduct({
                     name: data[i].Title,
                     price :data[i].price,
@@ -83,7 +84,7 @@ export default function CardDisplay() {
                 })}>
                     Buy this course with just ${card.price} 
                 </Button>
-        
+        }
             </StripeCheckout>
               
             </Card>

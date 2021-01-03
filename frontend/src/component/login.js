@@ -52,7 +52,6 @@ const Signin = ()=>{
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
           type="text" className="form-control"
-          
           onChange={(e)=>{setEmail(e.target.value)}} 
           required
         />
