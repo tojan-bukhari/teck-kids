@@ -5,7 +5,7 @@ import './Chat.css';
 import InfoBar from './InfoBar';
 import Input from './Input';
 import Messages from './messages.js';
-import TextContainer from './TextContainer/TextContainer';
+// import TextContainer from './TextContainer/TextContainer';
 //
 //
 let socket;
@@ -48,7 +48,7 @@ const Chat = ({ location }) => {
           <InfoBar room={room} />    
           <Messages messages={messages} name={name} />
           <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
-          {/* <TextContainer users={users}/> */}
+          <div users={users}/>
            </div>
     </div>
     )
