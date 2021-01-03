@@ -19,12 +19,12 @@ export default function CardDisplay() {
     const [product , setProduct] = useState({})
     const [data, setData]=useState([])
     const { Meta } = Card;
-   
+    const [status , setStatus]  = useState() 
     useEffect(async () => {
         try{
         const result = await axios.get('http://localhost:8000/teacher/card');                 
-      
         setData(result.data)
+        console.log(result.data);
     }catch(error){
         console.log(error,"oh nooooo")
     } },[]);
@@ -33,16 +33,14 @@ export default function CardDisplay() {
 
     const makePayment = async token =>{
        
-        console.log(token);
-           
-    
-        try{
+        console.log(product);
+          try{
                const response= await axios.post("http://localhost:8000/payments/charge", {token, product});
-               console.log("haio ",product);
-                const { status } = response.data
-               
-                if (response.data === "success") {
+               setStatus(response.data)
+                if (status === "success") {
                     toast("Success! Check email for details", { type: "success" });
+                    await axios.post("http://localhost:8000/user/addNewCourse/"+userId,product.name);
+
                     history.push('/account/'+userId);
                   } else {
                     toast("Something went wrong", { type: "error" });
@@ -80,7 +78,9 @@ export default function CardDisplay() {
                     name: data[i].Title,
                     price :data[i].price,
                     productBy:data[i].Name,
-                })}>
+                })}
+                disabled={status}
+                >
                     Buy this course with just ${card.price} 
                 </Button>
         

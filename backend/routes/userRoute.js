@@ -38,4 +38,17 @@ router.put("/account/:id",(req,res)=>{
    res.json(err);
   })
  })
+//this route is responciple to add a new course on the array of course in the user tabel
+ router.post("/addNewCourse/:id",(req,res)=>{
+  console.log("the id",req.params.id)
+  const promise =User.findByIdAndUpdate(req.params.id, { $push: { Courses: req.body.Courses} }).exec();
+
+    
+  console.log(req.body.Courses)
+  promise.then((data)=>{
+   res.json(data);
+  }).catch((err)=>{
+   res.json(err);
+  })
+ })
 module.exports = router;
