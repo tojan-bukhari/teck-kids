@@ -2,8 +2,6 @@ import axios from 'axios';
 import React , {useState,useEffect} from 'react';
 import { Card } from 'antd';
 import { Row, Col } from 'react-simple-flex-grid';
-//import { Link } from 'react-router-dom';
-//import Payment from '../payment';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import StripeCheckout from 'react-stripe-checkout';
@@ -21,14 +19,11 @@ export default function CardDisplay() {
     const [product , setProduct] = useState({})
     const [data, setData]=useState([])
     const { Meta } = Card;
-    const [info, setInfo]=useState([])
+   
     useEffect(async () => {
         try{
-        const result = await axios.get('http://localhost:8000/teacher/card');
-        const [Desceription,Name,Title,image , _id, price ] = result.data;
-        
-         
-        console.log('this is result data',result.data);
+        const result = await axios.get('http://localhost:8000/teacher/card');                 
+      
         setData(result.data)
     }catch(error){
         console.log(error,"oh nooooo")
@@ -39,12 +34,11 @@ export default function CardDisplay() {
     const makePayment = async token =>{
        
         console.log(token);
-        console.log("haio ",product);
            
     
         try{
                const response= await axios.post("http://localhost:8000/payments/charge", {token, product});
-               
+               console.log("haio ",product);
                 const { status } = response.data
                
                 if (response.data === "success") {
@@ -58,7 +52,8 @@ export default function CardDisplay() {
             alert(error)
             } 
         }
-    
+        console.log("haio ",product);
+
     return (
             <div>
 
@@ -82,10 +77,10 @@ export default function CardDisplay() {
             amount = {product.price * 100}>
 
                 <Button onClick={()=>setProduct({
-            name: card.Title,
-            price :card.price,
-            productBy:card.Name,
-         })}>
+                    name: data[i].Title,
+                    price :data[i].price,
+                    productBy:data[i].Name,
+                })}>
                     Buy this course with just ${card.price} 
                 </Button>
         
