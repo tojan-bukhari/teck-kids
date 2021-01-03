@@ -8,7 +8,6 @@ import Messages from './messages.js';
 import TextContainer from './TextContainer/TextContainer';
 const ENDPOINT = 'localhost:8000';
 
-//
 let socket;
 const Chat = ({ location }) => {
     const [name, setName] = useState('');
@@ -48,7 +47,7 @@ const Chat = ({ location }) => {
           <InfoBar room={room} />    
           <Messages messages={messages} name={name} />
           <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
-          {/* <TextContainer users={users}/> */}
+          <div users={users}/>
            </div>
     </div>
     )

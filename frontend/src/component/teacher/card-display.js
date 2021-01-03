@@ -2,8 +2,6 @@ import axios from 'axios';
 import React , {useState,useEffect} from 'react';
 import { Card } from 'antd';
 import { Row, Col } from 'react-simple-flex-grid';
-//import { Link } from 'react-router-dom';
-//import Payment from '../payment';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import StripeCheckout from 'react-stripe-checkout';
@@ -21,31 +19,42 @@ export default function CardDisplay() {
     const [product , setProduct] = useState({})
     const [data, setData]=useState([])
     const { Meta } = Card;
-    const [info, setInfo]=useState([])
-    useEffect(async () => {
-        try{
+<<<<<<< HEAD
+    // const [info, setInfo]=useState([])
+    useEffect( () => {
+        async function fetchData() {
         const result = await axios.get('http://localhost:8000/teacher/card');
-        const [Desceription,Name,Title,image , _id, price ] = result.data;
+        // const [Desceription,Name,Title,image , _id, price ] = result.data;
         
          
         console.log('this is result data',result.data);
+=======
+   
+    useEffect(async () => {
+        try{
+        const result = await axios.get('http://localhost:8000/teacher/card');                 
+      
+>>>>>>> 30f3f51f476dd8038d37f91317a510f840f042fb
         setData(result.data)
-    }catch(error){
-        console.log(error,"oh nooooo")
-    } },[]);
+    }fetchData();
+     },[]);
    
 
 
     const makePayment = async token =>{
        
         console.log(token);
-        console.log("haio ",product);
            
     
         try{
                const response= await axios.post("http://localhost:8000/payments/charge", {token, product});
+<<<<<<< HEAD
                
+                // const { status } = response.data
+=======
+               console.log("haio ",product);
                 const { status } = response.data
+>>>>>>> 30f3f51f476dd8038d37f91317a510f840f042fb
                
                 if (response.data === "success") {
                     toast("Success! Check email for details", { type: "success" });
@@ -58,7 +67,8 @@ export default function CardDisplay() {
             alert(error)
             } 
         }
-    
+        console.log("haio ",product);
+
     return (
             <div>
 
@@ -82,10 +92,10 @@ export default function CardDisplay() {
             amount = {product.price * 100}>
 
                 <Button onClick={()=>setProduct({
-            name: card.Title,
-            price :card.price,
-            productBy:card.Name,
-         })}>
+                    name: data[i].Title,
+                    price :data[i].price,
+                    productBy:data[i].Name,
+                })}>
                     Buy this course with just ${card.price} 
                 </Button>
         

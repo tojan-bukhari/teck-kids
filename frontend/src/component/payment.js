@@ -32,7 +32,7 @@ function Payment(info) {
     try{
            const response= await axios.post("http://localhost:8000/payments/charge", {token, product});
            
-            const { status } = response.data
+            // const { status } = response.data
            
             if (response.data === "success") {
                 toast("Success! Check email for details", { type: "success" });

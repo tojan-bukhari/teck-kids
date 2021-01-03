@@ -1,19 +1,19 @@
-import React ,{ useState }from 'react'
+import React from 'react'
 import "./des.css"
 import { Button, Card  } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
-import Payment from '../payment';
+
 
 /**************************************************** */
 
 export default function CSSdes() {
  const history = useHistory();
- const [product] = useState({
-  name: 'react from me',
-  price : 10,
-  productBy:'facebook',
-})
+//  const [product] = useState({
+//   name: 'react from me',
+//   price : 10,
+//   productBy:'facebook',
+// })
   const routeChange = async() =>{ 
     //I need to check if the user logged in if not send him to the login page
     var userId = localStorage.getItem('id');
@@ -54,7 +54,7 @@ export default function CSSdes() {
     </Card.Text>
     
     <Button className="hh7"  onClick={routeChange} >Register Now Free</Button>
-    <Payment />
+    
     </Card.Body>
   </Card>
   </div> 

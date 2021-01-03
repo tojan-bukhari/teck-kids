@@ -26,7 +26,7 @@ import DashboardPage from "./component/Pages/dashboard";
 import io from "socket.io-client";
 // import makeToast from "./component/Toaster";
 import ChatroomPage from "./component/Pages/chatRoom";
-import Payment from './component/payment';
+
 /****************************************************************** */
 //
 function App() {
@@ -55,7 +55,7 @@ function App() {
           <Route  path="/firrrre" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
-          <Route path='/payment' element={Payment} />
+          
           <Route path="/Chat" component={Chat} />
           <Route path="/Join" component={Join} />
           <Route exact path="/cchatroom" component={Chat} />
