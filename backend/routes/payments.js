@@ -9,12 +9,13 @@ router.post('/charge',(req,res)=>{
     let status;
     let error;
     const {  token, product } = req.body;
-    //console.log(req.body);
-    //console.log("price ", product.price);
-    console.log('token ' , token.email);
+    console.log(req.body);
+    console.log("price ", product.price);
+    //console.log('token ' , token.email);
     //this idempontencyKey is a To create a random UUID this keep the user intrake to not be charged twice for the same product
     const idempontencyKey = uuidv4(); 
     //create a customer 
+    //console.log(product.price,'fffff');
     stripe.customers.create({
         email : token.email,
         source: token.id
@@ -23,7 +24,7 @@ router.post('/charge',(req,res)=>{
     .then(customer => {
       stripe.charges.create({
 
-            amount        : product.price *100 ,//take the amount from the product and multiplay the price *100 to make it in dollers
+            amount        : product.price *100,//take the amount from the product and multiplay the price *100 to make it in dollers
             currency      : 'usd',
             customer      : customer.id,
             receipt_email : token.email,
