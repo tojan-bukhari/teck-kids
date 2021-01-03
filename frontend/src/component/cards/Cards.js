@@ -36,8 +36,8 @@ function Cards() {
             />
             <CardItem
             src='https://www.flaticon.com/svg/static/icons/svg/1165/1165730.svg'
-            text='Ride through the Sahara Desert on a guided camel tour'
-            label='CSS'
+            text='check out our new courses'
+            label='New Courses'
             path='/teacher/card'
           />
           </ul>

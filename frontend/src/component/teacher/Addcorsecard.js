@@ -89,7 +89,7 @@ class Addcorsecard extends Component {
     }
     console.log(task);
     axios.post('http://localhost:8000/teacher/addcard', task) //create?
-      .then(res => console.log(res.data));
+    .then(res => console.log(res.data));
     // console.log(res.data)
     window.location = '/teacher/card'
   }
@@ -129,7 +129,7 @@ class Addcorsecard extends Component {
                 value={this.state.title}
                 onChange={this.onChangeTitle}
                 text-align="center"
-                placeholder="Insert Item Name" />
+                placeholder="Insert Course Name" />
             </div>
 
 

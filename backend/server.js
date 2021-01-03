@@ -3,72 +3,34 @@ var morgan = require('morgan')
 var cors = require('cors')
 var app = express();
 
+
 const socketio = require('socket.io');
 const path = require("path");
 const jwt = require("jsonwebtoken");
 var bodyParser = require("body-parser");
-
 const server = require("http").createServer(app);
-// const io = socketio(server);
-
-
-
-
-
-
-
-//the Routes...
-const authRoutes = require('./routes/auth');
+//the Routes
+const authRoutes  = require('./routes/auth');
 const courseRoute = require('./routes/courseRoute');
-const userRoute=require('./routes/userRoute');
 const teacherRoute=require('./routes/teacherRoute');
-const materialsRouter = require('./routes/materials');
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
-
-
+const userRoute   =require('./routes/userRoute')
+const payments    = require('./routes/payments');
+const materialsRouter = require('./routes/materials');
 const chatroomRoute=require('./routes/chatroomRoute')
-//
 require('dotenv').config();
-
+//middleware//
 app.use(cors())
 app.use(express.json()); 
-///
-
 app.use(morgan('dev'));
-
-// // --> Add this
-// // ** MIDDLEWARE ** //'''''
-// const whitelist = ['http://localhost:3000', 'http://localhost:8080']
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     console.log("** Origin of request " + origin)
-//     if (whitelist.indexOf(origin) !== -1 || !origin) {
-//       console.log("Origin acceptable")
-//       callback(null, true)
-//     } else {
-//       console.log("Origin rejected")
-//       callback(new Error('Not allowed by CORS'))
-//     }
-//   }
-// }
-
 const mongoose = require('mongoose');
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true ,useFindAndModify:false}
 );
-
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 });
-
-//
-// if (process.env.NODE_ENV === 'production') {           
-//   app.use(express.static('client/build'));
-// app.get('*', (req, res) => {
-//   res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-// });
-// }
 
 //Bring in the models
 require("./models/User");
@@ -81,27 +43,15 @@ app.use('/course',courseRoute);
 app.use('/user',userRoute);
 app.use('/teacher',teacherRoute);
 app.use('/materials', materialsRouter);
-
-// // serve static assets if were in production 
-// if(process.env.NOD_ENV === 'production'){
-//   // set static folder
-//   app.use(express.static('frontend/build'));
-
-//   app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-
-//   });
-// }
-
-
-const io = require("socket.io")(server, {
+app.use("/Chatroom",chatroomRoute)
+app.use('/payments',payments);
+app.use("/Chatroom",chatroomRoute);
+const io = require("socket.io",'../lib/socket.io')(server, {
   cors: {
     origin: "http://localhost:3000",
     methods: ["GET", "POST"],
   },
 }); 
-
-
 io.on('connect', (socket) => {
   socket.on('join', ({ name, room }, callback) => {
     const { error, user } = addUser({ id: socket.id, name, room });
@@ -138,20 +88,68 @@ io.on('connect', (socket) => {
   })
 });
 //
-app.use("/Chatroom",chatroomRoute)
-// // --> Add this
-// if (process.env.NODE_ENV === 'production') {
-//   // Serve any static files
-//   app.use(express.static(path.join(__dirname, 'frontend/build')));
-// // Handle React routing, return all requests to React app
-//   app.get('*', function(req, res) {
-//     res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
-//   });
-// }
 
-//
 //port with whatever the port will be given by heruko
 const port = process.env.PORT || 8000;
-server.listen(port, () => {
+// server.listen(port, () => {
+//     console.log(`Server is running on port: ${port}`);
+// });
+ server.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
+});
+
+
+const jwtS = require("jwt-then");
+const Message = mongoose.model("Message");
+const User = mongoose.model("User");
+
+io.use(async (socket, next) => {
+ 
+  try {
+    const token = socket.handshake.query.token;
+   
+    const payload = await jwtS.verify(token, process.env.SECRET);
+    socket.userId = payload.id;
+    next();
+  } catch (err) {}
+});
+
+io.on("connection", (socket) => {
+  
+  console.log("Connected: " + socket.userId);
+
+  socket.on("disconnect", () => {
+    console.log("Disconnected: " + socket.userId);
+  });
+
+  socket.on("joinRoom", ({ chatroomId }) => {
+        console.log("hhhhhhhhhhhhhhhhhhh")
+
+    socket.join(chatroomId);
+    console.log("A user joined chatroom: " + chatroomId);
+  });
+
+  socket.on("leaveRoom", ({ chatroomId }) => {
+    
+    socket.leave(chatroomId);
+    console.log("A user left chatroom: " + chatroomId);
+  });
+
+  socket.on("chatroomMessage", async ({ chatroomId, message }) => {
+    if (message.trim().length > 0) {
+      const user = await User.findOne({ _id: socket.userId });
+      const newMessage = new Message({
+        chatroom: chatroomId,
+        user: socket.userId,
+        message,
+      });
+      io.to(chatroomId).emit("newMessage", {
+        message,
+        name: user.name,
+        userId: socket.userId,
+      });
+      await newMessage.save();
+     
+    }
+  });
 });

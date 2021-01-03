@@ -7,7 +7,6 @@ import Personalprofile from './component/profile/profile';
 import editProfile from './component/profile/editProfile';
 import lessons from './pages/Lessons';
 import Exercises from './pages/Exercises';
-
 import HTMLcourse from './component/HtmlCourse/HTMLcourse';
 import CSScourse from './component/CSSCourse/CSScourse';
 import ProtectedRoute from './protectedroutes/ProtectedRoute';
@@ -22,19 +21,13 @@ import firrrre from './teacherSide/form'
 import teacherpage from './teacherSide/matierialsPage'
 import Chat from './component/chatroom/Chat';
 import Join from './component/chatroom/join'
-
-
-import EditMatreals from './teacherSide/edit';
-// import DashboardPage from "./component/Pages/dashboard";
-// import io from "socket.io-client";
-
-// import ChatroomPage from "./component/Pages/chatRoom";
-
-
-
-//// tojan //////
+import EditMatreals from './teacherSide/edit'
+import DashboardPage from "./component/Pages/dashboard";
+import io from "socket.io-client";
+// import makeToast from "./component/Toaster";
+import ChatroomPage from "./component/Pages/chatRoom";
+import Payment from './component/payment';
 /****************************************************************** */
-
 //
 function App() {
  
@@ -62,10 +55,20 @@ function App() {
           <Route  path="/firrrre" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
+          <Route path='/payment' element={Payment} />
           <Route path="/Chat" component={Chat} />
           <Route path="/Join" component={Join} />
-
-
+          <Route exact path="/cchatroom" component={Chat} />
+          {<Route
+          path="/dashboard"
+          render={() => <DashboardPage socket={socket} />}
+          exact
+         /> }
+        {<Route
+          path="/chatroom/:id"
+          render={() => <ChatroomPage socket={socket} />}
+          exact
+         /> }
           <Exercises />
         </Switch>
       </BrowserRouter>
@@ -73,7 +76,6 @@ function App() {
   );
 
 };
-
 export default App; 
 
 //
