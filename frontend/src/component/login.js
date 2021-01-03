@@ -25,7 +25,7 @@ const Signin = (validate)=>{
   }
   if (!password) {
     errors.password = "Password is required";
-  } else if (password.length < 10) {
+  } else if (password.length < 5) {
     errors.password = "Password needs to be more than 10 characters";
   }
   return errors;
@@ -39,16 +39,31 @@ const Signin = (validate)=>{
       const loginRes = await axios.post("http://localhost:8000/api/login" , newUser)
       console.log(loginRes.data.token)
       localStorage.setItem("theToken", loginRes.data.token);
+      localStorage.setItem("theToken", loginRes.data.token);
+      localStorage.setItem("id", loginRes.data.user.id);
+      localStorage.setItem("role", loginRes.data.user.role);
+      localStorage.setItem("Name", loginRes.data.user.name)
       history.push('/')
        } catch (error) {
       // alert(error.response.data.msg)
       }
     }
   return(
+    <div style={{backgroundUrl:"black",   opacity: "0.7"}}>
+    <div>
   <div className="container p-5" size="6" className="py-3 px-md-5" style={{marginTop: 10 + 'em'}}>
-  <form>    
- <div className="form-group" class="text-center">
+  <form  className="form">    
+ <div className="form-group" class="text-center" style={{marginTop:"-120px" ,marginLeft:"300px",border:"50px"}} >
  <label htmlFor="formGroupExampleInput">
+   <div style={{marginLeft:'px' , marginTop:"-1px" ,float:"right"}} >
+ <div className="header">Login</div>
+ <div className="image"  >
+            <img  src="https://cdn.dribbble.com/users/484196/screenshots/2658398/robs-rocket-3.gif" style={{height:"500px"}} />
+          </div></div>
+          <div  className= "counterForm"style={{width:"400px",float:"left" ,marginTop:"20px",borderStyle: " groove", borderWidth: "medium",height:"503px" }}>
+         <div style={{marginTop:"120px"}}>
+          <label htmlFor="username">Email</label>
+
         <InputGroup className="mb-3">
         <InputGroup.Append>
         <InputGroup.Text id="basic-addon2">@example.com</InputGroup.Text>
@@ -63,9 +78,14 @@ const Signin = (validate)=>{
           required
         />
         </InputGroup> 
-       <p>{errors.email &&<p>{errors.email}</p>}</p> 
+       <p style={{color:"red",marginLeft:"-200px"}}>{errors.email &&<p>{errors.email}</p>}</p> 
     <div className="form-group">
+    <label htmlFor="username">Username</label>
+
         <InputGroup className="mb-3">
+        <InputGroup.Append>
+        <InputGroup.Text id="basic-addon2">Password</InputGroup.Text>
+        </InputGroup.Append>
         <FormControl
           placeholder="Recipient's password"
           aria-label="Recipient's password"
@@ -76,15 +96,15 @@ const Signin = (validate)=>{
             required
          />
         </InputGroup> 
-        <p>{errors.password &&<p>{errors.password}</p>}</p> 
+        <p  style={{color:"red",marginLeft:"-200px"}}>{errors.password &&<p>{errors.password}</p>}</p> 
     </div>
-        <div>
+        <div className="footer">
             <Button as="input" className="btn btn-primary" type="submit" value="Submit"  onClick={submit}    />{' '}
-        </div>
+     </div>   </div></div>
 </label>   
 </div>
     </form> 
-  </div>
+  </div></div></div>
 )};
 export default Signin;
 
