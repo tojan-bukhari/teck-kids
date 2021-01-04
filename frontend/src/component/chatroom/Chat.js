@@ -13,7 +13,6 @@ import Messages from './messages.js';
 // const ENDPOINT = 'localhost:8000';
 
 
-//
 let socket;
 const Chat = ({ location }) => {
     const [name, setName] = useState('');

@@ -28,8 +28,6 @@ import io from "socket.io-client";
 import ChatroomPage from "./component/Pages/chatRoom";
 
 
-/****************************************************************** */
-//
 function App() {
  
   return (
