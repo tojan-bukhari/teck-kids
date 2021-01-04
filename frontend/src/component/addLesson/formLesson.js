@@ -80,9 +80,6 @@ class Form extends Component {
    
   }
 
-  // handleClick() {
-  //   window.location = "/teachersM";
-  // }
   onSubmit(e) {
     e.preventDefault();
     //declare an obj that holds all values after change

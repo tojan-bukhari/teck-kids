@@ -88,9 +88,14 @@ export default class ProfilePicChanger extends Component {
         });
     };
 
-    onSubmit() {
-        this.props.handelImageChange(url)
-    }
+    // handleOk(e) {
+    //     console.log('satet url' ,this.state.url)
+    //     this.props.handelImageChange(this.state.url)
+    //     console.log(e);
+    //     this.setState({
+    //         visible: false,
+    //     });
+    // }
       
     
 
@@ -126,7 +131,7 @@ export default class ProfilePicChanger extends Component {
                   <Button type="primary" onClick={this.showModal}>
                      Change Picture
                   </Button>
-                  <Modal title="Profile Pic Changer Modal" visible={this.state.visible} onSubmit={this.onSubmit} onCancel={this.hideModal}>
+                  <Modal title="Profile Pic Changer Modal" visible={this.state.visible} onOk={this.handleOk} onCancel={this.hideModal}>
               <div>
                <div className = "col">
                 <h1>Add Profile Avatar</h1>
@@ -149,7 +154,7 @@ export default class ProfilePicChanger extends Component {
                  width = ' 48px'
                  alt="css"
                 />
-                
+                <button  onClick={() => this.props.handelImageChange(this.state.url)}>Supmet</button>
              </div>
                  
              </Modal> 
