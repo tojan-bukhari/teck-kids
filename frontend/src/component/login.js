@@ -39,11 +39,19 @@ const Signin = (validate)=>{
       const loginRes = await axios.post("http://localhost:8000/api/login" , newUser)
       console.log(loginRes.data.token)
       localStorage.setItem("theToken", loginRes.data.token);
+<<<<<<< HEAD
       localStorage.setItem("theToken", loginRes.data.token);
       localStorage.setItem("id", loginRes.data.user.id);
       localStorage.setItem("role", loginRes.data.user.role);
       localStorage.setItem("Name", loginRes.data.user.name)
+=======
+      localStorage.setItem("userid", loginRes.data.user.id);
+      localStorage.setItem("role", loginRes.data.user.role);
+      localStorage.setItem("name", loginRes.data.user.name);
+
+>>>>>>> a71e3209d2c5e765d8dd554ef7d092ce77ef738d
       history.push('/')
+      window.location.reload(false);
        } catch (error) {
       // alert(error.response.data.msg)
       }
@@ -52,8 +60,13 @@ const Signin = (validate)=>{
     <div style={{backgroundUrl:"black",   opacity: "0.7"}}>
     <div>
   <div className="container p-5" size="6" className="py-3 px-md-5" style={{marginTop: 10 + 'em'}}>
+<<<<<<< HEAD
   <form  className="form">    
  <div className="form-group" class="text-center" style={{marginTop:"-120px" ,marginLeft:"300px",border:"50px"}} >
+=======
+  <form>    
+ <div className="form-group text-centerrr">
+>>>>>>> a71e3209d2c5e765d8dd554ef7d092ce77ef738d
  <label htmlFor="formGroupExampleInput">
    <div style={{marginLeft:'px' , marginTop:"-1px" ,float:"right"}} >
  <div className="header">Login</div>
@@ -106,5 +119,4 @@ const Signin = (validate)=>{
     </form> 
   </div></div></div>
 )};
-export default Signin;
-
+export default Signin; 

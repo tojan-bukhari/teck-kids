@@ -48,8 +48,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100px;
-    background-color:  #eca1a6;
-    border-radius: 5px;
+    background-color: linear-gradient(to top, #e14fad 0%, #f9d423 100%);    border-radius: 5px;
     color: #020202;
     font-weight: bold;
   }

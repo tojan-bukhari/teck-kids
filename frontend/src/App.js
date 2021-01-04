@@ -15,20 +15,19 @@ import pic from './component/profile/profilePicChanger';
 import Navbar from './component/Navbar/Navbar'
 import CSSex3 from './component/CSS/inputQuestions/CSSex3'
 import CSSex4 from './component/CSS/inputQuestions/CSSex4'
-import Addcorsecard from './component/teacher/Addcorsecard';
-import card from './component/teacher/card-display';
-import firrrre from './teacherSide/form'
-import teacherpage from './teacherSide/matierialsPage'
+import Addcorsecard from './component/addLesson/Addcorsecard';
+import card from './component/addLesson/card-display';
+import firrrre from './component/addLesson/formLesson'
+import teacherpage from './component/addLesson/matierialsPage'
 import Chat from './component/chatroom/Chat';
 import Join from './component/chatroom/join'
-import EditMatreals from './teacherSide/edit'
-import DashboardPage from "./component/Pages/dashboard";
-import io from "socket.io-client";
-// import makeToast from "./component/Toaster";
-import ChatroomPage from "./component/Pages/chatRoom";
-import Payment from './component/payment';
-/****************************************************************** */
-//
+import EditMatreals from './component/addLesson/editLesson'
+// import DashboardPage from "./component/Pages/dashboard";
+// import io from "socket.io-client";
+// // import makeToast from "./component/Toaster";
+// import ChatroomPage from "./component/Pages/chatRoom";
+
+
 function App() {
  
   return (
@@ -49,17 +48,16 @@ function App() {
           <Route exact path="/registrate" component={registrate} />
           <Route exact path="/CSS/ex3" component={CSSex3} />
           <Route exact path="/CSS/ex4" component={CSSex4} />
-          <Route  path="/teacher/addcard" component={Addcorsecard} />
+          <Route exact path="/teacher/addcard" component={Addcorsecard} />
           <Route  path="/teacher/card" component={card} />
-          {/* <Route path="/account/:id" component={Personalprofile}  /> */}
+          <ProtectedRoute exact path="/account/:id" component={Personalprofile}  isAuth={localStorage.length > 0} />
           <Route  path="/firrrre" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
-          <Route path='/payment' element={Payment} />
           <Route path="/Chat" component={Chat} />
           <Route path="/Join" component={Join} />
           <Route exact path="/cchatroom" component={Chat} />
-          {<Route
+          {/* {<Route
           path="/dashboard"
           render={() => <DashboardPage socket={socket} />}
           exact
@@ -68,7 +66,7 @@ function App() {
           path="/chatroom/:id"
           render={() => <ChatroomPage socket={socket} />}
           exact
-         /> }
+         /> } */}
           <Exercises />
         </Switch>
       </BrowserRouter>
