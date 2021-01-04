@@ -1,7 +1,22 @@
+
+.Content{
+
+    margin-left: 150px;
+    height: 300px;
+    margin-top:50px;
+    width: 1000px;
+  
+    background-image: url("https://spaceplace.nasa.gov/meteor-shower/en/meteor-shower.en.gif");
+    background-repeat: no-repeat;
+   
+}
+
 .Answers{
     list-style: none;
     margin: 0;
     padding: 0;
+
+   
 }
 .Answers li{
     padding: 10px;
@@ -10,6 +25,11 @@
     margin: 0 0 5px;
     margin-left: 300px;
     margin-right: 300px;
+    margin-top: 15px;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px 10px #888888 ,
+                 10px 20px 20px #888888;
 }
 .Answers li:hover{
     cursor: pointer;
@@ -42,11 +62,11 @@
     /* margin: 15px ; */
     margin-left: 300px;
     margin-right: 300px;
-
+     width: 400px;
     margin-top: 100px;
-    font-size: 30px;
+    font-size: 20px;
     font-style: italic;
-    font-family: Arial,sans-serif;
+    font-family: Cursive	;
     font-weight: bolder;
     color: #0a0a0a;
     text-transform: none;
