@@ -47,11 +47,7 @@ const Signin = (validate)=>{
   return(
   <div className="container p-5" size="6" className="py-3 px-md-5" style={{marginTop: 10 + 'em'}}>
   <form>    
-
  <div className="form-group text-centerrr">
-
-
-
  <label htmlFor="formGroupExampleInput">
         <InputGroup className="mb-3">
         <InputGroup.Append>
@@ -62,11 +58,7 @@ const Signin = (validate)=>{
           placeholder="Recipient's username"
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
-<<<<<<< HEAD
-          type="text" className="form-control"
-=======
           type="text" className="form-control" placeholder="Enter Your email"
->>>>>>> 94a6b1f03a5b700560798b74d227779ea7975a79
           onChange={(e)=>{setEmail(e.target.value)}} 
           required
         />
@@ -94,5 +86,4 @@ const Signin = (validate)=>{
     </form> 
   </div>
 )};
-export default Signin;
-
+export default Signin; 

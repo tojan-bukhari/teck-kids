@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { Select } from 'antd';
 import { Link } from 'react-router-dom';
+import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 
 /****************************************************/
 
@@ -58,16 +60,14 @@ const submit =async (e)=>{
  } catch (error) {
      
  }  
-<<<<<<< HEAD
   
-=======
->>>>>>> 94a6b1f03a5b700560798b74d227779ea7975a79
   }
  
    return ( 
   <div className="container p-5">
     
     <form>
+    <Avatar size={64} icon={<UserOutlined />} src=""/>
         <div className="form-group">
             <label className="text-muted">userName: </label>
             <input id="reg-name" type="text" className="form-control" placeholder="Enter Your name" required onChange={(e)=>{setName(e.target.value)}} />

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {storage} from '../component/teacher/firebase'
+import {storage} from './firebase'
 import axios from 'axios';
 
 class Form extends Component {
@@ -23,17 +23,8 @@ class Form extends Component {
       title: '',
       cardId: localStorage.getItem("cardId")
     }
-    // this.handleChange = this
-    //   .handleChange
-    //   .bind(this);
-    //   this.handleUpload = this.handleUpload.bind(this);
+    
   }
-  // handleChange = e => {
-  //   if (e.target.files[0]) {
-  //     const video = e.target.files[0];
-  //     this.setState(() => ({video}));
-  //   }
-  // }
   handleUpload = () => {
       const uploadTask = storage.ref(`videos/${this.state.video.name}`).put(this.state.video); 
       uploadTask.on('state_changed', 
