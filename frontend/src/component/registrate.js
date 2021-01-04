@@ -67,12 +67,8 @@ const submit =async (e)=>{
   <div className="container p-5">
     <div style={{marginLeft:"-200px"}}>
     <form>
-<<<<<<< HEAD
-        <div className="form-group" >
-=======
     <Avatar size={64} icon={<UserOutlined />} src=""/>
         <div className="form-group">
->>>>>>> a71e3209d2c5e765d8dd554ef7d092ce77ef738d
             <label className="text-muted">userName: </label>
             <input id="reg-name" type="text" className="form-control" placeholder="Enter Your name" required onChange={(e)=>{setName(e.target.value)}} />
           
@@ -95,6 +91,7 @@ const submit =async (e)=>{
 
         </div>
         <div>
+          
           <label className="text-muted"> choose ur Role : </label>
           <Select defaultValue="student"  style={{ width: 200 }} onChange={handleChange}>
            <Option value="teacher">Teacher</Option>
