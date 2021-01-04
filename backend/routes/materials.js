@@ -12,14 +12,16 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => { //create?
      const material = req.body.material; 
       const description = req.body.description; 
-       const title = req.body.title
-       const video = req.body.video
+       const title = req.body.title;
+       const video = req.body.video;
+       const courseId=req.body.courseId;
         
   const newMaterial = new Material({  
     material,  
     description,  
     title,
-    video
+    video,
+    courseId
     }); 
       
   newMaterial.save()  

@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import {storage} from '../component/teacher/firebase'
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+const queryString = require('query-string');
+
+
 
 class Form extends Component {
   constructor(props) {
@@ -94,25 +98,22 @@ class Form extends Component {
   // }
   onSubmit(e) {
     e.preventDefault();
+    console.log("this is the id",queryString.parse(this.props.location.search));
+    const courseId = queryString.parse(this.props.location.search);
     //declare an obj that holds all values after change
     const task = {
       title: this.state.title,
       material: this.state.material,
       description: this.state.description,
-      video: this.state.url
+      video: this.state.url,
+      courseId:courseId.id
     }
     console.log(task);
     axios.post('http://localhost:8000/materials/add', task) //create?
       .then(res => console.log(res.data));
 
-    // this.setState({
-    //   title: '',
-    //   material: '',
-    //   description: '',
-    //   video: ''
-    // });
     console.log(task);
-    window.location = '/teachersM'
+    //window.location = '/teachersM'
   }
 
 
