@@ -47,16 +47,21 @@ const submit =async (e)=>{
     e.preventDefault();
     setErrors(validation(email,password));
 
+
  try {
   
   const newUser = { userName, age, email  ,password ,role } ;
   await axios.post("http://localhost:8000/api/register" , newUser);
+  history.push('/login')
 
   history.push('/login')
  } catch (error) {
      
  }  
+<<<<<<< HEAD
   
+=======
+>>>>>>> 94a6b1f03a5b700560798b74d227779ea7975a79
   }
  
    return ( 

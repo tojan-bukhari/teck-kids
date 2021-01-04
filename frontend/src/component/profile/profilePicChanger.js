@@ -1,20 +1,73 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+
 import "antd/dist/antd.css";
 import { Modal, Button } from 'antd';
 import { ImagesArray } from './images';
+import {storage} from '../teacher/firebase'
+
 
 
 /************************************************ */
 export default class ProfilePicChanger extends Component {
     constructor(props) {
-        super(props)
+ 
+        super(props);
+        this.onChangeProfileImg = this.onChangeProfileImg.bind(this);
+        this.handleUpload = this.handleUpload.bind(this);
         this.state = {
             visible: false,
             ImagesArray,
-            image:""
+            image:"",
+            role:localStorage.getItem("role"),
+            profileImg: null,
+            url: ""
             // images:[props.pic1, props.pic2, props.pic4, props.pic5, props.pic6]
         }
     }
+
+
+    handleUpload = () => {
+        const uploadTask = storage.ref(`profileImg/${this.state.profileImg.name}`).put(this.state.profileImg); 
+        uploadTask.on('state_changed', 
+        (snapshot) => {
+          // progrss function ....
+          const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+          this.setState ({
+            progress : progress
+          })
+        }, 
+        (error) => {
+             // error function ....
+          console.log(error);
+        }, 
+      () => {
+          // complete function ....
+          storage.ref('profileImg')
+          .child(this.state.profileImg.name)
+          .getDownloadURL()
+          .then(url => {
+              console.log(url);
+              this.setState({url:url});
+  
+          })
+      });
+    }
+  
+
+    onChangeProfileImg(e) {
+    
+        if(e.target.files[0]){
+          this.setState({
+            profileImg : e.target.files[0]
+          })
+          console.log('profileImg',e.target.files[0])
+          
+        }
+      }
+
+
+
 
 
     showModal = () => {
@@ -36,7 +89,19 @@ export default class ProfilePicChanger extends Component {
             visible: false,
         });
     };
-   
+
+    onSubmit(e) {
+        e.preventDefault();
+        //declare an obj that holds all values after change
+        const newImg = {
+            profileImg: this.state.profileImg}
+        console.log(newImg);
+        axios.put("http://localhost:8000/user/account/" + this.state.id,newImg);
+    } catch (error) {
+        alert(error.response.data.msg)
+        }  
+      
+    
 
     render() {
         const imageMapper = ImagesArray.map((image) => {
@@ -49,20 +114,55 @@ export default class ProfilePicChanger extends Component {
                  onClick={() => this.props.handelImageChange(image.url)}
                  height = '100px'
                  width = ' 48px'
-                 alt="css"
+                 alt="profpic"
                 />
                 </div>
             )
         })
         return (
             <div >
-                <Button type="primary" onClick={this.showModal}>
+
+{this.state.role==="student"?   <div> <Button type="primary" onClick={this.showModal}>
                     Change Picture
              </Button>
                 <Modal title="Profile Pic Changer Modal" visible={this.state.visible} onOk={this.handleOk} onCancel={this.hideModal}>
                     {imageMapper}
                     
-                </Modal>
+                </Modal>  </div>: 
+                 <div> <Button type="primary" onClick={this.showModal}>
+                 Change Picture
+          </Button>
+             <Modal title="Profile Pic Changer Modal" visible={this.state.visible} onSubmit={this.onSubmit} onCancel={this.hideModal}>
+             <div>
+                     <div className = "col">
+                <h1>Add video</h1>
+                <input 
+                  type = "file" 
+                  required="true"
+                  className = "form-control" 
+                  onChange = {this.onChangeProfileImg}
+                  />
+              </div>  
+              
+
+              <button onClick={this.handleUpload}>Upload</button>
+            
+              <br />
+                {/* <iframe title="myFrame" src={this.state.url} alt="firebase-profileImg" width='600' height='400' ></iframe> */}
+                <img  src={this.state.url}
+                style={{width:"100px",height:"100px "}}
+                onChange = {this.onChangeProfileImg}
+                 height = '100px'
+                 width = ' 48px'
+                 alt="css"
+                />
+                
+                </div>
+                 
+             </Modal>  </div>
+               
+                }
+                
             </div>
         )
     }
