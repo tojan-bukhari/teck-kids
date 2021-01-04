@@ -1,8 +1,12 @@
-import React, {Component} from 'react';
+import React, {Component,useState} from 'react';
 import Question from '../answers and questions/Questions';
 import Answer from '../answers and questions/Answer';
 import '../../component/answers and questions/QuizMain.css';
 import '../../component/answers and questions/Answers.css';
+import { Button, Modal} from 'react-bootstrap';
+import { useHistory } from "react-router-dom";
+
+
 export default class Quiz extends Component {
 
     // initiating the local state
@@ -97,7 +101,7 @@ export default class Quiz extends Component {
                             <h1>You have completed the quiz!</h1>
                             <span>Your score is: {score} of {Object.keys(quiestions).length}</span>
                             <span>Thank you!</span>
-                            <button  className="Ne" onClick={this.handleClick} >next ex</button>
+                            <button >  <Example /></button>
 
                         </div>
                     )
@@ -106,3 +110,36 @@ export default class Quiz extends Component {
         );
     }
 }
+
+
+function Example() {
+    const history = useHistory();
+
+    const [show, setShow] = useState(false);
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
+    return (
+      <>
+        <Button variant="primary" onClick={handleShow}>
+          Launch demo modal
+        </Button>
+  
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={()=>{history.push('/CSS/ex3')}}> Go to the Next exersise </Button>
+
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  }
+  
