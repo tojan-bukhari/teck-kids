@@ -5,8 +5,13 @@ import './Chat.css';
 import InfoBar from './InfoBar';
 import Input from './Input';
 import Messages from './messages.js';
-import TextContainer from './TextContainer/TextContainer';
-const ENDPOINT = 'localhost:8000';
+
+// import TextContainer from './TextContainer/TextContainer';
+//
+
+// import TextContainer from './TextContainer/TextContainer';
+// const ENDPOINT = 'localhost:8000';
+
 
 let socket;
 const Chat = ({ location }) => {

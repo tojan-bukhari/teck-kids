@@ -19,22 +19,12 @@ export default function CardDisplay() {
     const [product , setProduct] = useState({})
     const [data, setData]=useState([])
     const { Meta } = Card;
-<<<<<<< HEAD
+
     // const [info, setInfo]=useState([])
     useEffect( () => {
         async function fetchData() {
         const result = await axios.get('http://localhost:8000/teacher/card');
         // const [Desceription,Name,Title,image , _id, price ] = result.data;
-        
-         
-        console.log('this is result data',result.data);
-=======
-   
-    useEffect(async () => {
-        try{
-        const result = await axios.get('http://localhost:8000/teacher/card');                 
-      
->>>>>>> 30f3f51f476dd8038d37f91317a510f840f042fb
         setData(result.data)
     }fetchData();
      },[]);
@@ -48,13 +38,10 @@ export default function CardDisplay() {
     
         try{
                const response= await axios.post("http://localhost:8000/payments/charge", {token, product});
-<<<<<<< HEAD
-               
-                // const { status } = response.data
-=======
+
                console.log("haio ",product);
                 const { status } = response.data
->>>>>>> 30f3f51f476dd8038d37f91317a510f840f042fb
+
                
                 if (response.data === "success") {
                     toast("Success! Check email for details", { type: "success" });
