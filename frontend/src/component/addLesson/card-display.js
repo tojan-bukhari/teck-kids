@@ -24,7 +24,6 @@ export default function CardDisplay() {
     useEffect( () => {
         async function fetchData() {
         const result = await axios.get('http://localhost:8000/teacher/card');
-        // const [Desceription,Name,Title,image , _id, price ] = result.data;
         setData(result.data)
     }fetchData();
      },[]);

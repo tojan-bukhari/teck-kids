@@ -6,7 +6,7 @@ import { Select } from 'antd';
 import { Link } from 'react-router-dom';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-
+import robo from "./images/robo.jpg";
 /****************************************************/
 
 //use the arrow function to bind values 
@@ -67,7 +67,8 @@ const submit =async (e)=>{
   <div className="container p-5">
     
     <form>
-    <Avatar size={64} icon={<UserOutlined />} src=""/>
+    <Avatar size={150} icon={<UserOutlined />} style={{ position: 'absolute', right: '48%', top: '15%',}} src={robo}/><br/><br/><br/><br/><br/><br/>
+
         <div className="form-group">
             <label className="text-muted">userName: </label>
             <input id="reg-name" type="text" className="form-control" placeholder="Enter Your name" required onChange={(e)=>{setName(e.target.value)}} />
@@ -92,7 +93,7 @@ const submit =async (e)=>{
         </div>
         <div>
           <label className="text-muted"> choose ur Role : </label>
-          <Select defaultValue="student"  style={{ width: 200 }} onChange={handleChange}>
+          <Select defaultValue="choose"  style={{ width: 200 }} onChange={handleChange}>
            <Option value="teacher">Teacher</Option>
            <Option value="student">Student</Option>
           </Select>
