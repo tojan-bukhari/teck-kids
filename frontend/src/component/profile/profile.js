@@ -8,6 +8,7 @@ import { Link, withRouter } from "react-router-dom";
 import ProfilePicChanger from "./profilePicChanger";
 import HtmlCard from '../CourseCards/HtmlCard';
 import CssCard from '../CourseCards/CssCard';
+import { Card } from 'antd';
 
 /************************************************** */
 
@@ -28,11 +29,13 @@ class Personalprofile extends React.Component {
             htmlCourse:'',
             cssCourse:'',
             jsCourse:'',
-            role:localStorage.getItem("role")
+            role:localStorage.getItem("role"),
+            courses:[],
+            array:[]
         }
 
     }
-
+   
 // THIS FUNCTION WILL HANDELL THE IMAGES ARE COMNMING FROM PIC CHANGER COMPONENT AND WLL SEND A PUT REQ TO DATABASE 
     handelImageChange= async (profilepic)=>{
         console.log("hey",profilepic)
@@ -48,26 +51,42 @@ class Personalprofile extends React.Component {
     }
 
 
-    componentDidMount() {
+    componentDidMount= async()=> {
         console.log(this.state.role)
-       
-        axios.get("http://localhost:8000/user/account/" + this.state.id)
+       try{
+        await axios.get("http://localhost:8000/user/account/" + this.state.id)
             .then(res => {
-                console.log(res.data.img+"yees")
-                console.log(this.state.id)
+                console.log(res.data)
+                console.log("id of teacher",this.state.id)
                 this.setState({ 
                     name: res.data.userName,
                     age: res.data.age,
                     img:res.data.img,
                     htmlCourse:res.data.htmlCourse,
                     cssCourse:res.data.cssCourse,
-                    jsCourse:res.data.jsCourse
+                    jsCourse:res.data.jsCourse,
+                    courses:res.data.Courses
+
                  })
-                 console.log(this.state)
+                 console.log("this is courses of this teacher",this.state.courses)
+                 
             })
-            .catch((error) => {
-                console.log(error);
-            });
+           var data = this.state.courses
+            await 
+            data.map((courseId)=>{
+                axios.get("http://localhost:8000/teacher/card/"+courseId)
+                .then(res=>{
+                    console.log('this is card',res.data)
+                    this.setState({array:res.data})
+                })
+
+                // to render the courses we need to loop then render 
+                // axios get course by id 
+        
+            })
+        }catch(error) {
+            alert(error)
+            } 
         
     } 
    
@@ -79,6 +98,10 @@ class Personalprofile extends React.Component {
         if(this.state.cssCourse){
             var y = <CssCard />
         }
+        // console.log(this.state.array)
+        await 
+        var data = this.state.array
+        console.log('this is data',data)
         return (
             <div>
                 <span> {this.state.role==="teacher"? "hello teacher" : "helllo student" }</span>
@@ -110,6 +133,27 @@ class Personalprofile extends React.Component {
              <label>{this.state.role==="teacher"? "to add a card that will help u to show your lessons" :  "learn a new lesson"} </label>
              <button>{this.state.role==="teacher"? <Link to="/teacher/addcard"> Add card </Link>:<Link to="/"> register to lesson </Link>}</button> <br/>
              {this.state.role==="teacher"? <button><Link to="/firrrre"> Add a new lesson </Link></button>: null }
+            {this.state.role==="teacher"?
+             <div>
+                 <h3>My Courses</h3>
+                 <ol>
+                    {data.map((course,i)=>{
+                        const { Meta } = Card;
+                        <li key={i}>
+                            <Card 
+                            hoverable
+                            style={{ width: 400 ,hight: 200 , margin : 'auto'}}
+                            cover={<img alt="example" src={course.image} />}>
+                            <Meta title={course.Title} description={course.Desceription} />
+                                
+                            </Card>
+
+                        </li>
+                    })}
+                 </ol>
+
+             </div>
+             : <div> this is may payed corses</div>}
              </div>
             
         )
