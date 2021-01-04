@@ -21,19 +21,14 @@ class Form extends Component {
       material: '',
       description: '',
       title: '',
-      cardId: localStorage.getItem("cardId")
+      role:localStorage.getItem("role")
     }
     // this.handleChange = this
     //   .handleChange
     //   .bind(this);
     //   this.handleUpload = this.handleUpload.bind(this);
   }
-  // handleChange = e => {
-  //   if (e.target.files[0]) {
-  //     const video = e.target.files[0];
-  //     this.setState(() => ({video}));
-  //   }
-  // }
+
   handleUpload = () => {
       const uploadTask = storage.ref(`videos/${this.state.video.name}`).put(this.state.video); 
       uploadTask.on('state_changed', 
@@ -99,7 +94,9 @@ class Form extends Component {
       title: this.state.title,
       material: this.state.material,
       description: this.state.description,
-      video: this.state.url
+      video: this.state.url,
+      role:localStorage.getItem("role")
+      
     }
     console.log(task);
     axios.post('http://localhost:8000/materials/add', task) //create?
