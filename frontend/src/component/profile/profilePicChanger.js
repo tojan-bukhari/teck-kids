@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
 import "antd/dist/antd.css";
 import { Modal, Button } from 'antd';
 import { ImagesArray } from './images';
-import {storage} from '../teacher/firebase'
+import {storage} from '../addLesson/firebase'
 
 
 
@@ -22,7 +21,6 @@ export default class ProfilePicChanger extends Component {
             role:localStorage.getItem("role"),
             profileImg: null,
             url: ""
-            // images:[props.pic1, props.pic2, props.pic4, props.pic5, props.pic6]
         }
     }
 
@@ -90,16 +88,14 @@ export default class ProfilePicChanger extends Component {
         });
     };
 
-    onSubmit(e) {
-        e.preventDefault();
-        //declare an obj that holds all values after change
-        const newImg = {
-            profileImg: this.state.profileImg}
-        console.log(newImg);
-        axios.put("http://localhost:8000/user/account/" + this.state.id,newImg);
-    } catch (error) {
-        alert(error.response.data.msg)
-        }  
+    // handleOk(e) {
+    //     console.log('satet url' ,this.state.url)
+    //     this.props.handelImageChange(this.state.url)
+    //     console.log(e);
+    //     this.setState({
+    //         visible: false,
+    //     });
+    // }
       
     
 
@@ -122,33 +118,35 @@ export default class ProfilePicChanger extends Component {
         return (
             <div >
 
-{this.state.role==="student"?   <div> <Button type="primary" onClick={this.showModal}>
+               {this.state.role==="student"?   
+               <div> <Button type="primary" onClick={this.showModal}>
                     Change Picture
-             </Button>
-                <Modal title="Profile Pic Changer Modal" visible={this.state.visible} onOk={this.handleOk} onCancel={this.hideModal}>
-                    {imageMapper}
+                     </Button>
+                     <Modal title="Profile Pic Changer Modal" visible={this.state.visible} onOk={this.handleOk} onCancel={this.hideModal}>
+                     {imageMapper}
                     
-                </Modal>  </div>: 
-                 <div> <Button type="primary" onClick={this.showModal}>
-                 Change Picture
-          </Button>
-             <Modal title="Profile Pic Changer Modal" visible={this.state.visible} onSubmit={this.onSubmit} onCancel={this.hideModal}>
-             <div>
-                     <div className = "col">
-                <h1>Add video</h1>
+                    </Modal> 
+              </div>: 
+              <div> 
+                  <Button type="primary" onClick={this.showModal}>
+                     Change Picture
+                  </Button>
+                  <Modal title="Profile Pic Changer Modal" visible={this.state.visible} onOk={this.handleOk} onCancel={this.hideModal}>
+              <div>
+               <div className = "col">
+                <h1>Add Profile Avatar</h1>
                 <input 
                   type = "file" 
                   required="true"
                   className = "form-control" 
                   onChange = {this.onChangeProfileImg}
                   />
-              </div>  
+               </div>  
               
 
               <button onClick={this.handleUpload}>Upload</button>
             
               <br />
-                {/* <iframe title="myFrame" src={this.state.url} alt="firebase-profileImg" width='600' height='400' ></iframe> */}
                 <img  src={this.state.url}
                 style={{width:"100px",height:"100px "}}
                 onChange = {this.onChangeProfileImg}
@@ -156,10 +154,11 @@ export default class ProfilePicChanger extends Component {
                  width = ' 48px'
                  alt="css"
                 />
-                
-                </div>
+                <button  onClick={() => this.props.handelImageChange(this.state.url)}>Supmet</button>
+             </div>
                  
-             </Modal>  </div>
+             </Modal> 
+             </div>
                
                 }
                 

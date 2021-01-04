@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { Select } from 'antd';
 import { Link } from 'react-router-dom';
+import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 
 /****************************************************/
 
@@ -36,7 +38,7 @@ function validation(email,password) {
     }
     if (!password) {
       errors.password = "Password is required";
-    } else if (password.length < 10) {
+    } else if (password.length < 5) {
       errors.password = "Password needs to be more than 10 characters";
     }
     return errors;
@@ -54,16 +56,18 @@ const submit =async (e)=>{
   await axios.post("http://localhost:8000/api/register" , newUser);
   history.push('/login')
 
- 
+  history.push('/login')
  } catch (error) {
      
  }  
+  
   }
  
    return ( 
   <div className="container p-5">
-    
+    <div style={{marginLeft:"-200px"}}>
     <form>
+    <Avatar size={64} icon={<UserOutlined />} src=""/>
         <div className="form-group">
             <label className="text-muted">userName: </label>
             <input id="reg-name" type="text" className="form-control" placeholder="Enter Your name" required onChange={(e)=>{setName(e.target.value)}} />
@@ -77,13 +81,13 @@ const submit =async (e)=>{
         <div className="form-group">
             <label className="text-muted"> Email : </label>
             <input id="reg-email" type="email" className="form-control" placeholder="Enter Your email" required onChange={(e)=>{setEmail(e.target.value)}}/>
-            <span>{errors.email &&<span>{errors.email}</span>}</span> 
+            <span  style={{color:"red",marginLeft:"-200px"}}>{errors.email &&<span>{errors.email}</span>}</span> 
 
         </div>
         <div className="form-group">
             <label className="text-muted"> Password : </label>
             <input id="reg-pass" type="password" className="form-control" placeholder="Enter Your Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
-            <span>{errors.password &&<span>{errors.password}</span>}</span> 
+            <span  style={{color:"red",marginLeft:"-200px"}}>{errors.password &&<span>{errors.password}</span>}</span> 
 
         </div>
         <div>
@@ -99,7 +103,7 @@ const submit =async (e)=>{
             
         </div>
     </form>
-  </div>
+  </div></div>
 )};
 
 export default Create;
