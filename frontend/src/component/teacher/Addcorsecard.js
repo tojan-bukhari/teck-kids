@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { storage } from './firebase';
 import axios from 'axios';
-
+import { Button} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+const queryString = require('query-string');
 
 class Addcorsecard extends Component {
+  
+
   constructor(props) {
     super(props);
     this.onChangeDescription = this.onChangeDescription.bind(this);
@@ -20,7 +24,8 @@ class Addcorsecard extends Component {
       description: '',
       title: '',
       price: 0,
-      name:localStorage.getItem("Name")
+      name:localStorage.getItem("Name"),
+      courseId:'1'
     }
   }
   // this function will handele firebase
@@ -50,6 +55,7 @@ class Addcorsecard extends Component {
           })
       });
   }
+  
   ////////////////////////////// HANDEL STATE//////////////////////
   onChangeDescription(e) {
     this.setState({
@@ -78,7 +84,7 @@ class Addcorsecard extends Component {
     })
   }
   ////////////////////////////// HANDEL STATE//////////////////////
-  onSubmit(e) {
+  onSubmit = async (e) => {
     e.preventDefault();
     const task = {
       Title: this.state.title,
@@ -87,11 +93,17 @@ class Addcorsecard extends Component {
       Name: this.state.name,
       price: this.state.price
     }
+    var userId = localStorage.getItem('id');
     console.log(task);
-    axios.post('http://localhost:8000/teacher/addcard', task) //create?
-    .then(res => console.log(res.data));
-    // console.log(res.data)
-    window.location = '/teacher/card'
+    const res = await axios.post('http://localhost:8000/teacher/addcard', task) //create?
+    
+    this.setState({ courseId : res.data._id })
+  
+    const data = await axios.post("http://localhost:8000/user/addNewCourse/"+userId,{id:this.state.courseId});
+    console.log(data , this.state.courseId);
+    
+
+    
   }
 
   render() {
@@ -104,7 +116,7 @@ class Addcorsecard extends Component {
               <h3>Add image</h3>
               <input
                 type="file"
-                required="true"
+                required="{true}"
                 className="form-control"
                 onChange={this.onChangeimage}
               />
@@ -160,7 +172,9 @@ class Addcorsecard extends Component {
             <br />
 
             <div>
-              <button type="submit" value="Submit" className="btn btn-deep-orange darken-4">Submit</button>
+              <Button type="submit" value="Submit" className="btn btn-deep-orange darken-4">Submit</Button>
+              <Link to={`/firrrre ?id=${this.state.courseId}`} style={{fontSize:'1.2rem'}}>Lets go and add a  lesson &#x261D; &#128515; </Link>
+
             </div>
           </form>
         </div>

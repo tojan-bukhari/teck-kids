@@ -123,20 +123,7 @@ window.location = "/teachersM"
     <div>
       <h3  >Edit </h3>
       <form onSubmit={this.onSubmit}>
-      {/* <div className = "col">
-                    <h1>dit video</h1>
-                    <input 
-                      type = "file" 
-                      required="true"
-                      className = "form-control" 
-                      onChange = {this.onChangevideo}
-                      />
-                  </div>  
-                  <button onClick={this.handleUpload}>Upload</button>
-                
-                <br />
-                  <iframe  src={this.state.url} alt="firebase-video" width='600' height='400' ></iframe> */}
-
+  
         <div >
         <h1  >Material: </h1>
           <input  

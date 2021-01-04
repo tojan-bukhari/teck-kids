@@ -24,42 +24,12 @@ import Join from './component/chatroom/join'
 import EditMatreals from './teacherSide/edit'
 import DashboardPage from "./component/Pages/dashboard";
 import io from "socket.io-client";
-import makeToast from "./component/Toaster";
 import ChatroomPage from "./component/Pages/chatRoom";
 
 /****************************************************************** */
 
 function App() {
  
-    const [socket, setSocket] = React.useState(null);
-  
-    const setupSocket = () => {
-      const token = localStorage.getItem("theToken");
-      if (token && !socket) {
-        const newSocket = io("http://localhost:8000", {
-          query: {
-            token: localStorage.getItem("theToken"),
-          },
-        });
-  
-        newSocket.on("disconnect", () => {
-          setSocket(null);
-          setTimeout(setupSocket, 3000);
-          makeToast("error", "Socket Disconnected!");
-        });
-  
-        newSocket.on("connect", () => {
-          makeToast("success", "Socket Connected!");
-        });
-  
-        setSocket(newSocket);
-      }
-    };
-  
-    React.useEffect(() => {
-      setupSocket();
-      //eslint-disable-next-line
-    }, []);
   return (
     <>
       <BrowserRouter>
@@ -80,23 +50,14 @@ function App() {
           <Route  path="/teacher/addcard" component={Addcorsecard} />
           <Route  path="/teacher/card" component={card} />
           <Route path="/account/:id" component={Personalprofile}  />
-          <Route  path="/firrrre" component={firrrre} />
+          <Route  path="/firrrre:kk" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
           
           <Route path="/Chat" component={Chat} />
           <Route path="/Join" component={Join} />
           <Route exact path="/cchatroom" component={Chat} />
-          {<Route
-          path="/dashboard"
-          render={() => <DashboardPage socket={socket} />}
-          exact
-         /> }
-        {<Route
-          path="/chatroom/:id"
-          render={() => <ChatroomPage socket={socket} />}
-          exact
-         /> }
+        
           <Exercises />
         </Switch>
       </BrowserRouter>

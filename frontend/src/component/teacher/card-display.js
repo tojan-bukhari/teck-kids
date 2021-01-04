@@ -9,7 +9,7 @@ import { useHistory } from "react-router-dom";
 import { Button} from 'react-bootstrap';
 
 /************************************************/
-
+toast.configure();
 export default function CardDisplay() {
     const history = useHistory();
     
@@ -20,16 +20,19 @@ export default function CardDisplay() {
     const [data, setData]=useState([])
     const { Meta } = Card;
     const [status , setStatus]  = useState() 
-    useEffect(async () => {
+    useEffect(() => {
+        async function fetchData() {
         try{
         const result = await axios.get('http://localhost:8000/teacher/card');                 
         setData(result.data)
         console.log(result.data);
     }catch(error){
         console.log(error,"oh nooooo")
-    } },[]);
+    } 
+    }fetchData();
+    },[]);
    
-
+    //useEffect(() => {},[]);
 
     const makePayment = async token =>{
        
@@ -39,9 +42,9 @@ export default function CardDisplay() {
                setStatus(response.data)
                 if (status === "success") {
                     toast("Success! Check email for details", { type: "success" });
-                    await axios.post("http://localhost:8000/user/addNewCourse/"+userId,product.name);
+                    await axios.post("http://localhost:8000/user/addNewCourse/"+userId,product);
 
-                    history.push('/account/'+userId);
+                   // history.push('/account/'+userId);
                   } else {
                     toast("Something went wrong", { type: "error" });
                   } 
@@ -72,15 +75,20 @@ export default function CardDisplay() {
             stripeKey={process.env.REACT_APP_KEY }
             token ={makePayment}
             name = 'Tick Kid'
-            amount = {product.price * 100}>
+            amount = {parseInt(card.price) * 100}>
 
-                <Button onClick={()=>setProduct({
+                <Button onClick={()=>{
+                
+                
+                setProduct({
+
                     name: data[i].Title,
                     price :data[i].price,
                     productBy:data[i].Name,
+                    id :data[i]._id
                 })}
-                disabled={status}
-                >
+                }>             
+                
                     Buy this course with just ${card.price} 
                 </Button>
         

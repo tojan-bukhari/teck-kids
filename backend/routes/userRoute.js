@@ -41,10 +41,10 @@ router.put("/account/:id",(req,res)=>{
 //this route is responciple to add a new course on the array of course in the user tabel
  router.post("/addNewCourse/:id",(req,res)=>{
   console.log("the id",req.params.id)
-  const promise =User.findByIdAndUpdate(req.params.id, { $push: { Courses: req.body.Courses} }).exec();
+  const promise =User.findByIdAndUpdate(req.params.id, { $push: { Courses: req.body.id} }).exec();
 
     
-  console.log(req.body.Courses)
+  console.log('ddddd',req.body)
   promise.then((data)=>{
    res.json(data);
   }).catch((err)=>{

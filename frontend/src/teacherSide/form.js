@@ -131,7 +131,7 @@ class Form extends Component {
                     <h1>Add video</h1>
                     <input 
                       type = "file" 
-                      required="true"
+                      required="{true}"
                       className = "form-control" 
                       onChange = {this.onChangevideo}
                       />
