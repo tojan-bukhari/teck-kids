@@ -22,10 +22,10 @@ import teacherpage from './teacherSide/matierialsPage'
 import Chat from './component/chatroom/Chat';
 import Join from './component/chatroom/join'
 import EditMatreals from './teacherSide/edit'
-import DashboardPage from "./component/Pages/dashboard";
-import io from "socket.io-client";
-// import makeToast from "./component/Toaster";
-import ChatroomPage from "./component/Pages/chatRoom";
+// import DashboardPage from "./component/Pages/dashboard";
+// import io from "socket.io-client";
+// // import makeToast from "./component/Toaster";
+// import ChatroomPage from "./component/Pages/chatRoom";
 
 
 function App() {
@@ -59,7 +59,7 @@ function App() {
           <Route path="/Chat" component={Chat} />
           <Route path="/Join" component={Join} />
           <Route exact path="/cchatroom" component={Chat} />
-          {<Route
+          {/* {<Route
           path="/dashboard"
           render={() => <DashboardPage socket={socket} />}
           exact
@@ -68,7 +68,7 @@ function App() {
           path="/chatroom/:id"
           render={() => <ChatroomPage socket={socket} />}
           exact
-         /> }
+         /> } */}
           <Exercises />
         </Switch>
       </BrowserRouter>
