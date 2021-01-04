@@ -65,6 +65,10 @@ class Personalprofile extends React.Component {
                  })
                  console.log(this.state)
             })
+
+
+
+            
             .catch((error) => {
                 console.log(error);
             });
