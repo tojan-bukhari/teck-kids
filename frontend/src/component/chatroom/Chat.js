@@ -5,8 +5,14 @@ import './Chat.css';
 import InfoBar from './InfoBar';
 import Input from './Input';
 import Messages from './messages.js';
+
 // import TextContainer from './TextContainer/TextContainer';
 //
+
+// import TextContainer from './TextContainer/TextContainer';
+// const ENDPOINT = 'localhost:8000';
+
+
 //
 let socket;
 const Chat = ({ location }) => {
@@ -15,7 +21,6 @@ const Chat = ({ location }) => {
     const [users, setUsers] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
-    const ENDPOINT = 'localhost:8000';
     useEffect(() => {
       const { name, room } = queryString.parse(location.search);
       socket = io(ENDPOINT);
