@@ -39,7 +39,12 @@ const Signin = (validate)=>{
       const loginRes = await axios.post("http://localhost:8000/api/login" , newUser)
       console.log(loginRes.data.token)
       localStorage.setItem("theToken", loginRes.data.token);
+      localStorage.setItem("userid", loginRes.data.user.id);
+      localStorage.setItem("role", loginRes.data.user.role);
+      localStorage.setItem("name", loginRes.data.user.name);
+
       history.push('/')
+      window.location.reload(false);
        } catch (error) {
       // alert(error.response.data.msg)
       }

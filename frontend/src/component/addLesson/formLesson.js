@@ -21,7 +21,7 @@ class Form extends Component {
       material: '',
       description: '',
       title: '',
-      cardId: localStorage.getItem("cardId")
+      role:localStorage.getItem("role")
     }
     
   }
@@ -90,7 +90,9 @@ class Form extends Component {
       title: this.state.title,
       material: this.state.material,
       description: this.state.description,
-      video: this.state.url
+      video: this.state.url,
+      role:localStorage.getItem("role")
+      
     }
     console.log(task);
     axios.post('http://localhost:8000/materials/add', task) //create?
