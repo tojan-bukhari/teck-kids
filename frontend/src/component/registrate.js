@@ -38,7 +38,7 @@ function validation(email,password) {
     }
     if (!password) {
       errors.password = "Password is required";
-    } else if (password.length < 10) {
+    } else if (password.length < 5) {
       errors.password = "Password needs to be more than 10 characters";
     }
     return errors;
@@ -65,10 +65,14 @@ const submit =async (e)=>{
  
    return ( 
   <div className="container p-5">
-    
+    <div style={{marginLeft:"-200px"}}>
     <form>
+<<<<<<< HEAD
+        <div className="form-group" >
+=======
     <Avatar size={64} icon={<UserOutlined />} src=""/>
         <div className="form-group">
+>>>>>>> a71e3209d2c5e765d8dd554ef7d092ce77ef738d
             <label className="text-muted">userName: </label>
             <input id="reg-name" type="text" className="form-control" placeholder="Enter Your name" required onChange={(e)=>{setName(e.target.value)}} />
           
@@ -81,13 +85,13 @@ const submit =async (e)=>{
         <div className="form-group">
             <label className="text-muted"> Email : </label>
             <input id="reg-email" type="email" className="form-control" placeholder="Enter Your email" required onChange={(e)=>{setEmail(e.target.value)}}/>
-            <span>{errors.email &&<span>{errors.email}</span>}</span> 
+            <span  style={{color:"red",marginLeft:"-200px"}}>{errors.email &&<span>{errors.email}</span>}</span> 
 
         </div>
         <div className="form-group">
             <label className="text-muted"> Password : </label>
             <input id="reg-pass" type="password" className="form-control" placeholder="Enter Your Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
-            <span>{errors.password &&<span>{errors.password}</span>}</span> 
+            <span  style={{color:"red",marginLeft:"-200px"}}>{errors.password &&<span>{errors.password}</span>}</span> 
 
         </div>
         <div>
@@ -103,7 +107,7 @@ const submit =async (e)=>{
             
         </div>
     </form>
-  </div>
+  </div></div>
 )};
 
 export default Create;
