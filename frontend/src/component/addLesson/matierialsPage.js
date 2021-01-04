@@ -1,24 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-// import NoteList from "./NoteList";
- 
-//declare a component that holds arrows of tasks 
-// const Task = props => (
-//   <tr>
-//     <td>{props.task.material}</td>
-//     <td>{props.task.description}</td>
-//     <td>{props.task.title}</td>
-//     <td>
-//     <iframe title="myFrame" src= {props.task.video}width='600' height='400' className="w3-round" alt="Norway" />
-//     </td>
-//     <td>
-//       <Link to={"/EditMatreals/"+props.task._id}>edit</Link>
-//        <a href="/teachersM"  onClick={() => { props.deleteTask(props.task._id) }}> delete</a>
-//     </td>
-//   </tr>
-  
-// )
 
 const Task = props => (
   <tr>

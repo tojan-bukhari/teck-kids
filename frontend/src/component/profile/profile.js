@@ -20,7 +20,7 @@ class Personalprofile extends React.Component {
         // ID forme the local storage 
         // and the user info we need 
         this.state = {
-             id:localStorage.getItem("userid"),
+             id:localStorage.getItem("id"),
             name:"",
             age:"",
             img:"",
