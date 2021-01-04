@@ -1,12 +1,15 @@
 import axios from 'axios';
 import React , {useState,useEffect} from 'react';
 import { Card } from 'antd';
-import { Row, Col } from 'react-simple-flex-grid';
+// import { Row, Col } from 'react-simple-flex-grid';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import StripeCheckout from 'react-stripe-checkout';
 import { useHistory } from "react-router-dom";
 import { Button} from 'react-bootstrap';
+import { Row, Col, Divider,Statistic } from 'antd';
+import { Rate } from 'antd';
+import { LikeOutlined } from '@ant-design/icons';
 
 /************************************************/
 
@@ -58,9 +61,12 @@ export default function CardDisplay() {
     return (
             <div>
 
-<Row gutter={40}>
+
       
         {data.map((card,i) => (
+            <>
+            <Divider orientation="left">sub-element align full</Divider>
+           <Row justify="space-around" gutter={40}> 
             <Col  key={i}>
             <Card
               hoverable
@@ -86,16 +92,24 @@ export default function CardDisplay() {
                     Buy this course with just ${card.price} 
                 </Button>
         }
-            </StripeCheckout>
-              
+            </StripeCheckout><br/><br/><br/>
+            <>
+                <Rate defaultValue={3} />
+                <Statistic title="Feedback" value={1128} prefix={<LikeOutlined />} />
+                <br />
+             </>,
             </Card>
-         </Col>
+         </Col>  
+          </Row>
+          </>
         ))}
        
-       </Row>
+    
+         
         </div>
+       
     )
-
+ 
 } 
 
 

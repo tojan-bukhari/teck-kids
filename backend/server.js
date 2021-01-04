@@ -60,7 +60,7 @@ io.on('connect', (socket) => {
     const { error, user } = addUser({ id: socket.id, name, room });
 
     if(error) return callback(error);
-
+//
     socket.join(user.room);
 
     socket.emit('message', { user: 'admin', text: `${user.name}, welcome to room ${user.room}.`});
