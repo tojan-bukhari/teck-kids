@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { Select } from 'antd';
 import { Link } from 'react-router-dom';
+import { Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 
 /****************************************************/
 
@@ -54,16 +56,18 @@ const submit =async (e)=>{
   await axios.post("http://localhost:8000/api/register" , newUser);
   history.push('/login')
 
- 
+  history.push('/login')
  } catch (error) {
      
  }  
+  
   }
  
    return ( 
   <div className="container p-5">
     
     <form>
+    <Avatar size={64} icon={<UserOutlined />} src=""/>
         <div className="form-group">
             <label className="text-muted">userName: </label>
             <input id="reg-name" type="text" className="form-control" placeholder="Enter Your name" required onChange={(e)=>{setName(e.target.value)}} />

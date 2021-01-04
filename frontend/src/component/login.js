@@ -52,11 +52,7 @@ const Signin = (validate)=>{
   return(
   <div className="container p-5" size="6" className="py-3 px-md-5" style={{marginTop: 10 + 'em'}}>
   <form>    
-
  <div className="form-group text-centerrr">
-
-
-
  <label htmlFor="formGroupExampleInput">
         <InputGroup className="mb-3">
         <InputGroup.Append>
@@ -95,5 +91,4 @@ const Signin = (validate)=>{
     </form> 
   </div>
 )};
-export default Signin;
-
+export default Signin; 
