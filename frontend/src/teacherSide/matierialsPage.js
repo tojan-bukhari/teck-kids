@@ -16,14 +16,30 @@ const Task = props => (
       <Link to={"/EditMatreals/"+props.task._id}>edit</Link> <a href="/teachersM"  onClick={() => { props.deleteTask(props.task._id) }}>delete</a>
     </td>
   </tr>
+  
 )
+
+// const Task = props => (
+//   <tr>
+//     <td>{props.task.material}</td>
+//     <td>{props.task.description}</td>
+//     <td>{props.task.title}</td>
+//     <td>
+//     <iframe title="myFrame" src= {props.task.video}width='600' height='400' className="w3-round" alt="Norway" />
+//     </td>
+ 
+//     {this.state.role==="teacher"? <td> <Link to={"/EditMatreals/"+props.task._id}>edit</Link></td>:null}
+//     {this.state.role==="teacher"? <td> <a href="/teachersM"  onClick={() => { props.deleteTask(props.task._id) }}>delete</a></td>  :null}
+
+//   </tr>
+// ) 
 export default class calender extends Component {
   constructor(props) {
     super(props);
     this.deleteTask = this.deleteTask.bind(this)
     this.state = {
       tasks: [],
-      
+      role:localStorage.getItem("role")
      };
   }
   componentDidMount() {
@@ -72,11 +88,11 @@ export default class calender extends Component {
               <th ></th>
               <td >video</td>
               
-              <Link to="/firrrre">
-               <button type="button">
-                Add Lessons
-              </button>
-              </Link>
+            
+
+              {this.state.role==="teacher"? <button><Link to="/firrrre"> Add a new lesson </Link></button>: null }
+
+
             </tr>
           </thead>
           <tbody>

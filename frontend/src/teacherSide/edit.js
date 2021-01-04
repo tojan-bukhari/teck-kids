@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-// import {storage} from '../component/teacher/firebase'
+import {storage} from '../component/teacher/firebase'
 
 export default class EditMatreals extends Component {
   constructor(props) {
@@ -9,14 +9,16 @@ export default class EditMatreals extends Component {
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    // this.onChangevideo = this.onChangevideo.bind(this);
+    this.onChangevideo = this.onChangevideo.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
 
     this.state = {
       material: '',
       description: '',
       title: '', 
-      // video : null,
-      // url :"",
+      video : null,
+      url :"",
+      progress: 0,
     }
   }
   retrieveOneItem() {
@@ -41,45 +43,45 @@ export default class EditMatreals extends Component {
     this.retrieveOneItem();
     
     }
-    // onChangevideo(e) {
+    onChangevideo(e) {
     
-    //   if(e.target.files[0]){
-    //     this.setState({
-    //       video : e.target.files[0]
-    //     })
-    //     console.log('video',e.target.files[0])
+      if(e.target.files[0]){
+        this.setState({
+          video : e.target.files[0]
+        })
+        console.log('video',e.target.files[0])
         
-    //   }
+      }
      
-    // }
+    }
 
 
-  //   handleUpload = () => {
-  //     const uploadTask = storage.ref(`videos/${this.state.video.name}`).put(this.state.video); 
-  //     uploadTask.on('state_changed', 
-  //     (snapshot) => {
-  //       // progrss function ....
-  //       const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-  //       this.setState ({
-  //         progress : progress
-  //       })
-  //     }, 
-  //     (error) => {
-  //          // error function ....
-  //       console.log(error);
-  //     }, 
-  //   () => {
-  //       // complete function ....
-  //       storage.ref('videos')
-  //       .child(this.state.video.name)
-  //       .getDownloadURL()
-  //       .then(url => {
-  //           console.log(url);
-  //           this.setState({url:url});
+    handleUpload = () => {
+      const uploadTask = storage.ref(`videos/${this.state.video.name}`).put(this.state.video); 
+      uploadTask.on('state_changed', 
+      (snapshot) => {
+        // progrss function ....
+        const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+        this.setState ({
+          progress : progress
+        })
+      }, 
+      (error) => {
+           // error function ....
+        console.log(error);
+      }, 
+    () => {
+        // complete function ....
+        storage.ref('videos')
+        .child(this.state.video.name)
+        .getDownloadURL()
+        .then(url => {
+            console.log(url);
+            this.setState({url:url});
 
-  //       })
-  //   });
-  // }
+        })
+    });
+  }
   
 
 
@@ -104,7 +106,7 @@ export default class EditMatreals extends Component {
       material: this.state.material,
       description: this.state.description,
       title: this.state.title,
-      // video:this.state.url
+      video:this.state.video
       
       
     }
@@ -123,19 +125,7 @@ window.location = "/teachersM"
     <div>
       <h3  >Edit </h3>
       <form onSubmit={this.onSubmit}>
-      {/* <div className = "col">
-                    <h1>dit video</h1>
-                    <input 
-                      type = "file" 
-                      required="true"
-                      className = "form-control" 
-                      onChange = {this.onChangevideo}
-                      />
-                  </div>  
-                  <button onClick={this.handleUpload}>Upload</button>
-                
-                <br />
-                  <iframe  src={this.state.url} alt="firebase-video" width='600' height='400' ></iframe> */}
+     
 
         <div >
         <h1  >Material: </h1>
@@ -157,7 +147,7 @@ window.location = "/teachersM"
               />
         </div>
         <div >
-        <h1   >title (in minutes): </h1>
+        <h1>title: </h1>
           <input 
               type="text"
               required="{true}"
