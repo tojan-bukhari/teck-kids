@@ -27,6 +27,7 @@ import io from "socket.io-client";
 import makeToast from "./component/Toaster";
 import ChatroomPage from "./component/Pages/chatRoom";
 
+
 /****************************************************************** */
 
 function App() {
@@ -77,9 +78,9 @@ function App() {
           <Route exact path="/registrate" component={registrate} />
           <Route exact path="/CSS/ex3" component={CSSex3} />
           <Route exact path="/CSS/ex4" component={CSSex4} />
-          <Route  path="/teacher/addcard" component={Addcorsecard} />
+          <Route exact path="/teacher/addcard" component={Addcorsecard} />
           <Route  path="/teacher/card" component={card} />
-          <Route path="/account/:id" component={Personalprofile}  />
+          <ProtectedRoute exact path="/account/:id" component={Personalprofile}  isAuth={localStorage.length > 0} />
           <Route  path="/firrrre" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
