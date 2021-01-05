@@ -6,8 +6,8 @@ import DragNDrop from './DragNDrop'
 var data = [
     {title: 'Drag',
      items: 
-     [ 'p {',
-      ' color: red;', 'text-align: center;','}'
+     [  'text-align: center;','}',
+      ' color: red;','p {',
       ]
     },
     {title: 'Drop here', items:  [ ]}
