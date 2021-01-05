@@ -135,11 +135,13 @@ function Example() {
             <Modal.Title>Modal heading</Modal.Title>
           </Modal.Header>
           <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <img src= "https://www.flaticon.com/svg/static/icons/svg/3158/3158981.svg" alt="css"/>
+
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={()=>{history.push('/CSS/ex3')}}> Go to the Next exersise </Button>
+            <Button variant="primary" onClick={()=>{history.push('/ex2CSS')}}> Go to the Next exersise </Button>
 
           </Modal.Footer>
         </Modal>
