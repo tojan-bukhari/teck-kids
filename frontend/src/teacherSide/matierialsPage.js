@@ -10,10 +10,10 @@ const Task = props => (
     <td>{props.task.description}</td>
     <td>{props.task.title}</td>
     <td>
-    <iframe title="myFrame" src= {props.task.video}width='600' height='400' className="w3-round" alt="Norway" />
+    <iframe title="myFrame" src= {props.task.video}width='600' height='400' className="w3-round" alt="TheLessonVedio" />
     </td>
     <td>
-      <Link to={"/EditMatreals/"+props.task._id}>edit</Link> <a href="/teachersM"  onClick={() => { props.deleteTask(props.task._id) }}>delete</a>
+      <Link to={"/EditMatreals/"+props.task._id}>edit</Link> <a href="/Lissons"  onClick={() => { props.deleteTask(props.task._id) }}>delete</a>
     </td>
   </tr>
 )

@@ -49,7 +49,7 @@ function App() {
           <Route  path="/teacher/card" component={card} />
           <Route path="/account/" component={Personalprofile}  />
           <Route  path="/addNewLesson:kk" component={firrrre} />
-          <Route path="/teachersM" component={teacherpage} />
+          <Route path="/Lissons" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
           
           <Route path="/Chat" component={Chat} />

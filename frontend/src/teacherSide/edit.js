@@ -116,7 +116,7 @@ export default class EditMatreals extends Component {
   .catch(function (error) {
     console.log(error);
   });
-window.location = "/teachersM"
+window.location = "/Lissons"
   }
   render() {
     return (

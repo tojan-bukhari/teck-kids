@@ -74,6 +74,7 @@ class Personalprofile extends React.Component {
             })
            var data = this.state.courses
            var myCourses = []
+           
            await
             data.map((courseId) => (
              axios.get("http://localhost:8000/teacher/card/"+courseId)//return the information of the courses the user teach
@@ -99,11 +100,7 @@ class Personalprofile extends React.Component {
         if(this.state.cssCourse){
             var y = <CssCard />
         }
-        if(this.state.array){
-            console.log('crdddddd', this.state.array)
-            
-            
-        }
+      
         return (
             <div>
                 <span> {this.state.role==="teacher"? "hello teacher" : "helllo student" }</span>
@@ -134,7 +131,7 @@ class Personalprofile extends React.Component {
              <br/>
              <label>{this.state.role==="teacher"? "to add a card that will help u to show your lessons" :  "learn a new lesson"} </label>
              <Button>{this.state.role==="teacher"? <Link to="/teacher/addcard" style={{color:'white'}}> Add New Course </Link>:<Link to="/"> register to lesson </Link>}</Button> <br/>
-            {this.state.role==="teacher"?
+            
              <div>
                  <h3>My Courses</h3>
                 <ol>
@@ -149,7 +146,7 @@ class Personalprofile extends React.Component {
                             cover={<img alt="courseImg" src={course.image} />}>
                             <Meta title={course.Title} description={course.Desceription} />
 
-                            <Link to={`/addNewLesson ?id=${course._id}`} style={{fontSize:'1.2rem', padding:'2rem'}} > Add a new lesson </Link>
+                        {this.state.role==="teacher"?  <Link to={`/addNewLesson ?id=${course._id}`} style={{fontSize:'1.2rem', padding:'2rem'}} > Add a new lesson </Link>  : <Link to={`/Lissons ?id=${course._id}`} style={{fontSize:'1.2rem', padding:'2rem'}} > Lets Study &#128516;</Link> }
                             </Card>
                         </li>
                     )
@@ -157,7 +154,7 @@ class Personalprofile extends React.Component {
                     })}
                  </ol>
              </div>
-             : <div> this is may payed corses</div>}
+           
              </div>
             
         )
