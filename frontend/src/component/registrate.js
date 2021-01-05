@@ -91,6 +91,7 @@ const submit =async (e)=>{
 
         </div>
         <div>
+          
           <label className="text-muted"> choose ur Role : </label>
           <Select defaultValue="student"  style={{ width: 200 }} onChange={handleChange}>
            <Option value="teacher">Teacher</Option>

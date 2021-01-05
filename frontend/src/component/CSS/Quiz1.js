@@ -90,6 +90,7 @@ export default class Quiz extends Component {
                             clickedAnswer={clickedAnswer}
                         />
                         <button
+                         style={{marginLeft:"450px"}}
                         className="NextStep"
                         disabled={
                             clickedAnswer && Object.keys(quiestions).length >= step
@@ -97,13 +98,16 @@ export default class Quiz extends Component {
                         }
                         onClick={() => this.nextStep(step)}>Next</button>
                     </>) : (
-                        <div className="finalPage">
-                            <h1>You have completed the quiz!</h1>
-                            <span>Your score is: {score} of {Object.keys(quiestions).length}</span>
-                            <span>Thank you!</span>
-                            <button >  <Example /></button>
 
-                        </div>
+                        <div className="finalPage" >
+                            <div style={{marginLeft:"-100px"}}>
+                            <h1 style={{marginLeft:"70px",color:"white",fontFamily: "Cursive"}} >You have completed the quiz!</h1>
+                            <span  style={{ fontFamily: "Cursive"	}}>Your score is: {score} of {Object.keys(quiestions).length}</span>
+                            <span style={{ fontFamily: "Cursive"	}}>Thank you!</span>
+                            <button  className="Ne" onClick={this.handleClick}  style={{background:""}} >next ex</button>
+
+
+                        </div></div>
                     )
                 }
             </div>
