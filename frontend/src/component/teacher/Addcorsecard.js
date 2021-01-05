@@ -3,7 +3,10 @@ import { storage } from './firebase';
 import axios from 'axios';
 import { Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { toast } from "react-toastify";
 
+/********************************************** */
+toast.configure();
 class Addcorsecard extends Component {
   
 
@@ -95,9 +98,13 @@ class Addcorsecard extends Component {
     var userId = localStorage.getItem('id');
     console.log(task);
     const res = await axios.post('http://localhost:8000/teacher/addcard', task) //create?
-    
+    console.log(res.data);
     this.setState({ courseId : res.data._id })
-  
+    if (res.status === 200) 
+    toast("Success! New course is added", { type: "success" });
+  else {
+      toast("Something went wrong", { type: "error" });
+    } 
     const data = await axios.post("http://localhost:8000/user/addNewCourse/"+userId,{id:this.state.courseId});
     console.log(data , this.state.courseId);
     
