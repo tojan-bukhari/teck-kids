@@ -13,6 +13,7 @@
 font-size: calc(10px + 2vmin); 
 font-family: cursive;
 
+
    color:  #d6ac74
   }
 #ididid{
@@ -25,6 +26,8 @@ font-family: cursive;
 font-weight: 800;
 margin-top: 100px;
 text-shadow: 2px 2px #1e856b; 
+box-shadow: 5px 10px 10px #888888 ,
+10px 20px 20px #888888;
  }
   .drag-n-drop {
     margin:0 auto; 
@@ -50,11 +53,13 @@ text-shadow: 2px 2px #1e856b;
     justify-content: center;
     align-items: center;
     min-height: 60px;
-    background-color:   #18d193; ;
+    background-color:   #cee6cd; ;
     border-radius: 90px;
     color: #000000;
     font-weight: bold;
     font-family: cursive;
+    box-shadow: 5px 10px 10px #888888 ,
+    10px 20px 20px #888888;
 
   } 
   .dnd-item:not(:last-of-type) {
@@ -72,5 +77,5 @@ text-shadow: 2px 2px #1e856b;
     font-size: 1.5rem;
   }
   .current {
-    background-color:  #70dab6;
+    background-color:  #85747e;
   }
