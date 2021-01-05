@@ -1,7 +1,6 @@
 import React, {useState, useRef} from 'react'
 import { Button, Modal} from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
-import './vv.css';
 
 
 
