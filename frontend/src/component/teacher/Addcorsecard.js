@@ -101,9 +101,9 @@ class Addcorsecard extends Component {
     console.log(res.data);
     this.setState({ courseId : res.data._id })
     if (res.status === 200) 
-    toast("Success! New course is added", { type: "success" });
+    toast("Success! New course is added ", { type: "success" });
   else {
-      toast("Something went wrong", { type: "error" });
+      toast("Something went wrong :(", { type: "error" });
     } 
     const data = await axios.post("http://localhost:8000/user/addNewCourse/"+userId,{id:this.state.courseId});
     console.log(data , this.state.courseId);

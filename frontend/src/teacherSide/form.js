@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import {storage} from '../component/teacher/firebase'
 import axios from 'axios';
+import { toast } from "react-toastify";
 const queryString = require('query-string');
 
-
+/***************************************/
+toast.configure();
 
 class Form extends Component {
   constructor(props) {
@@ -108,8 +110,11 @@ class Form extends Component {
       courseId:courseId.id
     }
     console.log(task);
-    axios.post('http://localhost:8000/materials/add', task) //create?
-      .then(res => console.log(res.data));
+    const response = axios.post('http://localhost:8000/materials/add', task) //create?
+    response.then(res => toast("Success &#128516; ! New Lesson is added ", { type: "success" }));
+    response.catch(res =>      toast("Something went wrong &#128531;", { type: "error" }))
+    console.log(response.status);
+  
 
     console.log(task);
     //window.location = '/teachersM'
