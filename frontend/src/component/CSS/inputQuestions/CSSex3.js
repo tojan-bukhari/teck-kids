@@ -8,22 +8,19 @@ function CSSex3() {
 
     const [ userAnswers , setUserAnswers ] =  useState();
     var correctAnswers = ['margin-left:"20px"']
+    const handleShow = () => setShow(true);
+
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
   //  const handleShow = () => setShow(true);
     var [ Val,setVal ] =  useState();
+    localStorage.setItem('userA',userAnswers)
 
-    const handleShow = ()=>{
-        if(userAnswers === correctAnswers[0])
-        {
-          setVal(true);
-          setShow(true);
-          console.log('correct',Val)
-        }
-        else
-        console.log("try Again")
+    const handleShow3 = ()=>{
+      setVal(true)
+      handleShow()
+       
     }
-    
     return (
 
         <div>
@@ -73,19 +70,32 @@ function CSSex3() {
             </span>
         
     <div>
-            <Button as="input" className="btn btn-primary" type="submit" value="Submit"  onClick={handleShow} />{' '}
-            <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Woohoo!!!!</Modal.Title>
-        </Modal.Header>
-        <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg" alt='apple'/>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={()=>{history.push('/CSS/ex4')}}> Go to the Next exersise </Button>
-        </Modal.Footer>
-      </Modal>
+    {localStorage.getItem('userA') ===  'margin-left:"20px"'||localStorage.getItem('userA')=== "margin-left:'20px'"?  
+
+    <div>  
+      
+         <Button variant="primary" onClick={handleShow3}> SUBMIT </Button>
+
+    <Modal show={show} onHide={handleClose}> 
+      <Modal.Header closeButton>
+        <Modal.Title>Woohoo!!!!</Modal.Title>
+      </Modal.Header>
+      <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg" alt="css"/>
+      <Modal.Footer>
+        
+        <Button variant="primary" onClick={()=>{history.push('/CSS/ex3')}}> Go to the Next exersise </Button>
+      </Modal.Footer>
+    </Modal></div>:<div>  
+         <Button variant="primary" onClick={handleShow}> SUBMIT </Button>
+
+    <Modal show={show} onHide={handleClose}>
+      <Modal.Header closeButton>
+        <Modal.Title>Try Again!!!!</Modal.Title>
+      </Modal.Header>
+      <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159020.svg" alt="css"/>
+      <Modal.Footer>
+      </Modal.Footer>
+    </Modal></div>}
       </div>
        
         </div>
