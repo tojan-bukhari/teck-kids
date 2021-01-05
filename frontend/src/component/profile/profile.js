@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import React from 'react';
 import { Avatar } from 'antd';
@@ -8,6 +7,8 @@ import { Link, withRouter } from "react-router-dom";
 import ProfilePicChanger from "./profilePicChanger";
 import HtmlCard from '../CourseCards/HtmlCard';
 import CssCard from '../CourseCards/CssCard';
+const queryString = require('query-string');
+
 
 /************************************************** */
 

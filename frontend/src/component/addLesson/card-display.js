@@ -62,12 +62,8 @@ export default function CardDisplay() {
             <div>
 
 
-      
-        {data.map((card,i) => (
-            <>
-            <Divider orientation="left">sub-element align full</Divider>
-           <Row justify="space-around" gutter={40}> 
-            <Col  key={i}>
+      <Row justify="space-around" gutter={40}> 
+        { data.map((card,i) => (   <Col  key={i}>
             <Card
               hoverable
               style={{ width: 400 ,hight: 200 , margin : 'auto'}}
@@ -99,12 +95,10 @@ export default function CardDisplay() {
                 <br />
              </>,
             </Card>
-         </Col>  
-          </Row>
-          </>
-        ))}
+         </Col>  ))}
        
-    
+       
+    </Row>
          
         </div>
        
