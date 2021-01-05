@@ -72,7 +72,7 @@ export default class calender extends Component {
               <th ></th>
               <td >video</td>
               
-              <Link to="/firrrre">
+              <Link to="/addNewLesson:kk">
                <button type="button">
                 Add Lessons
               </button>

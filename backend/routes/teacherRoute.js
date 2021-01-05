@@ -16,12 +16,6 @@ router.post('/addcard', (req , res)=>{
 
 })
 
-// router.get("/card/:id", function(req, res) {
-//     Card.findById(req.params.id)
-//     .then(card => res.json(card))
-//     .catch(err => res.status(400).json("Error: " + err));
-//   });
-// get all card used in card-display
   router.get('/card' , function (req , res) {
     console.log(req.params.id)
      const card = Card.find()

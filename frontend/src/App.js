@@ -22,9 +22,7 @@ import teacherpage from './teacherSide/matierialsPage'
 import Chat from './component/chatroom/Chat';
 import Join from './component/chatroom/join'
 import EditMatreals from './teacherSide/edit'
-import DashboardPage from "./component/Pages/dashboard";
-import io from "socket.io-client";
-import ChatroomPage from "./component/Pages/chatRoom";
+
 
 /****************************************************************** */
 
@@ -49,8 +47,8 @@ function App() {
           <Route exact path="/CSS/ex4" component={CSSex4} />
           <Route  path="/teacher/addcard" component={Addcorsecard} />
           <Route  path="/teacher/card" component={card} />
-          <Route path="/account/:id" component={Personalprofile}  />
-          <Route  path="/firrrre:kk" component={firrrre} />
+          <Route path="/account/" component={Personalprofile}  />
+          <Route  path="/addNewLesson:kk" component={firrrre} />
           <Route path="/teachersM" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
           

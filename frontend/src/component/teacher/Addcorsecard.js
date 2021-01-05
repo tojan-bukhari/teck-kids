@@ -3,7 +3,6 @@ import { storage } from './firebase';
 import axios from 'axios';
 import { Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-const queryString = require('query-string');
 
 class Addcorsecard extends Component {
   
@@ -173,7 +172,7 @@ class Addcorsecard extends Component {
 
             <div>
               <Button type="submit" value="Submit" className="btn btn-deep-orange darken-4">Submit</Button>
-              <Link to={`/firrrre ?id=${this.state.courseId}`} style={{fontSize:'1.2rem'}}>Lets go and add a  lesson &#x261D; &#128515; </Link>
+              <Link to={`/addNewLesson ?id=${this.state.courseId}`} style={{fontSize:'1.2rem'}}>Lets go and add a  lesson &#x261D; &#128515; </Link>
 
             </div>
           </form>

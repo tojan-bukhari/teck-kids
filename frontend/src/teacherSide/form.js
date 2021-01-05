@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {storage} from '../component/teacher/firebase'
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
 const queryString = require('query-string');
 
 

@@ -1,4 +1,3 @@
-
 import axios from 'axios';
 import React from 'react';
 import { Avatar } from 'antd';
@@ -9,6 +8,7 @@ import ProfilePicChanger from "./profilePicChanger";
 import HtmlCard from '../CourseCards/HtmlCard';
 import CssCard from '../CourseCards/CssCard';
 import { Card } from 'antd';
+import { Button} from 'react-bootstrap';
 
 /************************************************** */
 
@@ -30,8 +30,9 @@ class Personalprofile extends React.Component {
             cssCourse:'',
             jsCourse:'',
             role:localStorage.getItem("role"),
-            courses:[],
-            array:[]
+            courses:[],//contains the courses id of the user
+            array:[1,2,3]//contains the coursees returend from the db to render it 
+            
         }
 
     }
@@ -53,7 +54,7 @@ class Personalprofile extends React.Component {
 
     componentDidMount= async()=> {
         console.log(this.state.role)
-       try{
+       try{//bring info of the user 
         await axios.get("http://localhost:8000/user/account/" + this.state.id)
             .then(res => {
                 console.log(res.data)
@@ -72,36 +73,37 @@ class Personalprofile extends React.Component {
                  
             })
            var data = this.state.courses
-            await 
-            data.map((courseId)=>{
-                axios.get("http://localhost:8000/teacher/card/"+courseId)
-                .then(res=>{
-                    console.log('this is card',res.data)
-                    this.setState({array:res.data})
+           var myCourses = []
+           await
+            data.map((courseId) => (
+             axios.get("http://localhost:8000/teacher/card/"+courseId)//return the information of the courses the user teach
+                .then(res=>{ 
+                    this.setState({course:res.data})
+                 myCourses.push(res.data)
+                this.setState({array:myCourses})
                 })
-
-                // to render the courses we need to loop then render 
-                // axios get course by id 
-        
-            })
+            )
+            
+            ,[])
         }catch(error) {
             alert(error)
             } 
-        
-    } 
+   } 
    
 
     render() {
+        const { Meta } = Card;
         if(this.state.htmlCourse){
             var x = <HtmlCard />
         }
         if(this.state.cssCourse){
             var y = <CssCard />
         }
-        // console.log(this.state.array)
-        await 
-        var data = this.state.array
-        console.log('this is data',data)
+        if(this.state.array){
+            console.log('crdddddd', this.state.array)
+            
+            
+        }
         return (
             <div>
                 <span> {this.state.role==="teacher"? "hello teacher" : "helllo student" }</span>
@@ -131,27 +133,29 @@ class Personalprofile extends React.Component {
              </div>
              <br/>
              <label>{this.state.role==="teacher"? "to add a card that will help u to show your lessons" :  "learn a new lesson"} </label>
-             <button>{this.state.role==="teacher"? <Link to="/teacher/addcard"> Add card </Link>:<Link to="/"> register to lesson </Link>}</button> <br/>
-             {this.state.role==="teacher"? <button><Link to="/firrrre"> Add a new lesson </Link></button>: null }
+             <Button>{this.state.role==="teacher"? <Link to="/teacher/addcard" style={{color:'white'}}> Add New Course </Link>:<Link to="/"> register to lesson </Link>}</Button> <br/>
             {this.state.role==="teacher"?
              <div>
                  <h3>My Courses</h3>
-                 <ol>
-                    {data.map((course,i)=>{
-                        const { Meta } = Card;
+                <ol>
+                
+                    {(this.state.array).map((course,i)=>{
+                        return(
+                        
                         <li key={i}>
-                            <Card 
+                            <Card
                             hoverable
-                            style={{ width: 400 ,hight: 200 , margin : 'auto'}}
-                            cover={<img alt="example" src={course.image} />}>
+                            style={{ width: 400 ,hight: 200 , margin : 'auto',padding:'1rem'}}
+                            cover={<img alt="courseImg" src={course.image} />}>
                             <Meta title={course.Title} description={course.Desceription} />
-                                
-                            </Card>
 
+                            <Link to={`/addNewLesson ?id=${course._id}`} style={{fontSize:'1.2rem', padding:'2rem'}} > Add a new lesson </Link>
+                            </Card>
                         </li>
+                    )
+                    
                     })}
                  </ol>
-
              </div>
              : <div> this is may payed corses</div>}
              </div>
