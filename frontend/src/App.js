@@ -21,7 +21,6 @@ import firrrre from './component/addLesson/formLesson'
 import teacherpage from './component/addLesson/matierialsPage'
 import Chat from './component/chatroom/Chat';
 import Join from './component/chatroom/join'
-<<<<<<< HEAD
 import EditMatreals from './component/addLesson/editLesson'
 import DashboardPage from "./component/Pages/dashboard";
 import io from "socket.io-client";
@@ -31,10 +30,6 @@ import './App.css'
 // import DashboardPage from "./component/Pages/dashboard";
 // import io from "socket.io-client";
 // import ChatroomPage from "./component/Pages/chatRoom";
-=======
-import EditMatreals from './teacherSide/edit'
-
->>>>>>> 6aaa812da2d7b6348373e7ce08f041a6fd733a8d
 
 
 function App() {
@@ -59,33 +54,13 @@ function App() {
           <Route exact path="/CSS/ex4" component={CSSex4} />
           <Route exact path="/teacher/addcard" component={Addcorsecard} />
           <Route  path="/teacher/card" component={card} />
-<<<<<<< HEAD
           <ProtectedRoute exact path="/account/:id" component={Personalprofile}  isAuth={localStorage.length > 0} />
-          <Route  path="/firrrre" component={firrrre} />
-          <Route path="/teachersM:id" component={teacherpage} />
-=======
-          <Route path="/account/" component={Personalprofile}  />
           <Route  path="/addNewLesson:kk" component={firrrre} />
           <Route path="/Lissons:kk" component={teacherpage} />
->>>>>>> 6aaa812da2d7b6348373e7ce08f041a6fd733a8d
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
           <Route path="/Chat" component={Chat} />
           <Route path="/Join" component={Join} />
           <Route exact path="/cchatroom" component={Chat} />
-<<<<<<< HEAD
-          {/* {<Route
-          path="/dashboard"
-          render={() => <DashboardPage socket={socket} />}
-          exact
-         /> }
-        {<Route
-          path="/chatroom/:id"
-          render={() => <ChatroomPage socket={socket} />}
-          exact
-         /> } */}
-=======
-        
->>>>>>> 6aaa812da2d7b6348373e7ce08f041a6fd733a8d
           <Exercises />
         </Switch>
       </BrowserRouter>
@@ -94,5 +69,3 @@ function App() {
 
 };
 export default App; 
-
-//

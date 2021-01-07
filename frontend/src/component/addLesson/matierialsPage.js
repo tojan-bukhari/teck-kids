@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 const queryString = require('query-string');
-<<<<<<< HEAD:frontend/src/component/addLesson/matierialsPage.js
-=======
-
-/******************************* */
->>>>>>> 6aaa812da2d7b6348373e7ce08f041a6fd733a8d:frontend/src/teacherSide/matierialsPage.js
  
 const Task = props => (
   <tr>
@@ -16,16 +11,9 @@ const Task = props => (
     <td>
     <iframe title="myFrame" src= {props.task.video}width='600' height='400' className="w3-round" alt="TheLessonVedio" />
     </td>
-<<<<<<< HEAD:frontend/src/component/addLesson/matierialsPage.js
- 
-    {localStorage.getItem("role")==="teacher"? <td> <Link to={"/EditMatreals/"+props.task._id}>edit</Link></td>:null}
-    {localStorage.getItem("role")==="teacher"? <td> <a href="/teachersM"  onClick={() => { props.deleteTask(props.task._id) }}>delete</a></td>  :null}
-
-=======
     <td>
       <Link to={"/EditMatreals/"+props.task._id}>edit</Link> <a href="/Lissons:kk"  onClick={() => { props.deleteTask(props.task._id) }}>delete</a>
     </td>
->>>>>>> 6aaa812da2d7b6348373e7ce08f041a6fd733a8d:frontend/src/teacherSide/matierialsPage.js
   </tr>
 ) 
 export default class calender extends Component {
@@ -39,17 +27,9 @@ export default class calender extends Component {
      };
   }
   componentDidMount() {
-<<<<<<< HEAD:frontend/src/component/addLesson/matierialsPage.js
-    console.log("this is the id",queryString.parse(this.props.location.search));
-    const courseId = queryString.parse(this.props.location.search);
-    this.setState({courseId:courseId})
-
-    axios.get('http://localhost:8000/materials/')
-=======
     const courseId = queryString.parse(this.props.location.search);
     console.log(courseId);
     axios.get('http://localhost:8000/materials/lessons/'+courseId.id)
->>>>>>> 6aaa812da2d7b6348373e7ce08f041a6fd733a8d:frontend/src/teacherSide/matierialsPage.js
       .then(response => {
         this.setState({
           tasks: response.data,
@@ -97,19 +77,11 @@ export default class calender extends Component {
               <th ></th>
               <td >video</td>
               
-<<<<<<< HEAD:frontend/src/component/addLesson/matierialsPage.js
-            
-
-              {/* {this.state.role==="teacher"? <button><Link to="/firrrre"> Add a new lesson </Link></button>: null } */}
-
-
-=======
               <Link to="/addNewLesson:kk">
                <button type="button">
                 Add Lessons
               </button>
               </Link>
->>>>>>> 6aaa812da2d7b6348373e7ce08f041a6fd733a8d:frontend/src/teacherSide/matierialsPage.js
             </tr>
           </thead>
           <tbody>
