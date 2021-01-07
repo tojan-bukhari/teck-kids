@@ -12,7 +12,6 @@ function CSSex3() {
   const history = useHistory();
 
   const [ userAnswers , setUserAnswers ] =  useState();
-  var correctAnswers = ['margin-left:"20px"']
   const handleShow = () => setShow(true);
 
   const [show, setShow] = useState(false);
@@ -33,6 +32,32 @@ function CSSex3() {
 
 
 <Row>
+
+<Col  span={12}>  <div  id="textt">
+  <pre>
+  <br></br>
+
+  &lt;!<span style={{color:"#C71585"}}>DOCTYPE</span><span style={{color:"#8B008B"}}>html</span>&gt;
+  <br></br>
+&lt;<span style={{color:"#C71585"}}>html</span> &gt;<br></br>
+&lt;<span style={{color:"#C71585"}}>head</span> &gt;<br></br>
+&lt;<span style={{color:"#C71585"}}>style</span> &gt;<br></br>
+<span style={{color:"#7FFF00"}}>.apple </span> {"{"}  <br></br>
+<span style={{color:"	#00FFFF"}}>background-color: lightblue; </span>  <br></br>
+<br></br><input type="text" id="q3" size="18" maxLength="18" placeholder='Fill the answer' onChange={(e)=>{setUserAnswers(e.target.value)}} />   <br></br>
+<br/>  {"}"}  <br></br>
+&lt;/<span style={{color:"#C71585"}}>style</span> &gt;<br></br>
+&lt;/<span style={{color:"#C71585"}}>head</span> &gt;<br></br>
+&lt;<span style={{color:"#C71585"}}>body</span> &gt;<br></br>
+
+&lt;<span style={{color:"#C71585"}}>h1</span> &gt; <span style={{color:"#FFFAF0"}}>This is a Heading </span> &lt;/<span style={{color:"#C71585"}}>h1</span> &gt;    <br></br>
+&lt;<span style={{color:"#C71585"}}>p</span> &gt; <span style={{color:"#FFFAF0"}}>This is a paragraph</span> &lt;/<span style={{color:"#C71585"}}>p</span> &gt;     <br></br>
+&lt;<span style={{color:"#C71585"}}>dev</span> <span style={{color:"#7FFF00"}}>class</span> = <span style={{color:"#FFD700"}}>''apple''</span> &gt;<br></br>
+&lt;<span style={{color:"#C71585"}}>img</span> <span style={{color:"#7FFF00"}}>src</span> = <span style={{color:"#FFD700"}}>''apple.png''</span> &gt;<br></br>
+&lt;/<span style={{color:"#C71585"}}>div</span> &gt;<br></br>
+&lt;/<span style={{color:"#C71585"}}>body</span> &gt;<br></br>
+&lt;/<span style={{color:"#C71585"}}>html</span> &gt;<br></br>
+</pre> </div></Col>
 <Col  id="apples" span={12}>
   <div  id="applesB" style={{borderStyle: 'solid',width:'350px', }}>
 <ul style={{ marginLeft: Val ? '100px' : '10px',width:'500px'}}>
@@ -77,31 +102,6 @@ function CSSex3() {
   </Modal></div>}
     </div>
 </Col>
-<Col  span={12}>  <div  id="textt">
-  <pre>
-  <br></br>
-
-  &lt;!<span style={{color:"#C71585"}}>DOCTYPE</span><span style={{color:"#8B008B"}}>html</span>&gt;
-  <br></br>
-&lt;<span style={{color:"#C71585"}}>html</span> &gt;<br></br>
-&lt;<span style={{color:"#C71585"}}>head</span> &gt;<br></br>
-&lt;<span style={{color:"#C71585"}}>style</span> &gt;<br></br>
-<span style={{color:"#7FFF00"}}>.apple </span> {"{"}  <br></br>
-<span style={{color:"	#00FFFF"}}>background-color: lightblue; </span>  <br></br>
-<br></br><input type="text" id="q3" size="18" maxLength="18" placeholder='Fill the answer' onChange={(e)=>{setUserAnswers(e.target.value)}} />   <br></br>
-<br/>  {"}"}  <br></br>
-&lt;/<span style={{color:"#C71585"}}>style</span> &gt;<br></br>
-&lt;/<span style={{color:"#C71585"}}>head</span> &gt;<br></br>
-&lt;<span style={{color:"#C71585"}}>body</span> &gt;<br></br>
-
-&lt;<span style={{color:"#C71585"}}>h1</span> &gt; <span style={{color:"#FFFAF0"}}>This is a Heading </span> &lt;/<span style={{color:"#C71585"}}>h1</span> &gt;    <br></br>
-&lt;<span style={{color:"#C71585"}}>p</span> &gt; <span style={{color:"#FFFAF0"}}>This is a paragraph</span> &lt;/<span style={{color:"#C71585"}}>p</span> &gt;     <br></br>
-&lt;<span style={{color:"#C71585"}}>dev</span> <span style={{color:"#7FFF00"}}>class</span> = <span style={{color:"#FFD700"}}>''apple''</span> &gt;<br></br>
-&lt;<span style={{color:"#C71585"}}>img</span> <span style={{color:"#7FFF00"}}>src</span> = <span style={{color:"#FFD700"}}>''apple.png''</span> &gt;<br></br>
-&lt;/<span style={{color:"#C71585"}}>div</span> &gt;<br></br>
-&lt;/<span style={{color:"#C71585"}}>body</span> &gt;<br></br>
-&lt;/<span style={{color:"#C71585"}}>html</span> &gt;<br></br>
-</pre> </div></Col>
 </Row>
 </span> 
       </div>
