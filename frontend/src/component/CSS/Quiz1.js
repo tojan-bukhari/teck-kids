@@ -59,6 +59,7 @@ export default class Quiz extends Component {
                 clickedAnswer: answer
             });
         }
+        localStorage.setItem("score", score)
     }
 
     // method to move to the next question
@@ -90,7 +91,6 @@ export default class Quiz extends Component {
                             clickedAnswer={clickedAnswer}
                         />
                         <button
-                         style={{marginLeft:"450px"}}
                         className="NextStep"
                         disabled={
                             clickedAnswer && Object.keys(quiestions).length >= step
@@ -98,16 +98,13 @@ export default class Quiz extends Component {
                         }
                         onClick={() => this.nextStep(step)}>Next</button>
                     </>) : (
+                        <div className="finalPage">
+                                                        <h1 style={{marginLeft:"70px",color:"white",fontFamily: "Cursive"}}>You have completed the quiz!</h1>
 
-                        <div className="finalPage" >
-                            <div style={{marginLeft:"-100px"}}>
-                            <h1 style={{marginLeft:"70px",color:"white",fontFamily: "Cursive"}} >You have completed the quiz!</h1>
-                            <span  style={{ fontFamily: "Cursive"	}}>Your score is: {score} of {Object.keys(quiestions).length}</span>
-                            <span style={{ fontFamily: "Cursive"	}}>Thank you!</span>
-                            <button  className="Ne" onClick={this.handleClick}  style={{background:""}} >next ex</button>
+                            <span style={{borderStyle: 'solid',width:'350px', }}>Your score is: {score} of {Object.keys(quiestions).length}</span>
+                             <Example />
 
-
-                        </div></div>
+                        </div>
                     )
                 }
             </div>
@@ -124,17 +121,16 @@ function Example() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
   
-    return (
+    return ( 
       <>
-        <Button variant="primary" onClick={handleShow}>
-          Launch demo modal
-        </Button>
+      {localStorage.getItem("score")=== '2'||localStorage.getItem("score")===  '1' ?<div> <Button variant="primary" onClick={handleShow}>
+WOHOOOOOO        </Button>
   
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>WOHOOOOOO</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Body>GREATE JOB!</Modal.Body>
           <img src= "https://www.flaticon.com/svg/static/icons/svg/3158/3158981.svg" alt="css"/>
 
           <Modal.Footer>
@@ -144,7 +140,26 @@ function Example() {
             <Button variant="primary" onClick={()=>{history.push('/ex2CSS')}}> Go to the Next exersise </Button>
 
           </Modal.Footer>
-        </Modal>
+        </Modal></div>:<div> <Button variant="primary" onClick={handleShow}>
+try again        </Button>
+  
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Hmmm</Modal.Title>
+          </Modal.Header>
+          <Modal.Body> try Again!</Modal.Body>
+          <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159020.svg" alt="css"/>
+
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={()=>window.location.reload(false)
+}> try Again </Button>
+
+          </Modal.Footer>
+        </Modal></div> }  
+       
       </>
     );
   }

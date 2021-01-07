@@ -12,7 +12,6 @@ function CSSex3() {
   const history = useHistory();
 
   const [ userAnswers , setUserAnswers ] =  useState();
-  var correctAnswers = ['margin-left:"20px"']
   const handleShow = () => setShow(true);
 
   const [show, setShow] = useState(false);
