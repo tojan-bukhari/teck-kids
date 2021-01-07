@@ -13,6 +13,8 @@ import ex2CSS from "../component/CSS/draganddropex/data"
 import ex1CSS from "../component/CSS/Quiz1"
 import EX5CSS from "../component/CSS/Quiz5"
 import EX6CSS from "../component/CSS/draganddropexex5/data"
+import EX7CSS from "../component/CSS/inputQuestions/CSSex7"
+
 
 
 
@@ -37,6 +39,8 @@ function Exercises() {
 <Route path='/ex2CSS' component={ex2CSS} />
 <Route path='/CSS/ex5' component={EX5CSS} />
 <Route path='/ex6CSS' component={EX6CSS} />
+<Route path='/CSS/ex7' component={EX7CSS} />
+
 
 
 
