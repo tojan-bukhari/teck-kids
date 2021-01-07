@@ -28,6 +28,5 @@ export const SidebarData = [
     title: 'Exercises ',
     path: '/ex1CSS',
     cName: 'nav-text'
-  },
- 
+  }
 ];
