@@ -22,6 +22,7 @@ import teacherpage from './component/addLesson/matierialsPage'
 import Chat from './component/chatroom/Chat';
 import Join from './component/chatroom/join'
 import EditMatreals from './component/addLesson/editLesson'
+import './App.css'
 // import DashboardPage from "./component/Pages/dashboard";
 // import io from "socket.io-client";
 // // import makeToast from "./component/Toaster";

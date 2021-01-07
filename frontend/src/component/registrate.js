@@ -63,48 +63,53 @@ const submit =async (e)=>{
   
   }
  
-   return ( 
+   return (
+    <div  className = 'logIn'>
+      <span>
+        <Avatar  style={{marginLeft:"900px",width:"120px",height:"120px",marginBottom:"-300px"}}size={64} icon={<UserOutlined />} src=""/>
+</span>
   <div className="container p-5">
-    <div style={{marginLeft:"-200px"}}>
+    
+    <div style={{marginLeft:"-130px",marginTop:"-70px"}}>
+
     <form>
-    <Avatar size={64} icon={<UserOutlined />} src=""/>
         <div className="form-group">
-            <label className="text-muted">userName: </label>
+            <label className="text-muted"  style={{color:"white"}}>userName: </label>
             <input id="reg-name" type="text" className="form-control" placeholder="Enter Your name" required onChange={(e)=>{setName(e.target.value)}} />
           
         </div>``
       
         <div className="form-group">
-            <label className="text-muted"> age : </label>
+            <label className="text-muted"  style={{color:"white"}}> age : </label>
             <input id="reg-age" type="age" className="form-control" placeholder="Enter Your age" required onChange={(e)=>{setage(e.target.value)}}/>
         </div>
         <div className="form-group">
-            <label className="text-muted"> Email : </label>
+            <label className="text-muted"  style={{color:"white"}}> Email : </label>
             <input id="reg-email" type="email" className="form-control" placeholder="Enter Your email" required onChange={(e)=>{setEmail(e.target.value)}}/>
             <span  style={{color:"red",marginLeft:"-200px"}}>{errors.email &&<span>{errors.email}</span>}</span> 
 
         </div>
         <div className="form-group">
-            <label className="text-muted"> Password : </label>
+            <label className="text-muted"  style={{color:"white"}}> Password : </label>
             <input id="reg-pass" type="password" className="form-control" placeholder="Enter Your Password" required onChange={(e)=>{setPassword(e.target.value)}}/>
             <span  style={{color:"red",marginLeft:"-200px"}}>{errors.password &&<span>{errors.password}</span>}</span> 
 
         </div>
         <div>
           
-          <label className="text-muted"> choose ur Role : </label>
+          <label className="text-muted"  > choose ur Role : </label>
           <Select defaultValue="student"  style={{ width: 200 }} onChange={handleChange}>
-           <Option value="teacher">Teacher</Option>
-           <Option value="student">Student</Option>
+           <Option value="teacher"  >Teacher</Option>
+           <Option value="student"  >Student</Option>
           </Select>
         </div>
         <div>
-            <button onClick={submit} className="btn btn-primary"> Submit </button> <br/><br/>
-            <span>alredy have account?<Link to='/login' >Login</Link></span>
+            <button onClick={submit} className="btn btn-primary"  style={{backgroundColor:"red",marginLeft:"150px"}}> Submit </button> <br/><br/>
+            <span style={{color:"white"}}>alredy have account?<Link to='/login' >Login</Link></span>
             
         </div>
     </form>
-  </div></div>
+  </div></div></div>
 )};
 
 export default Create;
