@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+const queryString = require('query-string');
+ 
 const Task = props => (
   <tr>
     <td>{props.task.material}</td>
@@ -22,16 +23,22 @@ export default class calender extends Component {
     this.deleteTask = this.deleteTask.bind(this)
     this.state = {
       tasks: [],
-      role:localStorage.getItem("role")
+      role:localStorage.getItem("role"),
+      courseId: ''
      };
   }
   componentDidMount() {
+    console.log("this is the id",queryString.parse(this.props.location.search));
+    const courseId = queryString.parse(this.props.location.search);
+    this.setState({courseId:courseId})
+
     axios.get('http://localhost:8000/materials/')
       .then(response => {
         this.setState({
           tasks: response.data,
           
         })
+        console.log('this is my data', response.data)
         })
       .catch((error) => {
          console.log(error);
@@ -57,6 +64,7 @@ export default class calender extends Component {
   }
  
   render() {
+
     
     return (
       
@@ -64,6 +72,7 @@ export default class calender extends Component {
         <div>
        
         <table className="table table-bordered">
+          <div style={{color:'red'}}></div>
           <thead>
             <tr>
             <th></th>
@@ -73,7 +82,7 @@ export default class calender extends Component {
               
             
 
-              {this.state.role==="teacher"? <button><Link to="/firrrre"> Add a new lesson </Link></button>: null }
+              {/* {this.state.role==="teacher"? <button><Link to="/firrrre"> Add a new lesson </Link></button>: null } */}
 
 
             </tr>

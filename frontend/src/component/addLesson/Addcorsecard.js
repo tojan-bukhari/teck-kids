@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { storage } from './firebase';
 import axios from 'axios';
-
+import {Form , Button} from 'react-bootstrap'
 
 class Addcorsecard extends Component {
   constructor(props) {
@@ -96,74 +96,41 @@ class Addcorsecard extends Component {
 
   render() {
     return (
-      <div>
-        <br />
-        <div className="container">
-          <form className="text-center border border-light p-9" action="#!" onSubmit={this.onSubmit} >
-            <div className="col">
-              <h3>Add image</h3>
-              <input
-                type="file"
-                required="true"
-                className="form-control"
-                onChange={this.onChangeimage}
-              />
-            </div>
-            <button onClick={this.handleUpload}>Upload</button>
-
-            <br />
-            <iframe  title="myFrame" src={this.state.url} alt="firebase-image" width='400' height='400' ></iframe>
-            <p className="h4 mb-4">matireal</p>
-            <br />
-
-
-            <br />
-
-            <div className="col">
-              <h3>Title  </h3>
-
-              <input
-                required="{true}"
-                type="text"
-                className="form-control"
-                value={this.state.title}
-                onChange={this.onChangeTitle}
-                text-align="center"
-                placeholder="Insert Course Name" />
-            </div>
-
-
-            <br />
-
-            <div className="col">
-              <h3>Description  </h3>
-              <input
-                type="text"
-                required="{true}"
-                className="form-control"
-                value={this.state.description}
-                onChange={this.onChangeDescription}
-                placeholder="Please insert a description of your item and add its current condition" />
-            </div>
-            <br />
-            <div className="col">
-              <h3>Price</h3>
-              <input
-                type="number"
-                required="{true}"
-                className="form-control"
-                value={this.state.price}
-                onChange={this.onChangePrice}
-                placeholder="add price" />
-            </div>
-
-            <br />
-
-            <div>
-              <button type="submit" value="Submit" className="btn btn-deep-orange darken-4">Submit</button>
-            </div>
-          </form>
-        </div>
+      <div 
+      style={{
+          padding: '10px',
+          width: '600px',
+          border: '4px solid #080600',
+          borderTopLeftRadius: '20px',
+          borderTopRightRadius: '20px',
+          border: '1px solid',
+          padding: '70px',
+          boxShadow: '5px 10px 10px #888888' ,
+          margin:'auto'
+                      
+      }}>
+       <Form>
+              <Form.Group>
+                <Form.File id="exampleFormControlimage" label="Add image" onChange={this.onChangeimage} />
+                <iframe  title="myFrame" src={this.state.url} alt="firebase-image" width='400' height='400' ></iframe><br/><br/>
+                <Button onClick={this.handleUpload}>Upload</Button>
+              </Form.Group> 
+              <Form.Group controlId='formBasiccourseTitel'>
+                <Form.Label>Title</Form.Label>
+                <Form.Control type='text' placeholder='Enter the course titel' onChange={this.onChangeTitle} />
+              </Form.Group>
+              <Form.Group controlId='formBasicDescription'>
+                <Form.Label>Description</Form.Label>
+                <Form.Control size="lg" type='text' placeholder='course Description' onChange={this.onChangeDescription} />
+              </Form.Group>
+              <Form.Group controlId='formBasicPrice'>
+              <Form.Label>Price</Form.Label>
+              <Form.Control type='number' onChange={this.onChangePrice} />
+              </Form.Group>
+              <Button variant='primary' type='submit' onClick={this.onSubmit}>
+                Submit
+              </Button>
+            </Form>
       </div>
     )
   }
