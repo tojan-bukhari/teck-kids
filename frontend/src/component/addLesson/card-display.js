@@ -71,7 +71,7 @@ export default function CardDisplay() {
         { data.map((card,i) => (   <Col  key={i}>
             <Card
               hoverable
-              style={{ width: 300 ,hight: 70 , margin : 'auto'}}
+              style={{ width: 350 ,hight: 70 , margin : 'auto'}}
               cover={<img alt="example" src={card.image} style={{height: '200', maxHeight: '200px',width: '350',maxWidth: '350px', }} />}
               >
               <Meta title={card.Title} description={card.Desceription} />
@@ -93,12 +93,11 @@ export default function CardDisplay() {
                     Buy this course with just ${card.price} 
                 </Button>
         }
-            </StripeCheckout><br/><br/><br/>
+            </StripeCheckout><br/>
             <>
                 <Rate defaultValue={3} />
                 <Statistic title="Feedback" value={1128} prefix={<LikeOutlined />} />
-                <br />
-             </>,
+             </>
             </Card>
          </Col>  ))}
        
