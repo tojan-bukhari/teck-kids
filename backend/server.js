@@ -105,6 +105,12 @@ app.use("/Chatroom",chatroomRoute)
 //
 //port with whatever the port will be given by heruko
 const port = process.env.PORT || 8000;
+<<<<<<< HEAD
+=======
+// server.listen(port, () => {
+//     console.log(`Server is running on port: ${port}`);
+// });
+>>>>>>> 6aaa812da2d7b6348373e7ce08f041a6fd733a8d
 server.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
 });

@@ -16,11 +16,6 @@ router.post('/addcard', (req , res)=>{
 
 })
 
-// router.get("/card/:id", function(req, res) {
-//     Card.findById(req.params.id)
-//     .then(card => res.json(card))
-//     .catch(err => res.status(400).json("Error: " + err));
-//   });
   router.get('/card' , function (req , res) {
     console.log(req.params.id)
      const card = Card.find()
@@ -32,11 +27,11 @@ router.post('/addcard', (req , res)=>{
      
  } );
  
-// GET teachers by ID 
- router.get("/account/:id", function(req, res) {
-    User.findById(req.params.id)
-    .then(users => res.json(users))
-    .catch(err => res.status(400).json("Error: " + err));
-  });
+// GET THE CARD BY ID 
+router.get("/card/:id", function(req, res) {
+  Card.findById(req.params.id)
+  .then(card => res.json(card))
+  .catch(err => res.status(400).json("Error: " + err));
+});
 
 module.exports = router;
