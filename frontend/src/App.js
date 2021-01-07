@@ -52,7 +52,7 @@ function App() {
           <Route  path="/teacher/card" component={card} />
           <ProtectedRoute exact path="/account/:id" component={Personalprofile}  isAuth={localStorage.length > 0} />
           <Route  path="/firrrre" component={firrrre} />
-          <Route path="/teachersM" component={teacherpage} />
+          <Route path="/teachersM:id" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
           <Route path="/Chat" component={Chat} />
           <Route path="/Join" component={Join} />

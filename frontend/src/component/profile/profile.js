@@ -49,32 +49,37 @@ class Personalprofile extends React.Component {
     }
 
 
-    componentDidMount() {
+    componentDidMount= async()=> {
         console.log(this.state.role)
-       
-        axios.get("http://localhost:8000/user/account/" + this.state.id)
+       try{
+        await axios.get("http://localhost:8000/user/account/" + this.state.id)
             .then(res => {
-                console.log(res.data.img+"yees")
-                console.log(this.state.id)
-                this.setState({ 
+                console.log(res.data)
+                console.log("id of teacher",this.state.id)
+                this.setState({
                     name: res.data.userName,
                     age: res.data.age,
                     img:res.data.img,
                     htmlCourse:res.data.htmlCourse,
                     cssCourse:res.data.cssCourse,
-                    jsCourse:res.data.jsCourse
+                    jsCourse:res.data.jsCourse,
+                    courses:res.data.Courses
                  })
-                 console.log(this.state)
+                 console.log("this is courses of this teacher",this.state.courses)
             })
-
-
-
-            
-            .catch((error) => {
-                console.log(error);
-            });
-        
-    } 
+           var data = this.state.courses
+           await
+            data.map((courseId) => {
+             axios.get("http://localhost:8000/teacher/card/"+courseId)
+                .then(res=>{
+                    this.setState({course:res.data})
+                //  myCourses.push(res.data)
+                })
+            },[])
+        }catch(error) {
+            alert(error)
+            }
+   }
    
 
     render() {
@@ -96,8 +101,6 @@ class Personalprofile extends React.Component {
                 // border:'2px solid pink',
                 // height:'500px',
                 // padding:'20px',
-                
-               
             }}>
       <div style={{marginLeft:"-550px",float:"left"}}>
                 
@@ -120,8 +123,11 @@ class Personalprofile extends React.Component {
              <label>{this.state.role==="teacher"? "to add a card that will help u to show your lessons" :  "learn a new lesson"} </label>
              <button>{this.state.role==="teacher"? <Link to="/teacher/addcard"> Add card </Link>:<Link to="/"> register to lesson </Link>}</button> <br/>
              {this.state.role==="teacher"? <button><Link to="/firrrre"> Add a new lesson </Link></button>: null }
-             </div>
-            
+            <br/><br/><br/><br/>
+            {/* this is a templet for all cards  */}
+             <button style={{ position: 'absolute', right: '10%', top: '55%',}}>
+                 <Link to={`/teachersM ?id=${'5ff4996c9cad610fd8bcb49e'}`}>Go To Lesson</Link></button>
+             </div> 
         )
     }
 }
