@@ -48,7 +48,6 @@ const Signin = (validate)=>{
       history.push('/')
       window.location.reload(false);
        } catch (error) {
-      // alert(error.response.data.msg)
       }
     }
   return(

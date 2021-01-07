@@ -17,6 +17,9 @@ const materialSchema = new Schema({
   video: {
     type: String,
   },
+  courseId: {
+    type: String,
+  },
   user:[{ type: mongoose.Schema.Types.ObjectId, ref:"User"}]
 
 }, {

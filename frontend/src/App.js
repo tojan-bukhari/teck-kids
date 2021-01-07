@@ -22,10 +22,13 @@ import teacherpage from './component/addLesson/matierialsPage'
 import Chat from './component/chatroom/Chat';
 import Join from './component/chatroom/join'
 import EditMatreals from './component/addLesson/editLesson'
+import DashboardPage from "./component/Pages/dashboard";
+import io from "socket.io-client";
+
+import ChatroomPage from "./component/Pages/chatRoom";
 import './App.css'
 // import DashboardPage from "./component/Pages/dashboard";
 // import io from "socket.io-client";
-// // import makeToast from "./component/Toaster";
 // import ChatroomPage from "./component/Pages/chatRoom";
 
 
@@ -53,7 +56,7 @@ function App() {
           <Route  path="/teacher/card" component={card} />
           <ProtectedRoute exact path="/account/:id" component={Personalprofile}  isAuth={localStorage.length > 0} />
           <Route  path="/firrrre" component={firrrre} />
-          <Route path="/teachersM" component={teacherpage} />
+          <Route path="/teachersM:id" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
           <Route path="/Chat" component={Chat} />
           <Route path="/Join" component={Join} />

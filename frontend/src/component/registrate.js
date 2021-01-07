@@ -6,7 +6,6 @@ import { Select } from 'antd';
 import { Link } from 'react-router-dom';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-
 /****************************************************/
 
 //use the arrow function to bind values 
