@@ -151,7 +151,7 @@ class Addcorsecard extends Component {
               <Form.Control type='number' onChange={this.onChangePrice} />
               </Form.Group>
               <div>
-              <Button type="submit" value="Submit" className="btn btn-deep-orange darken-4">Submit</Button>
+              <Button type="submit" value="Submit" className="btn btn-deep-orange darken-4" onClick={this.onSubmit}>Submit</Button>
               <Link to={`/addNewLesson ?id=${this.state.courseId}`} style={{fontSize:'1.2rem'}}>Lets go and add a  lesson &#x261D; &#128515; </Link>
 
               </div>
