@@ -6,6 +6,10 @@ import { Select } from 'antd';
 import { Link } from 'react-router-dom';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+<<<<<<< HEAD
+=======
+import robo from "./images/robo.jpg";
+>>>>>>> 08d4e8ccb4ada4d70957d35f20656229bc4314ba
 /****************************************************/
 
 //use the arrow function to bind values 
