@@ -28,16 +28,7 @@ function CSSex4() {
     setVal(true)
     handleShow()
   }
-    // const handleShow = ()=>{
-    //     if(userAnswers[0] === correctAnswers[0] && userAnswers[1] === correctAnswers[1])
-    //     {
-    //       setVal(true);
-    //       setShow(true);
-    //       console.log('correct',Val,userAnswers)
-    //     }
-    //     else
-    //     console.log("try Again")
-    // }
+   
     return (
         <div>
               <span>
@@ -58,7 +49,7 @@ function CSSex4() {
 <br></br>  <input type="text" id="q4" size="20" maxLength="30" placeholder='Fill the answer' onChange={(e)=>{setUserAnswers1(e.target.value)}} />   <br></br>
 <br/>  {"}"}  <br></br>
 <input type="text" id="q5" size="5" maxLength="5" placeholder='Fill ' onChange={(e)=>{setUserAnswers2(e.target.value)}} />   {"{"}  <br></br>
-<span style={{color:"	#00FFFF"}}>background-color: lightblue; </span>  <br></br>
+<span style={{color:"	#00FFFF"}}>background-color:lightblue;</span>  <br></br>
 {/* <br></br><input type="text" id="q3" size="18" maxLength="18" placeholder='Fill the answer' onChange={(e)=>{setUserAnswers(e.target.value)}} />   <br></br> */}
 <br/>  {"}"}  <br></br>
 
@@ -94,7 +85,7 @@ function CSSex4() {
     <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg" alt="css"/>
     <Modal.Footer>
       
-      <Button variant="primary" onClick={()=>{history.push('/CSS/ex4')}}> Go to the Next exersise </Button>
+      <Button variant="primary" onClick={()=>{history.push('/CSS/ex5')}}> Go to the Next exersise </Button>
     </Modal.Footer>
   </Modal></div>:<div>  
        <Button className="BU" variant="primary" onClick={handleShow}> SUBMIT </Button>
