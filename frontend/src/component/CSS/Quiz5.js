@@ -12,31 +12,31 @@ export default class Quiz extends Component {
     // initiating the local state
     state = {
         quiestions: {
-            1: 'What does CSS stand for?',
-            2: 'Where in an HTML document is the correct place to refer to an external style sheet?',
-            3: ' Which HTML tag is used to define an internal style sheet?'
+            1: 'How would you set a background image with CSS?',
+            2: 'What is the difference between margins and padding?',
+            3: 'What is the proper format of an CSS comment?'
         },
         answers: {
             1: {
-                1: 'Computer Style Sheets',
-                2: 'Cascading Style Sheets',
-                3: 'Control Style Sheets'
+                1: 'background-image: src();',
+                2: ' background-attachment: url();',
+                3: 'background-url:'
             },
             2: {
-                1: 'At the top of the document',
-                2: 'In the section',
-                3: 'At the end of the document'
+                1: 'Margin is the outer space of an element, while padding is the inner space of an element.',
+                2: 'padding adds whitespace and margins increase the border size',
+                3: ' margins add whitespace and padding increases the border size'
             },
             3: {
-                1: 'Style',
-                2: 'Css',
-                3: 'Script'
+                1: ' <!-- -->',
+                2: ' //',
+                3: ' /* */'
             }
         },
         correctAnswers: {
             1: '1',
-            2: '2',
-            3: '1'
+            2: '1',
+            3: '3'
         },
         correctAnswer: 0,
         clickedAnswer: 0,
@@ -137,7 +137,7 @@ WOHOOOOOO        </Button>
             <Button variant="secondary" onClick={handleClose}>
               Close
             </Button>
-            <Button variant="primary" onClick={()=>{history.push('/ex2CSS')}}> Go to the Next exersise </Button>
+            <Button variant="primary" onClick={()=>{history.push('/ex6CSS')}}> Go to the Next exersise </Button>
 
           </Modal.Footer>
         </Modal></div>:<div> <Button variant="primary" onClick={handleShow}>
