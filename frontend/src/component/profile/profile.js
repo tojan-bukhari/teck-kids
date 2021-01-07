@@ -9,7 +9,6 @@ import HtmlCard from '../CourseCards/HtmlCard';
 import CssCard from '../CourseCards/CssCard';
 import { Card } from 'antd';
 import { Button} from 'react-bootstrap';
-
 const queryString = require('query-string');
 
 
@@ -60,7 +59,7 @@ class Personalprofile extends React.Component {
        try{//bring info of the user 
         await axios.get("http://localhost:8000/user/account/" + this.state.id)
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 console.log("id of teacher",this.state.id)
                 this.setState({ 
                     name: res.data.userName,
@@ -105,6 +104,7 @@ class Personalprofile extends React.Component {
         }
       
         return (
+            
             <div style={{marginLeft:"600px"}}>
                 <span> {this.state.role==="teacher"? "hello teacher" : "helllo student" }</span>
                 
@@ -159,8 +159,9 @@ class Personalprofile extends React.Component {
                     })}
                  </ol>
              </div>
-           
+         
              </div>
+            
             
         )
     }
