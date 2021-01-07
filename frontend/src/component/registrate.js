@@ -77,7 +77,7 @@ const submit =async (e)=>{
             <label className="text-muted"  style={{color:"white"}}>userName: </label>
             <input id="reg-name" type="text" className="form-control" placeholder="Enter Your name" required onChange={(e)=>{setName(e.target.value)}} />
           
-        </div>
+        </div>``
       
         <div className="form-group">
             <label className="text-muted"  style={{color:"white"}}> age : </label>
