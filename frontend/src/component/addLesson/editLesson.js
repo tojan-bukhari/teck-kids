@@ -125,12 +125,6 @@ window.location = "/Lissons"
     <div>
       <h3  >Edit </h3>
       <form onSubmit={this.onSubmit}>
-<<<<<<< HEAD:frontend/src/component/addLesson/editLesson.js
-     
-
-=======
-  
->>>>>>> 6aaa812da2d7b6348373e7ce08f041a6fd733a8d:frontend/src/teacherSide/edit.js
         <div >
         <h1  >Material: </h1>
           <input  
