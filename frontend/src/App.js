@@ -54,7 +54,7 @@ function App() {
           <Route exact path="/CSS/ex4" component={CSSex4} />
           <Route exact path="/teacher/addcard" component={Addcorsecard} />
           <Route  path="/teacher/card" component={card} />
-          <ProtectedRoute exact path="/account/:id" component={Personalprofile}  isAuth={localStorage.length > 0} />
+          <ProtectedRoute exact path="/account/" component={Personalprofile}  isAuth={localStorage.length > 0} />
           <Route  path="/addNewLesson:kk" component={firrrre} />
           <Route path="/Lissons:kk" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
