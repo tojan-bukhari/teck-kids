@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
+
+
 //  import validate from "./component/validateLogin"
 // eslint-disable-next-line 
 /****************************************************************/
@@ -38,30 +40,33 @@ const Signin = (validate)=>{
       const newUser = { email ,password } ;
       const loginRes = await axios.post("http://localhost:8000/api/login" , newUser)
       console.log(loginRes.data.token)
+   
       localStorage.setItem("theToken", loginRes.data.token);
       localStorage.setItem("id", loginRes.data.user.id);
       localStorage.setItem("role", loginRes.data.user.role);
-      localStorage.setItem("name", loginRes.data.user.name)
+      localStorage.setItem("Name", loginRes.data.user.name)
       history.push('/')
       window.location.reload(false);
        } catch (error) {
       }
     }
   return(
-    <div style={{backgroundUrl:"black",   opacity: "0.7"}}>
-    <div>
-  <div className="container p-5" size="6" className="py-3 px-md-5" style={{marginTop: 10 + 'em'}}>
-  <form  className="form">    
- <div className="form-group" class="text-center" style={{marginTop:"-120px" ,marginLeft:"300px",border:"50px"}} >
- <label htmlFor="formGroupExampleInput">
-   <div style={{marginLeft:'px' , marginTop:"-1px" ,float:"right"}} >
- <div className="header">Login</div>
- <div className="image"  >
-            <img  src="https://cdn.dribbble.com/users/484196/screenshots/2658398/robs-rocket-3.gif" style={{height:"500px"}} />
-          </div></div>
-          <div  className= "counterForm"style={{width:"400px",float:"left" ,marginTop:"20px",borderStyle: " groove", borderWidth: "medium",height:"503px" }}>
-         <div style={{marginTop:"120px"}}>
-          <label htmlFor="username">Email</label>
+    <div  className = 'logIn'>
+      <div className ='container'>
+        <div className=" p-5 py-3 px-md-5" size="6" >
+            <form  className="form">
+            <div style={{float:"right"}}>
+                   <div className="image"  >
+            <img  src="https://cdn.dribbble.com/users/484196/screenshots/2658398/robs-rocket-3.gif" style={{height:"500px",marginTop:"-40px",float:"left",width:"500px",marginLeft:"190px" }} />
+          </div></div>    
+        <label htmlFor="formGroupExampleInput">
+          
+         <div></div>
+         <div className="logdes" style={{marginTop:"-70px",marginLeft:"-1000px",height:"34rem",width:"30rem"}}>
+          <div style={{marginTop:"140px" ,width:"400px",marginLeft:"40px"}}>
+          <h1 style={{fontFamily:"cursive",color:"red"}}>Login</h1>
+
+          <label htmlFor="username" style={{fontSize:"30px",color:"white"}}>Email</label>
 
         <InputGroup className="mb-3">
         <InputGroup.Append>
@@ -79,7 +84,7 @@ const Signin = (validate)=>{
         </InputGroup> 
        <p style={{color:"red",marginLeft:"-200px"}}>{errors.email &&<p>{errors.email}</p>}</p> 
     <div className="form-group">
-    <label htmlFor="username">Username</label>
+    <label htmlFor="username" style={{fontSize:"30px",color:"white"}}>Username</label>
 
         <InputGroup className="mb-3">
         <InputGroup.Append>
@@ -98,10 +103,11 @@ const Signin = (validate)=>{
         <p  style={{color:"red",marginLeft:"-200px"}}>{errors.password &&<p>{errors.password}</p>}</p> 
     </div>
         <div className="footer">
-            <Button as="input" className="btn btn-primary" type="submit" value="Submit"  onClick={submit}    />{' '}
-     </div>   </div></div>
-</label>   
-</div>
+            <Button  style={{marginLeft:"10rem",backgroundColor:"red"}} as="input" className="btn btn-primary" type="submit" value="Submit"  onClick={submit}    />{' '}
+     </div>     
+      <h4 style={{color:"white"}}>if you don't have account<a href="/registrate">SignUP</a> </h4>
+ </div></div>
+</label>  
     </form> 
   </div></div></div>
 )};

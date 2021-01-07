@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {storage} from './firebase'
 import axios from 'axios';
+import {Form , Button} from 'react-bootstrap'
 
-class Form extends Component {
+class Formlesson extends Component {
   constructor(props) {
     super(props);
     this.onChangeMaterial = this.onChangeMaterial.bind(this);
@@ -111,87 +112,44 @@ class Form extends Component {
   render() {
     return (
 
-
-       <div>
-        <br />
-        <div className = "container">
-       
-          <form className="text-center border border-light p-9" action="#!" onSubmit = {this.onSubmit} >
-          <div className = "col">
-                    <h1>Add video</h1>
-                    <input 
-                      type = "file" 
-                      required="true"
-                      className = "form-control" 
-                      onChange = {this.onChangevideo}
-                      />
-                  </div>  
-                  
-
-                  <button onClick={this.handleUpload}>Upload</button>
-                
-                  <br />
-                    <iframe title="myFrame" src={this.state.url} alt="firebase-video" width='600' height='400' ></iframe>
-
-             
-
-            <p className="h4 mb-4">matireal</p>
-
-                <div className="col">
-         
-                <input 
-                required="{true}"
-                  type = "text" 
-                  className = "form-control" 
-                  value = {this.state.material}
-                  onChange = {this.onChangeMaterial}
-                  text-align = "center"
-                  placeholder = "Insert Item Name"/>
-                </div>
-
-                <br />
-
-
-                <br />
-
-                <div className="col">
-                <h1>Title  </h1>
-
-                
-                <input 
-                required="{true}"
-                  type = "text" 
-                  className = "form-control" 
-                  value = {this.state.title}
-                  onChange = {this.onChangeTitle}
-                  text-align = "center"
-                  placeholder = "Insert Item Name"/>
-                </div>
-               
-
-                <br />
-
-                <div className = "col">
-                  <h1>Description  </h1>
-                  <input 
-                    type = "text" 
-                    required="{true}"
-                    className = "form-control" 
-                    value = {this.state.description} 
-                    onChange = {this.onChangeDescription}
-                    placeholder = "Please insert a description of your item and add its current condition"/>
-                </div>
-
-                <br />
-                
-                <div>
-                <button type="submit" value = "Submit" className="btn btn-deep-orange darken-4">Submit</button>
-                </div>
-          </form>
-        </div>
+      
+      <div 
+      style={{
+        padding: '10px',
+        width: '600px',
+        border: '4px solid #080600',
+        borderTopLeftRadius: '20px',
+        borderTopRightRadius: '20px',
+        border: '1px solid',
+        padding: '70px',
+        boxShadow: '5px 10px 10px #888888' ,
+        margin:'auto'
+      }}>
+      <Form>
+              <Form.Group>
+                <Form.File id="exampleFormControlimage" label="Add image" onChange = {this.onChangevideo} />
+                 <iframe  title="myFrame" src={this.state.url} alt="firebase-image" height='400' style={{ width: '100%',height: 'auto'}}></iframe>
+                 <Button  onClick={this.handleUpload}>Upload</Button>
+              </Form.Group>
+               <Form.Group controlId='formBasiccourseTitel'>
+                <Form.Label>matireal</Form.Label>
+                <Form.Control type='text' placeholder='Enter the name of lesson' onChange = {this.onChangeMaterial} />
+              </Form.Group>
+              <Form.Group controlId='formBasiccourseTitel'>
+                <Form.Label>Title</Form.Label>
+                <Form.Control type='text' placeholder='Enter the course titel' onChange={this.onChangeTitle} />
+              </Form.Group>
+              <Form.Group controlId='formBasicDescription'>
+                <Form.Label>Description</Form.Label>
+                <Form.Control size="lg" type='text' placeholder='course Description' onChange={this.onChangeDescription} />
+              </Form.Group>
+              <Button variant='primary' type='submit' onClick={this.onSubmit}>
+                Submit
+              </Button>
+            </Form>
       </div>
     )
   }
 }
 
-export default Form; 
+export default Formlesson; 

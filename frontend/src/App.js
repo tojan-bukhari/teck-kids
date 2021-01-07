@@ -24,8 +24,12 @@ import Join from './component/chatroom/join'
 import EditMatreals from './component/addLesson/editLesson'
 import DashboardPage from "./component/Pages/dashboard";
 import io from "socket.io-client";
-// import makeToast from "./component/Toaster";
+
 import ChatroomPage from "./component/Pages/chatRoom";
+import './App.css'
+// import DashboardPage from "./component/Pages/dashboard";
+// import io from "socket.io-client";
+// import ChatroomPage from "./component/Pages/chatRoom";
 
 
 function App() {

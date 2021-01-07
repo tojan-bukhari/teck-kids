@@ -7,8 +7,12 @@ const FooterPage = () => {
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
           <MDBCol md="6">
+          <img src="assets/img/logo.png" alt="Baby House"/>
+
             <h5 className="title">Footer Content</h5>
+
             <span>
+
               Here you can use rows and columns here to organize your footer
               content.
             </span>

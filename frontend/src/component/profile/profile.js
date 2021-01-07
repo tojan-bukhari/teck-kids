@@ -7,6 +7,7 @@ import { Link, withRouter } from "react-router-dom";
 import ProfilePicChanger from "./profilePicChanger";
 import HtmlCard from '../CourseCards/HtmlCard';
 import CssCard from '../CourseCards/CssCard';
+
 const queryString = require('query-string');
 
 
@@ -102,7 +103,7 @@ class Personalprofile extends React.Component {
                 // height:'500px',
                 // padding:'20px',
             }}>
-      <div style={{marginLeft:"-550px",float:"left"}}>
+            <div style={{marginLeft:"-550px",float:"left"}}>
                 
                 <Avatar  size={200} icon={<UserOutlined />} src={this.state.img} /><br/>
                 <ProfilePicChanger handelImageChange={this.handelImageChange} /><br />
@@ -123,10 +124,6 @@ class Personalprofile extends React.Component {
              <label>{this.state.role==="teacher"? "to add a card that will help u to show your lessons" :  "learn a new lesson"} </label>
              <button>{this.state.role==="teacher"? <Link to="/teacher/addcard"> Add card </Link>:<Link to="/"> register to lesson </Link>}</button> <br/>
              {this.state.role==="teacher"? <button><Link to="/firrrre"> Add a new lesson </Link></button>: null }
-            <br/><br/><br/><br/>
-            {/* this is a templet for all cards  */}
-             <button style={{ position: 'absolute', right: '10%', top: '55%',}}>
-                 <Link to={`/teachersM ?id=${'5ff4996c9cad610fd8bcb49e'}`}>Go To Lesson</Link></button>
              </div> 
         )
     }

@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React , {useState,useEffect} from 'react';
 import { Card } from 'antd';
-// import { Row, Col } from 'react-simple-flex-grid';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import StripeCheckout from 'react-stripe-checkout';
@@ -10,6 +9,7 @@ import { Button} from 'react-bootstrap';
 import { Row, Col, Divider,Statistic } from 'antd';
 import { Rate } from 'antd';
 import { LikeOutlined } from '@ant-design/icons';
+import fire from '../pices/fire.jpg';
 
 /************************************************/
 
@@ -59,15 +59,20 @@ export default function CardDisplay() {
         console.log("haio ",product);
 
     return (
-            <div>
-
+            <div
+            style={{  
+                backgroundImage: "url(" + fire + ")",
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'
+              }}>
 
       <Row justify="space-around" gutter={40}> 
         { data.map((card,i) => (   <Col  key={i}>
             <Card
               hoverable
-              style={{ width: 400 ,hight: 200 , margin : 'auto'}}
-              cover={<img alt="example" src={card.image} />}
+              style={{ width: 300 ,hight: 70 , margin : 'auto'}}
+              cover={<img alt="example" src={card.image} style={{height: '200', maxHeight: '200px',width: '350',maxWidth: '350px', }} />}
               >
               <Meta title={card.Title} description={card.Desceription} />
               <label>Teacher name :</label><span>{card.Name}</span>
@@ -79,7 +84,7 @@ export default function CardDisplay() {
             name = 'Tick Kid'
             amount = {product.price * 100}>
 
-            {role==='teacher' ? <button >add lesson</button> :
+            {
                 <Button onClick={()=>setProduct({
                     name: data[i].Title,
                     price :data[i].price,
