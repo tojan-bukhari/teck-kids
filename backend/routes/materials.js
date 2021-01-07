@@ -2,8 +2,9 @@ const router = require('express').Router();
 let Material = require('../models/material');
 
 
-router.route('/').get((req, res) => {
-    Material.find() 
+router.route('/lessons/:id').get((req, res) => {
+  console.log(req.params.id);
+    Material.find({'courseId': req.params.id}) 
          .then(materials => res.json(materials))  
         .catch(err => res.status(400).json('Error: ' + err));
     });
@@ -12,14 +13,16 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => { //create?
      const material = req.body.material; 
       const description = req.body.description; 
-       const title = req.body.title
-       const video = req.body.video
+       const title = req.body.title;
+       const video = req.body.video;
+       const courseId=req.body.courseId;
         
   const newMaterial = new Material({  
     material,  
     description,  
     title,
-    video
+    video,
+    courseId
     }); 
       
   newMaterial.save()  
@@ -29,7 +32,7 @@ router.route('/add').post((req, res) => { //create?
 
 
 router.route('/:id').get((req, res) => {  
-  console.log(req.params)
+  console.log("req.params")
     Material.findById(req.params.id)    
     .then(material => res.json(material))    
     .catch(err => res.status(400).json('Error: ' + err));
