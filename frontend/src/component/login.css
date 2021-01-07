@@ -13,11 +13,12 @@
     
       .image {
         
-          margin-left: 1000px;
+          margin-left: 1800px;
         
       }
   
       .form {
+        
         margin-top: 2em;
         display: flex;
         flex-direction: column;
@@ -49,5 +50,7 @@
     
     .footer {
       margin-top: 3em;
+      margin-left: 60rem;
     }
+   
   
