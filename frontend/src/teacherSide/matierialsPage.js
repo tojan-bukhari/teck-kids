@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-// import NoteList from "./NoteList";
+const queryString = require('query-string');
+
+/******************************* */
  
 //declare a component that holds arrows of tasks 
 const Task = props => (
@@ -13,7 +15,7 @@ const Task = props => (
     <iframe title="myFrame" src= {props.task.video}width='600' height='400' className="w3-round" alt="TheLessonVedio" />
     </td>
     <td>
-      <Link to={"/EditMatreals/"+props.task._id}>edit</Link> <a href="/Lissons"  onClick={() => { props.deleteTask(props.task._id) }}>delete</a>
+      <Link to={"/EditMatreals/"+props.task._id}>edit</Link> <a href="/Lissons:kk"  onClick={() => { props.deleteTask(props.task._id) }}>delete</a>
     </td>
   </tr>
 )
@@ -27,7 +29,9 @@ export default class calender extends Component {
      };
   }
   componentDidMount() {
-    axios.get('http://localhost:8000/materials/')
+    const courseId = queryString.parse(this.props.location.search);
+    console.log(courseId);
+    axios.get('http://localhost:8000/materials/lessons/'+courseId.id)
       .then(response => {
         this.setState({
           tasks: response.data,

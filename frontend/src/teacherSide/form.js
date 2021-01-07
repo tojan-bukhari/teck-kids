@@ -111,7 +111,7 @@ class Form extends Component {
     }
     console.log(task);
     const response = axios.post('http://localhost:8000/materials/add', task) //create?
-    response.then(res => toast("Success &#128516; ! New Lesson is added ", { type: "success" }));
+    response.then(res => toast("Success ! New Lesson is added ", { type: "success" }));
     response.catch(res =>      toast("Something went wrong &#128531;", { type: "error" }))
     console.log(response.status);
   

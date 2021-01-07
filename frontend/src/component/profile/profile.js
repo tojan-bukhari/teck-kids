@@ -31,7 +31,7 @@ class Personalprofile extends React.Component {
             jsCourse:'',
             role:localStorage.getItem("role"),
             courses:[],//contains the courses id of the user
-            array:[1,2,3]//contains the coursees returend from the db to render it 
+            array:[]//contains the coursees returend from the db to render it 
             
         }
 

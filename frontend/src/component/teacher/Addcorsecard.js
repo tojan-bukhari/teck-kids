@@ -27,7 +27,9 @@ class Addcorsecard extends Component {
       title: '',
       price: 0,
       name:localStorage.getItem("Name"),
-      courseId:'1'
+      courseId:'1',
+      id:localStorage.getItem("id"),
+      
     }
   }
   // this function will handele firebase
@@ -97,9 +99,12 @@ class Addcorsecard extends Component {
     }
     var userId = localStorage.getItem('id');
     console.log(task);
+    
+   
     const res = await axios.post('http://localhost:8000/teacher/addcard', task) //create?
     console.log(res.data);
     this.setState({ courseId : res.data._id })
+
     if (res.status === 200) 
     toast("Success! New course is added ", { type: "success" });
   else {
