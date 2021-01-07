@@ -33,7 +33,7 @@ export default function CSSdes() {
     //if the is not register  change the null value of the course to be regesterd
     var newCourse = {"cssCourse":"Registerd"}
     await axios.put("http://localhost:8000/course/addCourse/"+userId, newCourse);
-    history.push('/account/:id')
+    history.push('/account/'+userId)
     } catch (error) {
     alert(error.response.data.msg)
     }   

@@ -39,8 +39,11 @@ const Signin = (validate)=>{
     try {
       const newUser = { email ,password } ;
       const loginRes = await axios.post("http://localhost:8000/api/login" , newUser)
+<<<<<<< HEAD
       console.log(loginRes.data.token)
    
+=======
+>>>>>>> 6aaa812da2d7b6348373e7ce08f041a6fd733a8d
       localStorage.setItem("theToken", loginRes.data.token);
       localStorage.setItem("id", loginRes.data.user.id);
       localStorage.setItem("role", loginRes.data.user.role);
