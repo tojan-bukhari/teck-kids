@@ -12,7 +12,8 @@ const Task = props => (
     <iframe title="myFrame" src= {props.task.video}width='600' height='400' className="w3-round" alt="TheLessonVedio" />
     </td>
     <td>
-      <Link to={"/EditMatreals/"+props.task._id}>edit</Link> <a href="/Lissons:kk"  onClick={() => { props.deleteTask(props.task._id) }}>delete</a>
+    {localStorage.getItem("role")==="teacher"? <td> <Link to={"/EditMatreals/"+props.task._id}>edit</Link></td>:null}
+    {localStorage.getItem("role")==="teacher"? <td> <a href="/teachersM"  onClick={() => { props.deleteTask(props.task._id) }}>delete</a></td>  :null}
     </td>
   </tr>
 ) 
@@ -23,11 +24,14 @@ export default class calender extends Component {
     this.state = {
       tasks: [],
       role:localStorage.getItem("role"),
-      courseId: ''
+      courseId: queryString.parse(this.props.location.search),
+    
      };
   }
   componentDidMount() {
-    const courseId = queryString.parse(this.props.location.search);
+    console.log('course id ',this.state.courseId)
+    const courseId = queryString.parse(this.props.location.search) ;
+    
     console.log(courseId);
     axios.get('http://localhost:8000/materials/lessons/'+courseId.id)
       .then(response => {
@@ -62,7 +66,7 @@ export default class calender extends Component {
  
   render() {
 
-    
+   // 
     return (
       
       <div>
@@ -77,11 +81,9 @@ export default class calender extends Component {
               <th ></th>
               <td >video</td>
               
-              <Link to="/addNewLesson:kk">
-               <button type="button">
-                Add Lessons
-              </button>
-              </Link>
+              {/* {this.state.role==="teacher"? <Link to={`/addNewLesson ?id=${this.state.courseId}`} style={{fontSize:'1.2rem'}}>Lets go and add a  lesson &#x261D; &#128515; </Link>: null } */}
+            
+             
             </tr>
           </thead>
           <tbody>

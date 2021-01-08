@@ -24,6 +24,7 @@ class Formlesson extends Component {
       description: '',
       title: '',
       role:localStorage.getItem("role"),
+      lessonId:''
     }
     
   }
@@ -81,8 +82,9 @@ class Formlesson extends Component {
     }
    
   }
-  onSubmit(e) {
+  onSubmit = async(e) =>{
     e.preventDefault();
+    
     console.log("this is the id",queryString.parse(this.props.location.search));
     const courseId = queryString.parse(this.props.location.search);
     //declare an obj that holds all values after change
@@ -96,12 +98,19 @@ class Formlesson extends Component {
       
     }
     console.log('task before send',task);
+    await
     axios.post('http://localhost:8000/materials/add', task) //create?
-      .then(res => console.log("this is data res",res.data));
-      
+      .then(res => {
+        this.setState({
+          lessonId:res.data._id
+        })
+         console.log("this is data res",res.data)
+         console.log("this is data res id", res.data._id)
+        
+      })
+       
+      window.location('/Lissons:'+this.state.lessonId)
     // task.reset
-
-    window.location = '/teachersM'
   }
   
 

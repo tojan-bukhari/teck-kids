@@ -188,7 +188,8 @@ class Personalprofile extends React.Component {
                             cover={<img alt="courseImg" src={course.image} width='300' height='200'/>}>
                             <Meta title={course.Title} />
 
-                        {this.state.role==="teacher"?  <Link to={`/addNewLesson ?id=${course._id}`} style={{fontSize:'1.2rem', padding:'2rem'}} > Add a new lesson </Link>  : <Link to={`/Lissons ?id=${course._id}`} style={{fontSize:'1.2rem', padding:'2rem'}} > Lets Study &#128516;</Link> }
+                        {this.state.role==="teacher"?  <Link to={`/addNewLesson ?id=${course._id}`} style={{fontSize:'1.2rem', padding:'2rem'}} > Add a new lesson </Link>  : <Link to={`/Lissons ?id=${course._id}`} style={{fontSize:'1.2rem', padding:'2rem'}} > Lets Study &#128516;</Link> }<br/><br/>
+                        {this.state.role === "teacher"? <Link to={`/Lissons ?id=${course._id}`} style={{fontSize:'1.2rem', padding:'2rem'}} > Edit lesson &#128516;</Link> : null }
                             </Card>
                         </li>
                     )
