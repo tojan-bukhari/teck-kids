@@ -1,15 +1,15 @@
 import React from 'react';
 
 /* ////////HTML//////////// */
-
 import HTMLdes from "../component/DESCRIPTIONS/HTMLdes"
 import ex1HTML from "../component/HTML/Quiz1"
 import ex2HTML from "../component/HTML/draganddropex/data"
 import ex3HTML from "../component/HTML/Quiz2"
 import ex4HTML from "../component/HTML/draganddropexex5/data"
 import ex5HTML from "../component/HTML/inputQuestions/ex5HTML"
-// import ex4HTML from "../component/HTML/draganddropexex5/data"
-// import ex4HTML from "../component/HTML/draganddropexex5/data"
+import ex6HTML from "../component/HTML/inputQuestions/ex6HTML"
+import ex7HTML from "../component/HTML/inputQuestions/ex7HTML"
+
 
 
 
@@ -62,6 +62,9 @@ function Exercises() {
 <Route path='/ex3HTML' component={ex3HTML} />
 <Route path='/ex4HTML' component={ex4HTML} />
 <Route path='/ex5HTML' component={ex5HTML} />
+<Route path='/ex6HTML' component={ex6HTML} />
+<Route path='/ex7HTML' component={ex7HTML} />
+
 
 
 
