@@ -109,7 +109,7 @@ class Formlesson extends Component {
         
       })
        
-      window.location('/Lissons:'+this.state.lessonId)
+      // window.location('/Lissons:'+this.state.lessonId)
     // task.reset
   }
   
