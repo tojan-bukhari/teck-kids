@@ -119,7 +119,7 @@ class Personalprofile extends React.Component {
                 
             <div>
             
-            <div style={{marginLeft:"-550px",float:"left"}}>
+            <div style={{marginLeft:"-550px",float:"left" , backgroundColor:'#80aaff',padding: '10px', border: '1px solid #80aaff',boxShadow: '5px 10px 10px #888888' ,}}>
                 
                 <Avatar  size={200} icon={<UserOutlined />} src={this.state.img} /><br/>
                 <ProfilePicChanger handelImageChange={this.handelImageChange} /><br />
@@ -129,19 +129,33 @@ class Personalprofile extends React.Component {
                  <Link to ={"/edit/" + this.state.id}  className="btn btn-success" >Edit profile</Link>
               
               <br/>
-                <h3  style={{  fontFamily:"Cursive"}}>{this.state.name}</h3>
+                <h3  style={{  fontFamily: "Trirong"}}>{this.state.name}</h3>
                 <span style={{  fontFamily:"Cursive"}}>Age</span>
-                <h3  style={{  fontFamily:"Cursive"}}>{this.state.age}</h3>
+                <span  style={{  fontFamily:"Cursive"}}>{this.state.age}</span>
                   {x}
                 {y}
-     </div>
+            </div>
              </div>
              <br/>
              <label>{this.state.role==="teacher"? "to add a card that will help u to show your lessons" :  "learn a new lesson"} </label>
              <Button>{this.state.role==="teacher"? <Link to="/teacher/addcard" style={{color:'white'}}> Add New Course </Link>:<Link to="/"> register to lesson </Link>}</Button> <br/>
             
-             <div>
-                 <h3>My Courses</h3>
+             <div 
+               style={{
+                padding: '10px',
+                backgroundColor:'#ff8c1a',
+                width: '450px',
+                border: '1px solid #ffff00',
+                borderTopLeftRadius: '20px',
+                borderTopRightRadius: '20px',
+                padding: '50px',
+                boxShadow: '5px 10px 10px #888888' ,
+                margin:'auto'
+                            
+            }}
+             
+             >
+                 <h3 style={{  fontFamily:"Serif" , color:"white", backgroundColor:'#ffa64d'}}>My Courses</h3>
                 <ol>
                 
                     {(this.state.array).map((course,i)=>{
@@ -150,9 +164,9 @@ class Personalprofile extends React.Component {
                         <li key={i}>
                             <Card
                             hoverable
-                            style={{ width: 400 ,hight: 200 , margin : 'auto',padding:'1rem'}}
-                            cover={<img alt="courseImg" src={course.image} />}>
-                            <Meta title={course.Title} description={course.Desceription} />
+                            style={{ width: 300 ,hight: 200 , margin : 'auto',padding:'1rem'}}
+                            cover={<img alt="courseImg" src={course.image} width='300' height='200'/>}>
+                            <Meta title={course.Title} />
 
                         {this.state.role==="teacher"?  <Link to={`/addNewLesson ?id=${course._id}`} style={{fontSize:'1.2rem', padding:'2rem'}} > Add a new lesson </Link>  : <Link to={`/Lissons ?id=${course._id}`} style={{fontSize:'1.2rem', padding:'2rem'}} > Lets Study &#128516;</Link> }
                             </Card>

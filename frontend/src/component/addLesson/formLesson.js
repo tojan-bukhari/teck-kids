@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {storage} from './firebase'
 import axios from 'axios';
-import {Form , Button} from 'react-bootstrap'
+import {Form , Button} from 'react-bootstrap';
+const queryString = require('query-string');
 
 class Formlesson extends Component {
   constructor(props) {
@@ -83,18 +84,21 @@ class Formlesson extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+    console.log("this is the id",queryString.parse(this.props.location.search));
+    const courseId = queryString.parse(this.props.location.search);
     //declare an obj that holds all values after change
     const task = {
       title: this.state.title,
       material: this.state.material,
       description: this.state.description,
       video: this.state.url,
-      role:localStorage.getItem("role")
+      role:localStorage.getItem("role"),
+      courseId:courseId.id
       
     }
-    console.log(task);
+    console.log('task before send',task);
     axios.post('http://localhost:8000/materials/add', task) //create?
-      .then(res => console.log(res.data));
+      .then(res => console.log("this is data res",res.data));
 
     // this.setState({
     //   title: '',
@@ -102,7 +106,7 @@ class Formlesson extends Component {
     //   description: '',
     //   video: ''
     // });
-    console.log(task);
+    // console.log(task);
     // window.location = '/teachersM'
   }
 
