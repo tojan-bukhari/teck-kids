@@ -45,7 +45,7 @@ class Personalprofile extends React.Component {
             try {     
                 await axios.put("http://localhost:8000/user/account/" + this.state.id,newImg);
                } catch (error) {
-                  alert(error.response.data.msg)
+                  console.log(error.response.data.msg)
                   }  
     }
 
@@ -68,7 +68,7 @@ class Personalprofile extends React.Component {
                  })
                  console.log("this is courses of this teacher",this.state.courses)
             })
-           var data = this.state.courses
+           const data = this.state.courses
            await
             data.map((courseId) => {
              axios.get("http://localhost:8000/teacher/card/"+courseId)
@@ -78,7 +78,7 @@ class Personalprofile extends React.Component {
                 })
             },[])
         }catch(error) {
-            alert(error)
+            console.log(error)
             }
    }
    

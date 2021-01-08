@@ -53,7 +53,7 @@ export default function CardDisplay() {
                   } 
             
             } catch (error) {
-            alert(error)
+            console.log(error)
             } 
         }
         console.log("haio ",product);
