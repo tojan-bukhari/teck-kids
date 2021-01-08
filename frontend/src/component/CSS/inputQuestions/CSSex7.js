@@ -94,7 +94,7 @@ function CSSex4() {
 
 </div></div>
 <div>
-  {localStorage.getItem('userA') ===  'color: green;' && localStorage.getItem('userb') ===  'text-align: center;' && localStorage.getItem('userc') ===  'border' && localStorage.getItem('userd') ===  'https://cutewallpaper.org/21/animated-cat-pics/Orange-Meow-Meow-Micro-Letter-Expression-Emoji-Sticker-GIF.gif'?  
+  {localStorage.getItem('userA') ===  'color: green;' && localStorage.getItem('userb') ===  'text-align: center;' && localStorage.getItem('userc') ===  'border' && localStorage.getItem('userd') ===  'https://coolest-cat-ever.gif'?  
 
   <div>  
     
@@ -107,7 +107,7 @@ function CSSex4() {
     <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg" alt="css"/>
     <Modal.Footer>
       
-      <Button variant="primary" onClick={()=>{history.push('/CSS/ex7')}}> Go to the Next exersise </Button>
+    <Button variant="primary" onClick={()=>{history.push('/')}}> get back home </Button>
     </Modal.Footer>
   </Modal></div>:<div>  
        <Button className="BU" variant="primary" onClick={handleShow}> SUBMIT </Button>

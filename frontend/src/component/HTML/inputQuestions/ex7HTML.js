@@ -77,14 +77,14 @@ function CSSex3() {
 <p > my cat is too lazy, here's her ToDos:</p>
   <li>showering</li>
   <li> {Val? "playing outside": null}</li>
-  <li> {Val? "making her bed": null}</li>
+  <li> {Val? "making the bed": null}</li>
 
 <img  style={{ 
       backgroundImage: Val ? `url("https://i.pinimg.com/originals/f0/0d/57/f00d579703990ead2cd682ff14ea0477.gif")` : null
     }}  width="230" height="250"/>
 </div> 
 <div>
-  {localStorage.getItem('userA') ===  'playing outside'&&localStorage.getItem('userb') ===  'making her bed'&&localStorage.getItem('userc') ===  'https://lazy-cat.gif'?  
+  {localStorage.getItem('userA') ===  'playing outside'&&localStorage.getItem('userb') ===  'making the bed'&&localStorage.getItem('userc') ===  'https://lazy-cat.gif'?  
 
   <div>  
     
@@ -97,7 +97,7 @@ function CSSex3() {
     <img src= "https://www.flaticon.com/svg/static/icons/svg/3159/3159066.svg" alt="css"/>
     <Modal.Footer>
       
-      <Button variant="primary" onClick={()=>{history.push('/ex7HTML')}}> Go to the Next exersise </Button>
+      <Button variant="primary" onClick={()=>{history.push('/')}}> get back home </Button>
     </Modal.Footer>
   </Modal></div>:<div>  
        <Button className="BU" variant="primary" onClick={handleShow}> SUBMIT </Button>
