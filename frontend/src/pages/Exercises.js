@@ -3,9 +3,12 @@ import React from 'react';
 /* ////////HTML//////////// */
 
 import HTMLdes from "../component/DESCRIPTIONS/HTMLdes"
-import Ex3html from '../component/HTML/draganddrop2/ex3data'
 import ex1HTML from "../component/HTML/Quiz1"
 import ex2HTML from "../component/HTML/draganddropex/data"
+import ex3HTML from "../component/HTML/Quiz2"
+import ex4HTML from "../component/HTML/draganddropexex5/data"
+
+
 
     /* ///////////CSS//////////// */
 import CSSdes from "../component/DESCRIPTIONS/CSSdes"
@@ -50,9 +53,12 @@ function Exercises() {
 <Route path='/js-des' component={JSdes} />
 
 {/* ////////HTML//////////// */}
-<Route path='/Ex3html' component={Ex3html} />
 <Route path='/ex1HTML' component={ex1HTML} />
 <Route path='/ex9' component={ex2HTML} />
+<Route path='/ex3HTML' component={ex3HTML} />
+<Route path='/ex4HTML' component={ex4HTML} />
+
+
 <Route path='/html-des' component={HTMLdes} />
 
 
