@@ -103,7 +103,7 @@ class Formlesson extends Component {
     //   video: ''
     // });
     console.log(task);
-    window.location = '/teachersM'
+    // window.location = '/teachersM'
   }
 
 

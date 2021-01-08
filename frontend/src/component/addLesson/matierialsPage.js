@@ -9,12 +9,11 @@ const Task = props => (
     <td>{props.task.description}</td>
     <td>{props.task.title}</td>
     <td>
-    <iframe title="myFrame" src= {props.task.video}width='600' height='400' className="w3-round" alt="Norway" />
+    <iframe title="myFrame" src= {props.task.video}width='600' height='400' className="w3-round" alt="TheLessonVedio" />
     </td>
- 
-    {localStorage.getItem("role")==="teacher"? <td> <Link to={"/EditMatreals/"+props.task._id}>edit</Link></td>:null}
-    {localStorage.getItem("role")==="teacher"? <td> <a href="/teachersM"  onClick={() => { props.deleteTask(props.task._id) }}>delete</a></td>  :null}
-
+    <td>
+      <Link to={"/EditMatreals/"+props.task._id}>edit</Link> <a href="/Lissons:kk"  onClick={() => { props.deleteTask(props.task._id) }}>delete</a>
+    </td>
   </tr>
 ) 
 export default class calender extends Component {
@@ -28,11 +27,9 @@ export default class calender extends Component {
      };
   }
   componentDidMount() {
-    console.log("this is the id",queryString.parse(this.props.location.search));
     const courseId = queryString.parse(this.props.location.search);
-    this.setState({courseId:courseId})
-
-    axios.get('http://localhost:8000/materials/')
+    console.log(courseId);
+    axios.get('http://localhost:8000/materials/lessons/'+courseId.id)
       .then(response => {
         this.setState({
           tasks: response.data,
@@ -80,11 +77,11 @@ export default class calender extends Component {
               <th ></th>
               <td >video</td>
               
-            
-
-              {/* {this.state.role==="teacher"? <button><Link to="/firrrre"> Add a new lesson </Link></button>: null } */}
-
-
+              <Link to="/addNewLesson:kk">
+               <button type="button">
+                Add Lessons
+              </button>
+              </Link>
             </tr>
           </thead>
           <tbody>

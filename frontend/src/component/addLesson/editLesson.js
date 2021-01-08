@@ -118,15 +118,13 @@ export default class EditMatreals extends Component {
   .catch(function (error) {
     console.log(error);
   });
-window.location = "/teachersM"
+window.location = "/Lissons"
   }
   render() {
     return (
     <div>
       <h3  >Edit </h3>
       <form onSubmit={this.onSubmit}>
-     
-
         <div >
         <h1  >Material: </h1>
           <input  

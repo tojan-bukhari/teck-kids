@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import { storage } from './firebase';
 import axios from 'axios';
 import {Form , Button} from 'react-bootstrap'
+import { Link } from 'react-router-dom';
+import { toast } from "react-toastify";
 
+/********************************************** */
+toast.configure();
 class Addcorsecard extends Component {
+  
+
   constructor(props) {
     super(props);
     this.onChangeDescription = this.onChangeDescription.bind(this);
@@ -20,7 +26,10 @@ class Addcorsecard extends Component {
       description: '',
       title: '',
       price: 0,
-      name:localStorage.getItem("Name")
+      name:localStorage.getItem("Name"),
+      courseId:'1',
+      id:localStorage.getItem("id"),
+      
     }
   }
   // this function will handele firebase
@@ -50,6 +59,7 @@ class Addcorsecard extends Component {
           })
       });
   }
+  
   ////////////////////////////// HANDEL STATE//////////////////////
   onChangeDescription(e) {
     this.setState({
@@ -78,7 +88,7 @@ class Addcorsecard extends Component {
     })
   }
   ////////////////////////////// HANDEL STATE//////////////////////
-  onSubmit(e) {
+  onSubmit = async (e) => {
     e.preventDefault();
     const task = {
       Title: this.state.title,
@@ -87,11 +97,24 @@ class Addcorsecard extends Component {
       Name: this.state.name,
       price: this.state.price
     }
+    var userId = localStorage.getItem('id');
     console.log(task);
-    axios.post('http://localhost:8000/teacher/addcard', task) //create?
-    .then(res => console.log(res.data));
-    // console.log(res.data)
-    window.location = '/teacher/card'
+    
+   
+    const res = await axios.post('http://localhost:8000/teacher/addcard', task) //create?
+    console.log(res.data);
+    this.setState({ courseId : res.data._id })
+
+    if (res.status === 200) 
+    toast("Success! New course is added ", { type: "success" });
+  else {
+      toast("Something went wrong :(", { type: "error" });
+    } 
+    const data = await axios.post("http://localhost:8000/user/addNewCourse/"+userId,{id:this.state.courseId});
+    console.log(data , this.state.courseId);
+    
+
+    
   }
 
   render() {
@@ -127,9 +150,11 @@ class Addcorsecard extends Component {
               <Form.Label>Price</Form.Label>
               <Form.Control type='number' onChange={this.onChangePrice} />
               </Form.Group>
-              <Button variant='primary' type='submit' onClick={this.onSubmit}>
-                Submit
-              </Button>
+              <div>
+              <Button type="submit" value="Submit" className="btn btn-deep-orange darken-4" onClick={this.onSubmit}>Submit</Button>
+              <Link to={`/addNewLesson ?id=${this.state.courseId}`} style={{fontSize:'1.2rem'}}>Lets go and add a  lesson &#x261D; &#128515; </Link>
+
+              </div>
             </Form>
       </div>
     )

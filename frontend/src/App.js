@@ -54,23 +54,13 @@ function App() {
           <Route exact path="/CSS/ex4" component={CSSex4} />
           <Route exact path="/teacher/addcard" component={Addcorsecard} />
           <Route  path="/teacher/card" component={card} />
-          <ProtectedRoute exact path="/account/:id" component={Personalprofile}  isAuth={localStorage.length > 0} />
-          <Route  path="/firrrre" component={firrrre} />
-          <Route path="/teachersM:id" component={teacherpage} />
+          <ProtectedRoute exact path="/account/" component={Personalprofile}  isAuth={localStorage.length > 0} />
+          <Route  path="/addNewLesson:kk" component={firrrre} />
+          <Route path="/Lissons:kk" component={teacherpage} />
           <Route path="/EditMatreals/:id" component={EditMatreals} /> 
           <Route path="/Chat" component={Chat} />
           <Route path="/Join" component={Join} />
           <Route exact path="/cchatroom" component={Chat} />
-          {/* {<Route
-          path="/dashboard"
-          render={() => <DashboardPage socket={socket} />}
-          exact
-         /> }
-        {<Route
-          path="/chatroom/:id"
-          render={() => <ChatroomPage socket={socket} />}
-          exact
-         /> } */}
           <Exercises />
         </Switch>
       </BrowserRouter>
@@ -79,5 +69,3 @@ function App() {
 
 };
 export default App; 
-
-//
