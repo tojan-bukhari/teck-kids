@@ -23,7 +23,7 @@ class Formlesson extends Component {
       material: '',
       description: '',
       title: '',
-      role:localStorage.getItem("role")
+      role:localStorage.getItem("role"),
     }
     
   }
@@ -81,7 +81,6 @@ class Formlesson extends Component {
     }
    
   }
-
   onSubmit(e) {
     e.preventDefault();
     console.log("this is the id",queryString.parse(this.props.location.search));
@@ -99,17 +98,13 @@ class Formlesson extends Component {
     console.log('task before send',task);
     axios.post('http://localhost:8000/materials/add', task) //create?
       .then(res => console.log("this is data res",res.data));
+      
+    // task.reset
 
-    // this.setState({
-    //   title: '',
-    //   material: '',
-    //   description: '',
-    //   video: ''
-    // });
-    // console.log(task);
+     
     // window.location = '/teachersM'
   }
-
+  
 
 
   
@@ -130,7 +125,7 @@ class Formlesson extends Component {
         margin:'auto'
       }}>
       <Form>
-              <Form.Group>
+              <Form.Group >
                 <Form.File id="exampleFormControlimage" label="Add image" onChange = {this.onChangevideo} />
                  <iframe  title="myFrame" src={this.state.url} alt="firebase-image" height='400' style={{ width: '100%',height: 'auto'}}></iframe>
                  <Button  onClick={this.handleUpload}>Upload</Button>
@@ -147,7 +142,7 @@ class Formlesson extends Component {
                 <Form.Label>Description</Form.Label>
                 <Form.Control size="lg" type='text' placeholder='course Description' onChange={this.onChangeDescription} />
               </Form.Group>
-              <Button variant='primary' type='submit' onClick={this.onSubmit}>
+              <Button value="Submit" id="btnsubmit" onClick={this.onSubmit}>
                 Submit
               </Button>
             </Form>

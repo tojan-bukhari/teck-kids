@@ -76,7 +76,7 @@ const submit =async (e)=>{
             <label className="text-muted"  style={{color:"white"}}>userName: </label>
             <input id="reg-name" type="text" className="form-control" placeholder="Enter Your name" required onChange={(e)=>{setName(e.target.value)}} />
           
-        </div>``
+        </div>
       
         <div className="form-group">
             <label className="text-muted"  style={{color:"white"}}> age : </label>
@@ -97,7 +97,7 @@ const submit =async (e)=>{
         <div>
           
           <label className="text-muted"  > choose ur Role : </label>
-          <Select defaultValue="student"  style={{ width: 200 }} onChange={handleChange}>
+          <Select defaultValue="choose"  style={{ width: 200 }} onChange={handleChange}>
            <Option value="teacher"  >Teacher</Option>
            <Option value="student"  >Student</Option>
           </Select>

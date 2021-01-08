@@ -7,7 +7,7 @@ import { Link, withRouter } from "react-router-dom";
 import ProfilePicChanger from "./profilePicChanger";
 import HtmlCard from '../CourseCards/HtmlCard';
 import CssCard from '../CourseCards/CssCard';
-import { Card } from 'antd';
+import { Card ,Col} from 'antd';
 import { Button} from 'react-bootstrap';
 import flower from '../pices/flower.jpg';
 const queryString = require('query-string');
@@ -101,10 +101,28 @@ class Personalprofile extends React.Component {
     render() {
         const { Meta } = Card;
         if(this.state.htmlCourse){
-            var x = <HtmlCard />
+            var x = 
+            <li >
+            <Card
+            hoverable
+            style={{ width: 300 ,hight: 200 , margin : 'auto',padding:'1rem'}}
+            cover={<img alt="courseImg" src={"https://2.bp.blogspot.com/-eO5lbx98AXU/VgJteZXqfQI/AAAAAAAAAU8/jVrj2vfkWZQ/s1600/what-is-html.jpg"} width='300' height='200'/>}>
+            <Meta title={'HTML'} />
+            <Button className="hh7"><Link to='/HTMLcourse'>Go to HTML</Link></Button>
+            </Card>
+        </li>
         }
         if(this.state.cssCourse){
-            var y = <div style={{marginLeft:"700px" , marginTop:"-300px" }} ><CssCard /></div>
+            var y =   
+             <li >
+            <Card
+            hoverable
+            style={{ width: 300 ,hight: 200 , margin : 'auto',padding:'1rem'}}
+            cover={<img alt="courseImg" src={"https://2.bp.blogspot.com/-me_vlpqkQGw/VgJwY3wm_SI/AAAAAAAAAVI/cyg9I6tfXWs/s400/What%2Bis%2BCSS.jpg"} width='300' height='200'/>}>
+            <Meta title={'CSS'} />
+            <Button className="hh7"><Link to='/CSScourse'>Go To CSS</Link></Button>
+            </Card>
+        </li>
         }
       
         return (
@@ -134,9 +152,9 @@ class Personalprofile extends React.Component {
                 <h3  style={{  fontFamily: "Trirong"}}>{this.state.name}</h3>
                 <span style={{  fontFamily:"Cursive"}}>Age</span>
                 <span  style={{  fontFamily:"Cursive"}}>{this.state.age}</span>
-                  {x}
-                {y}
-            </div>
+                 
+            </div> 
+           
              </div>
              <br/>
              <label>{this.state.role==="teacher"? "to add a card that will help u to show your lessons" :  "learn a new lesson"} </label>
@@ -176,9 +194,13 @@ class Personalprofile extends React.Component {
                     )
                     
                     })}
+                     {x}
+                     {y}
+                    
                  </ol>
-             </div>
-         
+                
+             </div >
+                   
              </div>
             </div>
             

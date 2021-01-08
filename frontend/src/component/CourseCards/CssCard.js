@@ -8,7 +8,7 @@ export default function CssCard() {
  const history = useHistory();
 
     return (
-  <div style={{ width: '300px', height:'200px',padding:'20px' , marginTop:'80px',}}>
+  <div style={{ width: '300px', height:'200px',padding:'20px' , }}>
   <Card style={{ width: '300px' }}>
     <Card.Body>
     
