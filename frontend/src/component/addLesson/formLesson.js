@@ -101,8 +101,7 @@ class Formlesson extends Component {
       
     // task.reset
 
-     
-    // window.location = '/teachersM'
+    window.location = '/teachersM'
   }
   
 
